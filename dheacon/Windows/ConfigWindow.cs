@@ -22,6 +22,9 @@ public sealed class ConfigWindow : Window, IDisposable
         var mode = cfg.DtrBarMode; if (ImGui.Combo("DTR mode", ref mode, DtrModes, DtrModes.Length)) { cfg.DtrBarMode = mode; cfg.Save(); plugin.UpdateDtrBar(); }
         var onIcon = cfg.DtrIconEnabled; if (ImGui.InputText("DTR enabled glyph", ref onIcon, 8)) { cfg.DtrIconEnabled = onIcon.Length <= 3 ? onIcon : onIcon[..3]; cfg.Save(); plugin.UpdateDtrBar(); }
         var offIcon = cfg.DtrIconDisabled; if (ImGui.InputText("DTR disabled glyph", ref offIcon, 8)) { cfg.DtrIconDisabled = offIcon.Length <= 3 ? offIcon : offIcon[..3]; cfg.Save(); plugin.UpdateDtrBar(); }
+        var suppressTeleport = cfg.SuppressTeleportAndReturnTransitions; if (ImGui.Checkbox("Suppress teleports and return", ref suppressTeleport)) { cfg.SuppressTeleportAndReturnTransitions = suppressTeleport; cfg.Save(); }
+        var soundPath = cfg.AlertSoundRelativePath; if (ImGui.InputText("Alert sound path", ref soundPath, 260)) { cfg.AlertSoundRelativePath = soundPath; cfg.Save(); }
+        ImGui.TextDisabled("Replace this WAV file to change the sound: " + plugin.AudioPlaybackService.GetResolvedAlertPath());
         ImGui.Separator(); ImGui.TextUnformatted("Rollout phases"); foreach (var x in PluginInfo.Phases) ImGui.BulletText(x);
         ImGui.Spacing(); ImGui.TextUnformatted("Concept recap"); foreach (var x in PluginInfo.Concept) ImGui.BulletText(x);
     }

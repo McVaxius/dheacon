@@ -1,4 +1,5 @@
 using Dalamud.Game.Command;
+using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
@@ -6,6 +7,7 @@ using Dalamud.IoC;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using Dheacon.Services;
 using Dheacon.Windows;
 
 namespace Dheacon;
@@ -21,8 +23,11 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IChatGui ChatGui { get; private set; } = null!;
     [PluginService] internal static IDtrBar DtrBar { get; private set; } = null!;
     [PluginService] internal static IPluginLog Log { get; private set; } = null!;
+    [PluginService] internal static ICondition Condition { get; private set; } = null!;
 
     public Configuration Configuration { get; }
+    public AetheryteTriggerService AetheryteTriggerService { get; }
+    public AudioPlaybackService AudioPlaybackService { get; }
     public WindowSystem WindowSystem { get; } = new(PluginInfo.InternalName);
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
@@ -31,6 +36,8 @@ public sealed class Plugin : IDalamudPlugin
     public Plugin()
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+        AudioPlaybackService = new AudioPlaybackService(Log, Configuration);
+        AetheryteTriggerService = new AetheryteTriggerService(ClientState, Condition, Log, Configuration, OnTriggeredAreaTransition);
         mainWindow = new MainWindow(this);
         configWindow = new ConfigWindow(this);
         WindowSystem.AddWindow(mainWindow);
@@ -47,6 +54,7 @@ public sealed class Plugin : IDalamudPlugin
 
     public void Dispose()
     {
+        AetheryteTriggerService.Dispose();
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi -= ToggleConfigUi;
@@ -76,5 +84,15 @@ public sealed class Plugin : IDalamudPlugin
         if (dtrEntry == null) return; dtrEntry.Shown = Configuration.DtrBarEnabled; if (!Configuration.DtrBarEnabled) return; var g = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled; var s = Configuration.PluginEnabled ? "On" : "Off"; dtrEntry.Text = Configuration.DtrBarMode switch { 1 => new SeString(new TextPayload($"{g} DH")), 2 => new SeString(new TextPayload(g)), _ => new SeString(new TextPayload("DH: " + s)), }; dtrEntry.Tooltip = new SeString(new TextPayload($"{PluginInfo.DisplayName} {s}. Click to toggle."));
     }
 
-    private void OnFrameworkUpdate(IFramework framework) => UpdateDtrBar();
+    private void OnFrameworkUpdate(IFramework framework)
+    {
+        AetheryteTriggerService.Update();
+        UpdateDtrBar();
+    }
+
+    private void OnTriggeredAreaTransition(ushort fromTerritory, ushort toTerritory)
+    {
+        AudioPlaybackService.PlayAlert();
+        PrintStatus($"Alert triggered for territory change {fromTerritory} -> {toTerritory}.");
+    }
 }

@@ -12,6 +12,8 @@ public class Configuration : IPluginConfiguration
     public int DtrBarMode { get; set; } = 1;
     public string DtrIconEnabled { get; set; } = "\uE044";
     public string DtrIconDisabled { get; set; } = "\uE04C";
+    public bool SuppressTeleportAndReturnTransitions { get; set; } = true;
+    public string AlertSoundRelativePath { get; set; } = @"data\transition-alert.wav";
     public string LastAccountId { get; set; } = string.Empty;
     public void Save() => Plugin.PluginInterface.SavePluginConfig(this);
 }

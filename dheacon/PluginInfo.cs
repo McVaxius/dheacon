@@ -6,13 +6,13 @@ internal static class PluginInfo
     public const string InternalName = "dheacon";
     public const string Command = "/dheacon";
     public const string Visibility = "Public";
-    public const string Summary = "Funny aetheryte audio feedback scaffold with cooldown protection.";
+    public const string Summary = "Area-transition audio cue with teleport/return suppression heuristics.";
     public const string SupportUrl = "https://ko-fi.com/mcvaxius";
     public static readonly string[] Concept = new[]
     {
-        "Detect aetheryte-use once.",
-        "Route through a local playback service.",
-        "Keep audio optional and testable."
+        "Detect territory changes that were not likely caused by teleport/return.",
+        "Alert on non-teleport territory transitions.",
+        "Route through a replaceable local WAV file."
     };
     public static readonly string[] Services = new[]
     {
@@ -29,7 +29,7 @@ internal static class PluginInfo
     public static readonly string[] Tests = new[]
     {
         "Load plugin and open UI",
-        "Toggle settings and save",
-        "Check DTR toggle"
+        "Change the alert WAV path and save",
+        "Verify non-teleport territory transitions trigger audio"
     };
 }

@@ -26,8 +26,11 @@ public sealed class MainWindow : Window, IDisposable
         var enabled = cfg.PluginEnabled; if (ImGui.Checkbox("Enabled", ref enabled)) { cfg.PluginEnabled = enabled; cfg.Save(); plugin.UpdateDtrBar(); }
         ImGui.SameLine(); var dtr = cfg.DtrBarEnabled; if (ImGui.Checkbox("DTR Bar", ref dtr)) { cfg.DtrBarEnabled = dtr; cfg.Save(); plugin.UpdateDtrBar(); }
         ImGui.SameLine(); if (ImGui.SmallButton("Settings")) plugin.ToggleConfigUi();
-        ImGui.SameLine(); if (ImGui.SmallButton("Status to chat")) plugin.PrintStatus("Bootstrap shell loaded.");
+        ImGui.SameLine(); if (ImGui.SmallButton("Status to chat")) plugin.PrintStatus(plugin.AetheryteTriggerService.LastDecision);
         ImGui.TextWrapped(PluginInfo.Summary);
+        ImGui.TextWrapped($"Last transition decision: {plugin.AetheryteTriggerService.LastDecision}");
+        ImGui.TextWrapped($"Alert sound path: {plugin.AudioPlaybackService.GetResolvedAlertPath()}");
+        ImGui.Text($"Last alert (UTC): {(plugin.AetheryteTriggerService.LastTriggeredAtUtc == DateTime.MinValue ? "Never" : plugin.AetheryteTriggerService.LastTriggeredAtUtc.ToString("yyyy-MM-dd HH:mm:ss"))}");
         ImGui.Text($"Repository target: {PluginInfo.Visibility}");
         ImGui.Text($"Command: {PluginInfo.Command}");
         ImGui.Separator(); ImGui.TextUnformatted("Concept"); foreach (var x in PluginInfo.Concept) ImGui.BulletText(x);

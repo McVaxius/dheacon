@@ -13,6 +13,12 @@
         "requested": "[1.2.39, )",
         "resolved": "1.2.39",
         "contentHash": "fcFN01tDTIQqDuTwr1jUQK/geofiwjG5DycJQOnC72i1SsLAk1ELe+apBOuZ11UMQG8YKFZG1FgvjZPbqHyatg=="
+      },
+      "System.Windows.Extensions": {
+        "type": "Direct",
+        "requested": "[10.0.0, )",
+        "resolved": "10.0.0",
+        "contentHash": "W2xPfgCUO83kPEtfkSsXpHT9KX4YiajDgtuJhjfOY18u58vMGyoBG44QIQCs2nTugmzsm506S/ur29k1WpE9+w=="
       }
     }
   }
