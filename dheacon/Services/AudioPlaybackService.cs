@@ -1,6 +1,5 @@
 using System.IO;
 using System.Media;
-using System.Reflection;
 using Dalamud.Plugin.Services;
 
 namespace Dheacon.Services;
@@ -18,7 +17,7 @@ public sealed class AudioPlaybackService
 
     public string GetResolvedAlertPath()
     {
-        var assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
+        var assemblyDirectory = Plugin.PluginInterface.AssemblyLocation.DirectoryName ?? string.Empty;
         return Path.IsPathRooted(configuration.AlertSoundRelativePath)
             ? configuration.AlertSoundRelativePath
             : Path.GetFullPath(Path.Combine(assemblyDirectory, configuration.AlertSoundRelativePath));
