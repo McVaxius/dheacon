@@ -6,7 +6,7 @@
     "Punchline": "Another hand touches the crystal.",
     "Description": "Another hand touches the crystal.",
     "InternalName": "dheacon",
-    "AssemblyVersion": "0.0.0.5",
+    "AssemblyVersion": "0.0.0.6",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 14,
     "Tags": [
