@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/goatcorp/Dalamud/master/Dalamud/Configuration/PluginManifest/pluginmanifest.schema.json",
+  "Author": "DhogGPT",
+  "Name": "Dheacon",
+  "Punchline": "Funny aetheryte audio feedback scaffold with cooldown protection.",
+  "Description": "Funny aetheryte audio feedback scaffold with cooldown protection.",
+  "InternalName": "dheacon",
+  "AssemblyVersion": "0.0.0.1",
+  "ApplicableVersion": "any",
+  "DalamudApiLevel": 14,
+  "Tags": [
+    "ffxiv",
+    "dheacon",
+    "dhog"
+  ],
+  "CategoryTags": [
+    "utility"
+  ]
+}
