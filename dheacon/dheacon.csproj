@@ -6,7 +6,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>0.0.0.11</Version>
+    <Version>0.0.0.12</Version>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
     <RootNamespace>Dheacon</RootNamespace>
@@ -26,7 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dheacon.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="images\**" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="images\icon.png" CopyToOutputDirectory="PreserveNewest" />
     <None Include="data\**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
