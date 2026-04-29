@@ -90,7 +90,7 @@ public sealed class Plugin : IDalamudPlugin
         UpdateDtrBar();
     }
 
-    private void OnTriggeredAreaTransition(ushort fromTerritory, ushort toTerritory)
+    private void OnTriggeredAreaTransition(uint fromTerritory, uint toTerritory)
     {
         AudioPlaybackService.PlayAlert();
         PrintStatus($"Alert triggered for territory change {fromTerritory} -> {toTerritory}.");

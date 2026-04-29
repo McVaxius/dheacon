@@ -6,9 +6,9 @@
     "Punchline": "Another hand touches the crystal.",
     "Description": "Another hand touches the crystal.",
     "InternalName": "dheacon",
-    "AssemblyVersion": "1.0.0.0",
+    "AssemblyVersion": "1.0.0.1",
     "ApplicableVersion": "any",
-    "DalamudApiLevel": 14,
+    "DalamudApiLevel": 15,
     "Tags": [
       "ffxiv",
       "dheacon",

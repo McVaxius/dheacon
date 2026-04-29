@@ -10,9 +10,9 @@ public sealed class AetheryteTriggerService : IDisposable
     private readonly ICondition condition;
     private readonly IPluginLog log;
     private readonly Configuration configuration;
-    private readonly Action<ushort, ushort> onTriggered;
+    private readonly Action<uint, uint> onTriggered;
 
-    private ushort lastTerritory;
+    private uint lastTerritory;
     private DateTime lastCastingObservedAt = DateTime.MinValue;
 
     public DateTime LastTriggeredAtUtc { get; private set; } = DateTime.MinValue;
@@ -23,7 +23,7 @@ public sealed class AetheryteTriggerService : IDisposable
         ICondition condition,
         IPluginLog log,
         Configuration configuration,
-        Action<ushort, ushort> onTriggered)
+        Action<uint, uint> onTriggered)
     {
         this.clientState = clientState;
         this.condition = condition;
@@ -52,7 +52,9 @@ public sealed class AetheryteTriggerService : IDisposable
         }
     }
 
-    private void OnTerritoryChanged(ushort newTerritory)
+    private void OnTerritoryChanged(ushort newTerritory) => OnTerritoryChanged((uint)newTerritory);
+
+    private void OnTerritoryChanged(uint newTerritory)
     {
         var previousTerritory = lastTerritory;
         lastTerritory = newTerritory;
