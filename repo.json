@@ -6,7 +6,7 @@
     "Punchline": "Another hand touches the crystal.",
     "Description": "Another hand touches the crystal.",
     "InternalName": "dheacon",
-    "AssemblyVersion": "1.0.0.2",
+    "AssemblyVersion": "1.0.0.3",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 15,
     "Tags": [
@@ -18,8 +18,8 @@
       "utility"
     ],
     "RepoUrl": "https://github.com/McVaxius/dheacon",
-    "DownloadLinkInstall": "https://github.com/McVaxius/dheacon/releases/download/v1.0.0.2/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/McVaxius/dheacon/releases/download/v1.0.0.2/latest.zip",
+    "DownloadLinkInstall": "https://github.com/McVaxius/dheacon/releases/download/v1.0.0.3/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/McVaxius/dheacon/releases/download/v1.0.0.3/latest.zip",
     "IconUrl": "https://raw.githubusercontent.com/McVaxius/dheacon/main/dheacon/images/icon.png"
   }
 ]
