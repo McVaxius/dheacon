@@ -1,0 +1,62 @@
+{
+  "categories": [
+    {
+      "category": "ManualTest",
+      "lines": [
+        { "text": "Reading Roegadyn reporting in. The local voice cache is ready.", "weight": 3 },
+        { "text": "Test line complete. I have transformed text into a suspiciously official wave file.", "weight": 1 },
+        { "text": "Voice check. If you can hear this, the commentary queue survived another paperwork exercise.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "TerritoryChange",
+      "lines": [
+        { "text": "We have moved from {from} to {to}. Mark the map and try not to look impressed.", "weight": 3 },
+        { "text": "{to}. New air, new problems, same shoes.", "weight": 2 },
+        { "text": "Territory shift confirmed: {from} to {to}. The aetheryte can stop humming now.", "weight": 2 },
+        { "text": "Arrived in {to}. I will begin judging the local architecture immediately.", "weight": 1 },
+        { "text": "Leaving {from}; entering {to}. This is probably fine.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "Login",
+      "lines": [
+        { "text": "Welcome back. I have the route notes, the local cache, and a clean mug.", "weight": 3 },
+        { "text": "Reading Roegadyn awake. Please direct all complaints to the nearest aetheryte.", "weight": 2 },
+        { "text": "You are logged in. I have prepared commentary and lowered expectations.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "Idle",
+      "lines": [
+        { "text": "A rare quiet moment. Even the aetherytes are keeping their opinions to themselves.", "weight": 2 },
+        { "text": "Idle check. Nothing is on fire, which is statistically notable.", "weight": 2 },
+        { "text": "Still here. Still reading. Still not paid by the syllable.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "CombatStart",
+      "lines": [
+        { "text": "Combat started. Commentary brief and useful.", "weight": 3 },
+        { "text": "Weapon out. I will keep the footnotes short.", "weight": 2 },
+        { "text": "Hostilities detected. Try the buttons that make the problem smaller.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "CombatEnd",
+      "lines": [
+        { "text": "Combat ended. I will pretend that was all deliberate.", "weight": 3 },
+        { "text": "Threat resolved. The paperwork will say heroic.", "weight": 2 },
+        { "text": "All clear. The floor has accepted another donation.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "BgmMachinations",
+      "lines": [
+        { "text": "Machinations detected. Someone nearby is about to make paperwork violent.", "weight": 3 },
+        { "text": "BGM {bgmId}. That is Machinations. Tighten the straps and distrust the room.", "weight": 2 },
+        { "text": "Machinations has entered the ledger. This never means a quiet afternoon.", "weight": 1 }
+      ]
+    }
+  ]
+}
