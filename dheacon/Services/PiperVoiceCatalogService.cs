@@ -67,8 +67,8 @@ public sealed record PiperInstalledVoice
 
 public sealed class PiperVoiceCatalogService : IDisposable
 {
-    public const string RecommendedVoiceKey = "sv_SE-axel-medium";
-    public const string RecommendedVoiceCatalogId = CommunitySourceKey + ":" + RecommendedVoiceKey;
+    public const string RecommendedVoiceKey = "sv_SE-nst-medium";
+    public const string RecommendedVoiceCatalogId = OfficialSourceKey + ":" + RecommendedVoiceKey;
 
     private const string OfficialSourceKey = "official";
     private const string OfficialSourceName = "Official Piper";
@@ -90,7 +90,7 @@ public sealed class PiperVoiceCatalogService : IDisposable
     private static readonly IReadOnlyDictionary<string, SwedishVoiceMetadata> SwedishCommunityMetadata =
         new Dictionary<string, SwedishVoiceMetadata>(StringComparer.OrdinalIgnoreCase)
         {
-            [RecommendedVoiceKey] = new("Axel", "Male", "NST Swedish corpus", "Release asset; license unspecified", "Recommended Swedish male voice."),
+            ["sv_SE-axel-medium"] = new("Axel", "Male", "NST Swedish corpus", "Release asset; license unspecified", "Swedish male voice."),
             ["sv_SE-daniel-medium"] = new("Daniel", "Male", "Voice clone from a short sample", "Release asset; license unspecified", "Experimental voice clone; not auto-installed."),
             ["sv_SE-alma-medium"] = new("Alma", "Female", "Swedish voice", "Release asset; license unspecified", "Community Swedish female voice."),
         };

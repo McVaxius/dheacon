@@ -12,6 +12,7 @@ public sealed class SpeechQueueService : IDisposable
     private readonly CancellationTokenSource cancellationTokenSource = new();
     private readonly Task workerTask;
     private int pendingCount;
+    private int activeCount;
 
     public SpeechQueueService(
         IPluginLog log,
@@ -30,6 +31,7 @@ public sealed class SpeechQueueService : IDisposable
     }
 
     public int PendingCount => Math.Max(0, Volatile.Read(ref pendingCount));
+    public bool IsBusy => PendingCount > 0 || Volatile.Read(ref activeCount) > 0;
     public string LastStatus { get; private set; } = "Speech queue ready.";
     public string LastError { get; private set; } = string.Empty;
     public string LastText { get; private set; } = string.Empty;
@@ -76,7 +78,15 @@ public sealed class SpeechQueueService : IDisposable
             await foreach (var request in channel.Reader.ReadAllAsync(cancellationTokenSource.Token).ConfigureAwait(false))
             {
                 Interlocked.Decrement(ref pendingCount);
-                ProcessRequest(request, cancellationTokenSource.Token);
+                Interlocked.Increment(ref activeCount);
+                try
+                {
+                    ProcessRequest(request, cancellationTokenSource.Token);
+                }
+                finally
+                {
+                    Interlocked.Decrement(ref activeCount);
+                }
             }
         }
         catch (OperationCanceledException) when (cancellationTokenSource.IsCancellationRequested)

@@ -57,6 +57,482 @@
         { "text": "BGM {bgmId}. That is Machinations. Tighten the straps and distrust the room.", "weight": 2 },
         { "text": "Machinations has entered the ledger. This never means a quiet afternoon.", "weight": 1 }
       ]
+    },
+    {
+      "category": "LevelChange",
+      "lines": [
+        { "text": "{job} level {level}. Please update the forms before looking proud.", "weight": 1 },
+        { "text": "Level {level} recorded for {job}. The ledger has made a small satisfied noise.", "weight": 1 },
+        { "text": "{job} improved to level {level}. Competence remains under review.", "weight": 1 },
+        { "text": "Level increase confirmed. {job}, level {level}. The paperwork approves reluctantly.", "weight": 1 },
+        { "text": "{job} level {level}. Another number has agreed to be larger.", "weight": 1 },
+        { "text": "Advancement logged: {job}, level {level}. Try not to let the form smudge.", "weight": 1 },
+        { "text": "{job} reached level {level}. The training budget survived somehow.", "weight": 1 },
+        { "text": "Level {level} for {job}. A modest rise in authorized confidence.", "weight": 1 },
+        { "text": "{job} level {level}. I will file this under progress, lightly questioned.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "ClassJobChange",
+      "lines": [
+        { "text": "{job} selected. New badge, same weather.", "weight": 1 },
+        { "text": "Class or job changed to {job}. I will amend the stationery.", "weight": 1 },
+        { "text": "{job} is now on duty. The old forms are already sulking.", "weight": 1 },
+        { "text": "Equipment identity updated: {job}. Please stand where the role expects.", "weight": 1 },
+        { "text": "{job} confirmed. The hotbars are pretending they were ready.", "weight": 1 },
+        { "text": "Switched to {job}. A fresh title for familiar consequences.", "weight": 1 },
+        { "text": "{job} active. I will adjust the risk column accordingly.", "weight": 1 },
+        { "text": "Job change complete: {job}. The ledger loves a new abbreviation.", "weight": 1 },
+        { "text": "{job} entered the report. Try to behave like the icon suggests.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "MountStart",
+      "lines": [
+        { "text": "Mounted. The walking committee has been adjourned.", "weight": 1 },
+        { "text": "Mount secured. Local foot traffic may relax.", "weight": 1 },
+        { "text": "Saddle status confirmed. Motion is now outsourced.", "weight": 1 },
+        { "text": "You are mounted. I will update the travel estimate and my disappointment.", "weight": 1 },
+        { "text": "Mount engaged. The road has lost its argument.", "weight": 1 },
+        { "text": "Mounted transport approved. Keep both dignity and inventory attached.", "weight": 1 },
+        { "text": "Ride acquired. The route notes are now slightly less bored.", "weight": 1 },
+        { "text": "Mounting complete. Walking has been postponed by executive decision.", "weight": 1 },
+        { "text": "Mounted. Please refrain from treating stairs as policy suggestions.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "MountEnd",
+      "lines": [
+        { "text": "Dismounted. The floor has resumed jurisdiction.", "weight": 1 },
+        { "text": "Mount dismissed. Your boots are back on payroll.", "weight": 1 },
+        { "text": "Transport ended. Walking has filed for reinstatement.", "weight": 1 },
+        { "text": "Dismount complete. Please account for all knees.", "weight": 1 },
+        { "text": "Back on foot. The route is once again personal.", "weight": 1 },
+        { "text": "Mount released. The ground looks smug about it.", "weight": 1 },
+        { "text": "Dismounted. I will mark the landing as intentional.", "weight": 1 },
+        { "text": "Ride concluded. The travel ledger returns to ordinary stride.", "weight": 1 },
+        { "text": "Mount status cleared. Try not to negotiate with the curb.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "FlightStart",
+      "lines": [
+        { "text": "Flight confirmed. Gravity has filed a complaint.", "weight": 1 },
+        { "text": "Airborne. The route has become vertically inconvenient.", "weight": 1 },
+        { "text": "Flight started. The ground may wait its turn.", "weight": 1 },
+        { "text": "You are flying. Please keep the scenery in the correct order.", "weight": 1 },
+        { "text": "Lift achieved. The sky has accepted temporary custody.", "weight": 1 },
+        { "text": "Flight engaged. Landmarks are now below their usual station.", "weight": 1 },
+        { "text": "Air route approved. Do not make paperwork of the clouds.", "weight": 1 },
+        { "text": "Flying now. The map is pretending this was planned.", "weight": 1 },
+        { "text": "Flight logged. Try to descend before the report gets ambitious.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "FlightEnd",
+      "lines": [
+        { "text": "Flight ended. Return the sky to its drawer.", "weight": 1 },
+        { "text": "Landing confirmed. The ground is being professional about it.", "weight": 1 },
+        { "text": "Airborne status cleared. Gravity has closed the ticket.", "weight": 1 },
+        { "text": "Flight complete. Please collect your bearings at the exit.", "weight": 1 },
+        { "text": "Back on land. The map may resume lying flat.", "weight": 1 },
+        { "text": "Landing recorded. No applause required from the terrain.", "weight": 1 },
+        { "text": "Flight concluded. The horizon is no longer your problem.", "weight": 1 },
+        { "text": "Sky privileges paused. Walking regulations apply again.", "weight": 1 },
+        { "text": "Descent complete. I will file it under acceptable vertical conduct.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "DutyQueueStart",
+      "lines": [
+        { "text": "Duty queue joined. Waiting has acquired an official title.", "weight": 1 },
+        { "text": "Queued for duty. The roulette desk has opened a file.", "weight": 1 },
+        { "text": "Duty registration active. Please enjoy uncertainty in an orderly fashion.", "weight": 1 },
+        { "text": "Queue entered. The finder will now consider your fate.", "weight": 1 },
+        { "text": "Duty queue confirmed. Time to practice patient optimism.", "weight": 1 },
+        { "text": "Registration submitted. Somewhere, a matching algorithm is sighing.", "weight": 1 },
+        { "text": "Queue status active. The clipboard has taken your name.", "weight": 1 },
+        { "text": "Duty request filed. Results may contain strangers.", "weight": 1 },
+        { "text": "Queued. Prepare for a pop-up with opinions.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "DutyQueueEnd",
+      "lines": [
+        { "text": "Duty queue ended. The clipboard may unclench.", "weight": 1 },
+        { "text": "Queue status cleared. Waiting has left the premises.", "weight": 1 },
+        { "text": "Duty registration closed. The finder has stopped staring.", "weight": 1 },
+        { "text": "Queue removed. Your schedule is pretending to be flexible.", "weight": 1 },
+        { "text": "Duty queue cleared. The paperwork returns to standby.", "weight": 1 },
+        { "text": "Registration ended. The matching desk has put down its pen.", "weight": 1 },
+        { "text": "Queue no longer active. That silence is probably meaningful.", "weight": 1 },
+        { "text": "Duty request withdrawn or resolved. Either way, fewer forms.", "weight": 1 },
+        { "text": "Queue finished. The wait has been archived under maybe.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "DutyStart",
+      "lines": [
+        { "text": "Duty commenced. Please keep heroics within posted guidelines.", "weight": 1 },
+        { "text": "Duty started. The room expects competence and accepts substitutes.", "weight": 1 },
+        { "text": "Bound by duty. The exit has become theoretical.", "weight": 1 },
+        { "text": "Instance obligations active. Try not to confuse urgency with planning.", "weight": 1 },
+        { "text": "Duty engagement recorded. The objective has entered the ledger.", "weight": 1 },
+        { "text": "You are on duty. The report has sharpened its pencil.", "weight": 1 },
+        { "text": "Duty boundary crossed. Local consequences are now official.", "weight": 1 },
+        { "text": "Operation started. Please sort danger by priority and height.", "weight": 1 },
+        { "text": "Duty active. I will assume the ready check was legally binding.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "DutyEnd",
+      "lines": [
+        { "text": "Duty concluded. Everyone pretend the report was tidy.", "weight": 1 },
+        { "text": "Duty ended. The instance has released its grip.", "weight": 1 },
+        { "text": "Objective complete or abandoned. The form is not picky.", "weight": 1 },
+        { "text": "Bound by duty cleared. The exit exists again.", "weight": 1 },
+        { "text": "Duty record closed. Please collect loot and composure.", "weight": 1 },
+        { "text": "Instance obligations ended. The ledger has enough bruises.", "weight": 1 },
+        { "text": "Duty finished. I will omit several tactical adjectives.", "weight": 1 },
+        { "text": "Operation closed. The paperwork will be kinder than memory.", "weight": 1 },
+        { "text": "Duty complete. Return borrowed courage to storage.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "CraftingStart",
+      "lines": [
+        { "text": "Crafting started. The desk has requested incident coverage.", "weight": 1 },
+        { "text": "Synthesis begun. Materials are now suspects.", "weight": 1 },
+        { "text": "Crafting action active. Please respect the durability column.", "weight": 1 },
+        { "text": "Recipe engaged. The workshop has entered negotiation.", "weight": 1 },
+        { "text": "Crafting underway. Tools are being asked to justify themselves.", "weight": 1 },
+        { "text": "Synthesis logged. Quality is making demands again.", "weight": 1 },
+        { "text": "Crafting state confirmed. The materials look nervous.", "weight": 1 },
+        { "text": "Production started. Try to keep inspiration within budget.", "weight": 1 },
+        { "text": "Crafting file opened. The result will claim it was intentional.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "CraftingEnd",
+      "lines": [
+        { "text": "Crafting ended. No one mention the offcuts.", "weight": 1 },
+        { "text": "Synthesis closed. The bench may exhale.", "weight": 1 },
+        { "text": "Crafting complete. Quality has stopped arguing for now.", "weight": 1 },
+        { "text": "Production ended. The tools are returning to plausible innocence.", "weight": 1 },
+        { "text": "Recipe resolved. File the result under deliberate.", "weight": 1 },
+        { "text": "Crafting state cleared. The material ledger is lighter.", "weight": 1 },
+        { "text": "Synthesis finished. I will not ask about the spare pieces.", "weight": 1 },
+        { "text": "Workshop quiet. The item exists, which is legally sufficient.", "weight": 1 },
+        { "text": "Crafting complete. Please dust the evidence from the counter.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "GatheringStart",
+      "lines": [
+        { "text": "Gathering started. The dirt is now a stakeholder.", "weight": 1 },
+        { "text": "Gathering action active. The land has been notified.", "weight": 1 },
+        { "text": "Resource extraction begun. Nature has declined to comment.", "weight": 1 },
+        { "text": "Gathering underway. Please interrogate the node politely.", "weight": 1 },
+        { "text": "Field work started. The inventory is clearing its throat.", "weight": 1 },
+        { "text": "Gathering registered. Rocks and shrubs should prepare statements.", "weight": 1 },
+        { "text": "Node work active. The survey notes are watching.", "weight": 1 },
+        { "text": "Harvesting begun. The land is pretending this is fine.", "weight": 1 },
+        { "text": "Gathering file opened. Expect dirt and partial truths.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "GatheringEnd",
+      "lines": [
+        { "text": "Gathering ended. The land has been inconvenienced.", "weight": 1 },
+        { "text": "Field work complete. The node may return to being suspicious.", "weight": 1 },
+        { "text": "Gathering state cleared. Inventory weight has new opinions.", "weight": 1 },
+        { "text": "Resource extraction ended. The survey file looks smug.", "weight": 1 },
+        { "text": "Harvesting complete. Please brush the evidence from your gloves.", "weight": 1 },
+        { "text": "Gathering concluded. Nature will recover after several forms.", "weight": 1 },
+        { "text": "Node work ended. The map can stop pretending it helped.", "weight": 1 },
+        { "text": "Field notes closed. The result is probably useful.", "weight": 1 },
+        { "text": "Gathering complete. The ground requests a brief recess.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "FishingStart",
+      "lines": [
+        { "text": "Fishing started. We will negotiate with water.", "weight": 1 },
+        { "text": "Line cast. Patience has entered the job description.", "weight": 1 },
+        { "text": "Fishing state active. The water is being evasive.", "weight": 1 },
+        { "text": "Angling begun. Please keep hope at a manageable volume.", "weight": 1 },
+        { "text": "Fishing logged. The bait has accepted its brief career.", "weight": 1 },
+        { "text": "Line out. The report now includes waiting near water.", "weight": 1 },
+        { "text": "Fishing engaged. The catch table is already being difficult.", "weight": 1 },
+        { "text": "Waterfront operations started. Results may be damp and judgmental.", "weight": 1 },
+        { "text": "Casting complete. Now we perform the ancient art of staring.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "FishingEnd",
+      "lines": [
+        { "text": "Fishing ended. The fish have submitted mixed feedback.", "weight": 1 },
+        { "text": "Line recovered. Patience may clock out.", "weight": 1 },
+        { "text": "Fishing state cleared. The water keeps its secrets.", "weight": 1 },
+        { "text": "Angling concluded. The bait ledger is closed.", "weight": 1 },
+        { "text": "Fishing complete. Inventory may or may not smell official.", "weight": 1 },
+        { "text": "Waterfront operations ended. The report is mostly damp.", "weight": 1 },
+        { "text": "Rod stowed. Hope returns to normal administrative levels.", "weight": 1 },
+        { "text": "Fishing filed. The catch table has stopped glaring.", "weight": 1 },
+        { "text": "Line in. The water has been excused from further testimony.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "CutsceneStart",
+      "lines": [
+        { "text": "Cutscene started. I will hold your place in reality.", "weight": 1 },
+        { "text": "Narrative lock engaged. Buttons may wait outside.", "weight": 1 },
+        { "text": "Cutscene active. The script has seized the room.", "weight": 1 },
+        { "text": "Story event started. Please admire the dramatic paperwork.", "weight": 1 },
+        { "text": "Scene in progress. Agency has stepped out briefly.", "weight": 1 },
+        { "text": "Cutscene confirmed. The camera has opinions now.", "weight": 1 },
+        { "text": "Narrative custody accepted. I will pause the practical remarks.", "weight": 1 },
+        { "text": "Scene opened. The report will use smaller margins.", "weight": 1 },
+        { "text": "Cutscene underway. Please keep snacks away from revelations.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "CutsceneEnd",
+      "lines": [
+        { "text": "Cutscene ended. Reality has resumed billing.", "weight": 1 },
+        { "text": "Narrative lock cleared. Buttons are legally back.", "weight": 1 },
+        { "text": "Scene complete. The camera has returned your agency.", "weight": 1 },
+        { "text": "Story event ended. Please process feelings in a single file.", "weight": 1 },
+        { "text": "Cutscene closed. The practical problems have waited outside.", "weight": 1 },
+        { "text": "Narrative custody released. The ledger needs a moment.", "weight": 1 },
+        { "text": "Scene ended. Dramatic pauses may now disperse.", "weight": 1 },
+        { "text": "Cutscene complete. The next task is pretending we are composed.", "weight": 1 },
+        { "text": "Story resumed normal controls. I will reopen the consequence file.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "PerformanceStart",
+      "lines": [
+        { "text": "Performance started. The arts have entered the ledger.", "weight": 1 },
+        { "text": "Instrument engaged. Noise is now culturally protected.", "weight": 1 },
+        { "text": "Performance mode active. The audience may form a line.", "weight": 1 },
+        { "text": "Music begun. The report will avoid judging rhythm.", "weight": 1 },
+        { "text": "Performance registered. Please tune ambition before volume.", "weight": 1 },
+        { "text": "Artistic activity confirmed. I will prepare diplomatic applause.", "weight": 1 },
+        { "text": "Instrument file opened. Nearby ears have been notified.", "weight": 1 },
+        { "text": "Performance underway. Tempo is now a compliance matter.", "weight": 1 },
+        { "text": "Music state active. The ledger is tapping one finger.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "PerformanceEnd",
+      "lines": [
+        { "text": "Performance ended. Applause may be filed alphabetically.", "weight": 1 },
+        { "text": "Instrument dismissed. The air is recovering.", "weight": 1 },
+        { "text": "Performance mode cleared. Rhythm has left the report.", "weight": 1 },
+        { "text": "Music concluded. The ledger will call it expressive.", "weight": 1 },
+        { "text": "Artistic activity ended. Please collect any remaining dignity.", "weight": 1 },
+        { "text": "Performance closed. Nearby ears may return to duty.", "weight": 1 },
+        { "text": "Instrument file archived. The final note has been detained.", "weight": 1 },
+        { "text": "Music state cleared. The silence is acting important.", "weight": 1 },
+        { "text": "Performance complete. I will not grade the bridge.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "MinigameStart",
+      "lines": [
+        { "text": "Mini-game started. Small stakes, full paperwork.", "weight": 1 },
+        { "text": "Side activity engaged. The ledger accepts tiny risks.", "weight": 1 },
+        { "text": "Mini-game active. Serious faces are optional but common.", "weight": 1 },
+        { "text": "Game table opened. Probability has asked for a chair.", "weight": 1 },
+        { "text": "Diversion started. Productivity has been placed on hold.", "weight": 1 },
+        { "text": "Mini-game registered. The score column is clearing its throat.", "weight": 1 },
+        { "text": "Side contest underway. The rules are wearing a small hat.", "weight": 1 },
+        { "text": "Game state active. Please misplace time responsibly.", "weight": 1 },
+        { "text": "Mini-game file opened. Victory may be narrower than advertised.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "MinigameEnd",
+      "lines": [
+        { "text": "Mini-game ended. The ledger accepts tiny victories.", "weight": 1 },
+        { "text": "Side activity closed. Productivity has been notified.", "weight": 1 },
+        { "text": "Mini-game cleared. The score can stop making eye contact.", "weight": 1 },
+        { "text": "Game table closed. Probability has left crumbs.", "weight": 1 },
+        { "text": "Diversion complete. Time was spent, not necessarily invested.", "weight": 1 },
+        { "text": "Mini-game filed. The result is official enough.", "weight": 1 },
+        { "text": "Side contest ended. Please restore your serious face.", "weight": 1 },
+        { "text": "Game state cleared. The rules have stopped explaining themselves.", "weight": 1 },
+        { "text": "Mini-game complete. I will archive the tiny drama.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "SummoningBellStart",
+      "lines": [
+        { "text": "Summoning bell engaged. Retainers, brace for questions.", "weight": 1 },
+        { "text": "Bell access started. Commerce has entered the room.", "weight": 1 },
+        { "text": "Summoning bell active. Inventory management is now personal.", "weight": 1 },
+        { "text": "Retainer desk opened. Please keep financial surprises labeled.", "weight": 1 },
+        { "text": "Bell interaction logged. Someone is about to move many small things.", "weight": 1 },
+        { "text": "Retainer interface active. The market board is pretending innocence.", "weight": 1 },
+        { "text": "Summoning bell in use. Storage will be asked difficult questions.", "weight": 1 },
+        { "text": "Bell file opened. The gil column is sitting upright.", "weight": 1 },
+        { "text": "Retainers contacted. Please do not call this a quick errand.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "SummoningBellEnd",
+      "lines": [
+        { "text": "Summoning bell released. Commerce may breathe again.", "weight": 1 },
+        { "text": "Bell access ended. Retainers may resume pretending to be busy.", "weight": 1 },
+        { "text": "Summoning bell cleared. Inventory has new emotional weight.", "weight": 1 },
+        { "text": "Retainer desk closed. The market board has hidden the evidence.", "weight": 1 },
+        { "text": "Bell interaction complete. Storage survived another audit.", "weight": 1 },
+        { "text": "Retainer interface closed. The gil column looks different.", "weight": 1 },
+        { "text": "Summoning bell done. Please count your items before blaming fate.", "weight": 1 },
+        { "text": "Bell file archived. The errand was not quick, noted.", "weight": 1 },
+        { "text": "Retainers dismissed. Commerce returns to background suspicion.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "PartyFinderStart",
+      "lines": [
+        { "text": "Party Finder opened. Strangers will now self-categorize.", "weight": 1 },
+        { "text": "Recruitment interface active. Expectations are being sorted by color.", "weight": 1 },
+        { "text": "Party Finder engaged. Social risk is now searchable.", "weight": 1 },
+        { "text": "Listings opened. Please read the fine print and the mood.", "weight": 1 },
+        { "text": "Party Finder active. The abbreviations have begun gathering.", "weight": 1 },
+        { "text": "Recruitment board opened. Optimism has posted a listing.", "weight": 1 },
+        { "text": "Party search started. Requirements may be decorative.", "weight": 1 },
+        { "text": "Listing review underway. The duty may not be the hard part.", "weight": 1 },
+        { "text": "Party Finder file opened. Compatibility is filling out a form.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "PartyFinderEnd",
+      "lines": [
+        { "text": "Party Finder closed. The social ledger is temporarily quiet.", "weight": 1 },
+        { "text": "Recruitment interface cleared. Expectations remain unresolved.", "weight": 1 },
+        { "text": "Party Finder ended. Strangers return to being theoretical.", "weight": 1 },
+        { "text": "Listings closed. The fine print has stopped whispering.", "weight": 1 },
+        { "text": "Party search complete. The abbreviations have dispersed.", "weight": 1 },
+        { "text": "Recruitment board closed. Optimism has left no forwarding address.", "weight": 1 },
+        { "text": "Party Finder filed. Social risk returns to ambient levels.", "weight": 1 },
+        { "text": "Listing review ended. Compatibility has deferred judgment.", "weight": 1 },
+        { "text": "Party Finder quiet. The board is resting between opinions.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "SwimmingStart",
+      "lines": [
+        { "text": "Swimming started. Boots are no longer policy-compliant.", "weight": 1 },
+        { "text": "Water entry confirmed. Dryness has been postponed.", "weight": 1 },
+        { "text": "Swimming active. Inventory has questions about waterproofing.", "weight": 1 },
+        { "text": "Aquatic movement logged. The map did not warn us enough.", "weight": 1 },
+        { "text": "You are swimming. Please keep paperwork above the splash line.", "weight": 1 },
+        { "text": "Water travel engaged. Socks have entered a grievance.", "weight": 1 },
+        { "text": "Swimming state active. The shore is suddenly administrative.", "weight": 1 },
+        { "text": "Buoyancy accepted. The route has become damp.", "weight": 1 },
+        { "text": "Water crossing started. I will mark dignity as optional.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "SwimmingEnd",
+      "lines": [
+        { "text": "Swimming ended. Drip responsibly.", "weight": 1 },
+        { "text": "Water exit confirmed. Dryness may begin negotiations.", "weight": 1 },
+        { "text": "Swimming cleared. Inventory can stop worrying so loudly.", "weight": 1 },
+        { "text": "Aquatic movement ended. The map resumes ordinary lying.", "weight": 1 },
+        { "text": "Back on shore. Please wring out any remaining plans.", "weight": 1 },
+        { "text": "Water travel closed. Socks have escalated the complaint.", "weight": 1 },
+        { "text": "Swimming state ended. The shore has accepted your return.", "weight": 1 },
+        { "text": "Buoyancy released. The route is less damp on paper.", "weight": 1 },
+        { "text": "Water crossing complete. Dignity status remains pending.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "DivingStart",
+      "lines": [
+        { "text": "Diving started. The ocean has accepted your application.", "weight": 1 },
+        { "text": "Submerged. Breathing is now an agenda item.", "weight": 1 },
+        { "text": "Diving active. The surface has been placed above us.", "weight": 1 },
+        { "text": "Underwater travel logged. Visibility is filing a complaint.", "weight": 1 },
+        { "text": "Dive confirmed. Please keep discoveries in alphabetical order.", "weight": 1 },
+        { "text": "Descent underway. The water pressure has opinions.", "weight": 1 },
+        { "text": "Diving state active. The map has become suspiciously blue.", "weight": 1 },
+        { "text": "Subsurface route opened. Try not to misplace the up direction.", "weight": 1 },
+        { "text": "Underwater operations started. Silence is now compulsory.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "DivingEnd",
+      "lines": [
+        { "text": "Diving ended. Surface paperwork restored.", "weight": 1 },
+        { "text": "Resurfaced. Breathing has returned to routine status.", "weight": 1 },
+        { "text": "Diving cleared. The surface is back where policy expects.", "weight": 1 },
+        { "text": "Underwater travel ended. Visibility may stop complaining.", "weight": 1 },
+        { "text": "Dive complete. Please file any discoveries before they dry.", "weight": 1 },
+        { "text": "Ascent recorded. The pressure column is relieved.", "weight": 1 },
+        { "text": "Diving state ended. The map is less blue about it.", "weight": 1 },
+        { "text": "Subsurface route closed. Up direction successfully recovered.", "weight": 1 },
+        { "text": "Underwater operations complete. Silence has been dismissed.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "Unconscious",
+      "lines": [
+        { "text": "Unconscious. I will mark this as a training expense.", "weight": 1 },
+        { "text": "You are down. The floor has opened a temporary account.", "weight": 1 },
+        { "text": "Unconscious status confirmed. Heroics have entered review.", "weight": 1 },
+        { "text": "Movement privileges suspended. Please await corrective paperwork.", "weight": 1 },
+        { "text": "Downed. The report will be careful with the word tactical.", "weight": 1 },
+        { "text": "Unconscious logged. The floor is being very possessive.", "weight": 1 },
+        { "text": "Status: not upright. I will notify the confidence department.", "weight": 1 },
+        { "text": "You have stopped contributing vertically. Noted with concern.", "weight": 1 },
+        { "text": "Unconscious state active. The ledger suggests assistance.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "Recovered",
+      "lines": [
+        { "text": "Recovered. The floor has released its claim.", "weight": 1 },
+        { "text": "Back up. Please return dignity to an upright position.", "weight": 1 },
+        { "text": "Unconscious status cleared. Heroics may resume under supervision.", "weight": 1 },
+        { "text": "Movement privileges restored. The paperwork remains skeptical.", "weight": 1 },
+        { "text": "Recovery logged. The report will call it resilience.", "weight": 1 },
+        { "text": "Standing again. The floor looks disappointed but professional.", "weight": 1 },
+        { "text": "Status: upright. Confidence may reapply in writing.", "weight": 1 },
+        { "text": "Recovered from downed state. Try not to make it a pattern.", "weight": 1 },
+        { "text": "Consciousness restored. The ledger has reopened your tab.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "PvpEnter",
+      "lines": [
+        { "text": "PvP entered. Diplomacy has been given a weapon.", "weight": 1 },
+        { "text": "Player combat jurisdiction active. Politeness is now optional.", "weight": 1 },
+        { "text": "PvP status confirmed. The scoreboard has started judging.", "weight": 1 },
+        { "text": "Entered PvP. Please sort opponents by urgency and regret.", "weight": 1 },
+        { "text": "Competitive field active. The rules are smiling too much.", "weight": 1 },
+        { "text": "PvP engagement logged. Tact is no longer the primary tool.", "weight": 1 },
+        { "text": "Hostile sport mode active. The report expects contradictions.", "weight": 1 },
+        { "text": "PvP started. The victory column is making demands.", "weight": 1 },
+        { "text": "Entered player conflict. Please keep chaos in numbered lanes.", "weight": 1 }
+      ]
+    },
+    {
+      "category": "PvpLeave",
+      "lines": [
+        { "text": "PvP left. The scoreboard may return to sleep.", "weight": 1 },
+        { "text": "Player combat jurisdiction cleared. Politeness may reapply.", "weight": 1 },
+        { "text": "PvP status ended. The score has been archived.", "weight": 1 },
+        { "text": "Left PvP. Please return borrowed aggression to storage.", "weight": 1 },
+        { "text": "Competitive field closed. The rules have stopped grinning.", "weight": 1 },
+        { "text": "PvP engagement filed. Tact is back on the approved list.", "weight": 1 },
+        { "text": "Hostile sport mode ended. The report can loosen its tie.", "weight": 1 },
+        { "text": "PvP complete. The victory column may or may not cooperate.", "weight": 1 },
+        { "text": "Player conflict concluded. Chaos has left the numbered lanes.", "weight": 1 }
+      ]
     }
   ]
 }

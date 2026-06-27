@@ -169,6 +169,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
         var filtered = SortPiperEntries(FilterPiperEntries(entries), cfg).ToList();
         ImGui.TextDisabled($"Showing {filtered.Count} of {entries.Count} catalog entr{(entries.Count == 1 ? "y" : "ies")}.");
+        DrawPiperSelectedActionBar(entries, cfg);
         DrawPiperCatalogTable(filtered, cfg);
         DrawPiperSelectedVoicePanel(entries, cfg);
     }
@@ -215,6 +216,7 @@ public sealed class ConfigWindow : Window, IDisposable
         if (!string.IsNullOrWhiteSpace(plugin.SpeechQueueService.LastError))
             ImGui.TextWrapped("Queue error: " + plugin.SpeechQueueService.LastError);
         ImGui.Text($"Pending speech requests: {plugin.SpeechQueueService.PendingCount}");
+        ImGui.Text($"Speech busy: {plugin.SpeechQueueService.IsBusy}");
         ImGui.TextWrapped($"BGM status: {plugin.BgmProbeService.Status}");
         ImGui.Text($"Current BGM ID: {plugin.BgmProbeService.CurrentBgmId}");
         ImGui.TextWrapped($"Cache status: {plugin.SpeechCacheService.LastStatus}");
@@ -479,21 +481,23 @@ public sealed class ConfigWindow : Window, IDisposable
         }
 
         ImGui.SameLine();
-        if (ImGui.Button("Set up Piper Axel"))
+        if (ImGui.Button("Set up Piper NST"))
             StartPiperRecommendedSetup(switchBackendWhenReady: true);
     }
 
     private void DrawPiperInstalledVoiceSelector(Configuration cfg)
     {
         var voices = plugin.PiperVoiceCatalogService.GetInstalledVoices();
-        var currentVoice = plugin.SpeechCacheService.GetSelectedVoiceLabel();
+        var currentVoice = plugin.PiperVoiceCatalogService.FindInstalledVoice(cfg.TtsPiperVoiceId) is { } selectedVoice
+            ? FormatPiperInstalledVoiceLabel(selectedVoice)
+            : "No Piper voice installed";
 
         if (!ImGui.BeginCombo("Piper voice", currentVoice))
             return;
 
         foreach (var voice in voices)
         {
-            var label = $"{voice.VoiceKey} - {voice.LanguageCode} - {voice.Gender} - {voice.Quality} - {voice.Source}";
+            var label = FormatPiperInstalledVoiceLabel(voice);
             var selected = string.Equals(cfg.TtsPiperVoiceId, voice.CatalogId, StringComparison.OrdinalIgnoreCase);
             if (ImGui.Selectable(label, selected))
             {
@@ -538,10 +542,10 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.SameLine();
         if (recommendedInstalled)
         {
-            if (ImGui.Button("Select Axel"))
+            if (ImGui.Button("Select NST"))
                 plugin.PiperVoiceCatalogService.SelectVoice(PiperVoiceCatalogService.RecommendedVoiceCatalogId);
         }
-        else if (ImGui.Button("Install Axel"))
+        else if (ImGui.Button("Install NST"))
         {
             StartPiperRecommendedSetup(switchBackendWhenReady: false);
         }
@@ -558,7 +562,7 @@ public sealed class ConfigWindow : Window, IDisposable
     {
         ImGui.Combo("Installed filter", ref piperInstalledFilter, PiperInstalledFilters, PiperInstalledFilters.Length);
 
-        var languages = CreateFilterOptions(entries.Select(entry => entry.LanguageCode));
+        var languages = CreateLanguageFilterOptions(entries);
         DrawStringFilter("Language", languages, ref piperLanguageFilter);
 
         var genders = CreateFilterOptions(entries.Select(entry => entry.Gender));
@@ -582,24 +586,81 @@ public sealed class ConfigWindow : Window, IDisposable
             selected = options[Math.Clamp(index, 0, options.Length - 1)];
     }
 
+    private void DrawPiperSelectedActionBar(IReadOnlyList<PiperVoiceCatalogEntry> entries, Configuration cfg)
+    {
+        var entry = entries.FirstOrDefault(candidate => string.Equals(candidate.CatalogId, selectedPiperCatalogId, StringComparison.OrdinalIgnoreCase));
+        if (entry == null)
+        {
+            ImGui.TextDisabled("Select a Piper voice to manage it.");
+            return;
+        }
+
+        var isCurrent = entry.Installed && string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
+
+        ImGui.PushID("SelectedPiperActionBar");
+        ImGui.TextUnformatted("Voice:");
+        ImGui.SameLine();
+        ImGui.TextWrapped(FormatPiperVoiceLabel(entry));
+
+        ImGui.AlignTextToFramePadding();
+        ImGui.TextUnformatted("Actions:");
+        ImGui.SameLine();
+
+        ImGui.PushID(entry.CatalogId);
+        if (!entry.Installed)
+        {
+            if (ImGui.Button("Install"))
+                StartPiperInstall(entry.CatalogId);
+        }
+        else
+        {
+            if (isCurrent)
+            {
+                ImGui.TextDisabled("Selected");
+            }
+            else if (ImGui.Button("Select"))
+            {
+                plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
+            }
+
+            ImGui.SameLine();
+            if (ImGui.Button("Uninstall"))
+                plugin.PiperVoiceCatalogService.UninstallVoice(entry.CatalogId);
+
+            ImGui.SameLine();
+            if (ImGui.Button("Open folder"))
+                plugin.PiperVoiceCatalogService.OpenFolder(entry.InstalledDirectory);
+        }
+
+        ImGui.PopID();
+        ImGui.PopID();
+    }
+
     private void DrawPiperCatalogTable(IReadOnlyList<PiperVoiceCatalogEntry> entries, Configuration cfg)
     {
         var tableHeight = Math.Max(220f, ImGui.GetContentRegionAvail().Y * 0.48f);
+        var tableFlags = ImGuiTableFlags.Borders |
+                         ImGuiTableFlags.RowBg |
+                         ImGuiTableFlags.Resizable |
+                         ImGuiTableFlags.ScrollY |
+                         ImGuiTableFlags.SizingStretchProp |
+                         ImGuiTableFlags.NoHostExtendX;
+
         if (!ImGui.BeginTable(
                 "PiperCatalogTable",
                 8,
-                ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.Resizable | ImGuiTableFlags.ScrollY,
+                tableFlags,
                 new Vector2(-1f, tableHeight)))
             return;
 
-        ImGui.TableSetupColumn("Voice");
-        ImGui.TableSetupColumn("Lang");
-        ImGui.TableSetupColumn("Gender");
-        ImGui.TableSetupColumn("Quality");
-        ImGui.TableSetupColumn("Source");
-        ImGui.TableSetupColumn("Size");
-        ImGui.TableSetupColumn("State");
-        ImGui.TableSetupColumn("Actions");
+        ImGui.TableSetupColumn("Voice", ImGuiTableColumnFlags.WidthStretch, 2.2f);
+        ImGui.TableSetupColumn("Language", ImGuiTableColumnFlags.WidthStretch, 1.5f);
+        ImGui.TableSetupColumn("Gender", ImGuiTableColumnFlags.WidthFixed, 76f);
+        ImGui.TableSetupColumn("Quality", ImGuiTableColumnFlags.WidthFixed, 74f);
+        ImGui.TableSetupColumn("Source", ImGuiTableColumnFlags.WidthStretch, 1.4f);
+        ImGui.TableSetupColumn("Size", ImGuiTableColumnFlags.WidthFixed, 78f);
+        ImGui.TableSetupColumn("State", ImGuiTableColumnFlags.WidthFixed, 76f);
+        ImGui.TableSetupColumn("Actions", ImGuiTableColumnFlags.WidthFixed, 190f);
         ImGui.TableHeadersRow();
 
         foreach (var entry in entries)
@@ -611,7 +672,7 @@ public sealed class ConfigWindow : Window, IDisposable
     private void DrawPiperCatalogRow(PiperVoiceCatalogEntry entry, Configuration cfg)
     {
         var selected = string.Equals(selectedPiperCatalogId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
-        var isCurrent = string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
+        var isCurrent = entry.Installed && string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
 
         ImGui.PushID(entry.CatalogId);
         ImGui.TableNextRow();
@@ -620,13 +681,13 @@ public sealed class ConfigWindow : Window, IDisposable
             selectedPiperCatalogId = entry.CatalogId;
 
         ImGui.TableSetColumnIndex(1);
-        ImGui.TextUnformatted(entry.LanguageCode);
+        ImGui.TextWrapped(FormatPiperLanguage(entry.LanguageName, entry.LanguageCode));
         ImGui.TableSetColumnIndex(2);
         ImGui.TextUnformatted(entry.Gender);
         ImGui.TableSetColumnIndex(3);
         ImGui.TextUnformatted(entry.Quality);
         ImGui.TableSetColumnIndex(4);
-        ImGui.TextUnformatted(entry.Source);
+        ImGui.TextWrapped(entry.Source);
         ImGui.TableSetColumnIndex(5);
         ImGui.TextUnformatted(entry.SizeLabel);
         ImGui.TableSetColumnIndex(6);
@@ -641,22 +702,19 @@ public sealed class ConfigWindow : Window, IDisposable
         if (ImGui.SmallButton("Details"))
             selectedPiperCatalogId = entry.CatalogId;
 
-        ImGui.SameLine();
         if (!entry.Installed)
         {
+            ImGui.SameLine();
             if (ImGui.SmallButton("Install"))
                 StartPiperInstall(entry.CatalogId);
             return;
         }
 
-        if (isCurrent)
+        if (!isCurrent)
         {
-            if (ImGui.SmallButton("Selected"))
-                selectedPiperCatalogId = entry.CatalogId;
-        }
-        else if (ImGui.SmallButton("Select"))
-        {
-            plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
+            ImGui.SameLine();
+            if (ImGui.SmallButton("Select"))
+                plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
         }
 
         ImGui.SameLine();
@@ -671,10 +729,11 @@ public sealed class ConfigWindow : Window, IDisposable
             return;
 
         ImGui.Separator();
-        var isCurrent = string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
+        var isCurrent = entry.Installed && string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
         ImGui.TextUnformatted("Selected voice details");
         ImGui.TextWrapped(isCurrent ? "State: selected Piper voice" : entry.Installed ? "State: installed" : "State: not installed");
-        ImGui.TextWrapped(entry.Label);
+        ImGui.TextWrapped(FormatPiperVoiceLabel(entry));
+        ImGui.TextWrapped($"Language: {FormatPiperLanguage(entry.LanguageName, entry.LanguageCode)}");
         ImGui.TextWrapped($"{entry.DisplayName}  {entry.SizeLabel}");
         ImGui.TextWrapped($"License: {entry.License}");
         if (!string.IsNullOrWhiteSpace(entry.Notes))
@@ -683,7 +742,9 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.PushID(entry.CatalogId);
         if (entry.Installed)
         {
-            if (ImGui.Button(isCurrent ? "Selected" : "Select"))
+            if (isCurrent)
+                ImGui.TextDisabled("Selected");
+            else if (ImGui.Button("Select"))
                 plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
 
             ImGui.SameLine();
@@ -730,7 +791,7 @@ public sealed class ConfigWindow : Window, IDisposable
                 continue;
             if (piperInstalledFilter == 2 && entry.Installed)
                 continue;
-            if (!FilterMatches(piperLanguageFilter, entry.LanguageCode))
+            if (!LanguageFilterMatches(piperLanguageFilter, entry))
                 continue;
             if (!FilterMatches(piperGenderFilter, entry.Gender))
                 continue;
@@ -861,9 +922,44 @@ public sealed class ConfigWindow : Window, IDisposable
             .Concat(values.Where(value => !string.IsNullOrWhiteSpace(value)).Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(value => value, StringComparer.OrdinalIgnoreCase))
             .ToArray();
 
+    private static string[] CreateLanguageFilterOptions(IEnumerable<PiperVoiceCatalogEntry> entries)
+        => new[] { "All" }
+            .Concat(entries
+                .Select(entry => FormatPiperLanguage(entry.LanguageName, entry.LanguageCode))
+                .Where(value => !string.IsNullOrWhiteSpace(value))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(value => value, StringComparer.OrdinalIgnoreCase))
+            .ToArray();
+
     private static bool FilterMatches(string filter, string value)
         => string.Equals(filter, "All", StringComparison.OrdinalIgnoreCase) ||
            string.Equals(filter, value, StringComparison.OrdinalIgnoreCase);
+
+    private static bool LanguageFilterMatches(string filter, PiperVoiceCatalogEntry entry)
+        => string.Equals(filter, "All", StringComparison.OrdinalIgnoreCase) ||
+           string.Equals(filter, entry.LanguageCode, StringComparison.OrdinalIgnoreCase) ||
+           string.Equals(filter, entry.LanguageName, StringComparison.OrdinalIgnoreCase) ||
+           string.Equals(filter, FormatPiperLanguage(entry.LanguageName, entry.LanguageCode), StringComparison.OrdinalIgnoreCase);
+
+    private static string FormatPiperVoiceLabel(PiperVoiceCatalogEntry entry)
+        => $"{entry.VoiceKey} - {FormatPiperLanguage(entry.LanguageName, entry.LanguageCode)} - {entry.Gender} - {entry.Quality} - {entry.Source}";
+
+    private static string FormatPiperInstalledVoiceLabel(PiperInstalledVoice voice)
+        => $"{voice.VoiceKey} - {FormatPiperLanguage(voice.LanguageName, voice.LanguageCode)} - {voice.Gender} - {voice.Quality} - {voice.Source}";
+
+    private static string FormatPiperLanguage(string languageName, string languageCode)
+    {
+        var name = languageName.Trim();
+        var code = languageCode.Trim();
+
+        if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(code) && !string.Equals(name, code, StringComparison.OrdinalIgnoreCase))
+            return $"{name} ({code})";
+
+        if (!string.IsNullOrWhiteSpace(code))
+            return code;
+
+        return string.IsNullOrWhiteSpace(name) ? "Unknown" : name;
+    }
 
     private static string ShortHash(string hash)
         => string.IsNullOrWhiteSpace(hash) ? string.Empty : hash[..Math.Min(12, hash.Length)];
@@ -904,6 +1000,20 @@ public sealed class ConfigWindow : Window, IDisposable
             cfg.BgmMachinationsCommentaryEnabled = bgm;
             cfg.Save();
         }
+
+        var expanded = cfg.ExpandedEventCommentaryEnabled;
+        if (ImGui.Checkbox("Expanded events", ref expanded))
+        {
+            cfg.ExpandedEventCommentaryEnabled = expanded;
+            cfg.Save();
+        }
+
+        var triggerChance = cfg.ReadingRoegadynTriggerChancePercent;
+        if (ImGui.SliderInt("Automatic trigger chance %", ref triggerChance, 0, 100))
+        {
+            cfg.ReadingRoegadynTriggerChancePercent = Math.Clamp(triggerChance, 0, 100);
+            cfg.Save();
+        }
     }
 
     private void DrawCooldowns(Configuration cfg)
@@ -933,6 +1043,13 @@ public sealed class ConfigWindow : Window, IDisposable
         if (ImGui.InputInt("BGM cooldown seconds", ref bgmCooldown))
         {
             cfg.BgmCommentaryCooldownSeconds = Math.Max(0, bgmCooldown);
+            cfg.Save();
+        }
+
+        var expandedCooldown = cfg.ExpandedEventCooldownSeconds;
+        if (ImGui.InputInt("Expanded event cooldown seconds", ref expandedCooldown))
+        {
+            cfg.ExpandedEventCooldownSeconds = Math.Max(0, expandedCooldown);
             cfg.Save();
         }
     }

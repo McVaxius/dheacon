@@ -20,7 +20,7 @@ public enum TtsBackend
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
-    public const int CurrentVersion = 5;
+    public const int CurrentVersion = 6;
 
     public int Version { get; set; } = CurrentVersion;
     public bool PluginEnabled { get; set; } = false;
@@ -57,11 +57,14 @@ public class Configuration : IPluginConfiguration
     public bool IdleCommentaryEnabled { get; set; } = true;
     public bool CombatCommentaryEnabled { get; set; } = true;
     public bool BgmMachinationsCommentaryEnabled { get; set; } = true;
+    public bool ExpandedEventCommentaryEnabled { get; set; } = true;
+    public int ReadingRoegadynTriggerChancePercent { get; set; } = 25;
 
     public int TerritoryCommentaryCooldownSeconds { get; set; } = 8;
     public int IdleCommentaryCooldownSeconds { get; set; } = 600;
     public int CombatCommentaryCooldownSeconds { get; set; } = 20;
     public int BgmCommentaryCooldownSeconds { get; set; } = 120;
+    public int ExpandedEventCooldownSeconds { get; set; } = 45;
 
     public string GetResolvedTtsCacheDirectory()
     {

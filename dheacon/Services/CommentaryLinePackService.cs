@@ -126,7 +126,10 @@ public sealed class CommentaryLinePackService
             .Replace("{to}", context.ToTerritoryName ?? $"territory {context.ToTerritoryId ?? 0}", StringComparison.Ordinal)
             .Replace("{fromId}", (context.FromTerritoryId ?? 0).ToString(), StringComparison.Ordinal)
             .Replace("{toId}", (context.ToTerritoryId ?? 0).ToString(), StringComparison.Ordinal)
-            .Replace("{bgmId}", (context.BgmId ?? 0).ToString(), StringComparison.Ordinal);
+            .Replace("{bgmId}", (context.BgmId ?? 0).ToString(), StringComparison.Ordinal)
+            .Replace("{job}", context.Job ?? "adventurer", StringComparison.Ordinal)
+            .Replace("{level}", (context.Level ?? 0).ToString(), StringComparison.Ordinal)
+            .Replace("{event}", context.Event ?? "event", StringComparison.Ordinal);
     }
 
     private void LoadFallbacksForMissingCategories()
@@ -138,6 +141,40 @@ public sealed class CommentaryLinePackService
         AddFallback(CommentaryCategory.CombatStart, "Steel out. Commentary brief and useful.");
         AddFallback(CommentaryCategory.CombatEnd, "Combat ended. I will pretend that was all deliberate.");
         AddFallback(CommentaryCategory.BgmMachinations, "Machinations detected. Someone nearby is about to make paperwork violent.");
+        AddFallback(CommentaryCategory.LevelChange, "{job} level {level}. Please update the forms before looking proud.");
+        AddFallback(CommentaryCategory.ClassJobChange, "{job} selected. New badge, same weather.");
+        AddFallback(CommentaryCategory.MountStart, "Mounted. The walking committee has been adjourned.");
+        AddFallback(CommentaryCategory.MountEnd, "Dismounted. The floor has resumed jurisdiction.");
+        AddFallback(CommentaryCategory.FlightStart, "Flight confirmed. Gravity has filed a complaint.");
+        AddFallback(CommentaryCategory.FlightEnd, "Flight ended. Return the sky to its drawer.");
+        AddFallback(CommentaryCategory.DutyQueueStart, "Duty queue joined. Waiting has acquired an official title.");
+        AddFallback(CommentaryCategory.DutyQueueEnd, "Duty queue ended. The clipboard may unclench.");
+        AddFallback(CommentaryCategory.DutyStart, "Duty commenced. Please keep heroics within posted guidelines.");
+        AddFallback(CommentaryCategory.DutyEnd, "Duty concluded. Everyone pretend the report was tidy.");
+        AddFallback(CommentaryCategory.CraftingStart, "Crafting started. The desk has requested incident coverage.");
+        AddFallback(CommentaryCategory.CraftingEnd, "Crafting ended. No one mention the offcuts.");
+        AddFallback(CommentaryCategory.GatheringStart, "Gathering started. The dirt is now a stakeholder.");
+        AddFallback(CommentaryCategory.GatheringEnd, "Gathering ended. The land has been inconvenienced.");
+        AddFallback(CommentaryCategory.FishingStart, "Fishing started. We will negotiate with water.");
+        AddFallback(CommentaryCategory.FishingEnd, "Fishing ended. The fish have submitted mixed feedback.");
+        AddFallback(CommentaryCategory.CutsceneStart, "Cutscene started. I will hold your place in reality.");
+        AddFallback(CommentaryCategory.CutsceneEnd, "Cutscene ended. Reality has resumed billing.");
+        AddFallback(CommentaryCategory.PerformanceStart, "Performance started. The arts have entered the ledger.");
+        AddFallback(CommentaryCategory.PerformanceEnd, "Performance ended. Applause may be filed alphabetically.");
+        AddFallback(CommentaryCategory.MinigameStart, "Mini-game started. Small stakes, full paperwork.");
+        AddFallback(CommentaryCategory.MinigameEnd, "Mini-game ended. The ledger accepts tiny victories.");
+        AddFallback(CommentaryCategory.SummoningBellStart, "Summoning bell engaged. Retainers, brace for questions.");
+        AddFallback(CommentaryCategory.SummoningBellEnd, "Summoning bell released. Commerce may breathe again.");
+        AddFallback(CommentaryCategory.PartyFinderStart, "Party Finder opened. Strangers will now self-categorize.");
+        AddFallback(CommentaryCategory.PartyFinderEnd, "Party Finder closed. The social ledger is temporarily quiet.");
+        AddFallback(CommentaryCategory.SwimmingStart, "Swimming started. Boots are no longer policy-compliant.");
+        AddFallback(CommentaryCategory.SwimmingEnd, "Swimming ended. Drip responsibly.");
+        AddFallback(CommentaryCategory.DivingStart, "Diving started. The ocean has accepted your application.");
+        AddFallback(CommentaryCategory.DivingEnd, "Diving ended. Surface paperwork restored.");
+        AddFallback(CommentaryCategory.Unconscious, "Unconscious. I will mark this as a training expense.");
+        AddFallback(CommentaryCategory.Recovered, "Recovered. The floor has released its claim.");
+        AddFallback(CommentaryCategory.PvpEnter, "PvP entered. Diplomacy has been given a weapon.");
+        AddFallback(CommentaryCategory.PvpLeave, "PvP left. The scoreboard may return to sleep.");
     }
 
     private void AddFallback(CommentaryCategory category, string text)

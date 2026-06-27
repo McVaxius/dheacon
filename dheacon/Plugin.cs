@@ -55,6 +55,7 @@ public sealed class Plugin : IDalamudPlugin
         BgmProbeService = new BgmProbeService(SigScanner, Log);
         CommentaryTriggerService = new CommentaryTriggerService(
             ClientState,
+            PlayerState,
             Condition,
             DataManager,
             Log,
@@ -80,6 +81,7 @@ public sealed class Plugin : IDalamudPlugin
     public void Dispose()
     {
         AetheryteTriggerService.Dispose();
+        CommentaryTriggerService.Dispose();
         SpeechQueueService.Dispose();
         PiperVoiceCatalogService.Dispose();
         Framework.Update -= OnFrameworkUpdate;
@@ -204,6 +206,20 @@ public sealed class Plugin : IDalamudPlugin
         if (string.IsNullOrWhiteSpace(Configuration.TtsPiperTextAdapterId))
         {
             Configuration.TtsPiperTextAdapterId = SpokenTextAdapterService.DefaultAdapterId;
+            changed = true;
+        }
+
+        var clampedChance = Math.Clamp(Configuration.ReadingRoegadynTriggerChancePercent, 0, 100);
+        if (Configuration.ReadingRoegadynTriggerChancePercent != clampedChance)
+        {
+            Configuration.ReadingRoegadynTriggerChancePercent = clampedChance;
+            changed = true;
+        }
+
+        var clampedExpandedCooldown = Math.Max(0, Configuration.ExpandedEventCooldownSeconds);
+        if (Configuration.ExpandedEventCooldownSeconds != clampedExpandedCooldown)
+        {
+            Configuration.ExpandedEventCooldownSeconds = clampedExpandedCooldown;
             changed = true;
         }
 
