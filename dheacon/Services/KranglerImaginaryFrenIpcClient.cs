@@ -68,7 +68,7 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
     {
         try
         {
-            SendDesired(enabled: false, name: "Golden Sven", presetKey: "e97d1e17-9247-46aa-a9ad-b942ab905d31");
+            SendDesired(enabled: false, name: KranglerImaginaryFrenPreset.DefaultName, presetKey: KranglerImaginaryFrenPreset.DefaultPresetKey);
         }
         catch
         {
@@ -141,11 +141,10 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
         var activePreset = presetService.ActivePreset;
         var desiredFren = activePreset.ImaginaryFren;
         var shouldEnable = configuration.PluginEnabled &&
-                           string.Equals(activePreset.Id, DheaconPresetIds.ReadingRoegadyn, StringComparison.OrdinalIgnoreCase) &&
                            desiredFren?.Enabled == true;
 
-        var name = desiredFren?.Name ?? "Golden Sven";
-        var presetKey = desiredFren?.PresetKey ?? "e97d1e17-9247-46aa-a9ad-b942ab905d31";
+        var name = desiredFren?.Name ?? KranglerImaginaryFrenPreset.DefaultName;
+        var presetKey = desiredFren?.PresetKey ?? KranglerImaginaryFrenPreset.DefaultPresetKey;
         SendDesired(shouldEnable, name, presetKey);
     }
 

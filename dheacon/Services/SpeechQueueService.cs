@@ -13,6 +13,7 @@ public sealed class SpeechQueueService : IDisposable
     private readonly Task workerTask;
     private int pendingCount;
     private int activeCount;
+    private long speechSequence;
 
     public SpeechQueueService(
         IPluginLog log,
@@ -32,6 +33,7 @@ public sealed class SpeechQueueService : IDisposable
 
     public int PendingCount => Math.Max(0, Volatile.Read(ref pendingCount));
     public bool IsBusy => PendingCount > 0 || Volatile.Read(ref activeCount) > 0;
+    public long SpeechSequence => Volatile.Read(ref speechSequence);
     public string LastStatus { get; private set; } = "Speech queue ready.";
     public string LastError { get; private set; } = string.Empty;
     public string LastText { get; private set; } = string.Empty;
@@ -120,6 +122,7 @@ public sealed class SpeechQueueService : IDisposable
             var wavPath = speechCacheService.GetOrCreateWav(request.Text, cancellationToken);
 
             cancellationToken.ThrowIfCancellationRequested();
+            Interlocked.Increment(ref speechSequence);
             audioPlaybackService.PlayWavFileSync(wavPath, $"Reading Roegadyn {request.Category}");
 
             LastSpokenAtUtc = DateTime.UtcNow;

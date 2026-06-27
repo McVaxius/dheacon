@@ -24,6 +24,8 @@ public sealed class ConfigWindow : Window, IDisposable
     private string selectedPiperCatalogId = string.Empty;
     private string piperPreviewText = "Reading Roegadyn reports FFXIV BGM 85 near Limsa Lominsa for Aelwyn Frost.";
     private string presetImportText = string.Empty;
+    private string presetRenameText = string.Empty;
+    private string presetRenameTargetId = string.Empty;
 
     public ConfigWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Settings##Config")
     {
@@ -77,11 +79,11 @@ public sealed class ConfigWindow : Window, IDisposable
         }
         TooltipLastItem("Turns all Dheacon/Reading Roegadyn triggers on or off immediately.");
 
-        ImGui.SameLine();
-        DrawPresetSelector();
+        ImGui.Separator();
+        DrawPresetManager();
 
         ImGui.Separator();
-        DrawPresetActions();
+        DrawImaginaryFrenPanel();
 
         ImGui.Separator();
         ImGui.TextUnformatted("DTR");
@@ -121,6 +123,17 @@ public sealed class ConfigWindow : Window, IDisposable
             plugin.UpdateDtrBar();
         }
         TooltipLastItem("Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.");
+
+        ImGui.Separator();
+        ImGui.TextUnformatted("Mini Window");
+
+        var miniAutoOpen = cfg.MiniAutoOpenOnSpeech;
+        if (ImGui.Checkbox("Open mini window when speech starts", ref miniAutoOpen))
+        {
+            cfg.MiniAutoOpenOnSpeech = miniAutoOpen;
+            cfg.Save();
+        }
+        TooltipLastItem("When enabled, the mini window opens on the next spoken line and stays open.");
 
         ImGui.Separator();
         if (plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon)
@@ -256,30 +269,101 @@ public sealed class ConfigWindow : Window, IDisposable
             DrawWrappedStatus("Speech warning: " + plugin.SpeechCacheService.LastError, "Last speech synthesis or cache warning.");
     }
 
-    private void DrawPresetSelector()
+    private void DrawPresetManager()
     {
+        ImGui.TextUnformatted("Presets");
         var presets = plugin.PresetService.Presets.ToList();
         var active = plugin.PresetService.ActivePreset;
-        var currentIndex = Math.Max(0, presets.FindIndex(preset => string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase)));
-        var labels = presets.Select(preset => preset.Protected ? $"{preset.Name} *" : preset.Name).ToArray();
+        EnsurePresetRenameBuffer(active);
 
-        ImGui.SetNextItemWidth(260f);
-        if (ImGui.Combo("Preset", ref currentIndex, labels, labels.Length))
+        var listWidth = Math.Min(420f, ImGui.GetContentRegionAvail().X);
+        var visibleRows = Math.Clamp(presets.Count, 4, 8);
+        var listHeight = (ImGui.GetTextLineHeightWithSpacing() * visibleRows) + 8f;
+        ImGui.BeginChild("##DheaconPresetList", new Vector2(listWidth, listHeight), true);
+        foreach (var preset in presets)
         {
-            plugin.PresetService.SetActivePreset(presets[currentIndex].Id, out var message);
-            plugin.PrintStatus(message);
-            plugin.UpdateDtrBar();
-            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            var selected = string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase);
+            var suffix = preset.Protected ? "  [template]" : "  [user]";
+            if (ImGui.Selectable($"{preset.Name}{suffix}##Preset-{preset.Id}", selected))
+                SelectPreset(preset.Id);
+            TooltipLastItem(preset.Description);
         }
-        TooltipLastItem("Selects the active protected or imported behavior preset. An asterisk marks protected bundled presets.");
-    }
+        ImGui.EndChild();
 
-    private void DrawPresetActions()
-    {
-        var active = plugin.PresetService.ActivePreset;
+        if (ImGui.SmallButton("+"))
+        {
+            if (plugin.PresetService.DuplicateActivePreset(out var duplicated, out var message))
+            {
+                plugin.PrintStatus(message);
+                if (duplicated != null)
+                    EnsurePresetRenameBuffer(duplicated);
+                plugin.UpdateDtrBar();
+                plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            }
+            else
+            {
+                plugin.PrintStatus("Preset duplicate failed: " + message);
+            }
+        }
+        TooltipLastItem("Duplicates the active preset into a new editable user preset.");
+
+        ImGui.SameLine();
+        ImGui.BeginDisabled(active.Protected);
+        if (ImGui.SmallButton("-"))
+        {
+            if (plugin.PresetService.DeleteUserPreset(active.Id, out var message))
+            {
+                plugin.PrintStatus(message);
+                EnsurePresetRenameBuffer(plugin.PresetService.ActivePreset);
+                plugin.UpdateDtrBar();
+                plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            }
+            else
+            {
+                plugin.PrintStatus("Preset delete failed: " + message);
+            }
+        }
+        ImGui.EndDisabled();
+        TooltipLastItem(active.Protected ? "Protected bundled templates cannot be deleted." : "Deletes the active user preset.");
+
         DrawWrappedStatus($"Active preset: {active.Name}", "Current active preset.");
-        DrawWrappedStatus($"Preset source: {(active.Bundled ? "Bundled" : "User")}  Protected: {active.Protected}", "Protected bundled presets cannot be deleted.");
+        DrawWrappedStatus($"Preset source: {(active.Bundled ? "Bundled" : "User")}  Protected: {active.Protected}", "Protected bundled presets cannot be renamed, deleted, or overwritten.");
         DrawWrappedStatus("Preset status: " + plugin.PresetService.LastStatus, "Preset load/import/export status.");
+        DrawLinePackSelector(active);
+
+        ImGui.BeginDisabled(active.Protected);
+        ImGui.SetNextItemWidth(Math.Min(320f, ImGui.GetContentRegionAvail().X));
+        ImGui.InputText("Name", ref presetRenameText, 96);
+        TooltipLastItem(active.Protected ? "Duplicate this template with + before renaming." : "Edit the active user preset display name.");
+
+        if (ImGui.Button("Rename"))
+        {
+            if (plugin.PresetService.RenameUserPreset(active.Id, presetRenameText, out var message))
+            {
+                plugin.PrintStatus(message);
+                EnsurePresetRenameBuffer(plugin.PresetService.ActivePreset);
+                plugin.UpdateDtrBar();
+            }
+            else
+            {
+                plugin.PrintStatus("Preset rename failed: " + message);
+            }
+        }
+        TooltipLastItem("Renames the active user preset.");
+
+        ImGui.SameLine();
+        if (ImGui.Button("Save current settings"))
+        {
+            if (plugin.PresetService.SaveActivePresetFromConfiguration(out var message))
+                plugin.PrintStatus(message);
+            else
+                plugin.PrintStatus("Preset save failed: " + message);
+        }
+        TooltipLastItem("Writes the current live settings into the active user preset.");
+        ImGui.EndDisabled();
+
+        if (active.Protected)
+            DrawDisabledStatus("Duplicate this template with + before renaming or saving over it.", "Bundled templates are read-only.");
 
         if (ImGui.Button("Export active preset"))
         {
@@ -311,6 +395,9 @@ public sealed class ConfigWindow : Window, IDisposable
                 if (!string.IsNullOrWhiteSpace(imported?.ImaginaryFren?.EmbeddedKranglerPresetBase64))
                     plugin.KranglerImaginaryFrenIpcClient.TryImportPresetBase64(imported.ImaginaryFren.EmbeddedKranglerPresetBase64, out _);
 
+                if (imported != null)
+                    SelectPreset(imported.Id, printStatus: false);
+
                 plugin.PrintStatus(message);
                 presetImportText = string.Empty;
             }
@@ -320,6 +407,113 @@ public sealed class ConfigWindow : Window, IDisposable
             }
         }
         TooltipLastItem("Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.");
+    }
+
+    private void DrawLinePackSelector(DheaconPreset active)
+    {
+        if (active.Mode != CommentaryMode.ReadingRoegadyn)
+        {
+            DrawDisabledStatus("Line pack: not used in Dheacon mode.", "Dheacon mode plays the packaged alert sound instead of spoken commentary.");
+            return;
+        }
+
+        var linePacks = plugin.CommentaryLinePackService.LinePacks.ToList();
+        if (linePacks.Count == 0)
+        {
+            DrawWrappedStatus("Line pack status: " + plugin.CommentaryLinePackService.LastLoadStatus, "No selectable line packs were loaded.");
+            return;
+        }
+
+        var activeLinePackId = plugin.CommentaryLinePackService.CanonicalizeLinePackId(active.LinePackId);
+        if (string.IsNullOrWhiteSpace(activeLinePackId))
+            activeLinePackId = CommentaryLinePackService.ReadingRoegadynLinePackId;
+
+        var currentIndex = linePacks.FindIndex(info => string.Equals(info.Id, activeLinePackId, StringComparison.OrdinalIgnoreCase));
+        if (currentIndex < 0)
+            currentIndex = Math.Max(0, linePacks.FindIndex(info => string.Equals(info.Id, CommentaryLinePackService.ReadingRoegadynLinePackId, StringComparison.OrdinalIgnoreCase)));
+
+        var labels = linePacks
+            .Select(info => $"{info.Name} [{(info.Bundled ? "bundled" : "user")}]")
+            .ToArray();
+
+        ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
+        if (ImGui.Combo("Line pack", ref currentIndex, labels, labels.Length))
+        {
+            if (plugin.PresetService.UpdateActiveLinePack(linePacks[currentIndex].Id, out var message))
+                plugin.PrintStatus(message);
+            else
+                plugin.PrintStatus("Line pack update failed: " + message);
+        }
+        TooltipLastItem(active.Protected ? "Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice." : "Selects the line pack used after any inline preset lines.");
+
+        var selected = linePacks[Math.Clamp(currentIndex, 0, linePacks.Count - 1)];
+        DrawWrappedStatus($"Line pack status: {plugin.CommentaryLinePackService.LastLoadStatus}", "Line-pack loader status.");
+        if (!string.IsNullOrWhiteSpace(selected.Description))
+            DrawWrappedStatus(selected.Description, "Selected line-pack description.");
+    }
+
+    private void DrawImaginaryFrenPanel()
+    {
+        var active = plugin.PresetService.ActivePreset;
+        var fren = active.ImaginaryFren ?? new KranglerImaginaryFrenPreset();
+
+        ImGui.TextUnformatted("Imaginary Fren");
+        var enabled = fren.Enabled;
+        if (ImGui.Checkbox("Spawn Fren for this preset", ref enabled))
+            UpdateActiveFrenSettings(enabled, fren.Name, fren.PresetKey);
+        TooltipLastItem("When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.");
+
+        var name = fren.Name;
+        ImGui.SetNextItemWidth(Math.Min(320f, ImGui.GetContentRegionAvail().X));
+        if (ImGui.InputText("Display name", ref name, 64))
+            UpdateActiveFrenSettings(enabled, name, fren.PresetKey);
+        TooltipLastItem("Name Krangler writes onto the local-only follower actor.");
+
+        var presetKey = fren.PresetKey;
+        ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
+        if (ImGui.InputText("Krangler preset", ref presetKey, 160))
+            UpdateActiveFrenSettings(enabled, name, presetKey);
+        TooltipLastItem("Krangler preset name, identifier, or source filename to apply to the follower.");
+
+        if (ImGui.Button("Reconcile now"))
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+        TooltipLastItem("Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.");
+
+        DrawWrappedStatus("Follower status: " + plugin.KranglerImaginaryFrenIpcClient.LastStatus, "Last Krangler Imaginary Fren IPC status.");
+        if (!string.IsNullOrWhiteSpace(plugin.KranglerImaginaryFrenIpcClient.LastError))
+            DrawWrappedStatus("Follower warning: " + plugin.KranglerImaginaryFrenIpcClient.LastError, "Krangler is optional; this warning does not stop Dheacon speech.");
+        if (active.Protected)
+            DrawDisabledStatus("Fren edits on this protected template are runtime-only. Duplicate with + to persist them.", "Bundled templates are read-only.");
+    }
+
+    private void SelectPreset(string presetId, bool printStatus = true)
+    {
+        if (plugin.PresetService.SetActivePreset(presetId, out var message))
+        {
+            if (printStatus)
+                plugin.PrintStatus(message);
+            EnsurePresetRenameBuffer(plugin.PresetService.ActivePreset);
+            plugin.UpdateDtrBar();
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            return;
+        }
+
+        plugin.PrintStatus(message);
+    }
+
+    private void UpdateActiveFrenSettings(bool enabled, string name, string presetKey)
+    {
+        if (plugin.PresetService.UpdateActiveImaginaryFren(enabled, name, presetKey, out _))
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+    }
+
+    private void EnsurePresetRenameBuffer(DheaconPreset active)
+    {
+        if (string.Equals(presetRenameTargetId, active.Id, StringComparison.OrdinalIgnoreCase))
+            return;
+
+        presetRenameTargetId = active.Id;
+        presetRenameText = active.Name;
     }
 
     private void DrawDheaconSettings(Configuration cfg)

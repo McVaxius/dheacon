@@ -20,7 +20,7 @@ public enum TtsBackend
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
-    public const int CurrentVersion = 9;
+    public const int CurrentVersion = 11;
 
     public int Version { get; set; } = CurrentVersion;
     public bool PluginEnabled { get; set; } = false;
@@ -30,13 +30,14 @@ public class Configuration : IPluginConfiguration
     public int DtrBarMode { get; set; } = 1;
     public string DtrIconEnabled { get; set; } = "\uE044";
     public string DtrIconDisabled { get; set; } = "\uE04C";
+    public bool MiniAutoOpenOnSpeech { get; set; } = false;
     public bool SuppressTeleportAndReturnTransitions { get; set; } = true;
     public string AlertSoundRelativePath { get; set; } = @"data\transition-alert.wav";
     public string LastAccountId { get; set; } = string.Empty;
 
     public string TtsCacheDirectory { get; set; } = string.Empty;
     public int TtsMaxCacheMegabytes { get; set; } = 256;
-    public TtsBackend TtsBackend { get; set; } = TtsBackend.LegacySapi;
+    public TtsBackend TtsBackend { get; set; } = TtsBackend.PiperLocal;
     public string TtsModernVoiceId { get; set; } = string.Empty;
     public string TtsVoiceName { get; set; } = string.Empty;
     public string TtsPiperVoiceId { get; set; } = string.Empty;

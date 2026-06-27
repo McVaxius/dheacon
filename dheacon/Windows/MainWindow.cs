@@ -60,7 +60,7 @@ public sealed class MainWindow : Window, IDisposable
             plugin.PrintStatus(GetModeStatus());
 
         ImGui.TextWrapped(PluginInfo.Summary);
-        DrawPresetSelector();
+        DrawPresetList();
         ImGui.Separator();
 
         Action drawStatus = plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
@@ -72,22 +72,29 @@ public sealed class MainWindow : Window, IDisposable
         ImGui.Text($"Command: {PluginInfo.Command}");
     }
 
-    private void DrawPresetSelector()
+    private void DrawPresetList()
     {
-        ImGui.TextUnformatted("Preset");
+        ImGui.TextUnformatted("Presets");
         var presets = plugin.PresetService.Presets.ToList();
         var active = plugin.PresetService.ActivePreset;
-        var currentIndex = Math.Max(0, presets.FindIndex(preset => string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase)));
-        var labels = presets.Select(preset => preset.Protected ? $"{preset.Name} *" : preset.Name).ToArray();
 
-        ImGui.SetNextItemWidth(Math.Min(360f, ImGui.GetContentRegionAvail().X));
-        if (ImGui.Combo("##DheaconPreset", ref currentIndex, labels, labels.Length))
+        var listWidth = Math.Min(420f, ImGui.GetContentRegionAvail().X);
+        var visibleRows = Math.Clamp(presets.Count, 3, 6);
+        var listHeight = (ImGui.GetTextLineHeightWithSpacing() * visibleRows) + 8f;
+        ImGui.BeginChild("##DheaconPresetListMain", new Vector2(listWidth, listHeight), true);
+        foreach (var preset in presets)
         {
-            plugin.PresetService.SetActivePreset(presets[currentIndex].Id, out var message);
-            plugin.PrintStatus(message);
-            plugin.UpdateDtrBar();
-            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            var selected = string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase);
+            var suffix = preset.Protected ? "  [template]" : "  [user]";
+            if (ImGui.Selectable($"{preset.Name}{suffix}##MainPreset-{preset.Id}", selected))
+            {
+                plugin.PresetService.SetActivePreset(preset.Id, out var message);
+                plugin.PrintStatus(message);
+                plugin.UpdateDtrBar();
+                plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            }
         }
+        ImGui.EndChild();
 
         ImGui.TextWrapped(active.Description);
     }

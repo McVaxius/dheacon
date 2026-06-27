@@ -42,7 +42,9 @@ public sealed class Plugin : IDalamudPlugin
     public WindowSystem WindowSystem { get; } = new(PluginInfo.InternalName);
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
+    private readonly MiniWindow miniWindow;
     private IDtrBarEntry? dtrEntry;
+    private long lastMiniAutoOpenSpeechSequence;
 
     public Plugin()
     {
@@ -70,9 +72,12 @@ public sealed class Plugin : IDalamudPlugin
         AetheryteTriggerService = new AetheryteTriggerService(ClientState, Condition, Log, Configuration, OnTriggeredAreaTransition);
         mainWindow = new MainWindow(this);
         configWindow = new ConfigWindow(this);
+        miniWindow = new MiniWindow(this);
         WindowSystem.AddWindow(mainWindow);
         WindowSystem.AddWindow(configWindow);
-        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
+        WindowSystem.AddWindow(miniWindow);
+        lastMiniAutoOpenSpeechSequence = SpeechQueueService.SpeechSequence;
+        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mini, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
         PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
@@ -100,6 +105,7 @@ public sealed class Plugin : IDalamudPlugin
 
     public void ToggleMainUi() => mainWindow.Toggle();
     public void ToggleConfigUi() => configWindow.Toggle();
+    public void ToggleMiniUi() => miniWindow.Toggle();
     public void PrintStatus(string m) => ChatGui.Print($"[{PluginInfo.DisplayName}] {m}");
 
     private void OnCommand(string command, string arguments)
@@ -118,6 +124,13 @@ public sealed class Plugin : IDalamudPlugin
         if (verb.Equals("config", StringComparison.OrdinalIgnoreCase))
         {
             ToggleConfigUi();
+            return;
+        }
+
+        if (verb.Equals("mini", StringComparison.OrdinalIgnoreCase))
+        {
+            ToggleMiniUi();
+            PrintStatus(miniWindow.IsOpen ? "Mini window opened." : "Mini window closed.");
             return;
         }
 
@@ -264,6 +277,18 @@ public sealed class Plugin : IDalamudPlugin
             changed = true;
         }
 
+        if (Configuration.Version < 10 && IsUnchangedLegacyTtsDefault())
+        {
+            Configuration.TtsBackend = TtsBackend.PiperLocal;
+            changed = true;
+        }
+
+        if (Configuration.Version < 11)
+        {
+            Configuration.MiniAutoOpenOnSpeech = false;
+            changed = true;
+        }
+
         var clampedPiperLengthScale = Math.Clamp(Configuration.TtsPiperLengthScale, 0.5d, 2.0d);
         if (Math.Abs(Configuration.TtsPiperLengthScale - clampedPiperLengthScale) > 0.0001d)
         {
@@ -295,6 +320,15 @@ public sealed class Plugin : IDalamudPlugin
             Configuration.Save();
     }
 
+    private bool IsUnchangedLegacyTtsDefault()
+        => Configuration.TtsBackend == TtsBackend.LegacySapi &&
+           string.IsNullOrWhiteSpace(Configuration.TtsVoiceName) &&
+           string.IsNullOrWhiteSpace(Configuration.TtsModernVoiceId) &&
+           Configuration.TtsRate == 0 &&
+           Configuration.TtsVolume == 100 &&
+           Math.Abs(Configuration.TtsPitch - 0.75d) < 0.0001d &&
+           Configuration.TtsOutputGainPercent == 200;
+
     private void SetupDtrBar()
     {
         dtrEntry = DtrBar.Get(PluginInfo.DisplayName);
@@ -311,7 +345,25 @@ public sealed class Plugin : IDalamudPlugin
         AetheryteTriggerService.Update();
         CommentaryTriggerService.Update();
         KranglerImaginaryFrenIpcClient.Update();
+        UpdateMiniAutoOpen();
         UpdateDtrBar();
+    }
+
+    private void UpdateMiniAutoOpen()
+    {
+        var speechSequence = SpeechQueueService.SpeechSequence;
+
+        if (!Configuration.MiniAutoOpenOnSpeech)
+        {
+            lastMiniAutoOpenSpeechSequence = speechSequence;
+            return;
+        }
+
+        if (speechSequence <= 0 || speechSequence == lastMiniAutoOpenSpeechSequence)
+            return;
+
+        lastMiniAutoOpenSpeechSequence = speechSequence;
+        miniWindow.IsOpen = true;
     }
 
     private void OnTriggeredAreaTransition(uint fromTerritory, uint toTerritory)
