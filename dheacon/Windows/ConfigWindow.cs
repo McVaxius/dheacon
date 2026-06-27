@@ -214,6 +214,12 @@ public sealed class ConfigWindow : Window, IDisposable
         DrawWrappedStatus("Piper catalog: " + plugin.PiperVoiceCatalogService.LastStatus, "Last Piper catalog or setup status.");
         if (!string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError))
             DrawWrappedStatus("Piper warning: " + plugin.PiperVoiceCatalogService.LastError, "Last Piper catalog, runtime, or install warning.");
+        DrawWrappedStatus(
+            $"Piper settings: speed {cfg.TtsPiperLengthScale:F2}, sentence pause {cfg.TtsPiperSentenceSilence:F2}s, pitch {FormatPiperSemitones(cfg.TtsPiperPitchShiftSemitones)} st, gain {cfg.TtsOutputGainPercent}%",
+            "Piper synthesis and post-processing settings that affect future Piper WAV cache entries.");
+        DrawWrappedStatus(
+            $"Last Piper pitch shift: {plugin.SpeechCacheService.LastPiperPitchShiftStatus} Applied: {plugin.SpeechCacheService.LastPiperPitchShiftApplied}. Semitones: {FormatPiperSemitones(plugin.SpeechCacheService.LastPiperPitchShiftSemitones)} st.",
+            "Most recent Piper pitch-shift processing result.");
 
         ImGui.Separator();
         DrawWrappedStatus("Adapter service: " + plugin.SpokenTextAdapterService.LastStatus, "Last spoken text adapter load status.");
@@ -399,6 +405,8 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.Text($"Cache size: {plugin.SpeechCacheService.GetCacheSizeMegabytes():F1} MB");
         TooltipLastItem("Current approximate size of cached generated WAV files.");
         DrawWrappedStatus("Cache status: " + plugin.SpeechCacheService.LastStatus, "Last cache operation result, including cache hits and generated files.");
+        if (!string.IsNullOrWhiteSpace(plugin.SpeechCacheService.LastError))
+            DrawWrappedStatus("Speech warning: " + plugin.SpeechCacheService.LastError, "Last speech synthesis or cache warning.");
     }
 
     private void DrawTextAdapterSettings(Configuration cfg)
@@ -1105,6 +1113,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private static string ShortHash(string hash)
         => string.IsNullOrWhiteSpace(hash) ? string.Empty : hash[..Math.Min(12, hash.Length)];
+
+    private static string FormatPiperSemitones(double semitones)
+        => semitones.ToString("+0.0;-0.0;0.0");
 
     private static PiperCatalogColumnWidths CalculatePiperCatalogColumnWidths(IReadOnlyList<PiperVoiceCatalogEntry> entries, float availableWidth)
     {

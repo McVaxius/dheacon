@@ -25,10 +25,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NAudio.Core" Version="2.2.1" />
+    <PackageReference Include="SoundTouch.Net.NAudioSupport.Core" Version="2.3.2" />
     <PackageReference Include="System.Speech" Version="10.0.9" />
     <PackageReference Include="System.Windows.Extensions" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="THIRD-PARTY-NOTICES.txt" CopyToOutputDirectory="PreserveNewest" />
     <None Include="dheacon.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="images\icon.png" CopyToOutputDirectory="PreserveNewest" />
     <None Include="data\**" CopyToOutputDirectory="PreserveNewest" />

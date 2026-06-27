@@ -1,0 +1,10 @@
+Dheacon third-party notices
+
+SoundTouch.NET
+Packages: SoundTouch.Net.NAudioSupport.Core 2.3.2, SoundTouch.Net 2.3.2
+Copyright: Copyright (c) Olaf Woudenberg 2011-2019; based on the SoundTouch audio processing library Copyright (c) Olli Parviainen.
+License: GNU Lesser General Public License, version 2.1 or later (LGPL-2.1-or-later).
+Source: https://github.com/owoudenberg/soundtouch.net
+License text: https://licenses.nuget.org/LGPL-2.1-or-later
+
+These libraries are distributed as separate DLLs with the plugin artifact.

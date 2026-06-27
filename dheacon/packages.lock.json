@@ -20,6 +20,16 @@
         "resolved": "2.2.1",
         "contentHash": "GgkdP6K/7FqXFo7uHvoqGZTJvW4z8g2IffhOO4JHaLzKCdDOUEzVKtveoZkCuUX8eV2HAINqi7VFqlFndrnz/g=="
       },
+      "SoundTouch.Net.NAudioSupport.Core": {
+        "type": "Direct",
+        "requested": "[2.3.2, )",
+        "resolved": "2.3.2",
+        "contentHash": "I5UZ7RQCj/bBfDc2u1NpfedUeO7pGRlONio6upysM3Ks+MQ8IEk2f3eszeilr/XPV40pb9JNLyvi5FNcAfME3w==",
+        "dependencies": {
+          "NAudio.Core": "2.0.0",
+          "SoundTouch.Net": "2.3.2"
+        }
+      },
       "System.Speech": {
         "type": "Direct",
         "requested": "[10.0.9, )",
@@ -31,6 +41,11 @@
         "requested": "[10.0.0, )",
         "resolved": "10.0.0",
         "contentHash": "W2xPfgCUO83kPEtfkSsXpHT9KX4YiajDgtuJhjfOY18u58vMGyoBG44QIQCs2nTugmzsm506S/ur29k1WpE9+w=="
+      },
+      "SoundTouch.Net": {
+        "type": "Transitive",
+        "resolved": "2.3.2",
+        "contentHash": "5A29Pll/n4kEEPvCD5DFot3MJG+VgiaRG6LbNQVkF94VerC1b5iZtJKfdLQXZPFrl3LiVbKm3txKBe5/pbv5rw=="
       }
     }
   }

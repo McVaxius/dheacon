@@ -127,7 +127,8 @@ public sealed class MainWindow : Window, IDisposable
         if (plugin.Configuration.TtsBackend == TtsBackend.PiperLocal)
         {
             ImGui.TextWrapped("Piper runtime: " + GetLastPiperRuntimeStatus());
-            ImGui.Text($"Piper speed: {plugin.Configuration.TtsPiperLengthScale:F2}  Sentence pause: {plugin.Configuration.TtsPiperSentenceSilence:F2}s  Playback gain: {plugin.Configuration.TtsOutputGainPercent}%");
+            ImGui.Text($"Piper speed: {plugin.Configuration.TtsPiperLengthScale:F2}  Sentence pause: {plugin.Configuration.TtsPiperSentenceSilence:F2}s  Pitch: {FormatPiperSemitones(plugin.Configuration.TtsPiperPitchShiftSemitones)} st  Playback gain: {plugin.Configuration.TtsOutputGainPercent}%");
+            ImGui.TextWrapped("Last Piper pitch shift: " + plugin.SpeechCacheService.LastPiperPitchShiftStatus);
         }
         else
         {
@@ -139,6 +140,9 @@ public sealed class MainWindow : Window, IDisposable
         ImGui.TextWrapped($"Cache folder: {plugin.Configuration.GetResolvedTtsCacheDirectory()}");
         ImGui.Text($"Cache size: {plugin.SpeechCacheService.GetCacheSizeMegabytes():F1} MB");
         ImGui.TextWrapped($"Cache status: {plugin.SpeechCacheService.LastStatus}");
+        if (!string.IsNullOrWhiteSpace(plugin.SpeechCacheService.LastError))
+            ImGui.TextWrapped("Speech warning: " + plugin.SpeechCacheService.LastError);
+
         ImGui.TextWrapped($"BGM status: {plugin.BgmProbeService.Status}");
         ImGui.Text($"Current BGM ID: {plugin.BgmProbeService.CurrentBgmId}");
     }
@@ -171,6 +175,9 @@ public sealed class MainWindow : Window, IDisposable
         => string.IsNullOrWhiteSpace(plugin.Configuration.TtsPiperRuntimeStatus)
             ? "Piper runtime status has not been checked yet."
             : plugin.Configuration.TtsPiperRuntimeStatus;
+
+    private static string FormatPiperSemitones(double semitones)
+        => semitones.ToString("+0.0;-0.0;0.0");
 
     private static string FormatUtc(DateTime value)
         => value == DateTime.MinValue ? "Never" : value.ToString("yyyy-MM-dd HH:mm:ss");

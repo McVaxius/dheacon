@@ -332,6 +332,8 @@ public sealed class Plugin : IDalamudPlugin
         PrintVoiceDiagnostics(TtsBackend.PiperLocal);
         PrintStatus($"Piper catalog entries: {PiperVoiceCatalogService.GetCatalogEntries().Count}. {PiperVoiceCatalogService.LastStatus}");
         PrintStatus("Piper runtime: " + PiperVoiceCatalogService.RefreshRuntimeStatus());
+        PrintStatus($"Piper settings: speed {Configuration.TtsPiperLengthScale:F2}, sentence pause {Configuration.TtsPiperSentenceSilence:F2}s, pitch {FormatPiperSemitones(Configuration.TtsPiperPitchShiftSemitones)} st, gain {Configuration.TtsOutputGainPercent}%.");
+        PrintStatus($"Last Piper pitch shift: {SpeechCacheService.LastPiperPitchShiftStatus} Applied: {SpeechCacheService.LastPiperPitchShiftApplied}. Semitones: {FormatPiperSemitones(SpeechCacheService.LastPiperPitchShiftSemitones)} st.");
 
         if (!string.IsNullOrWhiteSpace(SpeechCacheService.LastError))
             PrintStatus("Speech warning: " + SpeechCacheService.LastError);
@@ -358,6 +360,9 @@ public sealed class Plugin : IDalamudPlugin
         PrintStatus("Piper preview original: " + preview.Original);
         PrintStatus("Piper preview adapted: " + preview.Adapted);
     }
+
+    private static string FormatPiperSemitones(double semitones)
+        => semitones.ToString("+0.0;-0.0;0.0");
 
     private async Task RefreshPiperCatalogToChatAsync()
     {

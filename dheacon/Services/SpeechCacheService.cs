@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using Dalamud.Plugin.Services;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
+using SoundTouch.Net.NAudioSupport;
 using Windows.Media.SpeechSynthesis;
 using Windows.Storage.Streams;
 using LegacySpeechSynthesizer = System.Speech.Synthesis.SpeechSynthesizer;
@@ -37,7 +38,7 @@ public sealed record PiperTextPreview(
 public sealed partial class SpeechCacheService
 {
     private const string DefaultVoiceLabel = "Windows default";
-    private const string PiperPitchProcessingVersion = "piper-pitch-v1";
+    private const string PiperPitchProcessingVersion = "piper-pitch-v3-soundtouch-2.3.2";
     private const double PiperPitchShiftEpsilon = 0.0001d;
     private readonly IPluginLog log;
     private readonly Configuration configuration;
@@ -73,6 +74,9 @@ public sealed partial class SpeechCacheService
     public string LastTextAdapterId { get; private set; } = string.Empty;
     public string LastTextAdapterVersion { get; private set; } = string.Empty;
     public string LastTextAdapterContentHash { get; private set; } = string.Empty;
+    public string LastPiperPitchShiftStatus { get; private set; } = "No Piper pitch shift attempted yet.";
+    public double LastPiperPitchShiftSemitones { get; private set; }
+    public bool LastPiperPitchShiftApplied { get; private set; }
 
     public IReadOnlyList<SpeechVoiceInfo> GetInstalledVoices()
         => GetInstalledVoices(configuration.TtsBackend);
@@ -313,7 +317,8 @@ public sealed partial class SpeechCacheService
         {
             Touch(wavPath);
             LastWavPath = wavPath;
-            LastStatus = $"Cache hit: {Path.GetFileName(wavPath)}";
+            LastStatus = $"Cache hit: {Path.GetFileName(wavPath)}{FormatPiperPitchCacheSuffix(backend, settings.PiperPitchShiftSemitones)}";
+            SetPiperPitchShiftCacheHit(backend, settings.PiperPitchShiftSemitones);
             LastError = string.Empty;
             return wavPath;
         }
@@ -330,9 +335,14 @@ public sealed partial class SpeechCacheService
                 SynthesizeLegacySapiWav(synthesisText.Text, tempPath, settings, cancellationToken);
 
             cancellationToken.ThrowIfCancellationRequested();
-            var pitchWarning = backend == TtsBackend.PiperLocal
+            var pitchResult = backend == TtsBackend.PiperLocal
                 ? ApplyPiperPitchShift(tempPath, settings.PiperPitchShiftSemitones)
                 : null;
+            if (pitchResult != null)
+                SetPiperPitchShiftResult(pitchResult);
+            else
+                SetPiperPitchShiftNotApplicable(backend);
+
             cancellationToken.ThrowIfCancellationRequested();
             var gainWarning = ApplyOutputGain(tempPath, GetEffectiveOutputGainPercent(settings));
 
@@ -350,8 +360,8 @@ public sealed partial class SpeechCacheService
             InvalidateCacheSizeSnapshot();
 
             LastWavPath = wavPath;
-            LastStatus = $"Generated {settings.Backend}: {Path.GetFileName(wavPath)}";
-            LastError = CombineWarnings(pitchWarning, gainWarning);
+            LastStatus = $"Generated {settings.Backend}: {Path.GetFileName(wavPath)}{FormatPiperPitchResultSuffix(pitchResult)}";
+            LastError = CombineWarnings(pitchResult?.Warning, gainWarning);
             return wavPath;
         }
         catch
@@ -689,10 +699,11 @@ public sealed partial class SpeechCacheService
     private static int GetEffectiveOutputGainPercent(SpeechSynthesisSettings settings)
         => settings.OutputGainPercent;
 
-    private string? ApplyPiperPitchShift(string wavPath, double semitones)
+    private PiperPitchShiftResult ApplyPiperPitchShift(string wavPath, double semitones)
     {
+        var pitchFactor = Math.Pow(2.0d, semitones / 12.0d);
         if (Math.Abs(semitones) < PiperPitchShiftEpsilon)
-            return null;
+            return new PiperPitchShiftResult(true, false, string.Empty, semitones, pitchFactor, 0, 0, 0);
 
         var shiftedPath = Path.Combine(
             Path.GetDirectoryName(wavPath) ?? ".",
@@ -700,27 +711,89 @@ public sealed partial class SpeechCacheService
 
         try
         {
-            var pitchFactor = Math.Pow(2.0d, semitones / 12.0d);
-            using var reader = new WaveFileReader(wavPath);
-            var pitchProvider = new SmbPitchShiftingSampleProvider(reader.ToSampleProvider())
-            {
-                PitchFactor = (float)pitchFactor,
-            };
+            var originalBytes = File.ReadAllBytes(wavPath);
+            if (!TryGetWavAudioDataInfo(originalBytes, out var originalInfo, out var originalWarning))
+                return WarnPiperPitchShift(semitones, pitchFactor, originalBytes.LongLength, 0, 0, $"original WAV is not usable: {originalWarning}", null);
 
-            WaveFileWriter.CreateWaveFile16(shiftedPath, pitchProvider);
+            var samplesWritten = WritePitchShiftedWav(wavPath, shiftedPath, semitones);
+            if (samplesWritten <= 0)
+                return WarnPiperPitchShift(semitones, pitchFactor, originalInfo.DataSize, 0, 0, "pitch writer produced no samples", null);
+
+            if (!File.Exists(shiftedPath) || new FileInfo(shiftedPath).Length == 0)
+                return WarnPiperPitchShift(semitones, pitchFactor, originalInfo.DataSize, 0, samplesWritten, "shifted WAV was not created", null);
+
+            var shiftedBytes = File.ReadAllBytes(shiftedPath);
+            if (!TryGetWavAudioDataInfo(shiftedBytes, out var shiftedInfo, out var shiftedWarning))
+                return WarnPiperPitchShift(semitones, pitchFactor, originalInfo.DataSize, shiftedBytes.LongLength, samplesWritten, $"shifted WAV is not usable: {shiftedWarning}", null);
+
+            if (!WavAudioDataDiffers(originalBytes, originalInfo, shiftedBytes, shiftedInfo))
+                return WarnPiperPitchShift(semitones, pitchFactor, originalInfo.DataSize, shiftedInfo.DataSize, samplesWritten, "shifted audio data did not differ from the original", null);
+
+            if (!WavDurationsAreClose(originalInfo, shiftedInfo, out var durationWarning))
+                return WarnPiperPitchShift(semitones, pitchFactor, originalInfo.DataSize, shiftedInfo.DataSize, samplesWritten, durationWarning, null);
+
             File.Copy(shiftedPath, wavPath, overwrite: true);
-            return null;
+            return new PiperPitchShiftResult(false, true, string.Empty, semitones, pitchFactor, originalInfo.DataSize, shiftedInfo.DataSize, samplesWritten);
         }
         catch (Exception ex)
         {
-            var warning = $"Piper pitch shift failed ({semitones.ToString("+0.###;-0.###;0", CultureInfo.InvariantCulture)} semitones): {ex.Message}";
-            log.Warning(ex, $"[Dheacon] {warning} Using unshifted WAV.");
-            return warning;
+            return WarnPiperPitchShift(semitones, pitchFactor, 0, 0, 0, ex.Message, ex);
         }
         finally
         {
             TryDelete(shiftedPath);
         }
+    }
+
+    private long WritePitchShiftedWav(string sourcePath, string shiftedPath, double semitones)
+    {
+        using var reader = new WaveFileReader(sourcePath);
+        var pitchProvider = new SoundTouchWaveProvider(reader.ToSampleProvider().ToWaveProvider());
+        pitchProvider.OptimizeForSpeech();
+        pitchProvider.PitchSemiTones = semitones;
+
+        var writerFormat = new WaveFormat(reader.WaveFormat.SampleRate, 16, reader.WaveFormat.Channels);
+        using var writer = new WaveFileWriter(shiftedPath, writerFormat);
+        var samplesPerBuffer = Math.Max(reader.WaveFormat.Channels * 512, reader.WaveFormat.SampleRate * reader.WaveFormat.Channels / 10);
+        samplesPerBuffer -= samplesPerBuffer % reader.WaveFormat.Channels;
+        var byteBuffer = new byte[samplesPerBuffer * sizeof(float)];
+        var sampleBuffer = new float[samplesPerBuffer];
+        long samplesWritten = 0;
+
+        while (true)
+        {
+            var bytesRead = pitchProvider.Read(byteBuffer, 0, byteBuffer.Length);
+            if (bytesRead <= 0)
+                break;
+
+            var samplesRead = bytesRead / sizeof(float);
+            if (samplesRead <= 0)
+                break;
+
+            System.Buffer.BlockCopy(byteBuffer, 0, sampleBuffer, 0, samplesRead * sizeof(float));
+            writer.WriteSamples(sampleBuffer, 0, samplesRead);
+            samplesWritten += samplesRead;
+        }
+
+        return samplesWritten;
+    }
+
+    private PiperPitchShiftResult WarnPiperPitchShift(
+        double semitones,
+        double pitchFactor,
+        long originalAudioBytes,
+        long outputAudioBytes,
+        long outputSamples,
+        string reason,
+        Exception? exception)
+    {
+        var warning = $"Piper pitch shift failed ({FormatPiperSemitones(semitones)} semitones): {reason}. Using unshifted WAV.";
+        if (exception != null)
+            log.Warning(exception, $"[Dheacon] {warning}");
+        else
+            log.Warning($"[Dheacon] {warning}");
+
+        return new PiperPitchShiftResult(false, false, warning, semitones, pitchFactor, originalAudioBytes, outputAudioBytes, outputSamples);
     }
 
     private string? ApplyOutputGain(string wavPath, int outputGainPercent)
@@ -956,6 +1029,184 @@ public sealed partial class SpeechCacheService
     private static string CombineWarnings(params string?[] warnings)
         => string.Join(" ", warnings.Where(warning => !string.IsNullOrWhiteSpace(warning)));
 
+    private void SetPiperPitchShiftResult(PiperPitchShiftResult result)
+    {
+        LastPiperPitchShiftSemitones = result.Semitones;
+        LastPiperPitchShiftApplied = result.Applied;
+
+        if (result.Skipped)
+        {
+            LastPiperPitchShiftStatus = $"Skipped (pitch {FormatPiperSemitones(result.Semitones)} st).";
+            return;
+        }
+
+        if (result.Applied)
+        {
+            LastPiperPitchShiftStatus =
+                $"Applied pitch {FormatPiperSemitones(result.Semitones)} st with SoundTouch.NET " +
+                $"(factor {result.PitchFactor.ToString("0.###", CultureInfo.InvariantCulture)}, " +
+                $"{result.OutputSamples} samples, {result.OutputAudioBytes} audio bytes).";
+            return;
+        }
+
+        LastPiperPitchShiftStatus = result.Warning;
+    }
+
+    private void SetPiperPitchShiftCacheHit(TtsBackend backend, double semitones)
+    {
+        if (backend != TtsBackend.PiperLocal)
+        {
+            SetPiperPitchShiftNotApplicable(backend);
+            return;
+        }
+
+        LastPiperPitchShiftSemitones = semitones;
+        LastPiperPitchShiftApplied = false;
+        LastPiperPitchShiftStatus = $"Cache hit for Piper pitch {FormatPiperSemitones(semitones)} st; pitch processor did not run for this request.";
+    }
+
+    private void SetPiperPitchShiftNotApplicable(TtsBackend backend)
+    {
+        LastPiperPitchShiftSemitones = 0.0d;
+        LastPiperPitchShiftApplied = false;
+        LastPiperPitchShiftStatus = $"Not applicable for {backend}.";
+    }
+
+    private static string FormatPiperPitchCacheSuffix(TtsBackend backend, double semitones)
+        => backend == TtsBackend.PiperLocal ? $" (pitch {FormatPiperSemitones(semitones)} st)" : string.Empty;
+
+    private static string FormatPiperPitchResultSuffix(PiperPitchShiftResult? result)
+    {
+        if (result == null)
+            return string.Empty;
+
+        if (result.Skipped)
+            return $" (pitch {FormatPiperSemitones(result.Semitones)} st skipped)";
+
+        if (result.Applied)
+            return $" (pitch {FormatPiperSemitones(result.Semitones)} st applied)";
+
+        return $" (pitch {FormatPiperSemitones(result.Semitones)} st warning)";
+    }
+
+    private static string FormatPiperSemitones(double semitones)
+        => semitones.ToString("+0.0;-0.0;0.0", CultureInfo.InvariantCulture);
+
+    private static bool TryGetWavAudioDataInfo(byte[] bytes, out WavAudioDataInfo info, out string warning)
+    {
+        info = default;
+        warning = string.Empty;
+        if (bytes.Length < 12 || !BytesEqual(bytes, 0, "RIFF") || !BytesEqual(bytes, 8, "WAVE"))
+        {
+            warning = "not a RIFF/WAVE file";
+            return false;
+        }
+
+        var offset = 12;
+        var formatTag = 0;
+        var sampleRate = 0;
+        var averageBytesPerSecond = 0;
+        var channels = 0;
+        var blockAlign = 0;
+        var bitsPerSample = 0;
+        var dataOffset = -1;
+        var dataSize = 0;
+
+        while (offset + 8 <= bytes.Length)
+        {
+            var chunkId = Encoding.ASCII.GetString(bytes, offset, 4);
+            var chunkSize = ReadUInt32(bytes, offset + 4);
+            var chunkDataOffset = offset + 8;
+            if (chunkSize > int.MaxValue || chunkDataOffset + chunkSize > bytes.Length)
+            {
+                warning = $"invalid WAV chunk '{chunkId}'";
+                return false;
+            }
+
+            if (chunkId == "fmt ")
+            {
+                if (chunkSize < 16)
+                {
+                    warning = "fmt chunk is too small";
+                    return false;
+                }
+
+                formatTag = ReadUInt16(bytes, chunkDataOffset);
+                channels = ReadUInt16(bytes, chunkDataOffset + 2);
+                sampleRate = (int)ReadUInt32(bytes, chunkDataOffset + 4);
+                averageBytesPerSecond = (int)ReadUInt32(bytes, chunkDataOffset + 8);
+                blockAlign = ReadUInt16(bytes, chunkDataOffset + 12);
+                bitsPerSample = ReadUInt16(bytes, chunkDataOffset + 14);
+            }
+            else if (chunkId == "data")
+            {
+                dataOffset = chunkDataOffset;
+                dataSize = (int)chunkSize;
+            }
+
+            offset = chunkDataOffset + (int)chunkSize + ((chunkSize & 1) == 1 ? 1 : 0);
+        }
+
+        if (formatTag == 0)
+        {
+            warning = "missing fmt chunk";
+            return false;
+        }
+
+        if (averageBytesPerSecond <= 0 && sampleRate > 0 && blockAlign > 0)
+            averageBytesPerSecond = sampleRate * blockAlign;
+
+        if (sampleRate <= 0 || averageBytesPerSecond <= 0 || channels <= 0 || blockAlign <= 0 || bitsPerSample <= 0)
+        {
+            warning = "invalid fmt chunk";
+            return false;
+        }
+
+        if (dataOffset < 0 || dataSize <= 0)
+        {
+            warning = "missing data chunk";
+            return false;
+        }
+
+        info = new WavAudioDataInfo(dataOffset, dataSize, formatTag, sampleRate, averageBytesPerSecond, bitsPerSample, channels, blockAlign);
+        return true;
+    }
+
+    private static bool WavDurationsAreClose(WavAudioDataInfo originalInfo, WavAudioDataInfo shiftedInfo, out string warning)
+    {
+        warning = string.Empty;
+
+        var originalDurationSeconds = originalInfo.DataSize / (double)originalInfo.AverageBytesPerSecond;
+        var shiftedDurationSeconds = shiftedInfo.DataSize / (double)shiftedInfo.AverageBytesPerSecond;
+        var allowedDeltaSeconds = Math.Max(originalDurationSeconds * 0.05d, 0.150d);
+        var actualDeltaSeconds = Math.Abs(shiftedDurationSeconds - originalDurationSeconds);
+        if (actualDeltaSeconds <= allowedDeltaSeconds)
+            return true;
+
+        warning =
+            "shifted duration drifted from " +
+            $"{FormatDurationMilliseconds(originalDurationSeconds)} ms to {FormatDurationMilliseconds(shiftedDurationSeconds)} ms " +
+            $"(allowed drift {FormatDurationMilliseconds(allowedDeltaSeconds)} ms)";
+        return false;
+    }
+
+    private static string FormatDurationMilliseconds(double seconds)
+        => (seconds * 1000d).ToString("0", CultureInfo.InvariantCulture);
+
+    private static bool WavAudioDataDiffers(
+        byte[] originalBytes,
+        WavAudioDataInfo originalInfo,
+        byte[] shiftedBytes,
+        WavAudioDataInfo shiftedInfo)
+    {
+        if (originalInfo.DataSize != shiftedInfo.DataSize)
+            return true;
+
+        return !originalBytes
+            .AsSpan(originalInfo.DataOffset, originalInfo.DataSize)
+            .SequenceEqual(shiftedBytes.AsSpan(shiftedInfo.DataOffset, shiftedInfo.DataSize));
+    }
+
     private static bool BytesEqual(byte[] bytes, int offset, string expected)
     {
         if (offset + expected.Length > bytes.Length)
@@ -1089,6 +1340,26 @@ public sealed partial class SpeechCacheService
 
     [GeneratedRegex(@"\s+", RegexOptions.Compiled)]
     private static partial Regex WhitespaceRegex();
+
+    private readonly record struct WavAudioDataInfo(
+        int DataOffset,
+        int DataSize,
+        int FormatTag,
+        int SampleRate,
+        int AverageBytesPerSecond,
+        int BitsPerSample,
+        int Channels,
+        int BlockAlign);
+
+    private sealed record PiperPitchShiftResult(
+        bool Skipped,
+        bool Applied,
+        string Warning,
+        double Semitones,
+        double PitchFactor,
+        long OriginalAudioBytes,
+        long OutputAudioBytes,
+        long OutputSamples);
 
     private sealed record SpeechSynthesisSettings(
         TtsBackend Backend,
