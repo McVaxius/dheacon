@@ -87,6 +87,7 @@ public sealed class DheaconPresetService
             copy.Bundled = false;
             copy.SourcePath = string.Empty;
             copy.Behavior ??= CaptureBehaviorFromConfiguration();
+            copy.Behavior.NormalizePiperVoiceDefaults();
             copy.ImaginaryFren ??= new KranglerImaginaryFrenPreset();
 
             if (!TryWriteUserPreset(copy, out message))
@@ -297,6 +298,7 @@ public sealed class DheaconPresetService
             preset.Bundled = false;
             preset.SourcePath = string.Empty;
             preset.Behavior ??= DheaconPresetBehavior.FromConfiguration(configuration);
+            preset.Behavior.NormalizePiperVoiceDefaults();
             preset.ImaginaryFren ??= new KranglerImaginaryFrenPreset();
             preset.ImaginaryFren.Name = SanitizeFrenName(preset.ImaginaryFren.Name);
             preset.ImaginaryFren.PresetKey = SanitizeFrenPresetKey(preset.ImaginaryFren.PresetKey);
@@ -339,7 +341,7 @@ public sealed class DheaconPresetService
         changed |= Set(configuration.TtsBackend, behavior.TtsBackend, value => configuration.TtsBackend = value);
         changed |= Set(configuration.TtsModernVoiceId, behavior.TtsModernVoiceId, value => configuration.TtsModernVoiceId = value);
         changed |= Set(configuration.TtsVoiceName, behavior.TtsVoiceName, value => configuration.TtsVoiceName = value);
-        changed |= Set(configuration.TtsPiperVoiceId, behavior.TtsPiperVoiceId, value => configuration.TtsPiperVoiceId = value);
+        changed |= Set(configuration.TtsPiperVoiceId, DheaconPresetBehavior.NormalizePiperVoiceId(behavior.TtsBackend, behavior.TtsPiperVoiceId), value => configuration.TtsPiperVoiceId = value);
         changed |= Set(configuration.TtsPiperTextAdapterEnabled, behavior.TtsPiperTextAdapterEnabled, value => configuration.TtsPiperTextAdapterEnabled = value);
         changed |= Set(configuration.TtsPiperTextAdapterId, behavior.TtsPiperTextAdapterId, value => configuration.TtsPiperTextAdapterId = value);
         changed |= Set(configuration.TtsRate, behavior.TtsRate, value => configuration.TtsRate = value);
@@ -384,6 +386,8 @@ public sealed class DheaconPresetService
             if (string.IsNullOrWhiteSpace(preset.SourcePath))
                 preset.SourcePath = CreateUniqueUserPresetPath(preset.Id);
 
+            preset.Behavior ??= CaptureBehaviorFromConfiguration();
+            preset.Behavior.NormalizePiperVoiceDefaults();
             preset.ImaginaryFren ??= new KranglerImaginaryFrenPreset();
             preset.ImaginaryFren.Name = SanitizeFrenName(preset.ImaginaryFren.Name);
             preset.ImaginaryFren.PresetKey = SanitizeFrenPresetKey(preset.ImaginaryFren.PresetKey);
@@ -433,6 +437,7 @@ public sealed class DheaconPresetService
 
                 preset.Name = string.IsNullOrWhiteSpace(preset.Name) ? preset.Id : preset.Name.Trim();
                 preset.Behavior ??= DheaconPresetBehavior.FromConfiguration(configuration);
+                preset.Behavior.NormalizePiperVoiceDefaults();
                 preset.ImaginaryFren ??= new KranglerImaginaryFrenPreset();
                 preset.ImaginaryFren.Name = SanitizeFrenName(preset.ImaginaryFren.Name);
                 preset.ImaginaryFren.PresetKey = SanitizeFrenPresetKey(preset.ImaginaryFren.PresetKey);
@@ -635,7 +640,7 @@ public sealed class DheaconPresetBehavior
     public TtsBackend TtsBackend { get; set; } = TtsBackend.PiperLocal;
     public string TtsModernVoiceId { get; set; } = string.Empty;
     public string TtsVoiceName { get; set; } = string.Empty;
-    public string TtsPiperVoiceId { get; set; } = string.Empty;
+    public string TtsPiperVoiceId { get; set; } = Configuration.DefaultPiperVoiceId;
     public bool TtsPiperTextAdapterEnabled { get; set; } = true;
     public string TtsPiperTextAdapterId { get; set; } = "en_US-to-sv_SE";
     public int TtsRate { get; set; }
@@ -663,6 +668,17 @@ public sealed class DheaconPresetBehavior
     public DheaconPresetBehavior Clone()
         => (DheaconPresetBehavior)MemberwiseClone();
 
+    public void NormalizePiperVoiceDefaults()
+        => TtsPiperVoiceId = NormalizePiperVoiceId(TtsBackend, TtsPiperVoiceId);
+
+    public static string NormalizePiperVoiceId(TtsBackend backend, string? voiceId)
+    {
+        var trimmed = voiceId?.Trim() ?? string.Empty;
+        return backend == TtsBackend.PiperLocal && string.IsNullOrWhiteSpace(trimmed)
+            ? Configuration.DefaultPiperVoiceId
+            : trimmed;
+    }
+
     public static DheaconPresetBehavior FromConfiguration(Configuration configuration)
         => new()
         {
@@ -671,7 +687,7 @@ public sealed class DheaconPresetBehavior
             TtsBackend = configuration.TtsBackend,
             TtsModernVoiceId = configuration.TtsModernVoiceId,
             TtsVoiceName = configuration.TtsVoiceName,
-            TtsPiperVoiceId = configuration.TtsPiperVoiceId,
+            TtsPiperVoiceId = NormalizePiperVoiceId(configuration.TtsBackend, configuration.TtsPiperVoiceId),
             TtsPiperTextAdapterEnabled = configuration.TtsPiperTextAdapterEnabled,
             TtsPiperTextAdapterId = configuration.TtsPiperTextAdapterId,
             TtsRate = configuration.TtsRate,
@@ -701,7 +717,7 @@ public sealed class DheaconPresetBehavior
 public sealed class KranglerImaginaryFrenPreset
 {
     public const string DefaultName = "Golden Sven";
-    public const string DefaultPresetKey = "e97d1e17-9247-46aa-a9ad-b942ab905d31";
+    public const string DefaultPresetKey = "faca78a2-2e76-47d7-9dc9-8dac85134019";
 
     public bool Enabled { get; set; } = true;
     public string Name { get; set; } = DefaultName;

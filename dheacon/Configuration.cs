@@ -21,6 +21,7 @@ public enum TtsBackend
 public class Configuration : IPluginConfiguration
 {
     public const int CurrentVersion = 11;
+    public const string DefaultPiperVoiceId = "official:en_US-arctic-medium";
 
     public int Version { get; set; } = CurrentVersion;
     public bool PluginEnabled { get; set; } = false;
@@ -40,7 +41,7 @@ public class Configuration : IPluginConfiguration
     public TtsBackend TtsBackend { get; set; } = TtsBackend.PiperLocal;
     public string TtsModernVoiceId { get; set; } = string.Empty;
     public string TtsVoiceName { get; set; } = string.Empty;
-    public string TtsPiperVoiceId { get; set; } = string.Empty;
+    public string TtsPiperVoiceId { get; set; } = DefaultPiperVoiceId;
     public string TtsPiperInstalledVoicesManifestPath { get; set; } = string.Empty;
     public DateTime TtsPiperCatalogRefreshedAtUtc { get; set; } = DateTime.MinValue;
     public string TtsPiperRuntimePath { get; set; } = string.Empty;

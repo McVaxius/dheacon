@@ -110,9 +110,13 @@ public sealed partial class SpeechCacheService
         if (backend == TtsBackend.PiperLocal)
         {
             var piperVoice = piperVoiceCatalogService.FindExactInstalledVoice(configuration.TtsPiperVoiceId);
-            return piperVoice == null
-                ? "No exact Piper voice selected"
-                : $"{piperVoice.VoiceKey} - {piperVoice.LanguageCode} - {piperVoice.Gender} - {piperVoice.Quality} - {piperVoice.Source}";
+            if (piperVoice != null)
+                return $"{piperVoice.VoiceKey} - {piperVoice.LanguageCode} - {piperVoice.Gender} - {piperVoice.Quality} - {piperVoice.Source}";
+
+            var configuredPiperVoice = configuration.TtsPiperVoiceId.Trim();
+            return string.IsNullOrWhiteSpace(configuredPiperVoice)
+                ? "No Piper voice selected"
+                : $"{configuredPiperVoice} (not installed)";
         }
 
         var voices = GetInstalledVoices(backend);

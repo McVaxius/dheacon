@@ -54,6 +54,7 @@ public sealed class Plugin : IDalamudPlugin
         AudioPlaybackService = new AudioPlaybackService(Log, Configuration);
         CommentaryLinePackService = new CommentaryLinePackService(Log, PresetService);
         PiperVoiceCatalogService = new PiperVoiceCatalogService(Log, Configuration);
+        EnsureDefaultPiperVoiceSelection();
         SpokenTextAdapterService = new SpokenTextAdapterService(Log);
         SpeechCacheService = new SpeechCacheService(Log, Configuration, PiperVoiceCatalogService, SpokenTextAdapterService);
         SpeechQueueService = new SpeechQueueService(Log, SpeechCacheService, AudioPlaybackService);
@@ -77,7 +78,7 @@ public sealed class Plugin : IDalamudPlugin
         WindowSystem.AddWindow(configWindow);
         WindowSystem.AddWindow(miniWindow);
         lastMiniAutoOpenSpeechSequence = SpeechQueueService.SpeechSequence;
-        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mini, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
+        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mini, fren, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
         PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
@@ -166,6 +167,12 @@ public sealed class Plugin : IDalamudPlugin
             return;
         }
 
+        if (verb.Equals("fren", StringComparison.OrdinalIgnoreCase))
+        {
+            PrintFrenDiagnostics();
+            return;
+        }
+
         if (verb.Equals("say", StringComparison.OrdinalIgnoreCase))
         {
             var queued = CommentaryTriggerService.SpeakManual(rest);
@@ -232,6 +239,13 @@ public sealed class Plugin : IDalamudPlugin
         if (string.IsNullOrWhiteSpace(Configuration.TtsPiperTextAdapterId))
         {
             Configuration.TtsPiperTextAdapterId = SpokenTextAdapterService.DefaultAdapterId;
+            changed = true;
+        }
+
+        if (Configuration.TtsBackend == TtsBackend.PiperLocal &&
+            string.IsNullOrWhiteSpace(Configuration.TtsPiperVoiceId))
+        {
+            Configuration.TtsPiperVoiceId = Configuration.DefaultPiperVoiceId;
             changed = true;
         }
 
@@ -329,6 +343,41 @@ public sealed class Plugin : IDalamudPlugin
            Math.Abs(Configuration.TtsPitch - 0.75d) < 0.0001d &&
            Configuration.TtsOutputGainPercent == 200;
 
+    private void EnsureDefaultPiperVoiceSelection()
+    {
+        if (Configuration.TtsBackend != TtsBackend.PiperLocal)
+            return;
+
+        if (string.IsNullOrWhiteSpace(Configuration.TtsPiperVoiceId))
+        {
+            Configuration.TtsPiperVoiceId = PiperVoiceCatalogService.RecommendedVoiceCatalogId;
+            Configuration.Save();
+        }
+
+        if (PiperVoiceCatalogService.FindExactInstalledVoice(Configuration.TtsPiperVoiceId) != null)
+            return;
+
+        if (!string.Equals(Configuration.TtsPiperVoiceId, PiperVoiceCatalogService.RecommendedVoiceCatalogId, StringComparison.OrdinalIgnoreCase))
+        {
+            Configuration.TtsPiperVoiceId = PiperVoiceCatalogService.RecommendedVoiceCatalogId;
+            Configuration.Save();
+        }
+
+        _ = EnsureDefaultPiperVoiceInstalledAsync();
+    }
+
+    private async Task EnsureDefaultPiperVoiceInstalledAsync()
+    {
+        try
+        {
+            await PiperVoiceCatalogService.EnsureRecommendedVoiceInstalledAsync(switchBackendWhenReady: false, CancellationToken.None).ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "[Dheacon] Failed to install the default Arctic Piper voice.");
+        }
+    }
+
     private void SetupDtrBar()
     {
         dtrEntry = DtrBar.Get(PluginInfo.DisplayName);
@@ -422,6 +471,23 @@ public sealed class Plugin : IDalamudPlugin
         }
 
         PrintStatus(message);
+    }
+
+    private void PrintFrenDiagnostics()
+    {
+        var activePreset = PresetService.ActivePreset;
+        var fren = activePreset.ImaginaryFren;
+        var presetFrenEnabled = fren?.Enabled == true;
+        var requestedName = fren?.Name ?? KranglerImaginaryFrenPreset.DefaultName;
+        var requestedKey = fren?.PresetKey ?? KranglerImaginaryFrenPreset.DefaultPresetKey;
+        var requestedEnabled = Configuration.PluginEnabled && presetFrenEnabled;
+
+        PrintStatus($"Fren diagnostics: Dheacon enabled={Configuration.PluginEnabled}, active preset='{activePreset.Name}', mode={activePreset.Mode}.");
+        PrintStatus($"Preset Fren: enabled={presetFrenEnabled}, requested={requestedEnabled}, name='{requestedName}', key='{requestedKey}'.");
+        PrintStatus($"Last Krangler IPC: requested={KranglerImaginaryFrenIpcClient.LastRequestEnabled}, spawned={KranglerImaginaryFrenIpcClient.LastResponseSpawned}, name='{KranglerImaginaryFrenIpcClient.LastRequestName}', key='{KranglerImaginaryFrenIpcClient.LastRequestPresetKey}'. {KranglerImaginaryFrenIpcClient.LastStatus}");
+
+        if (!string.IsNullOrWhiteSpace(KranglerImaginaryFrenIpcClient.LastError))
+            PrintStatus("Last Krangler IPC warning: " + KranglerImaginaryFrenIpcClient.LastError);
     }
 
     private void PrintVoiceDiagnostics()

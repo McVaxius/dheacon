@@ -13,7 +13,7 @@
     "ttsBackend": "PiperLocal",
     "ttsModernVoiceId": "",
     "ttsVoiceName": "",
-    "ttsPiperVoiceId": "",
+    "ttsPiperVoiceId": "official:en_US-arctic-medium",
     "ttsPiperTextAdapterEnabled": true,
     "ttsPiperTextAdapterId": "en_US-to-sv_SE",
     "ttsRate": 0,

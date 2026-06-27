@@ -26,6 +26,7 @@ public sealed class ConfigWindow : Window, IDisposable
     private string presetImportText = string.Empty;
     private string presetRenameText = string.Empty;
     private string presetRenameTargetId = string.Empty;
+    private string kranglerPresetSearchText = string.Empty;
 
     public ConfigWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Settings##Config")
     {
@@ -470,21 +471,94 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Name Krangler writes onto the local-only follower actor.");
 
         var presetKey = fren.PresetKey;
-        ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
-        if (ImGui.InputText("Krangler preset", ref presetKey, 160))
-            UpdateActiveFrenSettings(enabled, name, presetKey);
-        TooltipLastItem("Krangler preset name, identifier, or source filename to apply to the follower.");
+        var kranglerPresets = plugin.KranglerImaginaryFrenIpcClient.GetPresetSummaries();
+        if (kranglerPresets.Count > 0)
+        {
+            ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
+            if (DrawKranglerPresetSelector(ref presetKey, kranglerPresets))
+                UpdateActiveFrenSettings(enabled, name, presetKey);
+            TooltipLastItem("Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.");
+        }
+        else
+        {
+            ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
+            if (ImGui.InputText("Krangler preset", ref presetKey, 160))
+                UpdateActiveFrenSettings(enabled, name, presetKey);
+            TooltipLastItem("Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.");
+        }
 
         if (ImGui.Button("Reconcile now"))
+        {
+            plugin.KranglerImaginaryFrenIpcClient.GetPresetSummaries(forceRefresh: true);
             plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+        }
         TooltipLastItem("Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.");
 
         DrawWrappedStatus("Follower status: " + plugin.KranglerImaginaryFrenIpcClient.LastStatus, "Last Krangler Imaginary Fren IPC status.");
+        DrawWrappedStatus("Preset list: " + plugin.KranglerImaginaryFrenIpcClient.PresetListStatus, "Last Krangler preset-list IPC status.");
+        if (!string.IsNullOrWhiteSpace(plugin.KranglerImaginaryFrenIpcClient.PresetListError))
+            DrawWrappedStatus("Preset list warning: " + plugin.KranglerImaginaryFrenIpcClient.PresetListError, "Krangler is optional; when the list is unavailable the text field fallback remains active.");
         if (!string.IsNullOrWhiteSpace(plugin.KranglerImaginaryFrenIpcClient.LastError))
             DrawWrappedStatus("Follower warning: " + plugin.KranglerImaginaryFrenIpcClient.LastError, "Krangler is optional; this warning does not stop Dheacon speech.");
         if (active.Protected)
             DrawDisabledStatus("Fren edits on this protected template are runtime-only. Duplicate with + to persist them.", "Bundled templates are read-only.");
     }
+
+    private bool DrawKranglerPresetSelector(ref string presetKey, IReadOnlyList<KranglerPresetSummary> presets)
+    {
+        var selected = FindKranglerPreset(presets, presetKey);
+        var preview = selected != null
+            ? FormatKranglerPresetLabel(selected)
+            : string.IsNullOrWhiteSpace(presetKey)
+                ? "Select preset"
+                : presetKey;
+        var changed = false;
+
+        if (!ImGui.BeginCombo("Krangler preset", preview))
+            return false;
+
+        ImGui.SetNextItemWidth(-1f);
+        ImGui.InputTextWithHint("##KranglerPresetSearch", "Search Krangler presets...", ref kranglerPresetSearchText, 128);
+        ImGui.Separator();
+
+        var filteredPresets = string.IsNullOrWhiteSpace(kranglerPresetSearchText)
+            ? presets
+            : presets
+                .Where(summary =>
+                    summary.Name.Contains(kranglerPresetSearchText, StringComparison.OrdinalIgnoreCase) ||
+                    summary.Key.Contains(kranglerPresetSearchText, StringComparison.OrdinalIgnoreCase) ||
+                    summary.SourceFileName.Contains(kranglerPresetSearchText, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+        foreach (var summary in filteredPresets)
+        {
+            var isSelected = string.Equals(summary.Key, presetKey, StringComparison.OrdinalIgnoreCase);
+            if (ImGui.Selectable($"{FormatKranglerPresetLabel(summary)}##KranglerPreset-{summary.Key}", isSelected))
+            {
+                presetKey = summary.Key;
+                changed = true;
+            }
+
+            TooltipLastItem($"Key: {summary.Key}\nSource: {summary.SourceFileName}");
+        }
+
+        if (!filteredPresets.Any())
+            ImGui.TextDisabled("No Krangler presets match the current search.");
+
+        ImGui.EndCombo();
+        return changed;
+    }
+
+    private static KranglerPresetSummary? FindKranglerPreset(IReadOnlyList<KranglerPresetSummary> presets, string presetKey)
+        => presets.FirstOrDefault(summary =>
+            string.Equals(summary.Key, presetKey, StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(summary.Name, presetKey, StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(summary.SourceFileName, presetKey, StringComparison.OrdinalIgnoreCase));
+
+    private static string FormatKranglerPresetLabel(KranglerPresetSummary summary)
+        => string.IsNullOrWhiteSpace(summary.Name) || string.Equals(summary.Name, summary.Key, StringComparison.OrdinalIgnoreCase)
+            ? summary.Key
+            : summary.Name;
 
     private void SelectPreset(string presetId, bool printStatus = true)
     {
@@ -809,7 +883,9 @@ public sealed class ConfigWindow : Window, IDisposable
         var voices = plugin.PiperVoiceCatalogService.GetInstalledVoices();
         var currentVoice = plugin.PiperVoiceCatalogService.FindExactInstalledVoice(cfg.TtsPiperVoiceId) is { } selectedVoice
             ? FormatPiperInstalledVoiceLabel(selectedVoice)
-            : "No exact Piper voice selected";
+            : string.IsNullOrWhiteSpace(cfg.TtsPiperVoiceId)
+                ? "No Piper voice selected"
+                : $"{cfg.TtsPiperVoiceId.Trim()} (not installed)";
 
         var piperVoiceComboOpen = ImGui.BeginCombo("Piper voice", currentVoice);
         TooltipLastItem("Selects the installed Piper voice used for Piper synthesis.");

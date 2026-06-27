@@ -10,9 +10,11 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
 {
     private const string SetFromJsonName = "Krangler.ImaginaryFren.SetFromJson";
     private const string GetStatusJsonName = "Krangler.ImaginaryFren.GetStatusJson";
+    private const string GetPresetNamesJsonName = "Krangler.ImaginaryFren.GetPresetNamesJson";
     private const string ExportPresetJsonName = "Krangler.Presets.ExportPresetJson";
     private const string ImportPresetJsonName = "Krangler.Presets.ImportPresetJson";
     private static readonly TimeSpan ReconcileInterval = TimeSpan.FromSeconds(3);
+    private static readonly TimeSpan PresetListRefreshInterval = TimeSpan.FromSeconds(5);
 
     private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web)
     {
@@ -24,9 +26,12 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
     private readonly DheaconPresetService presetService;
     private readonly ICallGateSubscriber<string, string> setSubscriber;
     private readonly ICallGateSubscriber<string> statusSubscriber;
+    private readonly ICallGateSubscriber<string> presetNamesSubscriber;
     private readonly ICallGateSubscriber<string, string> exportPresetSubscriber;
     private readonly ICallGateSubscriber<string, string> importPresetSubscriber;
     private DateTime nextReconcileUtc = DateTime.MinValue;
+    private DateTime nextPresetListRefreshUtc = DateTime.MinValue;
+    private IReadOnlyList<KranglerPresetSummary> presetSummaries = [];
 
     public KranglerImaginaryFrenIpcClient(
         IDalamudPluginInterface pluginInterface,
@@ -39,14 +44,55 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
         this.presetService = presetService;
         setSubscriber = pluginInterface.GetIpcSubscriber<string, string>(SetFromJsonName);
         statusSubscriber = pluginInterface.GetIpcSubscriber<string>(GetStatusJsonName);
+        presetNamesSubscriber = pluginInterface.GetIpcSubscriber<string>(GetPresetNamesJsonName);
         exportPresetSubscriber = pluginInterface.GetIpcSubscriber<string, string>(ExportPresetJsonName);
         importPresetSubscriber = pluginInterface.GetIpcSubscriber<string, string>(ImportPresetJsonName);
     }
 
     public string LastStatus { get; private set; } = "Krangler follower IPC idle.";
     public string LastError { get; private set; } = string.Empty;
+    public string PresetListStatus { get; private set; } = "Krangler preset list not loaded.";
+    public string PresetListError { get; private set; } = string.Empty;
     public bool LastRequestEnabled { get; private set; }
+    public string LastRequestName { get; private set; } = string.Empty;
+    public string LastRequestPresetKey { get; private set; } = string.Empty;
     public bool LastResponseSpawned { get; private set; }
+
+    public IReadOnlyList<KranglerPresetSummary> GetPresetSummaries(bool forceRefresh = false)
+    {
+        var now = DateTime.UtcNow;
+        if (!forceRefresh && now < nextPresetListRefreshUtc)
+            return presetSummaries;
+
+        nextPresetListRefreshUtc = now + PresetListRefreshInterval;
+
+        try
+        {
+            var responseJson = presetNamesSubscriber.InvokeFunc();
+            using var document = JsonDocument.Parse(responseJson);
+            var root = document.RootElement;
+            if (!ReadOk(root))
+            {
+                PresetListError = ReadString(root, "error", "Krangler preset list IPC returned a failure.");
+                PresetListStatus = "Krangler preset list unavailable; free text fallback is active.";
+                presetSummaries = [];
+                return presetSummaries;
+            }
+
+            presetSummaries = ReadPresetSummaries(root);
+            PresetListStatus = ReadString(root, "status", $"Loaded {presetSummaries.Count} Krangler preset(s).");
+            PresetListError = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            PresetListError = ex.Message;
+            PresetListStatus = "Krangler preset list unavailable; free text fallback is active.";
+            presetSummaries = [];
+            log.Debug(ex, "[Dheacon] Krangler preset list IPC soft failure.");
+        }
+
+        return presetSummaries;
+    }
 
     public void Update()
     {
@@ -151,6 +197,8 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
     private void SendDesired(bool enabled, string name, string presetKey)
     {
         LastRequestEnabled = enabled;
+        LastRequestName = name;
+        LastRequestPresetKey = presetKey;
         var requestJson = JsonSerializer.Serialize(new
         {
             enabled,
@@ -206,4 +254,39 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
         => root.TryGetProperty(propertyName, out var value) && value.ValueKind == JsonValueKind.String
             ? value.GetString() ?? fallback
             : fallback;
+
+    private static IReadOnlyList<KranglerPresetSummary> ReadPresetSummaries(JsonElement root)
+    {
+        if (!root.TryGetProperty("presets", out var presetsElement) ||
+            presetsElement.ValueKind != JsonValueKind.Array)
+        {
+            return [];
+        }
+
+        var summaries = new List<KranglerPresetSummary>();
+        foreach (var presetElement in presetsElement.EnumerateArray())
+        {
+            if (presetElement.ValueKind != JsonValueKind.Object)
+                continue;
+
+            var name = ReadString(presetElement, "name", string.Empty).Trim();
+            var key = ReadString(presetElement, "key", string.Empty).Trim();
+            var sourceFileName = ReadString(presetElement, "sourceFileName", string.Empty).Trim();
+            if (string.IsNullOrWhiteSpace(key))
+                key = name;
+            if (string.IsNullOrWhiteSpace(name))
+                name = key;
+            if (string.IsNullOrWhiteSpace(key))
+                continue;
+
+            summaries.Add(new KranglerPresetSummary(name, key, sourceFileName));
+        }
+
+        return summaries
+            .OrderBy(summary => summary.Name, StringComparer.OrdinalIgnoreCase)
+            .ThenBy(summary => summary.Key, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+    }
 }
+
+public sealed record KranglerPresetSummary(string Name, string Key, string SourceFileName);

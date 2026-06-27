@@ -68,7 +68,7 @@ public sealed record PiperInstalledVoice
 public sealed class PiperVoiceCatalogService : IDisposable
 {
     public const string RecommendedVoiceKey = "en_US-arctic-medium";
-    public const string RecommendedVoiceCatalogId = OfficialSourceKey + ":" + RecommendedVoiceKey;
+    public const string RecommendedVoiceCatalogId = Configuration.DefaultPiperVoiceId;
 
     private const string OfficialSourceKey = "official";
     private const string OfficialSourceName = "Official Piper";
@@ -250,6 +250,13 @@ public sealed class PiperVoiceCatalogService : IDisposable
     public async Task EnsureRecommendedVoiceInstalledAsync(bool switchBackendWhenReady, CancellationToken cancellationToken)
     {
         var selectedVoiceExists = FindExactInstalledVoice(configuration.TtsPiperVoiceId) != null;
+        if (!selectedVoiceExists &&
+            !string.Equals(configuration.TtsPiperVoiceId, RecommendedVoiceCatalogId, StringComparison.OrdinalIgnoreCase))
+        {
+            configuration.TtsPiperVoiceId = RecommendedVoiceCatalogId;
+            configuration.Save();
+        }
+
         try
         {
             await RefreshCatalogIfStaleAsync(TimeSpan.FromHours(24), cancellationToken).ConfigureAwait(false);
@@ -420,9 +427,9 @@ public sealed class PiperVoiceCatalogService : IDisposable
 
         if (string.Equals(configuration.TtsPiperVoiceId, catalogId, StringComparison.OrdinalIgnoreCase))
         {
-            configuration.TtsPiperVoiceId = installedManifest.Voices.FirstOrDefault()?.CatalogId ?? string.Empty;
-            if (configuration.TtsBackend == TtsBackend.PiperLocal && string.IsNullOrWhiteSpace(configuration.TtsPiperVoiceId))
-                configuration.TtsBackend = TtsBackend.LegacySapi;
+            configuration.TtsPiperVoiceId = configuration.TtsBackend == TtsBackend.PiperLocal
+                ? RecommendedVoiceCatalogId
+                : installedManifest.Voices.FirstOrDefault()?.CatalogId ?? string.Empty;
             configuration.Save();
         }
 
