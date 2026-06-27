@@ -24,6 +24,7 @@
     <None Remove="**\backups\**" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="NAudio.Core" Version="2.2.1" />
     <PackageReference Include="System.Speech" Version="10.0.9" />
     <PackageReference Include="System.Windows.Extensions" Version="10.0.0" />
   </ItemGroup>

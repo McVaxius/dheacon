@@ -214,21 +214,22 @@ public sealed partial class SpokenTextAdapterService
             {
                 new LexiconEntry { Source = "Final Fantasy XIV", Replacement = "Final Fantasy fourteen" },
                 new LexiconEntry { Source = "Final Fantasy 14", Replacement = "Final Fantasy fourteen" },
-            },
-            WordLexicon =
-            {
-                new LexiconEntry { Source = "Roegadyn", Replacement = "Roe ga din" },
-                new LexiconEntry { Source = "aetheryte", Replacement = "etherite" },
-                new LexiconEntry { Source = "aetherytes", Replacement = "etherites" },
+                new LexiconEntry { Source = "FF14", Replacement = "Final Fantasy fourteen" },
             },
             AcronymExpansions =
             {
-                new LexiconEntry { Source = "BGM", Replacement = "bee gee em" },
-                new LexiconEntry { Source = "DTR", Replacement = "dee tee ar" },
-                new LexiconEntry { Source = "FFXIV", Replacement = "eff eff fourteen" },
-                new LexiconEntry { Source = "SAPI", Replacement = "sap ee" },
-                new LexiconEntry { Source = "TTS", Replacement = "tee tee ess" },
-                new LexiconEntry { Source = "UTC", Replacement = "you tee see" },
+                new LexiconEntry { Source = "AFK", Replacement = "away from keyboard" },
+                new LexiconEntry { Source = "AOE", Replacement = "area of effect" },
+                new LexiconEntry { Source = "BGM", Replacement = "background music" },
+                new LexiconEntry { Source = "DPS", Replacement = "damage per second" },
+                new LexiconEntry { Source = "DTR", Replacement = "Dalamud toolbar" },
+                new LexiconEntry { Source = "FFXIV", Replacement = "Final Fantasy fourteen" },
+                new LexiconEntry { Source = "HP", Replacement = "health points" },
+                new LexiconEntry { Source = "MP", Replacement = "magic points" },
+                new LexiconEntry { Source = "NPC", Replacement = "non-player character" },
+                new LexiconEntry { Source = "SAPI", Replacement = "speech API" },
+                new LexiconEntry { Source = "TTS", Replacement = "text to speech" },
+                new LexiconEntry { Source = "UTC", Replacement = "coordinated universal time" },
                 new LexiconEntry { Source = "WAV", Replacement = "wave" },
             },
         };

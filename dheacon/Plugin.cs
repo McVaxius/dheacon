@@ -223,6 +223,40 @@ public sealed class Plugin : IDalamudPlugin
             changed = true;
         }
 
+        if (Configuration.Version < 7)
+        {
+            Configuration.TtsPiperLengthScale = 1.0d;
+            Configuration.TtsPiperSentenceSilence = 0.2d;
+            changed = true;
+        }
+
+        if (Configuration.Version < 8)
+        {
+            Configuration.TtsPiperPitchShiftSemitones = 0.0d;
+            changed = true;
+        }
+
+        var clampedPiperLengthScale = Math.Clamp(Configuration.TtsPiperLengthScale, 0.5d, 2.0d);
+        if (Math.Abs(Configuration.TtsPiperLengthScale - clampedPiperLengthScale) > 0.0001d)
+        {
+            Configuration.TtsPiperLengthScale = clampedPiperLengthScale;
+            changed = true;
+        }
+
+        var clampedPiperSentenceSilence = Math.Clamp(Configuration.TtsPiperSentenceSilence, 0.0d, 5.0d);
+        if (Math.Abs(Configuration.TtsPiperSentenceSilence - clampedPiperSentenceSilence) > 0.0001d)
+        {
+            Configuration.TtsPiperSentenceSilence = clampedPiperSentenceSilence;
+            changed = true;
+        }
+
+        var clampedPiperPitchShift = Math.Clamp(Configuration.TtsPiperPitchShiftSemitones, -12.0d, 12.0d);
+        if (Math.Abs(Configuration.TtsPiperPitchShiftSemitones - clampedPiperPitchShift) > 0.0001d)
+        {
+            Configuration.TtsPiperPitchShiftSemitones = clampedPiperPitchShift;
+            changed = true;
+        }
+
         if (Configuration.Version != Configuration.CurrentVersion)
         {
             Configuration.Version = Configuration.CurrentVersion;

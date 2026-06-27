@@ -67,7 +67,7 @@ public sealed record PiperInstalledVoice
 
 public sealed class PiperVoiceCatalogService : IDisposable
 {
-    public const string RecommendedVoiceKey = "sv_SE-nst-medium";
+    public const string RecommendedVoiceKey = "en_US-arctic-medium";
     public const string RecommendedVoiceCatalogId = OfficialSourceKey + ":" + RecommendedVoiceKey;
 
     private const string OfficialSourceKey = "official";
@@ -174,17 +174,22 @@ public sealed class PiperVoiceCatalogService : IDisposable
 
     public PiperInstalledVoice? FindInstalledVoice(string catalogId)
     {
-        if (!string.IsNullOrWhiteSpace(catalogId))
-        {
-            var selected = installedManifest.Voices.FirstOrDefault(voice =>
-                string.Equals(voice.CatalogId, catalogId, StringComparison.OrdinalIgnoreCase));
-            if (selected != null)
-                return selected;
-        }
+        var selected = FindExactInstalledVoice(catalogId);
+        if (selected != null)
+            return selected;
 
         return installedManifest.Voices.FirstOrDefault(voice =>
                 string.Equals(voice.CatalogId, RecommendedVoiceCatalogId, StringComparison.OrdinalIgnoreCase))
             ?? installedManifest.Voices.FirstOrDefault();
+    }
+
+    public PiperInstalledVoice? FindExactInstalledVoice(string catalogId)
+    {
+        if (string.IsNullOrWhiteSpace(catalogId))
+            return null;
+
+        return installedManifest.Voices.FirstOrDefault(voice =>
+            string.Equals(voice.CatalogId, catalogId, StringComparison.OrdinalIgnoreCase));
     }
 
     public PiperVoiceCatalogEntry? FindCatalogEntry(string catalogId)
@@ -244,20 +249,24 @@ public sealed class PiperVoiceCatalogService : IDisposable
 
     public async Task EnsureRecommendedVoiceInstalledAsync(bool switchBackendWhenReady, CancellationToken cancellationToken)
     {
+        var selectedVoiceExists = FindExactInstalledVoice(configuration.TtsPiperVoiceId) != null;
         try
         {
             await RefreshCatalogIfStaleAsync(TimeSpan.FromHours(24), cancellationToken).ConfigureAwait(false);
         }
         catch
         {
-            if (FindInstalledVoice(RecommendedVoiceCatalogId) == null)
+            if (!selectedVoiceExists && FindExactInstalledVoice(RecommendedVoiceCatalogId) == null)
                 throw;
         }
 
-        if (FindInstalledVoice(RecommendedVoiceCatalogId) == null)
+        if (!selectedVoiceExists && FindExactInstalledVoice(RecommendedVoiceCatalogId) == null)
             await InstallVoiceAsync(RecommendedVoiceCatalogId, cancellationToken).ConfigureAwait(false);
 
-        configuration.TtsPiperVoiceId = RecommendedVoiceCatalogId;
+        if (!selectedVoiceExists)
+            configuration.TtsPiperVoiceId = RecommendedVoiceCatalogId;
+
+        var activeVoiceKey = FindExactInstalledVoice(configuration.TtsPiperVoiceId)?.VoiceKey ?? RecommendedVoiceKey;
         var runtimePath = ResolveRuntimePath();
         if (switchBackendWhenReady && runtimePath == null)
         {
@@ -269,7 +278,7 @@ public sealed class PiperVoiceCatalogService : IDisposable
             catch (Exception ex)
             {
                 LastError = ex.Message;
-                LastStatus = $"Installed {RecommendedVoiceKey}, but Piper runtime setup failed; kept Legacy SAPI active.";
+                LastStatus = $"Piper voice {activeVoiceKey} is installed, but runtime setup failed; kept Legacy SAPI active.";
                 log.Warning(ex, "[Dheacon] Piper runtime setup failed.");
             }
         }
@@ -277,12 +286,12 @@ public sealed class PiperVoiceCatalogService : IDisposable
         if (switchBackendWhenReady && runtimePath != null)
         {
             configuration.TtsBackend = TtsBackend.PiperLocal;
-            LastStatus = $"Piper ready with {RecommendedVoiceKey}.";
+            LastStatus = $"Piper ready with {activeVoiceKey}.";
         }
         else if (switchBackendWhenReady)
         {
             configuration.TtsBackend = TtsBackend.LegacySapi;
-            LastStatus = $"Installed {RecommendedVoiceKey}, but Piper runtime is missing; kept Legacy SAPI active.";
+            LastStatus = $"Piper voice {activeVoiceKey} is installed, but runtime is missing; kept Legacy SAPI active.";
         }
 
         RefreshRuntimeStatus(save: false);

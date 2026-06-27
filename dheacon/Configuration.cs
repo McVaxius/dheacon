@@ -20,7 +20,7 @@ public enum TtsBackend
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
-    public const int CurrentVersion = 6;
+    public const int CurrentVersion = 8;
 
     public int Version { get; set; } = CurrentVersion;
     public bool PluginEnabled { get; set; } = false;
@@ -51,6 +51,9 @@ public class Configuration : IPluginConfiguration
     public int TtsVolume { get; set; } = 100;
     public double TtsPitch { get; set; } = 0.75d;
     public int TtsOutputGainPercent { get; set; } = 200;
+    public double TtsPiperLengthScale { get; set; } = 1.0d;
+    public double TtsPiperSentenceSilence { get; set; } = 0.2d;
+    public double TtsPiperPitchShiftSemitones { get; set; } = 0.0d;
 
     public bool LoginCommentaryEnabled { get; set; } = true;
     public bool TerritoryCommentaryEnabled { get; set; } = true;

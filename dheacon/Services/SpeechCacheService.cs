@@ -5,6 +5,8 @@ using System.Speech.Synthesis;
 using System.Text;
 using System.Text.RegularExpressions;
 using Dalamud.Plugin.Services;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 using Windows.Media.SpeechSynthesis;
 using Windows.Storage.Streams;
 using LegacySpeechSynthesizer = System.Speech.Synthesis.SpeechSynthesizer;
@@ -35,6 +37,8 @@ public sealed record PiperTextPreview(
 public sealed partial class SpeechCacheService
 {
     private const string DefaultVoiceLabel = "Windows default";
+    private const string PiperPitchProcessingVersion = "piper-pitch-v1";
+    private const double PiperPitchShiftEpsilon = 0.0001d;
     private readonly IPluginLog log;
     private readonly Configuration configuration;
     private readonly PiperVoiceCatalogService piperVoiceCatalogService;
@@ -101,9 +105,9 @@ public sealed partial class SpeechCacheService
         var backend = configuration.TtsBackend;
         if (backend == TtsBackend.PiperLocal)
         {
-            var piperVoice = piperVoiceCatalogService.FindInstalledVoice(configuration.TtsPiperVoiceId);
+            var piperVoice = piperVoiceCatalogService.FindExactInstalledVoice(configuration.TtsPiperVoiceId);
             return piperVoice == null
-                ? "No Piper voice installed"
+                ? "No exact Piper voice selected"
                 : $"{piperVoice.VoiceKey} - {piperVoice.LanguageCode} - {piperVoice.Gender} - {piperVoice.Quality} - {piperVoice.Source}";
         }
 
@@ -120,10 +124,10 @@ public sealed partial class SpeechCacheService
         if (string.IsNullOrWhiteSpace(normalizedText))
             return new PiperTextPreview(string.Empty, string.Empty, false, string.Empty, string.Empty, string.Empty, configuration.TtsPiperTextAdapterEnabled, "No text.");
 
-        var selectedVoice = piperVoiceCatalogService.FindInstalledVoice(configuration.TtsPiperVoiceId);
+        var selectedVoice = piperVoiceCatalogService.FindExactInstalledVoice(configuration.TtsPiperVoiceId);
         var assumesSwedishPiper = selectedVoice == null &&
-                                  (string.IsNullOrWhiteSpace(configuration.TtsPiperVoiceId) ||
-                                   configuration.TtsPiperVoiceId.Contains("sv_SE", StringComparison.OrdinalIgnoreCase));
+                                  !string.IsNullOrWhiteSpace(configuration.TtsPiperVoiceId) &&
+                                  configuration.TtsPiperVoiceId.Contains("sv_SE", StringComparison.OrdinalIgnoreCase);
         var targetLanguage = selectedVoice?.LanguageCode ?? (assumesSwedishPiper ? "sv_SE" : string.Empty);
         var shouldAdapt = configuration.TtsPiperTextAdapterEnabled &&
                           ((selectedVoice != null && IsSwedishCulture(selectedVoice.LanguageCode)) || assumesSwedishPiper);
@@ -188,6 +192,17 @@ public sealed partial class SpeechCacheService
             LastStatus = $"{backend} failed; used Legacy SAPI fallback: {Path.GetFileName(fallbackPath)}";
             return fallbackPath;
         }
+    }
+
+    public string GetOrCreatePiperPreviewWav(string text, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var normalizedText = NormalizeText(text);
+        if (string.IsNullOrWhiteSpace(normalizedText))
+            throw new InvalidOperationException("Cannot generate speech for empty text.");
+
+        return GetOrCreateWavForBackend(TtsBackend.PiperLocal, normalizedText, cancellationToken);
     }
 
     public int ClearCache()
@@ -273,7 +288,7 @@ public sealed partial class SpeechCacheService
         var synthesisText = CreateSynthesisText(backend, normalizedText, settings);
         var cacheKey = string.Join(
             "\n",
-            "v6",
+            "v7",
             settings.Backend,
             settings.VoiceId,
             settings.VoiceName,
@@ -285,9 +300,10 @@ public sealed partial class SpeechCacheService
             backend == TtsBackend.PiperLocal ? synthesisText.AdapterVersion : string.Empty,
             backend == TtsBackend.PiperLocal ? synthesisText.AdapterContentHash : string.Empty,
             synthesisText.Text,
-            settings.Rate.ToString(CultureInfo.InvariantCulture),
-            settings.SynthVolume.ToString(CultureInfo.InvariantCulture),
-            settings.Pitch.ToString("0.###", CultureInfo.InvariantCulture),
+            backend == TtsBackend.PiperLocal ? settings.PiperLengthScale.ToString("0.###", CultureInfo.InvariantCulture) : settings.Rate.ToString(CultureInfo.InvariantCulture),
+            backend == TtsBackend.PiperLocal ? settings.PiperSentenceSilence.ToString("0.###", CultureInfo.InvariantCulture) : settings.SynthVolume.ToString(CultureInfo.InvariantCulture),
+            backend == TtsBackend.PiperLocal ? PiperPitchProcessingVersion : string.Empty,
+            backend == TtsBackend.PiperLocal ? settings.PiperPitchShiftSemitones.ToString("+0.###;-0.###;0", CultureInfo.InvariantCulture) : settings.Pitch.ToString("0.###", CultureInfo.InvariantCulture),
             settings.OutputGainPercent.ToString(CultureInfo.InvariantCulture));
         var hash = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(cacheKey))).ToLowerInvariant();
         var wavPrefix = backend == TtsBackend.PiperLocal ? "piper-" : string.Empty;
@@ -314,6 +330,10 @@ public sealed partial class SpeechCacheService
                 SynthesizeLegacySapiWav(synthesisText.Text, tempPath, settings, cancellationToken);
 
             cancellationToken.ThrowIfCancellationRequested();
+            var pitchWarning = backend == TtsBackend.PiperLocal
+                ? ApplyPiperPitchShift(tempPath, settings.PiperPitchShiftSemitones)
+                : null;
+            cancellationToken.ThrowIfCancellationRequested();
             var gainWarning = ApplyOutputGain(tempPath, GetEffectiveOutputGainPercent(settings));
 
             if (File.Exists(wavPath))
@@ -331,7 +351,7 @@ public sealed partial class SpeechCacheService
 
             LastWavPath = wavPath;
             LastStatus = $"Generated {settings.Backend}: {Path.GetFileName(wavPath)}";
-            LastError = gainWarning ?? string.Empty;
+            LastError = CombineWarnings(pitchWarning, gainWarning);
             return wavPath;
         }
         catch
@@ -347,6 +367,9 @@ public sealed partial class SpeechCacheService
         var synthVolume = Math.Clamp(configuration.TtsVolume, 0, 100);
         var pitch = Math.Clamp(configuration.TtsPitch, 0.0d, 2.0d);
         var outputGainPercent = Math.Clamp(configuration.TtsOutputGainPercent, 0, 400);
+        var piperLengthScale = Math.Clamp(configuration.TtsPiperLengthScale, 0.5d, 2.0d);
+        var piperSentenceSilence = Math.Clamp(configuration.TtsPiperSentenceSilence, 0.0d, 5.0d);
+        var piperPitchShiftSemitones = Math.Clamp(configuration.TtsPiperPitchShiftSemitones, -12.0d, 12.0d);
 
         if (backend == TtsBackend.ModernWindows)
         {
@@ -364,7 +387,7 @@ public sealed partial class SpeechCacheService
 
         if (backend == TtsBackend.PiperLocal)
         {
-            var selectedVoice = piperVoiceCatalogService.FindInstalledVoice(configuration.TtsPiperVoiceId)
+            var selectedVoice = piperVoiceCatalogService.FindExactInstalledVoice(configuration.TtsPiperVoiceId)
                 ?? throw new InvalidOperationException("No installed Piper voice is selected.");
             var modelVersion = !string.IsNullOrWhiteSpace(selectedVoice.ModelDigest)
                 ? selectedVoice.ModelDigest
@@ -378,7 +401,7 @@ public sealed partial class SpeechCacheService
                 selectedVoice.CatalogId,
                 selectedVoice.VoiceKey,
                 rate,
-                synthVolume,
+                100,
                 pitch,
                 outputGainPercent,
                 selectedVoice.ModelPath,
@@ -386,7 +409,10 @@ public sealed partial class SpeechCacheService
                 modelVersion,
                 modelSha256,
                 selectedVoice.LanguageCode,
-                selectedVoice.Quality);
+                selectedVoice.Quality,
+                piperLengthScale,
+                piperSentenceSilence,
+                piperPitchShiftSemitones);
         }
 
         var legacyVoiceName = configuration.TtsVoiceName.Trim();
@@ -513,7 +539,9 @@ public sealed partial class SpeechCacheService
         startInfo.ArgumentList.Add("--output_file");
         startInfo.ArgumentList.Add(tempPath);
         startInfo.ArgumentList.Add("--length_scale");
-        startInfo.ArgumentList.Add(MapPiperLengthScale(settings.Rate).ToString("0.###", CultureInfo.InvariantCulture));
+        startInfo.ArgumentList.Add(settings.PiperLengthScale.ToString("0.###", CultureInfo.InvariantCulture));
+        startInfo.ArgumentList.Add("--sentence_silence");
+        startInfo.ArgumentList.Add(settings.PiperSentenceSilence.ToString("0.###", CultureInfo.InvariantCulture));
 
         using var process = new Process { StartInfo = startInfo };
         if (!process.Start())
@@ -658,15 +686,42 @@ public sealed partial class SpeechCacheService
             ? Math.Clamp(1.0d + (rate * 0.05d), 0.5d, 1.0d)
             : Math.Clamp(1.0d + (rate * 0.1d), 1.0d, 2.0d);
 
-    private static double MapPiperLengthScale(int rate)
-        => rate < 0
-            ? Math.Clamp(1.0d + (Math.Abs(rate) * 0.05d), 1.0d, 1.5d)
-            : Math.Clamp(1.0d - (rate * 0.04d), 0.6d, 1.0d);
-
     private static int GetEffectiveOutputGainPercent(SpeechSynthesisSettings settings)
-        => settings.Backend == TtsBackend.PiperLocal
-            ? Math.Clamp((int)Math.Round(settings.OutputGainPercent * (settings.SynthVolume / 100d)), 0, 400)
-            : settings.OutputGainPercent;
+        => settings.OutputGainPercent;
+
+    private string? ApplyPiperPitchShift(string wavPath, double semitones)
+    {
+        if (Math.Abs(semitones) < PiperPitchShiftEpsilon)
+            return null;
+
+        var shiftedPath = Path.Combine(
+            Path.GetDirectoryName(wavPath) ?? ".",
+            $"{Path.GetFileNameWithoutExtension(wavPath)}.{Guid.NewGuid():N}.pitch.tmp.wav");
+
+        try
+        {
+            var pitchFactor = Math.Pow(2.0d, semitones / 12.0d);
+            using var reader = new WaveFileReader(wavPath);
+            var pitchProvider = new SmbPitchShiftingSampleProvider(reader.ToSampleProvider())
+            {
+                PitchFactor = (float)pitchFactor,
+            };
+
+            WaveFileWriter.CreateWaveFile16(shiftedPath, pitchProvider);
+            File.Copy(shiftedPath, wavPath, overwrite: true);
+            return null;
+        }
+        catch (Exception ex)
+        {
+            var warning = $"Piper pitch shift failed ({semitones.ToString("+0.###;-0.###;0", CultureInfo.InvariantCulture)} semitones): {ex.Message}";
+            log.Warning(ex, $"[Dheacon] {warning} Using unshifted WAV.");
+            return warning;
+        }
+        finally
+        {
+            TryDelete(shiftedPath);
+        }
+    }
 
     private string? ApplyOutputGain(string wavPath, int outputGainPercent)
     {
@@ -898,6 +953,9 @@ public sealed partial class SpeechCacheService
         return false;
     }
 
+    private static string CombineWarnings(params string?[] warnings)
+        => string.Join(" ", warnings.Where(warning => !string.IsNullOrWhiteSpace(warning)));
+
     private static bool BytesEqual(byte[] bytes, int offset, string expected)
     {
         if (offset + expected.Length > bytes.Length)
@@ -1045,7 +1103,10 @@ public sealed partial class SpeechCacheService
         string PiperModelVersion = "",
         string PiperModelSha256 = "",
         string PiperLanguageCode = "",
-        string PiperQuality = "");
+        string PiperQuality = "",
+        double PiperLengthScale = 1.0d,
+        double PiperSentenceSilence = 0.2d,
+        double PiperPitchShiftSemitones = 0.0d);
 
     private sealed record SynthesisTextResult(
         string Text,

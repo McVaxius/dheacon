@@ -77,8 +77,8 @@ public sealed class SpeechQueueService : IDisposable
         {
             await foreach (var request in channel.Reader.ReadAllAsync(cancellationTokenSource.Token).ConfigureAwait(false))
             {
-                Interlocked.Decrement(ref pendingCount);
                 Interlocked.Increment(ref activeCount);
+                Interlocked.Decrement(ref pendingCount);
                 try
                 {
                     ProcessRequest(request, cancellationTokenSource.Token);
