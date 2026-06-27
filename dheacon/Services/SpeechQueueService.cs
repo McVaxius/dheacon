@@ -35,6 +35,11 @@ public sealed class SpeechQueueService : IDisposable
     public string LastStatus { get; private set; } = "Speech queue ready.";
     public string LastError { get; private set; } = string.Empty;
     public string LastText { get; private set; } = string.Empty;
+    public string LastCategory { get; private set; } = string.Empty;
+    public string LastReason { get; private set; } = string.Empty;
+    public string CurrentText { get; private set; } = string.Empty;
+    public string CurrentCategory { get; private set; } = string.Empty;
+    public string CurrentReason { get; private set; } = string.Empty;
     public DateTime LastSpokenAtUtc { get; private set; } = DateTime.MinValue;
 
     public bool TryEnqueue(CommentaryRequest request)
@@ -105,7 +110,12 @@ public sealed class SpeechQueueService : IDisposable
     {
         try
         {
+            CurrentText = request.Text;
+            CurrentCategory = request.Category.ToString();
+            CurrentReason = request.Reason;
             LastText = request.Text;
+            LastCategory = request.Category.ToString();
+            LastReason = request.Reason;
             LastStatus = $"Preparing {request.Category}: {request.Reason}";
             var wavPath = speechCacheService.GetOrCreateWav(request.Text, cancellationToken);
 
@@ -125,6 +135,12 @@ public sealed class SpeechQueueService : IDisposable
             LastError = ex.Message;
             LastStatus = $"Failed to speak {request.Category}.";
             log.Error(ex, $"[Dheacon] Failed to process speech request '{request.Category}'.");
+        }
+        finally
+        {
+            CurrentText = string.Empty;
+            CurrentCategory = string.Empty;
+            CurrentReason = string.Empty;
         }
     }
 }

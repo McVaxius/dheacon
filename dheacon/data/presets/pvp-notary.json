@@ -1,0 +1,49 @@
+{
+    "schema":  "dheacon-preset-v1",
+    "id":  "pvp-notary",
+    "name":  "PvP Notary",
+    "description":  "Competition-aware notes with faster reactions.",
+    "protected":  false,
+    "mode":  "ReadingRoegadyn",
+    "linePackId":  "reading-roegadyn",
+    "lines":  {
+
+              },
+    "behavior":  {
+                     "suppressTeleportAndReturnTransitions":  true,
+                     "alertSoundRelativePath":  "data\\transition-alert.wav",
+                     "ttsBackend":  "LegacySapi",
+                     "ttsModernVoiceId":  "",
+                     "ttsVoiceName":  "",
+                     "ttsPiperVoiceId":  "",
+                     "ttsPiperTextAdapterEnabled":  true,
+                     "ttsPiperTextAdapterId":  "en_US-to-sv_SE",
+                     "ttsRate":  0,
+                     "ttsVolume":  100,
+                     "ttsPitch":  0.75,
+                     "ttsOutputGainPercent":  385,
+                     "ttsPiperLengthScale":  0.94,
+                     "ttsPiperSentenceSilence":  0.2,
+                     "ttsPiperPitchShiftSemitones":  -3.2,
+                     "loginCommentaryEnabled":  true,
+                     "territoryCommentaryEnabled":  true,
+                     "idleCommentaryEnabled":  true,
+                     "combatCommentaryEnabled":  true,
+                     "bgmMachinationsCommentaryEnabled":  true,
+                     "expandedEventCommentaryEnabled":  true,
+                     "nearbyObservationCommentaryEnabled":  true,
+                     "triggerChancePercent":  36,
+                     "territoryCooldownSeconds":  8,
+                     "idleCooldownSeconds":  480,
+                     "combatCooldownSeconds":  20,
+                     "bgmCooldownSeconds":  120,
+                     "expandedEventCooldownSeconds":  30,
+                     "nearbyObservationCooldownSeconds":  225
+                 },
+    "imaginaryFren":  {
+                          "enabled":  false,
+                          "name":  "Golden Sven",
+                          "presetKey":  "e97d1e17-9247-46aa-a9ad-b942ab905d31",
+                          "embeddedKranglerPresetBase64":  ""
+                      }
+}

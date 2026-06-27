@@ -39,6 +39,7 @@ public sealed class MainWindow : Window, IDisposable
             cfg.PluginEnabled = enabled;
             cfg.Save();
             plugin.UpdateDtrBar();
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
         }
 
         ImGui.SameLine();
@@ -59,10 +60,10 @@ public sealed class MainWindow : Window, IDisposable
             plugin.PrintStatus(GetModeStatus());
 
         ImGui.TextWrapped(PluginInfo.Summary);
-        DrawModeSelector(cfg);
+        DrawPresetSelector();
         ImGui.Separator();
 
-        Action drawStatus = cfg.CommentaryMode == CommentaryMode.Dheacon
+        Action drawStatus = plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
             ? DrawDheaconStatus
             : DrawReadingRoegadynStatus;
         DrawStatusSafely(drawStatus);
@@ -71,24 +72,24 @@ public sealed class MainWindow : Window, IDisposable
         ImGui.Text($"Command: {PluginInfo.Command}");
     }
 
-    private void DrawModeSelector(Configuration cfg)
+    private void DrawPresetSelector()
     {
-        ImGui.TextUnformatted("Mode");
+        ImGui.TextUnformatted("Preset");
+        var presets = plugin.PresetService.Presets.ToList();
+        var active = plugin.PresetService.ActivePreset;
+        var currentIndex = Math.Max(0, presets.FindIndex(preset => string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase)));
+        var labels = presets.Select(preset => preset.Protected ? $"{preset.Name} *" : preset.Name).ToArray();
 
-        if (ImGui.RadioButton("Dheacon", cfg.CommentaryMode == CommentaryMode.Dheacon))
+        ImGui.SetNextItemWidth(Math.Min(360f, ImGui.GetContentRegionAvail().X));
+        if (ImGui.Combo("##DheaconPreset", ref currentIndex, labels, labels.Length))
         {
-            cfg.CommentaryMode = CommentaryMode.Dheacon;
-            cfg.Save();
+            plugin.PresetService.SetActivePreset(presets[currentIndex].Id, out var message);
+            plugin.PrintStatus(message);
             plugin.UpdateDtrBar();
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
         }
 
-        ImGui.SameLine();
-        if (ImGui.RadioButton("Reading Roegadyn", cfg.CommentaryMode == CommentaryMode.ReadingRoegadyn))
-        {
-            cfg.CommentaryMode = CommentaryMode.ReadingRoegadyn;
-            cfg.Save();
-            plugin.UpdateDtrBar();
-        }
+        ImGui.TextWrapped(active.Description);
     }
 
     private void DrawDheaconStatus()
@@ -136,7 +137,21 @@ public sealed class MainWindow : Window, IDisposable
         }
         ImGui.TextWrapped($"Trigger status: {plugin.CommentaryTriggerService.LastDecision}");
         ImGui.TextWrapped($"Queue status: {plugin.SpeechQueueService.LastStatus}");
+        var currentText = string.IsNullOrWhiteSpace(plugin.SpeechQueueService.CurrentText)
+            ? plugin.SpeechQueueService.LastText
+            : plugin.SpeechQueueService.CurrentText;
+        var currentCategory = string.IsNullOrWhiteSpace(plugin.SpeechQueueService.CurrentCategory)
+            ? plugin.SpeechQueueService.LastCategory
+            : plugin.SpeechQueueService.CurrentCategory;
+        var currentReason = string.IsNullOrWhiteSpace(plugin.SpeechQueueService.CurrentReason)
+            ? plugin.SpeechQueueService.LastReason
+            : plugin.SpeechQueueService.CurrentReason;
+        if (!string.IsNullOrWhiteSpace(currentText))
+            ImGui.TextWrapped($"Speaking: {currentText}");
+        if (!string.IsNullOrWhiteSpace(currentCategory) || !string.IsNullOrWhiteSpace(currentReason))
+            ImGui.TextWrapped($"Speech context: {currentCategory} {currentReason}".Trim());
         ImGui.Text($"Pending speech requests: {plugin.SpeechQueueService.PendingCount}");
+        ImGui.TextWrapped($"Follower: {plugin.KranglerImaginaryFrenIpcClient.LastStatus}");
         ImGui.TextWrapped($"Cache folder: {plugin.Configuration.GetResolvedTtsCacheDirectory()}");
         ImGui.Text($"Cache size: {plugin.SpeechCacheService.GetCacheSizeMegabytes():F1} MB");
         ImGui.TextWrapped($"Cache status: {plugin.SpeechCacheService.LastStatus}");
@@ -167,7 +182,7 @@ public sealed class MainWindow : Window, IDisposable
     }
 
     private string GetModeStatus()
-        => plugin.Configuration.CommentaryMode == CommentaryMode.Dheacon
+        => plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
             ? plugin.AetheryteTriggerService.LastDecision
             : plugin.CommentaryTriggerService.LastDecision;
 

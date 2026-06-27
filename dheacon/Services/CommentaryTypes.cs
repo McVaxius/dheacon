@@ -27,6 +27,12 @@ public enum CommentaryCategory
     FishingEnd,
     CutsceneStart,
     CutsceneEnd,
+    CutsceneStartDuty,
+    CutsceneEndDuty,
+    CutsceneStartNonDuty,
+    CutsceneEndNonDuty,
+    CutsceneStartTreasureDungeon,
+    CutsceneEndTreasureDungeon,
     PerformanceStart,
     PerformanceEnd,
     MinigameStart,
@@ -43,6 +49,8 @@ public enum CommentaryCategory
     Recovered,
     PvpEnter,
     PvpLeave,
+    NearbyPlayerObservation,
+    NearbyCrowdObservation,
 }
 
 public sealed record CommentaryContext(
@@ -53,9 +61,18 @@ public sealed record CommentaryContext(
     ushort? BgmId = null,
     string? Job = null,
     uint? Level = null,
-    string? Event = null);
+    string? Event = null,
+    string? NearbyPlayerName = null,
+    int? NearbyPlayerCount = null,
+    string? CutsceneContext = null);
 
 public sealed record CommentaryRequest(
     CommentaryCategory Category,
     string Text,
     string Reason);
+
+public sealed class LinePackEntry
+{
+    public string Text { get; set; } = string.Empty;
+    public int Weight { get; set; } = 1;
+}

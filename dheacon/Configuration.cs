@@ -20,11 +20,12 @@ public enum TtsBackend
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
-    public const int CurrentVersion = 8;
+    public const int CurrentVersion = 9;
 
     public int Version { get; set; } = CurrentVersion;
     public bool PluginEnabled { get; set; } = false;
     public CommentaryMode CommentaryMode { get; set; } = CommentaryMode.ReadingRoegadyn;
+    public string ActivePresetId { get; set; } = "reading-roegadyn";
     public bool DtrBarEnabled { get; set; } = true;
     public int DtrBarMode { get; set; } = 1;
     public string DtrIconEnabled { get; set; } = "\uE044";
@@ -53,7 +54,7 @@ public class Configuration : IPluginConfiguration
     public int TtsOutputGainPercent { get; set; } = 200;
     public double TtsPiperLengthScale { get; set; } = 1.0d;
     public double TtsPiperSentenceSilence { get; set; } = 0.2d;
-    public double TtsPiperPitchShiftSemitones { get; set; } = 0.0d;
+    public double TtsPiperPitchShiftSemitones { get; set; } = -3.8d;
 
     public bool LoginCommentaryEnabled { get; set; } = true;
     public bool TerritoryCommentaryEnabled { get; set; } = true;
@@ -61,6 +62,7 @@ public class Configuration : IPluginConfiguration
     public bool CombatCommentaryEnabled { get; set; } = true;
     public bool BgmMachinationsCommentaryEnabled { get; set; } = true;
     public bool ExpandedEventCommentaryEnabled { get; set; } = true;
+    public bool NearbyObservationCommentaryEnabled { get; set; } = true;
     public int ReadingRoegadynTriggerChancePercent { get; set; } = 25;
 
     public int TerritoryCommentaryCooldownSeconds { get; set; } = 8;
@@ -68,6 +70,7 @@ public class Configuration : IPluginConfiguration
     public int CombatCommentaryCooldownSeconds { get; set; } = 20;
     public int BgmCommentaryCooldownSeconds { get; set; } = 120;
     public int ExpandedEventCooldownSeconds { get; set; } = 45;
+    public int NearbyObservationCooldownSeconds { get; set; } = 180;
 
     public string GetResolvedTtsCacheDirectory()
     {

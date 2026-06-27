@@ -30,6 +30,7 @@ public sealed class Plugin : IDalamudPlugin
     public Configuration Configuration { get; }
     public AetheryteTriggerService AetheryteTriggerService { get; }
     public AudioPlaybackService AudioPlaybackService { get; }
+    public DheaconPresetService PresetService { get; }
     public CommentaryLinePackService CommentaryLinePackService { get; }
     public PiperVoiceCatalogService PiperVoiceCatalogService { get; }
     public SpokenTextAdapterService SpokenTextAdapterService { get; }
@@ -37,6 +38,7 @@ public sealed class Plugin : IDalamudPlugin
     public SpeechQueueService SpeechQueueService { get; }
     public CommentaryTriggerService CommentaryTriggerService { get; }
     public BgmProbeService BgmProbeService { get; }
+    public KranglerImaginaryFrenIpcClient KranglerImaginaryFrenIpcClient { get; }
     public WindowSystem WindowSystem { get; } = new(PluginInfo.InternalName);
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
@@ -46,13 +48,15 @@ public sealed class Plugin : IDalamudPlugin
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         MigrateConfiguration();
+        PresetService = new DheaconPresetService(PluginInterface, Log, Configuration);
         AudioPlaybackService = new AudioPlaybackService(Log, Configuration);
-        CommentaryLinePackService = new CommentaryLinePackService(Log);
+        CommentaryLinePackService = new CommentaryLinePackService(Log, PresetService);
         PiperVoiceCatalogService = new PiperVoiceCatalogService(Log, Configuration);
         SpokenTextAdapterService = new SpokenTextAdapterService(Log);
         SpeechCacheService = new SpeechCacheService(Log, Configuration, PiperVoiceCatalogService, SpokenTextAdapterService);
         SpeechQueueService = new SpeechQueueService(Log, SpeechCacheService, AudioPlaybackService);
         BgmProbeService = new BgmProbeService(SigScanner, Log);
+        KranglerImaginaryFrenIpcClient = new KranglerImaginaryFrenIpcClient(PluginInterface, Log, Configuration, PresetService);
         CommentaryTriggerService = new CommentaryTriggerService(
             ClientState,
             PlayerState,
@@ -68,7 +72,7 @@ public sealed class Plugin : IDalamudPlugin
         configWindow = new ConfigWindow(this);
         WindowSystem.AddWindow(mainWindow);
         WindowSystem.AddWindow(configWindow);
-        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
+        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
         PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
@@ -82,6 +86,7 @@ public sealed class Plugin : IDalamudPlugin
     {
         AetheryteTriggerService.Dispose();
         CommentaryTriggerService.Dispose();
+        KranglerImaginaryFrenIpcClient.Dispose();
         SpeechQueueService.Dispose();
         PiperVoiceCatalogService.Dispose();
         Framework.Update -= OnFrameworkUpdate;
@@ -121,6 +126,7 @@ public sealed class Plugin : IDalamudPlugin
             Configuration.PluginEnabled = true;
             Configuration.Save();
             UpdateDtrBar();
+            KranglerImaginaryFrenIpcClient.ReconcileNow();
             PrintStatus("Enabled.");
             return;
         }
@@ -130,6 +136,7 @@ public sealed class Plugin : IDalamudPlugin
             Configuration.PluginEnabled = false;
             Configuration.Save();
             UpdateDtrBar();
+            KranglerImaginaryFrenIpcClient.ReconcileNow();
             PrintStatus("Disabled.");
             return;
         }
@@ -137,6 +144,12 @@ public sealed class Plugin : IDalamudPlugin
         if (verb.Equals("mode", StringComparison.OrdinalIgnoreCase))
         {
             SetMode(rest);
+            return;
+        }
+
+        if (verb.Equals("preset", StringComparison.OrdinalIgnoreCase))
+        {
+            SetPreset(rest);
             return;
         }
 
@@ -236,6 +249,21 @@ public sealed class Plugin : IDalamudPlugin
             changed = true;
         }
 
+        if (Configuration.Version < 9)
+        {
+            if (Math.Abs(Configuration.TtsPiperPitchShiftSemitones) < 0.0001d)
+                Configuration.TtsPiperPitchShiftSemitones = -3.8d;
+
+            if (string.IsNullOrWhiteSpace(Configuration.ActivePresetId))
+            {
+                Configuration.ActivePresetId = Configuration.CommentaryMode == CommentaryMode.Dheacon
+                    ? DheaconPresetIds.Dheacon
+                    : DheaconPresetIds.ReadingRoegadyn;
+            }
+
+            changed = true;
+        }
+
         var clampedPiperLengthScale = Math.Clamp(Configuration.TtsPiperLengthScale, 0.5d, 2.0d);
         if (Math.Abs(Configuration.TtsPiperLengthScale - clampedPiperLengthScale) > 0.0001d)
         {
@@ -275,19 +303,20 @@ public sealed class Plugin : IDalamudPlugin
 
     public void UpdateDtrBar()
     {
-        if (dtrEntry == null) return; dtrEntry.Shown = Configuration.DtrBarEnabled; if (!Configuration.DtrBarEnabled) return; var g = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled; var s = Configuration.PluginEnabled ? "On" : "Off"; dtrEntry.Text = Configuration.DtrBarMode switch { 1 => new SeString(new TextPayload($"{g} DH")), 2 => new SeString(new TextPayload(g)), _ => new SeString(new TextPayload("DH: " + s)), }; var mode = Configuration.CommentaryMode == CommentaryMode.ReadingRoegadyn ? "Reading Roegadyn" : "Dheacon"; dtrEntry.Tooltip = new SeString(new TextPayload($"{PluginInfo.DisplayName} {s}. Mode: {mode}. Click to toggle."));
+        if (dtrEntry == null) return; dtrEntry.Shown = Configuration.DtrBarEnabled; if (!Configuration.DtrBarEnabled) return; var g = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled; var s = Configuration.PluginEnabled ? "On" : "Off"; dtrEntry.Text = Configuration.DtrBarMode switch { 1 => new SeString(new TextPayload($"{g} DH")), 2 => new SeString(new TextPayload(g)), _ => new SeString(new TextPayload("DH: " + s)), }; var mode = PresetService.ActivePreset.Name; dtrEntry.Tooltip = new SeString(new TextPayload($"{PluginInfo.DisplayName} {s}. Preset: {mode}. Click to toggle."));
     }
 
     private void OnFrameworkUpdate(IFramework framework)
     {
         AetheryteTriggerService.Update();
         CommentaryTriggerService.Update();
+        KranglerImaginaryFrenIpcClient.Update();
         UpdateDtrBar();
     }
 
     private void OnTriggeredAreaTransition(uint fromTerritory, uint toTerritory)
     {
-        if (Configuration.CommentaryMode == CommentaryMode.Dheacon)
+        if (PresetService.ActivePreset.Mode == CommentaryMode.Dheacon)
         {
             AudioPlaybackService.PlayAlert();
             PrintStatus($"Alert triggered for territory change {fromTerritory} -> {toTerritory}.");
@@ -302,9 +331,9 @@ public sealed class Plugin : IDalamudPlugin
     {
         if (requestedMode.Equals("dheacon", StringComparison.OrdinalIgnoreCase))
         {
-            Configuration.CommentaryMode = CommentaryMode.Dheacon;
-            Configuration.Save();
+            PresetService.SetActivePreset(DheaconPresetIds.Dheacon, out _);
             UpdateDtrBar();
+            KranglerImaginaryFrenIpcClient.ReconcileNow();
             PrintStatus("Mode set to Dheacon.");
             return;
         }
@@ -314,14 +343,33 @@ public sealed class Plugin : IDalamudPlugin
             requestedMode.Equals("reading", StringComparison.OrdinalIgnoreCase) ||
             requestedMode.Equals("readingroegadyn", StringComparison.OrdinalIgnoreCase))
         {
-            Configuration.CommentaryMode = CommentaryMode.ReadingRoegadyn;
-            Configuration.Save();
+            PresetService.SetActivePreset(DheaconPresetIds.ReadingRoegadyn, out _);
             UpdateDtrBar();
+            KranglerImaginaryFrenIpcClient.ReconcileNow();
             PrintStatus("Mode set to Reading Roegadyn.");
             return;
         }
 
         PrintStatus($"Unknown mode '{requestedMode}'. Use: {PluginInfo.Command} mode dheacon or {PluginInfo.Command} mode roe.");
+    }
+
+    private void SetPreset(string requestedPreset)
+    {
+        if (string.IsNullOrWhiteSpace(requestedPreset))
+        {
+            PrintStatus("Available presets: " + string.Join(", ", PresetService.Presets.Select(preset => preset.Name)));
+            return;
+        }
+
+        if (PresetService.SetActivePreset(requestedPreset, out var message))
+        {
+            UpdateDtrBar();
+            KranglerImaginaryFrenIpcClient.ReconcileNow();
+            PrintStatus(message);
+            return;
+        }
+
+        PrintStatus(message);
     }
 
     private void PrintVoiceDiagnostics()

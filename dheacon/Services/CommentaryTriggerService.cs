@@ -1,6 +1,8 @@
 using Dalamud.Game.ClientState.Conditions;
+using Dalamud.Game.ClientState.Objects.Enums;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
+using System.Numerics;
 
 namespace Dheacon.Services;
 
@@ -22,12 +24,14 @@ public sealed class CommentaryTriggerService : IDisposable
 
     private bool playerReadyThisSession;
     private bool wasInCombat;
+    private bool wasInCutscene;
     private bool expandedConditionStatesInitialized;
     private DateTime nextIdleEligibleAtUtc = DateTime.UtcNow.AddMinutes(2);
     private DateTime lastTerritoryCommentaryAtUtc = DateTime.MinValue;
     private DateTime lastCombatCommentaryAtUtc = DateTime.MinValue;
     private DateTime lastBgmCommentaryAtUtc = DateTime.MinValue;
     private DateTime lastExpandedCommentaryAtUtc = DateTime.MinValue;
+    private DateTime lastNearbyObservationAtUtc = DateTime.MinValue;
 
     public CommentaryTriggerService(
         IClientState clientState,
@@ -72,6 +76,7 @@ public sealed class CommentaryTriggerService : IDisposable
         if (!IsReadingRoegadynActive())
         {
             wasInCombat = condition[ConditionFlag.InCombat];
+            wasInCutscene = IsCutsceneActive();
             SyncExpandedConditionStates();
             return;
         }
@@ -81,6 +86,7 @@ public sealed class CommentaryTriggerService : IDisposable
         {
             playerReadyThisSession = false;
             wasInCombat = false;
+            wasInCutscene = false;
             expandedConditionStatesInitialized = false;
             expandedConditionStates.Clear();
             LastDecision = "Reading Roegadyn waiting for login.";
@@ -95,6 +101,8 @@ public sealed class CommentaryTriggerService : IDisposable
         HandleCombat(now);
         HandleIdle(now);
         HandleBgm(now);
+        HandleCutsceneContext(now);
+        HandleNearbyObservation(now);
         HandleExpandedConditionEvents(now);
     }
 
@@ -234,6 +242,60 @@ public sealed class CommentaryTriggerService : IDisposable
             lastBgmCommentaryAtUtc = now;
     }
 
+    private void HandleCutsceneContext(DateTime now)
+    {
+        var inCutscene = IsCutsceneActive();
+        if (inCutscene == wasInCutscene)
+            return;
+
+        wasInCutscene = inCutscene;
+        if (!configuration.ExpandedEventCommentaryEnabled)
+        {
+            LastDecision = "Cutscene state changed; expanded commentary disabled.";
+            return;
+        }
+
+        var cutsceneContext = ResolveCutsceneContext();
+        var category = (inCutscene, cutsceneContext) switch
+        {
+            (true, "treasure dungeon") => CommentaryCategory.CutsceneStartTreasureDungeon,
+            (false, "treasure dungeon") => CommentaryCategory.CutsceneEndTreasureDungeon,
+            (true, "duty") => CommentaryCategory.CutsceneStartDuty,
+            (false, "duty") => CommentaryCategory.CutsceneEndDuty,
+            (true, _) => CommentaryCategory.CutsceneStartNonDuty,
+            _ => CommentaryCategory.CutsceneEndNonDuty,
+        };
+
+        var context = new CommentaryContext(Event: "cutscene", CutsceneContext: cutsceneContext);
+        TryTriggerExpandedEvent(category, context, $"{cutsceneContext} cutscene {(inCutscene ? "start" : "end")}", now);
+    }
+
+    private void HandleNearbyObservation(DateTime now)
+    {
+        if (!configuration.NearbyObservationCommentaryEnabled)
+            return;
+
+        if (!CooldownElapsed(lastNearbyObservationAtUtc, configuration.NearbyObservationCooldownSeconds, now))
+            return;
+
+        if (condition[ConditionFlag.InCombat] || !clientState.IsClientIdle())
+            return;
+
+        if (!TryGetNearbyPlayerContext(out var nearbyName, out var nearbyCount))
+            return;
+
+        var category = nearbyCount >= 4
+            ? CommentaryCategory.NearbyCrowdObservation
+            : CommentaryCategory.NearbyPlayerObservation;
+        var context = new CommentaryContext(
+            Event: nearbyCount >= 4 ? "nearby crowd" : "nearby player",
+            NearbyPlayerName: nearbyName,
+            NearbyPlayerCount: nearbyCount);
+        var text = linePackService.GetLine(category, context);
+        if (TryEnqueueAutomatic(category, text, nearbyCount >= 4 ? $"{nearbyCount} nearby players" : nearbyName))
+            lastNearbyObservationAtUtc = now;
+    }
+
     private void HandleExpandedConditionEvents(DateTime now)
     {
         if (!configuration.ExpandedEventCommentaryEnabled)
@@ -369,6 +431,67 @@ public sealed class CommentaryTriggerService : IDisposable
     private bool ConditionAny(params ConditionFlag[] flags)
         => flags.Any(flag => condition[flag]);
 
+    private bool IsCutsceneActive()
+        => ConditionAny(ConditionFlag.WatchingCutscene, ConditionFlag.WatchingCutscene78, ConditionFlag.OccupiedInCutSceneEvent);
+
+    private string ResolveCutsceneContext()
+    {
+        if (IsKnownTreasureDungeonTerritory())
+            return "treasure dungeon";
+
+        if (ConditionAny(ConditionFlag.BoundByDuty, ConditionFlag.BoundByDuty56, ConditionFlag.BoundByDuty95))
+            return "duty";
+
+        return "non-duty";
+    }
+
+    private bool IsKnownTreasureDungeonTerritory()
+    {
+        var territoryName = ResolveTerritoryName(clientState.TerritoryType);
+        return territoryName.Contains("Aquapolis", StringComparison.OrdinalIgnoreCase) ||
+               territoryName.Contains("Uznair", StringComparison.OrdinalIgnoreCase) ||
+               territoryName.Contains("Lyhe Ghiah", StringComparison.OrdinalIgnoreCase) ||
+               territoryName.Contains("Excitatron", StringComparison.OrdinalIgnoreCase) ||
+               territoryName.Contains("Agonon", StringComparison.OrdinalIgnoreCase) ||
+               territoryName.Contains("Cenote", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private bool TryGetNearbyPlayerContext(out string nearbyName, out int nearbyCount)
+    {
+        nearbyName = string.Empty;
+        nearbyCount = 0;
+
+        var localPlayer = Plugin.ObjectTable.LocalPlayer;
+        if (localPlayer == null)
+            return false;
+
+        var localPosition = localPlayer.Position;
+        foreach (var obj in Plugin.ObjectTable)
+        {
+            if (obj == null ||
+                obj.ObjectKind != ObjectKind.Pc ||
+                obj.Address == localPlayer.Address)
+            {
+                continue;
+            }
+
+            if (Vector3.Distance(localPosition, obj.Position) > 12f)
+                continue;
+
+            nearbyCount++;
+            if (string.IsNullOrWhiteSpace(nearbyName))
+                nearbyName = obj.Name.ToString();
+        }
+
+        if (nearbyCount <= 0)
+            return false;
+
+        if (string.IsNullOrWhiteSpace(nearbyName))
+            nearbyName = "nearby adventurer";
+
+        return true;
+    }
+
     private string ResolveTerritoryName(uint territoryId)
     {
         try
@@ -482,11 +605,6 @@ public sealed class CommentaryTriggerService : IDisposable
                 CommentaryCategory.FishingStart,
                 CommentaryCategory.FishingEnd,
                 service => service.ConditionAny(ConditionFlag.Fishing)),
-            new(
-                "cutscene",
-                CommentaryCategory.CutsceneStart,
-                CommentaryCategory.CutsceneEnd,
-                service => service.ConditionAny(ConditionFlag.WatchingCutscene, ConditionFlag.WatchingCutscene78, ConditionFlag.OccupiedInCutSceneEvent)),
             new(
                 "performance",
                 CommentaryCategory.PerformanceStart,

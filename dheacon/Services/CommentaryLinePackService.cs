@@ -8,14 +8,16 @@ public sealed class CommentaryLinePackService
     private const string LinePackRelativePath = @"data\reading-roegadyn-lines.json";
 
     private readonly IPluginLog log;
+    private readonly DheaconPresetService presetService;
     private readonly Random random = new();
     private readonly object syncRoot = new();
     private readonly Dictionary<CommentaryCategory, List<CommentaryLine>> lines = new();
     private readonly Dictionary<CommentaryCategory, Queue<string>> recentLines = new();
 
-    public CommentaryLinePackService(IPluginLog log)
+    public CommentaryLinePackService(IPluginLog log, DheaconPresetService presetService)
     {
         this.log = log;
+        this.presetService = presetService;
         Load();
     }
 
@@ -25,7 +27,8 @@ public sealed class CommentaryLinePackService
     {
         lock (syncRoot)
         {
-            if (!lines.TryGetValue(category, out var categoryLines) || categoryLines.Count == 0)
+            var categoryLines = ResolveLines(category);
+            if (categoryLines.Count == 0)
             {
                 LastLoadStatus = $"No lines found for {category}; used fallback text.";
                 return ApplyContext("The Reading Roegadyn has no notes for this moment.", context);
@@ -129,7 +132,45 @@ public sealed class CommentaryLinePackService
             .Replace("{bgmId}", (context.BgmId ?? 0).ToString(), StringComparison.Ordinal)
             .Replace("{job}", context.Job ?? "adventurer", StringComparison.Ordinal)
             .Replace("{level}", (context.Level ?? 0).ToString(), StringComparison.Ordinal)
-            .Replace("{event}", context.Event ?? "event", StringComparison.Ordinal);
+            .Replace("{event}", context.Event ?? "event", StringComparison.Ordinal)
+            .Replace("{nearbyPlayer}", context.NearbyPlayerName ?? "nearby adventurer", StringComparison.Ordinal)
+            .Replace("{nearbyCount}", (context.NearbyPlayerCount ?? 0).ToString(), StringComparison.Ordinal)
+            .Replace("{cutsceneContext}", context.CutsceneContext ?? "scene", StringComparison.Ordinal);
+    }
+
+    public Dictionary<string, int> GetActiveLineCounts()
+    {
+        var result = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        foreach (var category in Enum.GetValues<CommentaryCategory>())
+        {
+            var count = ResolveLines(category).Count;
+            if (count > 0)
+                result[category.ToString()] = count;
+        }
+
+        return result;
+    }
+
+    private List<CommentaryLine> ResolveLines(CommentaryCategory category)
+    {
+        var activePreset = presetService.ActivePreset;
+        if (activePreset.Lines.TryGetValue(category.ToString(), out var presetLines))
+        {
+            var converted = presetLines
+                .Where(line => !string.IsNullOrWhiteSpace(line.Text))
+                .Select(line => new CommentaryLine(line.Text.Trim(), Math.Max(1, line.Weight)))
+                .ToList();
+            if (converted.Count > 0)
+                return converted;
+        }
+
+        if (string.Equals(activePreset.LinePackId, "reading-roegadyn", StringComparison.OrdinalIgnoreCase) &&
+            lines.TryGetValue(category, out var sharedLines))
+        {
+            return sharedLines;
+        }
+
+        return lines.GetValueOrDefault(category) ?? new List<CommentaryLine>();
     }
 
     private void LoadFallbacksForMissingCategories()
@@ -159,6 +200,12 @@ public sealed class CommentaryLinePackService
         AddFallback(CommentaryCategory.FishingEnd, "Fishing ended. The fish have submitted mixed feedback.");
         AddFallback(CommentaryCategory.CutsceneStart, "Cutscene started. I will hold your place in reality.");
         AddFallback(CommentaryCategory.CutsceneEnd, "Cutscene ended. Reality has resumed billing.");
+        AddFallback(CommentaryCategory.CutsceneStartDuty, "Duty cutscene started. The instance has taken narrative custody.");
+        AddFallback(CommentaryCategory.CutsceneEndDuty, "Duty cutscene ended. The objective may continue being unreasonable.");
+        AddFallback(CommentaryCategory.CutsceneStartNonDuty, "Cutscene started. I will hold your place in reality.");
+        AddFallback(CommentaryCategory.CutsceneEndNonDuty, "Cutscene ended. Reality has resumed billing.");
+        AddFallback(CommentaryCategory.CutsceneStartTreasureDungeon, "Treasure dungeon cutscene started. The loot room is being dramatic.");
+        AddFallback(CommentaryCategory.CutsceneEndTreasureDungeon, "Treasure dungeon cutscene ended. Count your doors and your optimism.");
         AddFallback(CommentaryCategory.PerformanceStart, "Performance started. The arts have entered the ledger.");
         AddFallback(CommentaryCategory.PerformanceEnd, "Performance ended. Applause may be filed alphabetically.");
         AddFallback(CommentaryCategory.MinigameStart, "Mini-game started. Small stakes, full paperwork.");
@@ -175,6 +222,8 @@ public sealed class CommentaryLinePackService
         AddFallback(CommentaryCategory.Recovered, "Recovered. The floor has released its claim.");
         AddFallback(CommentaryCategory.PvpEnter, "PvP entered. Diplomacy has been given a weapon.");
         AddFallback(CommentaryCategory.PvpLeave, "PvP left. The scoreboard may return to sleep.");
+        AddFallback(CommentaryCategory.NearbyPlayerObservation, "{nearbyPlayer} is nearby. I will pretend this was scheduled.");
+        AddFallback(CommentaryCategory.NearbyCrowdObservation, "{nearbyCount} nearby adventurers detected. The pavement is negotiating for space.");
     }
 
     private void AddFallback(CommentaryCategory category, string text)

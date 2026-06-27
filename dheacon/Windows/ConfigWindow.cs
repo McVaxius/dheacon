@@ -23,6 +23,7 @@ public sealed class ConfigWindow : Window, IDisposable
     private string piperSearchText = string.Empty;
     private string selectedPiperCatalogId = string.Empty;
     private string piperPreviewText = "Reading Roegadyn reports FFXIV BGM 85 near Limsa Lominsa for Aelwyn Frost.";
+    private string presetImportText = string.Empty;
 
     public ConfigWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Settings##Config")
     {
@@ -72,11 +73,15 @@ public sealed class ConfigWindow : Window, IDisposable
             cfg.PluginEnabled = enabled;
             cfg.Save();
             plugin.UpdateDtrBar();
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
         }
         TooltipLastItem("Turns all Dheacon/Reading Roegadyn triggers on or off immediately.");
 
         ImGui.SameLine();
-        DrawModeSelector(cfg);
+        DrawPresetSelector();
+
+        ImGui.Separator();
+        DrawPresetActions();
 
         ImGui.Separator();
         ImGui.TextUnformatted("DTR");
@@ -118,7 +123,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.");
 
         ImGui.Separator();
-        if (cfg.CommentaryMode == CommentaryMode.Dheacon)
+        if (plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon)
             DrawDheaconSettings(cfg);
         else
             DrawReadingRoegadynGeneralSettings(cfg);
@@ -200,7 +205,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
         ImGui.SameLine();
         if (ImGui.Button("Status to chat"))
-            plugin.PrintStatus(cfg.CommentaryMode == CommentaryMode.Dheacon ? plugin.AetheryteTriggerService.LastDecision : plugin.CommentaryTriggerService.LastDecision);
+            plugin.PrintStatus(plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon ? plugin.AetheryteTriggerService.LastDecision : plugin.CommentaryTriggerService.LastDecision);
         TooltipLastItem("Prints the current mode decision/status message to chat.");
 
         ImGui.Separator();
@@ -251,24 +256,70 @@ public sealed class ConfigWindow : Window, IDisposable
             DrawWrappedStatus("Speech warning: " + plugin.SpeechCacheService.LastError, "Last speech synthesis or cache warning.");
     }
 
-    private void DrawModeSelector(Configuration cfg)
+    private void DrawPresetSelector()
     {
-        if (ImGui.RadioButton("Dheacon", cfg.CommentaryMode == CommentaryMode.Dheacon))
+        var presets = plugin.PresetService.Presets.ToList();
+        var active = plugin.PresetService.ActivePreset;
+        var currentIndex = Math.Max(0, presets.FindIndex(preset => string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase)));
+        var labels = presets.Select(preset => preset.Protected ? $"{preset.Name} *" : preset.Name).ToArray();
+
+        ImGui.SetNextItemWidth(260f);
+        if (ImGui.Combo("Preset", ref currentIndex, labels, labels.Length))
         {
-            cfg.CommentaryMode = CommentaryMode.Dheacon;
-            cfg.Save();
+            plugin.PresetService.SetActivePreset(presets[currentIndex].Id, out var message);
+            plugin.PrintStatus(message);
             plugin.UpdateDtrBar();
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
         }
-        TooltipLastItem("Uses the transition alert sound instead of spoken Reading Roegadyn commentary.");
+        TooltipLastItem("Selects the active protected or imported behavior preset. An asterisk marks protected bundled presets.");
+    }
+
+    private void DrawPresetActions()
+    {
+        var active = plugin.PresetService.ActivePreset;
+        DrawWrappedStatus($"Active preset: {active.Name}", "Current active preset.");
+        DrawWrappedStatus($"Preset source: {(active.Bundled ? "Bundled" : "User")}  Protected: {active.Protected}", "Protected bundled presets cannot be deleted.");
+        DrawWrappedStatus("Preset status: " + plugin.PresetService.LastStatus, "Preset load/import/export status.");
+
+        if (ImGui.Button("Export active preset"))
+        {
+            try
+            {
+                var encoded = plugin.PresetService.ExportPresetBase64(active.Id, plugin.KranglerImaginaryFrenIpcClient.TryExportPresetBase64);
+                ImGui.SetClipboardText(encoded);
+                plugin.PrintStatus($"Exported preset '{active.Name}' to clipboard.");
+            }
+            catch (Exception ex)
+            {
+                plugin.PrintStatus("Preset export failed: " + ex.Message);
+            }
+        }
+        TooltipLastItem("Copies one portable base64 preset JSON blob to the clipboard.");
 
         ImGui.SameLine();
-        if (ImGui.RadioButton("Reading Roegadyn", cfg.CommentaryMode == CommentaryMode.ReadingRoegadyn))
+        if (ImGui.Button("Paste import"))
+            presetImportText = ImGui.GetClipboardText() ?? string.Empty;
+        TooltipLastItem("Reads a portable preset blob from the clipboard into the import box.");
+
+        ImGui.SetNextItemWidth(-1f);
+        ImGui.InputTextWithHint("##PresetImport", "Paste preset base64 here", ref presetImportText, 16384);
+
+        if (ImGui.Button("Import preset") && !string.IsNullOrWhiteSpace(presetImportText))
         {
-            cfg.CommentaryMode = CommentaryMode.ReadingRoegadyn;
-            cfg.Save();
-            plugin.UpdateDtrBar();
+            if (plugin.PresetService.ImportPresetBase64(presetImportText, out var imported, out var message))
+            {
+                if (!string.IsNullOrWhiteSpace(imported?.ImaginaryFren?.EmbeddedKranglerPresetBase64))
+                    plugin.KranglerImaginaryFrenIpcClient.TryImportPresetBase64(imported.ImaginaryFren.EmbeddedKranglerPresetBase64, out _);
+
+                plugin.PrintStatus(message);
+                presetImportText = string.Empty;
+            }
+            else
+            {
+                plugin.PrintStatus("Preset import failed: " + message);
+            }
         }
-        TooltipLastItem("Uses local text-to-speech commentary for eligible game events.");
+        TooltipLastItem("Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.");
     }
 
     private void DrawDheaconSettings(Configuration cfg)
