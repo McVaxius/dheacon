@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Speech.Synthesis;
@@ -21,24 +22,48 @@ public sealed record SpeechVoiceInfo(
     public string Label => $"{DisplayName} - {Culture} - {Gender}";
 }
 
+public sealed record PiperTextPreview(
+    string Original,
+    string Adapted,
+    bool WasAdapted,
+    string AdapterId,
+    string AdapterVersion,
+    string AdapterContentHash,
+    bool AdapterEnabled,
+    string Status);
+
 public sealed partial class SpeechCacheService
 {
     private const string DefaultVoiceLabel = "Windows default";
     private readonly IPluginLog log;
     private readonly Configuration configuration;
+    private readonly PiperVoiceCatalogService piperVoiceCatalogService;
+    private readonly SpokenTextAdapterService spokenTextAdapterService;
     private readonly object voiceLock = new();
     private List<SpeechVoiceInfo>? modernVoices;
     private List<SpeechVoiceInfo>? legacyVoices;
 
-    public SpeechCacheService(IPluginLog log, Configuration configuration)
+    public SpeechCacheService(
+        IPluginLog log,
+        Configuration configuration,
+        PiperVoiceCatalogService piperVoiceCatalogService,
+        SpokenTextAdapterService spokenTextAdapterService)
     {
         this.log = log;
         this.configuration = configuration;
+        this.piperVoiceCatalogService = piperVoiceCatalogService;
+        this.spokenTextAdapterService = spokenTextAdapterService;
     }
 
     public string LastStatus { get; private set; } = "No speech generated yet.";
     public string LastError { get; private set; } = string.Empty;
     public string LastWavPath { get; private set; } = string.Empty;
+    public string LastOriginalText { get; private set; } = string.Empty;
+    public string LastAdaptedText { get; private set; } = string.Empty;
+    public bool LastTextWasAdapted { get; private set; }
+    public string LastTextAdapterId { get; private set; } = string.Empty;
+    public string LastTextAdapterVersion { get; private set; } = string.Empty;
+    public string LastTextAdapterContentHash { get; private set; } = string.Empty;
 
     public IReadOnlyList<SpeechVoiceInfo> GetInstalledVoices()
         => GetInstalledVoices(configuration.TtsBackend);
@@ -51,6 +76,7 @@ public sealed partial class SpeechCacheService
             {
                 TtsBackend.ModernWindows => modernVoices ??= LoadModernVoices(),
                 TtsBackend.LegacySapi => legacyVoices ??= LoadLegacyVoices(),
+                TtsBackend.PiperLocal => LoadPiperVoices(),
                 _ => Array.Empty<SpeechVoiceInfo>(),
             };
         }
@@ -68,12 +94,47 @@ public sealed partial class SpeechCacheService
     public string GetSelectedVoiceLabel()
     {
         var backend = configuration.TtsBackend;
+        if (backend == TtsBackend.PiperLocal)
+        {
+            var piperVoice = piperVoiceCatalogService.FindInstalledVoice(configuration.TtsPiperVoiceId);
+            return piperVoice == null
+                ? "No Piper voice installed"
+                : $"{piperVoice.VoiceKey} - {piperVoice.LanguageCode} - {piperVoice.Gender} - {piperVoice.Quality} - {piperVoice.Source}";
+        }
+
         var voices = GetInstalledVoices(backend);
         var voice = backend == TtsBackend.ModernWindows
             ? FindModernVoice(voices, configuration.TtsModernVoiceId, configuration.TtsVoiceName)
             : FindLegacyVoice(voices, configuration.TtsVoiceName);
-
         return voice?.Label ?? DefaultVoiceLabel;
+    }
+
+    public PiperTextPreview PreviewPiperText(string text)
+    {
+        var normalizedText = NormalizeText(text);
+        if (string.IsNullOrWhiteSpace(normalizedText))
+            return new PiperTextPreview(string.Empty, string.Empty, false, string.Empty, string.Empty, string.Empty, configuration.TtsPiperTextAdapterEnabled, "No text.");
+
+        var selectedVoice = piperVoiceCatalogService.FindInstalledVoice(configuration.TtsPiperVoiceId);
+        var assumesSwedishPiper = selectedVoice == null &&
+                                  (string.IsNullOrWhiteSpace(configuration.TtsPiperVoiceId) ||
+                                   configuration.TtsPiperVoiceId.Contains("sv_SE", StringComparison.OrdinalIgnoreCase));
+        var targetLanguage = selectedVoice?.LanguageCode ?? (assumesSwedishPiper ? "sv_SE" : string.Empty);
+        var shouldAdapt = configuration.TtsPiperTextAdapterEnabled &&
+                          ((selectedVoice != null && IsSwedishCulture(selectedVoice.LanguageCode)) || assumesSwedishPiper);
+        if (!shouldAdapt)
+            return new PiperTextPreview(normalizedText, normalizedText, false, string.Empty, string.Empty, string.Empty, configuration.TtsPiperTextAdapterEnabled, "Adapter not applied.");
+
+        var adaptation = spokenTextAdapterService.AdaptForTarget(configuration.TtsPiperTextAdapterId, targetLanguage, normalizedText);
+        return new PiperTextPreview(
+            adaptation.Original,
+            adaptation.Adapted,
+            adaptation.WasAdapted,
+            adaptation.AdapterId,
+            adaptation.AdapterVersion,
+            adaptation.AdapterContentHash,
+            true,
+            adaptation.Status);
     }
 
     public SpeechVoiceInfo? SelectFirstSwedishVoice(out bool usedMaleVoice)
@@ -114,12 +175,12 @@ public sealed partial class SpeechCacheService
         {
             return GetOrCreateWavForBackend(backend, normalizedText, cancellationToken);
         }
-        catch (Exception ex) when (backend == TtsBackend.ModernWindows)
+        catch (Exception ex) when (backend != TtsBackend.LegacySapi)
         {
-            log.Warning(ex, "[Dheacon] Modern Windows speech failed; attempting Legacy SAPI fallback.");
+            log.Warning(ex, $"[Dheacon] {backend} speech failed; attempting Legacy SAPI fallback.");
             var fallbackPath = GetOrCreateWavForBackend(TtsBackend.LegacySapi, normalizedText, cancellationToken);
-            LastError = "Modern Windows speech failed; used Legacy SAPI fallback: " + ex.Message;
-            LastStatus = $"Modern Windows failed; used Legacy SAPI fallback: {Path.GetFileName(fallbackPath)}";
+            LastError = $"{backend} speech failed; used Legacy SAPI fallback: {ex.Message}";
+            LastStatus = $"{backend} failed; used Legacy SAPI fallback: {Path.GetFileName(fallbackPath)}";
             return fallbackPath;
         }
     }
@@ -146,6 +207,28 @@ public sealed partial class SpeechCacheService
         return deleted;
     }
 
+    public int ClearPiperWavCache()
+    {
+        var cacheDirectory = configuration.GetResolvedTtsCacheDirectory();
+        if (!Directory.Exists(cacheDirectory))
+            return 0;
+
+        var deleted = 0;
+        foreach (var file in Directory.EnumerateFiles(cacheDirectory, "piper-*.wav", SearchOption.TopDirectoryOnly))
+        {
+            File.Delete(file);
+            deleted++;
+        }
+
+        foreach (var file in Directory.EnumerateFiles(cacheDirectory, "piper-*.tmp.wav", SearchOption.TopDirectoryOnly))
+            TryDelete(file);
+
+        LastStatus = $"Cleared {deleted} cached Piper WAV file(s).";
+        LastWavPath = string.Empty;
+        LastError = string.Empty;
+        return deleted;
+    }
+
     public double GetCacheSizeMegabytes()
     {
         var cacheDirectory = configuration.GetResolvedTtsCacheDirectory();
@@ -165,19 +248,28 @@ public sealed partial class SpeechCacheService
         Directory.CreateDirectory(cacheDirectory);
 
         var settings = CreateSettings(backend);
+        var synthesisText = CreateSynthesisText(backend, normalizedText, settings);
         var cacheKey = string.Join(
             "\n",
-            "v3",
+            "v5",
             settings.Backend,
             settings.VoiceId,
             settings.VoiceName,
-            normalizedText,
+            settings.PiperModelVersion,
+            settings.PiperModelSha256,
+            settings.PiperLanguageCode,
+            settings.PiperQuality,
+            backend == TtsBackend.PiperLocal ? synthesisText.AdapterId : string.Empty,
+            backend == TtsBackend.PiperLocal ? synthesisText.AdapterVersion : string.Empty,
+            backend == TtsBackend.PiperLocal ? synthesisText.AdapterContentHash : string.Empty,
+            synthesisText.Text,
             settings.Rate.ToString(CultureInfo.InvariantCulture),
             settings.SynthVolume.ToString(CultureInfo.InvariantCulture),
             settings.Pitch.ToString("0.###", CultureInfo.InvariantCulture),
             settings.OutputGainPercent.ToString(CultureInfo.InvariantCulture));
         var hash = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(cacheKey))).ToLowerInvariant();
-        var wavPath = Path.Combine(cacheDirectory, $"{hash}.wav");
+        var wavPrefix = backend == TtsBackend.PiperLocal ? "piper-" : string.Empty;
+        var wavPath = Path.Combine(cacheDirectory, $"{wavPrefix}{hash}.wav");
 
         if (File.Exists(wavPath))
         {
@@ -193,12 +285,14 @@ public sealed partial class SpeechCacheService
         try
         {
             if (backend == TtsBackend.ModernWindows)
-                SynthesizeModernWindowsWav(normalizedText, tempPath, settings, cancellationToken);
+                SynthesizeModernWindowsWav(synthesisText.Text, tempPath, settings, cancellationToken);
+            else if (backend == TtsBackend.PiperLocal)
+                SynthesizePiperWav(synthesisText.Text, tempPath, settings, cancellationToken);
             else
-                SynthesizeLegacySapiWav(normalizedText, tempPath, settings, cancellationToken);
+                SynthesizeLegacySapiWav(synthesisText.Text, tempPath, settings, cancellationToken);
 
             cancellationToken.ThrowIfCancellationRequested();
-            var gainWarning = ApplyOutputGain(tempPath, settings.OutputGainPercent);
+            var gainWarning = ApplyOutputGain(tempPath, GetEffectiveOutputGainPercent(settings));
 
             if (File.Exists(wavPath))
             {
@@ -245,11 +339,66 @@ public sealed partial class SpeechCacheService
             return new SpeechSynthesisSettings(backend, voiceId, voiceName, rate, synthVolume, pitch, outputGainPercent);
         }
 
+        if (backend == TtsBackend.PiperLocal)
+        {
+            var selectedVoice = piperVoiceCatalogService.FindInstalledVoice(configuration.TtsPiperVoiceId)
+                ?? throw new InvalidOperationException("No installed Piper voice is selected.");
+            var modelVersion = !string.IsNullOrWhiteSpace(selectedVoice.ModelDigest)
+                ? selectedVoice.ModelDigest
+                : selectedVoice.Version;
+            var modelSha256 = !string.IsNullOrWhiteSpace(selectedVoice.ModelSha256)
+                ? selectedVoice.ModelSha256
+                : modelVersion;
+
+            return new SpeechSynthesisSettings(
+                backend,
+                selectedVoice.CatalogId,
+                selectedVoice.VoiceKey,
+                rate,
+                synthVolume,
+                pitch,
+                outputGainPercent,
+                selectedVoice.ModelPath,
+                selectedVoice.ConfigPath,
+                modelVersion,
+                modelSha256,
+                selectedVoice.LanguageCode,
+                selectedVoice.Quality);
+        }
+
         var legacyVoiceName = configuration.TtsVoiceName.Trim();
         if (string.IsNullOrWhiteSpace(legacyVoiceName))
             legacyVoiceName = DefaultVoiceLabel;
 
         return new SpeechSynthesisSettings(backend, legacyVoiceName, legacyVoiceName, rate, synthVolume, pitch, outputGainPercent);
+    }
+
+    private SynthesisTextResult CreateSynthesisText(TtsBackend backend, string normalizedText, SpeechSynthesisSettings settings)
+    {
+        LastOriginalText = normalizedText;
+        LastAdaptedText = normalizedText;
+        LastTextWasAdapted = false;
+        LastTextAdapterId = string.Empty;
+        LastTextAdapterVersion = string.Empty;
+        LastTextAdapterContentHash = string.Empty;
+
+        if (backend != TtsBackend.PiperLocal ||
+            !configuration.TtsPiperTextAdapterEnabled ||
+            !IsSwedishCulture(settings.PiperLanguageCode))
+            return new SynthesisTextResult(normalizedText);
+
+        var adaptation = spokenTextAdapterService.AdaptForTarget(configuration.TtsPiperTextAdapterId, settings.PiperLanguageCode, normalizedText);
+        LastAdaptedText = adaptation.Adapted;
+        LastTextWasAdapted = adaptation.WasAdapted;
+        LastTextAdapterId = adaptation.AdapterId;
+        LastTextAdapterVersion = adaptation.AdapterVersion;
+        LastTextAdapterContentHash = adaptation.AdapterContentHash;
+
+        return new SynthesisTextResult(
+            adaptation.Adapted,
+            adaptation.AdapterId,
+            adaptation.AdapterVersion,
+            adaptation.AdapterContentHash);
     }
 
     private void SynthesizeModernWindowsWav(
@@ -309,6 +458,72 @@ public sealed partial class SpeechCacheService
         cancellationToken.ThrowIfCancellationRequested();
     }
 
+    private void SynthesizePiperWav(
+        string synthesisText,
+        string tempPath,
+        SpeechSynthesisSettings settings,
+        CancellationToken cancellationToken)
+    {
+        var runtimePath = piperVoiceCatalogService.ResolveRuntimePath()
+            ?? throw new FileNotFoundException("piper.exe was not found. Set the Piper runtime path in settings or place piper.exe in the managed runtime folder.");
+
+        if (!File.Exists(settings.PiperModelPath))
+            throw new FileNotFoundException("Selected Piper model file is missing.", settings.PiperModelPath);
+
+        if (!File.Exists(settings.PiperConfigPath))
+            throw new FileNotFoundException("Selected Piper config file is missing.", settings.PiperConfigPath);
+
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = runtimePath,
+            WorkingDirectory = Path.GetDirectoryName(runtimePath) ?? string.Empty,
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            RedirectStandardInput = true,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+        };
+        startInfo.ArgumentList.Add("--model");
+        startInfo.ArgumentList.Add(settings.PiperModelPath);
+        startInfo.ArgumentList.Add("--config");
+        startInfo.ArgumentList.Add(settings.PiperConfigPath);
+        startInfo.ArgumentList.Add("--output_file");
+        startInfo.ArgumentList.Add(tempPath);
+        startInfo.ArgumentList.Add("--length_scale");
+        startInfo.ArgumentList.Add(MapPiperLengthScale(settings.Rate).ToString("0.###", CultureInfo.InvariantCulture));
+
+        using var process = new Process { StartInfo = startInfo };
+        if (!process.Start())
+            throw new InvalidOperationException("Failed to start piper.exe.");
+
+        var stdoutTask = process.StandardOutput.ReadToEndAsync();
+        var stderrTask = process.StandardError.ReadToEndAsync();
+        process.StandardInput.WriteLine(synthesisText);
+        process.StandardInput.Close();
+
+        using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        timeoutCts.CancelAfter(TimeSpan.FromSeconds(120));
+        try
+        {
+            process.WaitForExitAsync(timeoutCts.Token).GetAwaiter().GetResult();
+        }
+        catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
+        {
+            TryKill(process);
+            throw new TimeoutException("piper.exe did not finish within 120 seconds.");
+        }
+
+        cancellationToken.ThrowIfCancellationRequested();
+        var stdout = stdoutTask.GetAwaiter().GetResult();
+        var stderr = stderrTask.GetAwaiter().GetResult();
+
+        if (process.ExitCode != 0)
+            throw new InvalidOperationException($"piper.exe exited with code {process.ExitCode}: {TrimProcessOutput(stderr)}");
+
+        if (!File.Exists(tempPath) || new FileInfo(tempPath).Length == 0)
+            throw new InvalidOperationException($"piper.exe did not produce a WAV file. {TrimProcessOutput(stdout + Environment.NewLine + stderr)}");
+    }
+
     private List<SpeechVoiceInfo> LoadModernVoices()
     {
         try
@@ -357,6 +572,18 @@ public sealed partial class SpeechCacheService
             return new List<SpeechVoiceInfo>();
         }
     }
+
+    private List<SpeechVoiceInfo> LoadPiperVoices()
+        => piperVoiceCatalogService.GetInstalledVoices()
+            .Select(voice => new SpeechVoiceInfo(
+                TtsBackend.PiperLocal,
+                voice.CatalogId,
+                $"{voice.VoiceKey} ({voice.Source}, {voice.Quality})",
+                string.IsNullOrWhiteSpace(voice.LanguageCode) ? "unknown" : voice.LanguageCode,
+                string.IsNullOrWhiteSpace(voice.Gender) ? "Unknown" : voice.Gender))
+            .OrderBy(voice => voice.Culture, StringComparer.OrdinalIgnoreCase)
+            .ThenBy(voice => voice.DisplayName, StringComparer.OrdinalIgnoreCase)
+            .ToList();
 
     private VoiceInformation? ResolveModernVoiceInformation(string voiceId, string voiceName)
     {
@@ -407,6 +634,16 @@ public sealed partial class SpeechCacheService
         => rate < 0
             ? Math.Clamp(1.0d + (rate * 0.05d), 0.5d, 1.0d)
             : Math.Clamp(1.0d + (rate * 0.1d), 1.0d, 2.0d);
+
+    private static double MapPiperLengthScale(int rate)
+        => rate < 0
+            ? Math.Clamp(1.0d + (Math.Abs(rate) * 0.05d), 1.0d, 1.5d)
+            : Math.Clamp(1.0d - (rate * 0.04d), 0.6d, 1.0d);
+
+    private static int GetEffectiveOutputGainPercent(SpeechSynthesisSettings settings)
+        => settings.Backend == TtsBackend.PiperLocal
+            ? Math.Clamp((int)Math.Round(settings.OutputGainPercent * (settings.SynthVolume / 100d)), 0, 400)
+            : settings.OutputGainPercent;
 
     private string? ApplyOutputGain(string wavPath, int outputGainPercent)
     {
@@ -610,6 +847,25 @@ public sealed partial class SpeechCacheService
     private static bool IsMaleGender(string gender)
         => gender.Equals("Male", StringComparison.OrdinalIgnoreCase);
 
+    private static void TryKill(Process process)
+    {
+        try
+        {
+            if (!process.HasExited)
+                process.Kill(entireProcessTree: true);
+        }
+        catch
+        {
+            // Best effort cleanup for stuck piper.exe processes.
+        }
+    }
+
+    private static string TrimProcessOutput(string output)
+    {
+        output = WhitespaceRegex().Replace(output.Trim(), " ");
+        return output.Length <= 300 ? output : output[..300] + "...";
+    }
+
     private static bool Fail(string message, out string warning)
     {
         warning = message;
@@ -688,5 +944,17 @@ public sealed partial class SpeechCacheService
         int Rate,
         int SynthVolume,
         double Pitch,
-        int OutputGainPercent);
+        int OutputGainPercent,
+        string PiperModelPath = "",
+        string PiperConfigPath = "",
+        string PiperModelVersion = "",
+        string PiperModelSha256 = "",
+        string PiperLanguageCode = "",
+        string PiperQuality = "");
+
+    private sealed record SynthesisTextResult(
+        string Text,
+        string AdapterId = "",
+        string AdapterVersion = "",
+        string AdapterContentHash = "");
 }

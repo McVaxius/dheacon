@@ -11,7 +11,7 @@ internal static class PluginInfo
     public static readonly string[] Concept = new[]
     {
         "Dheacon mode preserves the legacy transition-alert WAV behavior.",
-        "Reading Roegadyn mode speaks local cached Windows TTS commentary.",
+        "Reading Roegadyn mode speaks local cached TTS commentary.",
         "Route fragile BGM detection through a read-only fail-soft probe."
     };
     public static readonly string[] Services = new[]
@@ -19,6 +19,8 @@ internal static class PluginInfo
         "AetheryteTriggerService",
         "AudioPlaybackService",
         "CommentaryLinePackService",
+        "PiperVoiceCatalogService",
+        "SpokenTextAdapterService",
         "SpeechCacheService",
         "SpeechQueueService",
         "CommentaryTriggerService",

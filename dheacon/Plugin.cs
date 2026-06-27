@@ -31,6 +31,8 @@ public sealed class Plugin : IDalamudPlugin
     public AetheryteTriggerService AetheryteTriggerService { get; }
     public AudioPlaybackService AudioPlaybackService { get; }
     public CommentaryLinePackService CommentaryLinePackService { get; }
+    public PiperVoiceCatalogService PiperVoiceCatalogService { get; }
+    public SpokenTextAdapterService SpokenTextAdapterService { get; }
     public SpeechCacheService SpeechCacheService { get; }
     public SpeechQueueService SpeechQueueService { get; }
     public CommentaryTriggerService CommentaryTriggerService { get; }
@@ -43,9 +45,12 @@ public sealed class Plugin : IDalamudPlugin
     public Plugin()
     {
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+        MigrateConfiguration();
         AudioPlaybackService = new AudioPlaybackService(Log, Configuration);
         CommentaryLinePackService = new CommentaryLinePackService(Log);
-        SpeechCacheService = new SpeechCacheService(Log, Configuration);
+        PiperVoiceCatalogService = new PiperVoiceCatalogService(Log, Configuration);
+        SpokenTextAdapterService = new SpokenTextAdapterService(Log);
+        SpeechCacheService = new SpeechCacheService(Log, Configuration, PiperVoiceCatalogService, SpokenTextAdapterService);
         SpeechQueueService = new SpeechQueueService(Log, SpeechCacheService, AudioPlaybackService);
         BgmProbeService = new BgmProbeService(SigScanner, Log);
         CommentaryTriggerService = new CommentaryTriggerService(
@@ -62,7 +67,7 @@ public sealed class Plugin : IDalamudPlugin
         configWindow = new ConfigWindow(this);
         WindowSystem.AddWindow(mainWindow);
         WindowSystem.AddWindow(configWindow);
-        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mode dheacon|roe, say, voices, clearcache, on, or off." });
+        CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
         PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
@@ -76,6 +81,7 @@ public sealed class Plugin : IDalamudPlugin
     {
         AetheryteTriggerService.Dispose();
         SpeechQueueService.Dispose();
+        PiperVoiceCatalogService.Dispose();
         Framework.Update -= OnFrameworkUpdate;
         PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
         PluginInterface.UiBuilder.OpenConfigUi -= ToggleConfigUi;
@@ -145,6 +151,19 @@ public sealed class Plugin : IDalamudPlugin
             return;
         }
 
+        if (verb.Equals("piperpreview", StringComparison.OrdinalIgnoreCase) ||
+            verb.Equals("previewpiper", StringComparison.OrdinalIgnoreCase))
+        {
+            PrintPiperPreview(rest);
+            return;
+        }
+
+        if (verb.Equals("pipercatalog", StringComparison.OrdinalIgnoreCase))
+        {
+            _ = RefreshPiperCatalogToChatAsync();
+            return;
+        }
+
         if (verb.Equals("clearcache", StringComparison.OrdinalIgnoreCase))
         {
             try
@@ -162,6 +181,40 @@ public sealed class Plugin : IDalamudPlugin
         }
 
         ToggleMainUi();
+    }
+
+    private void MigrateConfiguration()
+    {
+        var changed = false;
+
+        if (Configuration.Version < 4)
+        {
+            Configuration.TtsBackend = TtsBackend.LegacySapi;
+            changed = true;
+        }
+
+        if (Configuration.Version < 5)
+        {
+#pragma warning disable CS0618
+            Configuration.TtsPiperTextAdapterEnabled = Configuration.TtsPiperSwedishAccentAdapterEnabled;
+#pragma warning restore CS0618
+            changed = true;
+        }
+
+        if (string.IsNullOrWhiteSpace(Configuration.TtsPiperTextAdapterId))
+        {
+            Configuration.TtsPiperTextAdapterId = SpokenTextAdapterService.DefaultAdapterId;
+            changed = true;
+        }
+
+        if (Configuration.Version != Configuration.CurrentVersion)
+        {
+            Configuration.Version = Configuration.CurrentVersion;
+            changed = true;
+        }
+
+        if (changed)
+            Configuration.Save();
     }
 
     private void SetupDtrBar()
@@ -226,6 +279,9 @@ public sealed class Plugin : IDalamudPlugin
         SpeechCacheService.RefreshInstalledVoices();
         PrintVoiceDiagnostics(TtsBackend.ModernWindows);
         PrintVoiceDiagnostics(TtsBackend.LegacySapi);
+        PrintVoiceDiagnostics(TtsBackend.PiperLocal);
+        PrintStatus($"Piper catalog entries: {PiperVoiceCatalogService.GetCatalogEntries().Count}. {PiperVoiceCatalogService.LastStatus}");
+        PrintStatus("Piper runtime: " + PiperVoiceCatalogService.RefreshRuntimeStatus());
 
         if (!string.IsNullOrWhiteSpace(SpeechCacheService.LastError))
             PrintStatus("Speech warning: " + SpeechCacheService.LastError);
@@ -241,5 +297,28 @@ public sealed class Plugin : IDalamudPlugin
 
         if (voices.Count > 80)
             PrintStatus($"...and {voices.Count - 80} more {backend} voice(s).");
+    }
+
+    private void PrintPiperPreview(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            text = "Reading Roegadyn reports FFXIV BGM 85 near Limsa Lominsa for Aelwyn Frost.";
+
+        var preview = SpeechCacheService.PreviewPiperText(text);
+        PrintStatus("Piper preview original: " + preview.Original);
+        PrintStatus("Piper preview adapted: " + preview.Adapted);
+    }
+
+    private async Task RefreshPiperCatalogToChatAsync()
+    {
+        try
+        {
+            await PiperVoiceCatalogService.RefreshCatalogAsync(CancellationToken.None).ConfigureAwait(false);
+            PrintStatus(PiperVoiceCatalogService.LastStatus);
+        }
+        catch (Exception ex)
+        {
+            PrintStatus("Piper catalog refresh failed: " + ex.Message);
+        }
     }
 }

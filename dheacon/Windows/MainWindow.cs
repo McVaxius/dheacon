@@ -118,9 +118,11 @@ public sealed class MainWindow : Window, IDisposable
             }
         }
 
-        ImGui.TextWrapped("Reading Roegadyn uses cached local Windows TTS commentary.");
+        ImGui.TextWrapped("Reading Roegadyn uses cached local TTS commentary.");
         ImGui.TextWrapped($"Speech backend: {plugin.Configuration.TtsBackend}");
         ImGui.TextWrapped($"Speech voice: {plugin.SpeechCacheService.GetSelectedVoiceLabel()}");
+        if (plugin.Configuration.TtsBackend == TtsBackend.PiperLocal)
+            ImGui.TextWrapped("Piper runtime: " + plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false));
         ImGui.Text($"Pitch: {plugin.Configuration.TtsPitch:F2}  Output gain: {plugin.Configuration.TtsOutputGainPercent}%");
         ImGui.TextWrapped($"Trigger status: {plugin.CommentaryTriggerService.LastDecision}");
         ImGui.TextWrapped($"Queue status: {plugin.SpeechQueueService.LastStatus}");

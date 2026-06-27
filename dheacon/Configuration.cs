@@ -14,12 +14,15 @@ public enum TtsBackend
 {
     ModernWindows = 0,
     LegacySapi = 1,
+    PiperLocal = 2,
 }
 
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
-    public int Version { get; set; } = 3;
+    public const int CurrentVersion = 5;
+
+    public int Version { get; set; } = CurrentVersion;
     public bool PluginEnabled { get; set; } = false;
     public CommentaryMode CommentaryMode { get; set; } = CommentaryMode.ReadingRoegadyn;
     public bool DtrBarEnabled { get; set; } = true;
@@ -32,9 +35,18 @@ public class Configuration : IPluginConfiguration
 
     public string TtsCacheDirectory { get; set; } = string.Empty;
     public int TtsMaxCacheMegabytes { get; set; } = 256;
-    public TtsBackend TtsBackend { get; set; } = TtsBackend.ModernWindows;
+    public TtsBackend TtsBackend { get; set; } = TtsBackend.LegacySapi;
     public string TtsModernVoiceId { get; set; } = string.Empty;
     public string TtsVoiceName { get; set; } = string.Empty;
+    public string TtsPiperVoiceId { get; set; } = string.Empty;
+    public string TtsPiperInstalledVoicesManifestPath { get; set; } = string.Empty;
+    public DateTime TtsPiperCatalogRefreshedAtUtc { get; set; } = DateTime.MinValue;
+    public string TtsPiperRuntimePath { get; set; } = string.Empty;
+    public string TtsPiperRuntimeStatus { get; set; } = string.Empty;
+    public bool TtsPiperTextAdapterEnabled { get; set; } = true;
+    public string TtsPiperTextAdapterId { get; set; } = "en_US-to-sv_SE";
+    [Obsolete("Use TtsPiperTextAdapterEnabled instead.")]
+    public bool TtsPiperSwedishAccentAdapterEnabled { get; set; } = true;
     public int TtsRate { get; set; } = 0;
     public int TtsVolume { get; set; } = 100;
     public double TtsPitch { get; set; } = 0.75d;
@@ -58,6 +70,37 @@ public class Configuration : IPluginConfiguration
 
         var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         return Path.Combine(localAppData, "Dheacon", "tts-cache");
+    }
+
+    public string GetResolvedPiperRootDirectory()
+    {
+        var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        return Path.Combine(localAppData, "Dheacon", "piper");
+    }
+
+    public string GetResolvedPiperInstalledVoicesManifestPath()
+    {
+        if (!string.IsNullOrWhiteSpace(TtsPiperInstalledVoicesManifestPath))
+            return Path.GetFullPath(Environment.ExpandEnvironmentVariables(TtsPiperInstalledVoicesManifestPath));
+
+        return Path.Combine(GetResolvedPiperRootDirectory(), "installed-voices.json");
+    }
+
+    public string GetResolvedPiperVoiceDirectory()
+        => Path.Combine(Path.GetDirectoryName(GetResolvedPiperInstalledVoicesManifestPath()) ?? GetResolvedPiperRootDirectory(), "voices");
+
+    public string GetResolvedPiperCatalogCachePath()
+        => Path.Combine(GetResolvedPiperRootDirectory(), "voice-catalog-cache.json");
+
+    public string GetResolvedPiperRuntimeDirectory()
+        => Path.Combine(GetResolvedPiperRootDirectory(), "runtime");
+
+    public string GetConfiguredPiperRuntimePath()
+    {
+        if (!string.IsNullOrWhiteSpace(TtsPiperRuntimePath))
+            return Path.GetFullPath(Environment.ExpandEnvironmentVariables(TtsPiperRuntimePath));
+
+        return Path.Combine(GetResolvedPiperRuntimeDirectory(), "piper.exe");
     }
 
     public void Save() => Plugin.PluginInterface.SavePluginConfig(this);
