@@ -587,7 +587,7 @@ public sealed class ConfigWindow : Window, IDisposable
         var tableHeight = Math.Max(220f, ImGui.GetContentRegionAvail().Y * 0.48f);
         if (!ImGui.BeginTable(
                 "PiperCatalogTable",
-                7,
+                8,
                 ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.Resizable | ImGuiTableFlags.ScrollY,
                 new Vector2(-1f, tableHeight)))
             return;
@@ -599,6 +599,7 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.TableSetupColumn("Source");
         ImGui.TableSetupColumn("Size");
         ImGui.TableSetupColumn("State");
+        ImGui.TableSetupColumn("Actions");
         ImGui.TableHeadersRow();
 
         foreach (var entry in entries)
@@ -612,9 +613,10 @@ public sealed class ConfigWindow : Window, IDisposable
         var selected = string.Equals(selectedPiperCatalogId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
         var isCurrent = string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
 
+        ImGui.PushID(entry.CatalogId);
         ImGui.TableNextRow();
         ImGui.TableSetColumnIndex(0);
-        if (ImGui.Selectable($"{entry.VoiceKey}##{entry.CatalogId}", selected))
+        if (ImGui.Selectable($"{entry.VoiceKey}##voice", selected))
             selectedPiperCatalogId = entry.CatalogId;
 
         ImGui.TableSetColumnIndex(1);
@@ -628,7 +630,38 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.TableSetColumnIndex(5);
         ImGui.TextUnformatted(entry.SizeLabel);
         ImGui.TableSetColumnIndex(6);
-        ImGui.TextUnformatted(isCurrent ? "Current" : entry.Installed ? "Installed" : "Catalog");
+        ImGui.TextUnformatted(isCurrent ? "Selected" : entry.Installed ? "Installed" : "Catalog");
+        ImGui.TableSetColumnIndex(7);
+        DrawPiperCatalogRowActions(entry, isCurrent);
+        ImGui.PopID();
+    }
+
+    private void DrawPiperCatalogRowActions(PiperVoiceCatalogEntry entry, bool isCurrent)
+    {
+        if (ImGui.SmallButton("Details"))
+            selectedPiperCatalogId = entry.CatalogId;
+
+        ImGui.SameLine();
+        if (!entry.Installed)
+        {
+            if (ImGui.SmallButton("Install"))
+                StartPiperInstall(entry.CatalogId);
+            return;
+        }
+
+        if (isCurrent)
+        {
+            if (ImGui.SmallButton("Selected"))
+                selectedPiperCatalogId = entry.CatalogId;
+        }
+        else if (ImGui.SmallButton("Select"))
+        {
+            plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
+        }
+
+        ImGui.SameLine();
+        if (ImGui.SmallButton("Uninstall"))
+            plugin.PiperVoiceCatalogService.UninstallVoice(entry.CatalogId);
     }
 
     private void DrawPiperSelectedVoicePanel(IReadOnlyList<PiperVoiceCatalogEntry> entries, Configuration cfg)
@@ -638,7 +671,9 @@ public sealed class ConfigWindow : Window, IDisposable
             return;
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Selected voice");
+        var isCurrent = string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
+        ImGui.TextUnformatted("Selected voice details");
+        ImGui.TextWrapped(isCurrent ? "State: selected Piper voice" : entry.Installed ? "State: installed" : "State: not installed");
         ImGui.TextWrapped(entry.Label);
         ImGui.TextWrapped($"{entry.DisplayName}  {entry.SizeLabel}");
         ImGui.TextWrapped($"License: {entry.License}");
@@ -648,8 +683,7 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.PushID(entry.CatalogId);
         if (entry.Installed)
         {
-            var selected = string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
-            if (ImGui.Button(selected ? "Selected" : "Select"))
+            if (ImGui.Button(isCurrent ? "Selected" : "Select"))
                 plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
 
             ImGui.SameLine();

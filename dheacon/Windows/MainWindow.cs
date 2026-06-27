@@ -8,7 +8,10 @@ namespace Dheacon.Windows;
 
 public sealed class MainWindow : Window, IDisposable
 {
+    private static readonly TimeSpan StatusRenderWarningInterval = TimeSpan.FromSeconds(10);
+
     private readonly Plugin plugin;
+    private DateTime lastStatusRenderWarningUtc = DateTime.MinValue;
 
     public MainWindow(Plugin plugin) : base($"{PluginInfo.DisplayName}##Main")
     {
@@ -59,10 +62,10 @@ public sealed class MainWindow : Window, IDisposable
         DrawModeSelector(cfg);
         ImGui.Separator();
 
-        if (cfg.CommentaryMode == CommentaryMode.Dheacon)
-            DrawDheaconStatus();
-        else
-            DrawReadingRoegadynStatus();
+        Action drawStatus = cfg.CommentaryMode == CommentaryMode.Dheacon
+            ? DrawDheaconStatus
+            : DrawReadingRoegadynStatus;
+        DrawStatusSafely(drawStatus);
 
         ImGui.Separator();
         ImGui.Text($"Command: {PluginInfo.Command}");
@@ -122,7 +125,7 @@ public sealed class MainWindow : Window, IDisposable
         ImGui.TextWrapped($"Speech backend: {plugin.Configuration.TtsBackend}");
         ImGui.TextWrapped($"Speech voice: {plugin.SpeechCacheService.GetSelectedVoiceLabel()}");
         if (plugin.Configuration.TtsBackend == TtsBackend.PiperLocal)
-            ImGui.TextWrapped("Piper runtime: " + plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false));
+            ImGui.TextWrapped("Piper runtime: " + GetLastPiperRuntimeStatus());
         ImGui.Text($"Pitch: {plugin.Configuration.TtsPitch:F2}  Output gain: {plugin.Configuration.TtsOutputGainPercent}%");
         ImGui.TextWrapped($"Trigger status: {plugin.CommentaryTriggerService.LastDecision}");
         ImGui.TextWrapped($"Queue status: {plugin.SpeechQueueService.LastStatus}");
@@ -134,10 +137,34 @@ public sealed class MainWindow : Window, IDisposable
         ImGui.Text($"Current BGM ID: {plugin.BgmProbeService.CurrentBgmId}");
     }
 
+    private void DrawStatusSafely(Action drawStatus)
+    {
+        try
+        {
+            drawStatus();
+        }
+        catch (Exception ex)
+        {
+            var now = DateTime.UtcNow;
+            if (now - lastStatusRenderWarningUtc > StatusRenderWarningInterval)
+            {
+                lastStatusRenderWarningUtc = now;
+                Plugin.Log.Warning(ex, "[Dheacon] Main window status rendering failed.");
+            }
+
+            ImGui.TextWrapped("Status temporarily unavailable: " + ex.Message);
+        }
+    }
+
     private string GetModeStatus()
         => plugin.Configuration.CommentaryMode == CommentaryMode.Dheacon
             ? plugin.AetheryteTriggerService.LastDecision
             : plugin.CommentaryTriggerService.LastDecision;
+
+    private string GetLastPiperRuntimeStatus()
+        => string.IsNullOrWhiteSpace(plugin.Configuration.TtsPiperRuntimeStatus)
+            ? "Piper runtime status has not been checked yet."
+            : plugin.Configuration.TtsPiperRuntimeStatus;
 
     private static string FormatUtc(DateTime value)
         => value == DateTime.MinValue ? "Never" : value.ToString("yyyy-MM-dd HH:mm:ss");

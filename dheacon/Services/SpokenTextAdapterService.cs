@@ -212,16 +212,14 @@ public sealed partial class SpokenTextAdapterService
             Version = "fallback-v1",
             PhraseLexicon =
             {
-                new LexiconEntry { Source = "Reading Roegadyn", Replacement = "Riiding Roe ga din" },
-                new LexiconEntry { Source = "Final Fantasy XIV", Replacement = "Fajnal fantasi fourteen" },
-                new LexiconEntry { Source = "Limsa Lominsa", Replacement = "Limsa Lominsa" },
+                new LexiconEntry { Source = "Final Fantasy XIV", Replacement = "Final Fantasy fourteen" },
+                new LexiconEntry { Source = "Final Fantasy 14", Replacement = "Final Fantasy fourteen" },
             },
             WordLexicon =
             {
-                new LexiconEntry { Source = "Dheacon", Replacement = "Diikon" },
                 new LexiconEntry { Source = "Roegadyn", Replacement = "Roe ga din" },
-                new LexiconEntry { Source = "aetheryte", Replacement = "eeterajt" },
-                new LexiconEntry { Source = "Machinations", Replacement = "Mackinations" },
+                new LexiconEntry { Source = "aetheryte", Replacement = "etherite" },
+                new LexiconEntry { Source = "aetherytes", Replacement = "etherites" },
             },
             AcronymExpansions =
             {
@@ -300,7 +298,6 @@ public sealed partial class SpokenTextAdapterService
         adapted = ApplyLexicon(adapted, adapter.WordLexicon);
         adapted = ProtectSegments(adapted, protectedSegments);
 
-        adapted = ApplyEnglishSpellingHeuristics(adapted);
         adapted = ApplyCleanupRules(adapted, adapter.RegexCleanupRules);
         adapted = FinalCleanup(adapted);
         adapted = RestoreSegments(adapted, protectedSegments);
@@ -409,52 +406,6 @@ public sealed partial class SpokenTextAdapterService
             _ => string.Empty,
         };
 
-    private static string ApplyEnglishSpellingHeuristics(string text)
-        => WordRegex().Replace(text, match => HeuristicallyAdaptWord(match.Value));
-
-    private static string HeuristicallyAdaptWord(string word)
-    {
-        if (word.Length < 4 && !word.Contains('\'') && !word.Contains('-'))
-            return word;
-
-        var lower = word.ToLowerInvariant();
-        if (!LooksLikeEnglishPronunciationProblem(lower) && !LooksLikePlayerName(word))
-            return word;
-
-        var adapted = lower;
-        adapted = adapted.Replace("aeth", "eet", StringComparison.Ordinal);
-        adapted = adapted.Replace("ae", "e", StringComparison.Ordinal);
-        adapted = adapted.Replace("ough", "oh", StringComparison.Ordinal);
-        adapted = adapted.Replace("augh", "af", StringComparison.Ordinal);
-        adapted = adapted.Replace("igh", "aj", StringComparison.Ordinal);
-        adapted = Regex.Replace(adapted, "tion\\b", "shon", RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100));
-        adapted = Regex.Replace(adapted, "sion\\b", "shon", RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100));
-        adapted = adapted.Replace("ph", "f", StringComparison.Ordinal);
-        adapted = adapted.Replace("th", "t", StringComparison.Ordinal);
-        adapted = adapted.Replace("qu", "kw", StringComparison.Ordinal);
-        adapted = adapted.Replace("ck", "k", StringComparison.Ordinal);
-        adapted = adapted.Replace("x", "ks", StringComparison.Ordinal);
-        adapted = Regex.Replace(adapted, "c(?=[eiy])", "s", RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100));
-        adapted = adapted.Replace("c", "k", StringComparison.Ordinal);
-        adapted = adapted.Replace("w", "v", StringComparison.Ordinal);
-        adapted = adapted.Replace("ee", "ii", StringComparison.Ordinal);
-        adapted = adapted.Replace("oo", "u", StringComparison.Ordinal);
-        adapted = Regex.Replace(adapted, "y\\b", "i", RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100));
-        adapted = Regex.Replace(adapted, "([a-z])'([a-z])", "$1 $2", RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(100));
-        adapted = adapted.Replace("-", " ", StringComparison.Ordinal);
-
-        return adapted;
-    }
-
-    private static bool LooksLikeEnglishPronunciationProblem(string lower)
-        => EnglishProblemRegex().IsMatch(lower);
-
-    private static bool LooksLikePlayerName(string word)
-        => word.Length >= 4 &&
-           (word.Contains('\'') ||
-            word.Contains('-') ||
-            (char.IsUpper(word[0]) && word.Skip(1).Any(char.IsLower)));
-
     private static string ProtectSegments(string text, List<string> protectedSegments)
         => ProtectedSegmentRegex().Replace(text, match =>
         {
@@ -534,12 +485,6 @@ public sealed partial class SpokenTextAdapterService
 
     [GeneratedRegex(@"(?<![\p{L}\p{N}@])\d+(?:\.\d+)?(?![\p{L}\p{N}@])", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
     private static partial Regex NumberRegex();
-
-    [GeneratedRegex(@"\p{L}[\p{L}'-]*", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
-    private static partial Regex WordRegex();
-
-    [GeneratedRegex(@"(th|ph|qu|tion\b|sion\b|ck|ce|ci|cy|w|x|oo|ee|igh|augh|ough|aeth|ae|y\b)", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
-    private static partial Regex EnglishProblemRegex();
 
     [GeneratedRegex(@"(\[\[[\s\S]*?\]\]|\{[^{}]{1,100}\}|<[^<>]{1,100}>|%[A-Z0-9_]{1,64}%)", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
     private static partial Regex ProtectedSegmentRegex();

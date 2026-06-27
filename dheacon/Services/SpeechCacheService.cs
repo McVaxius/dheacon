@@ -40,8 +40,13 @@ public sealed partial class SpeechCacheService
     private readonly PiperVoiceCatalogService piperVoiceCatalogService;
     private readonly SpokenTextAdapterService spokenTextAdapterService;
     private readonly object voiceLock = new();
+    private readonly object cacheSizeLock = new();
     private List<SpeechVoiceInfo>? modernVoices;
     private List<SpeechVoiceInfo>? legacyVoices;
+    private DateTime cacheSizeComputedAtUtc = DateTime.MinValue;
+    private double cachedCacheSizeMegabytes;
+
+    private static readonly TimeSpan CacheSizeRefreshInterval = TimeSpan.FromSeconds(2);
 
     public SpeechCacheService(
         IPluginLog log,
@@ -192,18 +197,22 @@ public sealed partial class SpeechCacheService
             return 0;
 
         var deleted = 0;
-        foreach (var file in Directory.EnumerateFiles(cacheDirectory, "*.wav", SearchOption.TopDirectoryOnly))
+        foreach (var file in EnumerateFilesSnapshot(cacheDirectory, "*.wav"))
         {
-            File.Delete(file);
-            deleted++;
+            if (IsTemporaryWav(file))
+                continue;
+
+            if (TryDelete(file))
+                deleted++;
         }
 
-        foreach (var file in Directory.EnumerateFiles(cacheDirectory, "*.tmp.wav", SearchOption.TopDirectoryOnly))
+        foreach (var file in EnumerateFilesSnapshot(cacheDirectory, "*.tmp.wav"))
             TryDelete(file);
 
         LastStatus = $"Cleared {deleted} cached WAV file(s).";
         LastWavPath = string.Empty;
         LastError = string.Empty;
+        InvalidateCacheSizeSnapshot();
         return deleted;
     }
 
@@ -214,32 +223,45 @@ public sealed partial class SpeechCacheService
             return 0;
 
         var deleted = 0;
-        foreach (var file in Directory.EnumerateFiles(cacheDirectory, "piper-*.wav", SearchOption.TopDirectoryOnly))
+        foreach (var file in EnumerateFilesSnapshot(cacheDirectory, "piper-*.wav"))
         {
-            File.Delete(file);
-            deleted++;
+            if (IsTemporaryWav(file))
+                continue;
+
+            if (TryDelete(file))
+                deleted++;
         }
 
-        foreach (var file in Directory.EnumerateFiles(cacheDirectory, "piper-*.tmp.wav", SearchOption.TopDirectoryOnly))
+        foreach (var file in EnumerateFilesSnapshot(cacheDirectory, "piper-*.tmp.wav"))
             TryDelete(file);
 
         LastStatus = $"Cleared {deleted} cached Piper WAV file(s).";
         LastWavPath = string.Empty;
         LastError = string.Empty;
+        InvalidateCacheSizeSnapshot();
         return deleted;
     }
 
     public double GetCacheSizeMegabytes()
     {
-        var cacheDirectory = configuration.GetResolvedTtsCacheDirectory();
-        if (!Directory.Exists(cacheDirectory))
-            return 0d;
+        var now = DateTime.UtcNow;
+        lock (cacheSizeLock)
+        {
+            if (now - cacheSizeComputedAtUtc < CacheSizeRefreshInterval)
+                return cachedCacheSizeMegabytes;
 
-        var bytes = Directory.EnumerateFiles(cacheDirectory, "*.wav", SearchOption.TopDirectoryOnly)
-            .Select(path => new FileInfo(path).Length)
-            .Sum();
+            try
+            {
+                cachedCacheSizeMegabytes = ComputeCacheSizeMegabytes();
+            }
+            catch
+            {
+                // Status UI must never fail because the cache folder is changing.
+            }
 
-        return bytes / 1024d / 1024d;
+            cacheSizeComputedAtUtc = now;
+            return cachedCacheSizeMegabytes;
+        }
     }
 
     private string GetOrCreateWavForBackend(TtsBackend backend, string normalizedText, CancellationToken cancellationToken)
@@ -251,7 +273,7 @@ public sealed partial class SpeechCacheService
         var synthesisText = CreateSynthesisText(backend, normalizedText, settings);
         var cacheKey = string.Join(
             "\n",
-            "v5",
+            "v6",
             settings.Backend,
             settings.VoiceId,
             settings.VoiceName,
@@ -280,7 +302,7 @@ public sealed partial class SpeechCacheService
             return wavPath;
         }
 
-        var tempPath = Path.Combine(cacheDirectory, $"{hash}.{Guid.NewGuid():N}.tmp.wav");
+        var tempPath = Path.Combine(cacheDirectory, $"{wavPrefix}{hash}.{Guid.NewGuid():N}.tmp.wav");
 
         try
         {
@@ -305,6 +327,7 @@ public sealed partial class SpeechCacheService
 
             Touch(wavPath);
             PruneCache(cacheDirectory);
+            InvalidateCacheSizeSnapshot();
 
             LastWavPath = wavPath;
             LastStatus = $"Generated {settings.Backend}: {Path.GetFileName(wavPath)}";
@@ -815,20 +838,23 @@ public sealed partial class SpeechCacheService
     private void PruneCache(string cacheDirectory)
     {
         var maxBytes = Math.Max(1, configuration.TtsMaxCacheMegabytes) * 1024L * 1024L;
-        var files = Directory.EnumerateFiles(cacheDirectory, "*.wav", SearchOption.TopDirectoryOnly)
+        var files = EnumerateFilesSnapshot(cacheDirectory, "*.wav")
+            .Where(path => !IsTemporaryWav(path))
             .Select(path => new FileInfo(path))
             .Where(file => file.Exists)
             .OrderBy(file => file.LastAccessTimeUtc)
             .ThenBy(file => file.LastWriteTimeUtc)
             .ToList();
 
-        var totalBytes = files.Sum(file => file.Length);
+        var totalBytes = files.Sum(file => TryGetFileLength(file.FullName, out var length) ? length : 0L);
         foreach (var file in files)
         {
             if (totalBytes <= maxBytes)
                 break;
 
-            var length = file.Length;
+            if (!TryGetFileLength(file.FullName, out var length))
+                continue;
+
             try
             {
                 file.Delete();
@@ -921,17 +947,86 @@ public sealed partial class SpeechCacheService
         }
     }
 
-    private static void TryDelete(string path)
+    private double ComputeCacheSizeMegabytes()
+    {
+        var cacheDirectory = configuration.GetResolvedTtsCacheDirectory();
+        if (!Directory.Exists(cacheDirectory))
+            return 0d;
+
+        long bytes = 0;
+        foreach (var path in EnumerateFilesSnapshot(cacheDirectory, "*.wav"))
+        {
+            if (IsTemporaryWav(path))
+                continue;
+
+            if (TryGetFileLength(path, out var length))
+                bytes += length;
+        }
+
+        return bytes / 1024d / 1024d;
+    }
+
+    private void InvalidateCacheSizeSnapshot()
+    {
+        lock (cacheSizeLock)
+            cacheSizeComputedAtUtc = DateTime.MinValue;
+    }
+
+    private static IReadOnlyList<string> EnumerateFilesSnapshot(string directory, string searchPattern)
+    {
+        try
+        {
+            return Directory.Exists(directory)
+                ? Directory.EnumerateFiles(directory, searchPattern, SearchOption.TopDirectoryOnly).ToList()
+                : Array.Empty<string>();
+        }
+        catch
+        {
+            return Array.Empty<string>();
+        }
+    }
+
+    private static bool TryGetFileLength(string path, out long length)
+    {
+        length = 0;
+        try
+        {
+            var file = new FileInfo(path);
+            if (!file.Exists)
+                return false;
+
+            length = file.Length;
+            return true;
+        }
+        catch (IOException)
+        {
+            return false;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return false;
+        }
+    }
+
+    private static bool IsTemporaryWav(string path)
+        => path.EndsWith(".tmp.wav", StringComparison.OrdinalIgnoreCase);
+
+    private static bool TryDelete(string path)
     {
         try
         {
             if (File.Exists(path))
+            {
                 File.Delete(path);
+                return true;
+            }
         }
         catch
         {
             // Best effort cleanup for temp files.
         }
+
+        return false;
     }
 
     [GeneratedRegex(@"\s+", RegexOptions.Compiled)]
