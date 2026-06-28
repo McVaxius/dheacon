@@ -32,6 +32,7 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
     private DateTime nextReconcileUtc = DateTime.MinValue;
     private DateTime nextPresetListRefreshUtc = DateTime.MinValue;
     private IReadOnlyList<KranglerPresetSummary> presetSummaries = [];
+    private string lastSentPresetIdentity = string.Empty;
 
     public KranglerImaginaryFrenIpcClient(
         IDalamudPluginInterface pluginInterface,
@@ -191,10 +192,17 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
 
         var name = desiredFren?.Name ?? KranglerImaginaryFrenPreset.DefaultName;
         var presetKey = desiredFren?.PresetKey ?? KranglerImaginaryFrenPreset.DefaultPresetKey;
-        SendDesired(shouldEnable, name, presetKey);
+        var presetIdentity = BuildPresetIdentity(activePreset, name, presetKey);
+        var forceRespawn = shouldEnable &&
+                           LastRequestEnabled &&
+                           !string.IsNullOrEmpty(lastSentPresetIdentity) &&
+                           !string.Equals(lastSentPresetIdentity, presetIdentity, StringComparison.OrdinalIgnoreCase);
+
+        SendDesired(shouldEnable, name, presetKey, forceRespawn);
+        lastSentPresetIdentity = shouldEnable ? presetIdentity : string.Empty;
     }
 
-    private void SendDesired(bool enabled, string name, string presetKey)
+    private void SendDesired(bool enabled, string name, string presetKey, bool forceRespawn = false)
     {
         LastRequestEnabled = enabled;
         LastRequestName = name;
@@ -206,6 +214,7 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
             presetKey,
             persist = false,
             source = "dheacon",
+            forceRespawn,
         }, JsonOptions);
 
         try
@@ -232,6 +241,16 @@ public sealed class KranglerImaginaryFrenIpcClient : IDisposable
         {
             // SetFromJson already reports the useful soft failure.
         }
+    }
+
+    private static string BuildPresetIdentity(DheaconPreset preset, string name, string presetKey)
+    {
+        var embeddedPreset = preset.ImaginaryFren?.EmbeddedKranglerPresetBase64 ?? string.Empty;
+        return string.Join(
+            "\n",
+            name.Trim(),
+            presetKey.Trim(),
+            embeddedPreset.Trim());
     }
 
     private void ObserveStatusResponse(string responseJson)
