@@ -20,10 +20,12 @@ public enum TtsBackend
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
-    public const int CurrentVersion = 11;
+    public const int CurrentVersion = 12;
     public const string DefaultPiperVoiceId = "official:en_US-arctic-medium";
+    private const int SetupWizardIntroducedVersion = 12;
 
     public int Version { get; set; } = CurrentVersion;
+    public bool SetupWizardCompleted { get; set; } = false;
     public bool PluginEnabled { get; set; } = false;
     public CommentaryMode CommentaryMode { get; set; } = CommentaryMode.ReadingRoegadyn;
     public string ActivePresetId { get; set; } = "reading-roegadyn";
@@ -112,6 +114,17 @@ public class Configuration : IPluginConfiguration
             return Path.GetFullPath(Environment.ExpandEnvironmentVariables(TtsPiperRuntimePath));
 
         return Path.Combine(GetResolvedPiperRuntimeDirectory(), "piper.exe");
+    }
+
+    internal bool NeedsSetupWizard => !SetupWizardCompleted;
+
+    internal bool MigrateSetupWizardState()
+    {
+        if (Version >= SetupWizardIntroducedVersion)
+            return false;
+
+        SetupWizardCompleted = true;
+        return true;
     }
 
     public void Save() => Plugin.PluginInterface.SavePluginConfig(this);

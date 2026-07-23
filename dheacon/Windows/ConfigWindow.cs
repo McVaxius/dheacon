@@ -27,6 +27,17 @@ public sealed class ConfigWindow : Window, IDisposable
     private string presetRenameText = string.Empty;
     private string presetRenameTargetId = string.Empty;
     private string kranglerPresetSearchText = string.Empty;
+    private int quickSetupStep;
+    private bool quickSetupTabRequested;
+    private bool quickSetupTestAttempted;
+    private bool? quickSetupEnableChoice;
+    private bool quickSetupFinishedThisSession;
+    private bool quickSetupPiperPreparationPending;
+    private volatile bool quickSetupPiperPreparationInProgress;
+    private int quickSetupSpeechSelectionVersion;
+    private int quickSetupPendingPiperVersion;
+    private string quickSetupSpeechStatus = string.Empty;
+    private string quickSetupTestStatus = string.Empty;
 
     public ConfigWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Settings##Config")
     {
@@ -36,10 +47,25 @@ public sealed class ConfigWindow : Window, IDisposable
 
     public void Dispose() { }
 
+    internal void OpenQuickSetup()
+    {
+        quickSetupTabRequested = true;
+        IsOpen = true;
+    }
+
     public override void Draw()
     {
         if (!ImGui.BeginTabBar("DheaconSettingsTabs"))
             return;
+
+        var quickSetupFlags = quickSetupTabRequested ? ImGuiTabItemFlags.SetSelected : ImGuiTabItemFlags.None;
+        var quickSetupOpen = ImGui.BeginTabItem("Quick Setup", quickSetupFlags);
+        quickSetupTabRequested = false;
+        if (quickSetupOpen)
+        {
+            DrawQuickSetupTab(plugin.Configuration);
+            ImGui.EndTabItem();
+        }
 
         if (ImGui.BeginTabItem("General"))
         {
@@ -67,6 +93,382 @@ public sealed class ConfigWindow : Window, IDisposable
 
         ImGui.EndTabBar();
     }
+
+    private void DrawQuickSetupTab(Configuration cfg)
+    {
+        ImGui.TextUnformatted("Quick Setup");
+        ImGui.TextWrapped("Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.");
+
+        if (quickSetupFinishedThisSession)
+        {
+            ImGui.Separator();
+            ImGui.TextWrapped(quickSetupTestStatus);
+            DrawWrappedStatus(
+                $"Saved: {FormatQuickSetupMode()} | {plugin.PresetService.ActivePreset.Name} | {FormatQuickSetupSpeechBackend(cfg)} | {(cfg.PluginEnabled ? "enabled" : "disabled")}",
+                "The configuration saved when Quick Setup finished.");
+
+            if (ImGui.Button("Run Quick Setup again"))
+            {
+                quickSetupFinishedThisSession = false;
+                quickSetupStep = 0;
+                quickSetupTestAttempted = false;
+                quickSetupEnableChoice = null;
+                quickSetupTestStatus = string.Empty;
+            }
+            TooltipLastItem("Starts the three setup steps again without resetting unrelated settings.");
+
+            ImGui.SameLine();
+            if (ImGui.Button("Close settings"))
+                IsOpen = false;
+
+            return;
+        }
+
+        ImGui.Separator();
+        ImGui.TextDisabled($"Step {quickSetupStep + 1} of 3");
+
+        switch (quickSetupStep)
+        {
+            case 0:
+                DrawQuickSetupModeStep();
+                break;
+            case 1:
+                DrawQuickSetupSpeechStep(cfg);
+                break;
+            default:
+                DrawQuickSetupReviewStep(cfg);
+                break;
+        }
+    }
+
+    private void DrawQuickSetupModeStep()
+    {
+        ImGui.TextUnformatted("1. Choose an operating mode");
+        ImGui.Spacing();
+
+        var active = plugin.PresetService.ActivePreset;
+        var classicSelected = active.Mode == CommentaryMode.Dheacon;
+        if (ImGui.RadioButton("Classic transition alerts", classicSelected))
+            SelectPreset(DheaconPresetIds.Dheacon, printStatus: false);
+        TooltipLastItem("Plays the packaged transition alert for eligible area changes and does not speak commentary.");
+        ImGui.TextWrapped("Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.");
+
+        ImGui.Spacing();
+        var spokenSelected = plugin.PresetService.ActivePreset.Mode == CommentaryMode.ReadingRoegadyn;
+        if (ImGui.RadioButton("Spoken commentary", spokenSelected) && !spokenSelected)
+            SelectPreset(DheaconPresetIds.ReadingRoegadyn, printStatus: false);
+        TooltipLastItem("Uses the selected preset to speak commentary for enabled game events.");
+        ImGui.TextWrapped("Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.");
+
+        active = plugin.PresetService.ActivePreset;
+        if (active.Mode == CommentaryMode.ReadingRoegadyn)
+        {
+            var spokenPresets = plugin.PresetService.Presets
+                .Where(preset => preset.Mode == CommentaryMode.ReadingRoegadyn)
+                .ToList();
+            var presetIndex = Math.Max(0, spokenPresets.FindIndex(preset =>
+                string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase)));
+            var labels = spokenPresets.Select(preset => preset.Name).ToArray();
+
+            if (labels.Length > 0)
+            {
+                ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
+                if (ImGui.Combo("Commentary preset", ref presetIndex, labels, labels.Length))
+                    SelectPreset(spokenPresets[presetIndex].Id, printStatus: false);
+                TooltipLastItem("Selects one of the existing spoken-commentary presets.");
+            }
+        }
+
+        active = plugin.PresetService.ActivePreset;
+        DrawWrappedStatus($"Selected preset: {active.Name}", "The preset Quick Setup will keep active.");
+        if (!string.IsNullOrWhiteSpace(active.Description))
+            DrawWrappedStatus(active.Description, "Description supplied by the selected preset.");
+
+        if (active.ImaginaryFren?.Enabled == true)
+        {
+            ImGui.TextWrapped($"Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{active.ImaginaryFren.Name}' when Dheacon is enabled. Krangler is optional; commentary still works without it.");
+        }
+        else
+        {
+            ImGui.TextWrapped("Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.");
+        }
+
+        ImGui.Spacing();
+        if (ImGui.Button("Next: Speech"))
+        {
+            quickSetupStep = 1;
+            quickSetupTestAttempted = false;
+            quickSetupEnableChoice = null;
+            quickSetupTestStatus = string.Empty;
+        }
+    }
+
+    private void DrawQuickSetupSpeechStep(Configuration cfg)
+    {
+        TryStartPendingQuickSetupPiperPreparation(cfg);
+
+        ImGui.TextUnformatted("2. Choose local speech");
+        ImGui.TextWrapped(plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
+            ? "Classic mode does not speak, but this choice is saved for any spoken preset you select later."
+            : "Speech is generated on your PC and cached as WAV files for reuse.");
+        ImGui.Spacing();
+
+        var piperSelected = cfg.TtsBackend == TtsBackend.PiperLocal;
+        if (ImGui.RadioButton("Recommended local Piper", piperSelected) && !piperSelected)
+            RequestQuickSetupPiperPreparation(cfg);
+        TooltipLastItem("Uses the managed local Piper runtime and recommended English Arctic voice.");
+        ImGui.TextWrapped("Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.");
+
+        var piperReady = IsQuickSetupPiperReady(cfg);
+        if (cfg.TtsBackend == TtsBackend.PiperLocal)
+        {
+            DrawWrappedStatus(plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false), "Current local Piper runtime status.");
+            DrawWrappedStatus(plugin.PiperVoiceCatalogService.LastStatus, "Current Piper download, install, or selection status.");
+            if (!string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError))
+                DrawWrappedStatus("Piper warning: " + plugin.PiperVoiceCatalogService.LastError, "The last Piper preparation error. You can retry or use Windows default speech.");
+            if (!string.IsNullOrWhiteSpace(quickSetupSpeechStatus))
+                DrawWrappedStatus(quickSetupSpeechStatus, "Quick Setup speech preparation status.");
+
+            if (plugin.PiperVoiceCatalogService.IsBusy && plugin.PiperVoiceCatalogService.OperationProgress >= 0d)
+                ImGui.ProgressBar((float)plugin.PiperVoiceCatalogService.OperationProgress, new Vector2(-1f, 0f));
+            else if (plugin.PiperVoiceCatalogService.IsBusy || quickSetupPiperPreparationInProgress || quickSetupPiperPreparationPending)
+                ImGui.TextDisabled("Piper preparation is in progress...");
+
+            if (!piperReady)
+            {
+                ImGui.BeginDisabled(plugin.PiperVoiceCatalogService.IsBusy || quickSetupPiperPreparationInProgress);
+                if (ImGui.Button(string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError) ? "Prepare Piper" : "Retry Piper"))
+                    RequestQuickSetupPiperPreparation(cfg);
+                ImGui.EndDisabled();
+                TooltipLastItem("Downloads or repairs the managed Piper runtime and recommended voice.");
+
+                ImGui.SameLine();
+                if (ImGui.Button("Use Windows default instead"))
+                    SelectQuickSetupWindowsDefault(cfg, "Selected Windows default speech instead of Piper.");
+                TooltipLastItem("Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.");
+            }
+            else
+            {
+                DrawDisabledStatus("Piper is ready.", "The recommended voice and a usable Piper runtime were found.");
+            }
+        }
+
+        ImGui.Spacing();
+        var windowsSelected = IsQuickSetupWindowsDefaultSelected(cfg);
+        if (ImGui.RadioButton("Windows default speech", windowsSelected) && !windowsSelected)
+            SelectQuickSetupWindowsDefault(cfg, "Selected Windows default speech.");
+        TooltipLastItem("Uses the modern Windows speech backend and the current Windows default voice.");
+        ImGui.TextWrapped("Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.");
+        if (windowsSelected)
+            DrawWrappedStatus("Selected voice: " + plugin.SpeechCacheService.GetSelectedVoiceLabel(), "The Windows voice currently selected for generated speech.");
+        if (windowsSelected && !string.IsNullOrWhiteSpace(quickSetupSpeechStatus))
+            DrawWrappedStatus(quickSetupSpeechStatus, "Quick Setup speech selection or fallback status.");
+
+        ImGui.Spacing();
+        if (ImGui.Button("Back"))
+            quickSetupStep = 0;
+
+        ImGui.SameLine();
+        var speechReady = piperReady || windowsSelected;
+        ImGui.BeginDisabled(!speechReady);
+        if (ImGui.Button("Next: Test and finish"))
+        {
+            quickSetupStep = 2;
+            quickSetupTestAttempted = false;
+            quickSetupEnableChoice = null;
+            quickSetupTestStatus = string.Empty;
+        }
+        ImGui.EndDisabled();
+        TooltipLastItem(speechReady ? "Reviews and tests the selected configuration." : "Prepare Piper or choose Windows default speech before continuing.");
+    }
+
+    private void DrawQuickSetupReviewStep(Configuration cfg)
+    {
+        ImGui.TextUnformatted("3. Test and finish");
+        var active = plugin.PresetService.ActivePreset;
+        DrawWrappedStatus("Mode: " + FormatQuickSetupMode(), "Selected operating mode.");
+        DrawWrappedStatus("Preset: " + active.Name, "Selected preset.");
+        if (!string.IsNullOrWhiteSpace(active.Description))
+            DrawWrappedStatus(active.Description, "Description supplied by the selected preset.");
+        DrawWrappedStatus("Speech: " + FormatQuickSetupSpeechBackend(cfg), "Selected speech backend and voice.");
+        DrawWrappedStatus(
+            active.ImaginaryFren?.Enabled == true
+                ? $"Imaginary Fren: optional '{active.ImaginaryFren.Name}' follower through Krangler"
+                : "Imaginary Fren: off for this preset",
+            "Krangler integration is optional and does not affect alert or commentary playback.");
+
+        ImGui.Separator();
+        if (ImGui.Button(active.Mode == CommentaryMode.Dheacon ? "Test transition alert" : "Test spoken commentary"))
+            RunQuickSetupTest(active);
+        TooltipLastItem("Makes one audio test attempt without enabling automatic triggers.");
+
+        if (!string.IsNullOrWhiteSpace(quickSetupTestStatus))
+            DrawWrappedStatus(quickSetupTestStatus, "Result of the required Quick Setup test attempt.");
+        if (quickSetupTestAttempted && active.Mode == CommentaryMode.ReadingRoegadyn)
+        {
+            DrawWrappedStatus("Speech queue: " + plugin.SpeechQueueService.LastStatus, "Live status for the queued test line.");
+            if (!string.IsNullOrWhiteSpace(plugin.SpeechQueueService.LastError))
+                DrawWrappedStatus("Speech warning: " + plugin.SpeechQueueService.LastError, "The latest speech queue error; the attempt still counts so you can change speech settings and retry.");
+        }
+
+        ImGui.Separator();
+        ImGui.TextWrapped("Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.");
+        if (ImGui.RadioButton("Enable Dheacon now", quickSetupEnableChoice == true))
+            quickSetupEnableChoice = true;
+        TooltipLastItem("Enables automatic transition alerts or commentary after setup finishes.");
+        if (ImGui.RadioButton("Leave Dheacon disabled", quickSetupEnableChoice == false))
+            quickSetupEnableChoice = false;
+        TooltipLastItem("Saves setup but leaves automatic triggers disabled until you enable the plugin later.");
+
+        ImGui.Spacing();
+        if (ImGui.Button("Back"))
+            quickSetupStep = 1;
+
+        ImGui.SameLine();
+        ImGui.BeginDisabled(!quickSetupTestAttempted || !quickSetupEnableChoice.HasValue);
+        if (ImGui.Button("Finish Quick Setup"))
+        {
+            cfg.PluginEnabled = quickSetupEnableChoice == true;
+            cfg.SetupWizardCompleted = true;
+            cfg.Save();
+            plugin.UpdateDtrBar();
+            plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+            quickSetupFinishedThisSession = true;
+            quickSetupTestStatus = $"Quick Setup complete. Dheacon is {(cfg.PluginEnabled ? "enabled" : "disabled")}.";
+            plugin.PrintStatus(quickSetupTestStatus);
+        }
+        ImGui.EndDisabled();
+        TooltipLastItem(!quickSetupTestAttempted
+            ? "Run the audio test before finishing."
+            : !quickSetupEnableChoice.HasValue
+                ? "Choose whether Dheacon should be enabled."
+                : "Saves setup and prevents future automatic opening.");
+    }
+
+    private void RunQuickSetupTest(DheaconPreset active)
+    {
+        quickSetupTestAttempted = true;
+
+        try
+        {
+            if (active.Mode == CommentaryMode.Dheacon)
+            {
+                plugin.AudioPlaybackService.PlayAlert();
+                quickSetupTestStatus = "Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.";
+                return;
+            }
+
+            var text = plugin.CommentaryLinePackService.GetLine(CommentaryCategory.ManualTest);
+            var queued = plugin.SpeechQueueService.TryEnqueue(new CommentaryRequest(CommentaryCategory.ManualTest, text, "Quick Setup test"));
+            quickSetupTestStatus = queued
+                ? "Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches."
+                : "Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.";
+        }
+        catch (Exception ex)
+        {
+            quickSetupTestStatus = "Audio test failed: " + ex.Message;
+        }
+    }
+
+    private void RequestQuickSetupPiperPreparation(Configuration cfg)
+    {
+        var requestVersion = Interlocked.Increment(ref quickSetupSpeechSelectionVersion);
+        quickSetupPendingPiperVersion = requestVersion;
+        quickSetupPiperPreparationPending = true;
+        quickSetupSpeechStatus = "Preparing the managed Piper runtime and recommended English Arctic voice...";
+        cfg.TtsBackend = TtsBackend.PiperLocal;
+        cfg.TtsPiperVoiceId = PiperVoiceCatalogService.RecommendedVoiceCatalogId;
+        cfg.Save();
+        TryStartPendingQuickSetupPiperPreparation(cfg);
+    }
+
+    private void TryStartPendingQuickSetupPiperPreparation(Configuration cfg)
+    {
+        if (!quickSetupPiperPreparationPending ||
+            quickSetupPiperPreparationInProgress ||
+            plugin.PiperVoiceCatalogService.IsBusy)
+            return;
+
+        quickSetupPiperPreparationPending = false;
+        quickSetupPiperPreparationInProgress = true;
+        var requestVersion = quickSetupPendingPiperVersion;
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await plugin.PiperVoiceCatalogService
+                    .EnsureRecommendedVoiceInstalledAsync(switchBackendWhenReady: true, CancellationToken.None)
+                    .ConfigureAwait(false);
+
+                if (requestVersion != Volatile.Read(ref quickSetupSpeechSelectionVersion))
+                {
+                    ApplyQuickSetupWindowsDefault(cfg);
+                    return;
+                }
+
+                if (IsQuickSetupPiperReady(cfg))
+                {
+                    quickSetupSpeechStatus = "Piper is ready with the recommended English Arctic voice.";
+                }
+                else
+                {
+                    ApplyQuickSetupWindowsDefault(cfg);
+                    quickSetupSpeechStatus = "Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.";
+                }
+            }
+            catch (Exception ex)
+            {
+                if (requestVersion == Volatile.Read(ref quickSetupSpeechSelectionVersion))
+                {
+                    ApplyQuickSetupWindowsDefault(cfg);
+                    quickSetupSpeechStatus = "Piper setup failed, so Quick Setup selected Windows default speech: " + ex.Message;
+                }
+            }
+            finally
+            {
+                quickSetupPiperPreparationInProgress = false;
+            }
+        });
+    }
+
+    private void SelectQuickSetupWindowsDefault(Configuration cfg, string status)
+    {
+        Interlocked.Increment(ref quickSetupSpeechSelectionVersion);
+        quickSetupPiperPreparationPending = false;
+        ApplyQuickSetupWindowsDefault(cfg);
+        quickSetupSpeechStatus = status;
+    }
+
+    private static void ApplyQuickSetupWindowsDefault(Configuration cfg)
+    {
+        cfg.TtsBackend = TtsBackend.ModernWindows;
+        cfg.TtsModernVoiceId = string.Empty;
+        cfg.TtsVoiceName = string.Empty;
+        cfg.Save();
+    }
+
+    private bool IsQuickSetupPiperReady(Configuration cfg)
+        => cfg.TtsBackend == TtsBackend.PiperLocal &&
+           plugin.PiperVoiceCatalogService.FindExactInstalledVoice(PiperVoiceCatalogService.RecommendedVoiceCatalogId) != null &&
+           plugin.PiperVoiceCatalogService.ResolveRuntimePath() != null;
+
+    private static bool IsQuickSetupWindowsDefaultSelected(Configuration cfg)
+        => cfg.TtsBackend == TtsBackend.ModernWindows &&
+           string.IsNullOrWhiteSpace(cfg.TtsModernVoiceId) &&
+           string.IsNullOrWhiteSpace(cfg.TtsVoiceName);
+
+    private string FormatQuickSetupMode()
+        => plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
+            ? "Classic transition alerts"
+            : "Spoken commentary";
+
+    private string FormatQuickSetupSpeechBackend(Configuration cfg)
+        => cfg.TtsBackend switch
+        {
+            TtsBackend.PiperLocal => "Local Piper - " + plugin.SpeechCacheService.GetSelectedVoiceLabel(),
+            TtsBackend.ModernWindows => "Windows default - " + plugin.SpeechCacheService.GetSelectedVoiceLabel(),
+            _ => "Legacy SAPI - " + plugin.SpeechCacheService.GetSelectedVoiceLabel(),
+        };
 
     private void DrawGeneralTab(Configuration cfg)
     {
@@ -328,6 +730,8 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem(active.Protected ? "Protected bundled templates cannot be deleted." : "Deletes the active user preset.");
 
         DrawWrappedStatus($"Active preset: {active.Name}", "Current active preset.");
+        if (!string.IsNullOrWhiteSpace(active.Description))
+            DrawWrappedStatus(active.Description, "Description supplied by the active preset.");
         DrawWrappedStatus($"Preset source: {(active.Bundled ? "Bundled" : "User")}  Protected: {active.Protected}", "Protected bundled presets cannot be renamed, deleted, or overwritten.");
         DrawWrappedStatus("Preset status: " + plugin.PresetService.LastStatus, "Preset load/import/export status.");
         DrawLinePackSelector(active);

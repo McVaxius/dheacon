@@ -77,6 +77,8 @@ public sealed class Plugin : IDalamudPlugin
         WindowSystem.AddWindow(mainWindow);
         WindowSystem.AddWindow(configWindow);
         WindowSystem.AddWindow(miniWindow);
+        if (Configuration.NeedsSetupWizard)
+            configWindow.OpenQuickSetup();
         lastMiniAutoOpenSpeechSequence = SpeechQueueService.SpeechSequence;
         CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mini, fren, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
         PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
@@ -302,6 +304,9 @@ public sealed class Plugin : IDalamudPlugin
             Configuration.MiniAutoOpenOnSpeech = false;
             changed = true;
         }
+
+        if (Configuration.MigrateSetupWizardState())
+            changed = true;
 
         var clampedPiperLengthScale = Math.Clamp(Configuration.TtsPiperLengthScale, 0.5d, 2.0d);
         if (Math.Abs(Configuration.TtsPiperLengthScale - clampedPiperLengthScale) > 0.0001d)

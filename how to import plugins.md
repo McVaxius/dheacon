@@ -18,6 +18,13 @@
 
 ## First Checks
 
-- Load plugin and open UI
-- Toggle settings and save
-- Check DTR toggle
+- Confirm the installer copy reads **"Local TTS commentary and classic transition alerts."**
+- On a genuinely new configuration, confirm Settings opens on **Quick Setup** automatically.
+- Close Quick Setup before finishing, reload the plugin, and confirm it opens again.
+- Exercise classic-alert testing and spoken-commentary testing with an existing preset.
+- Exercise Piper already-ready, Piper one-time install, retry/failure with Windows fallback, and direct Windows-default selection.
+- Confirm Quick Setup requires a test attempt and an explicit enabled/disabled choice before finishing.
+- Finish setup, reload the plugin, and confirm Quick Setup no longer opens automatically.
+- Open Settings manually and confirm the permanent Quick Setup tab can be rerun.
+- Confirm preset selection updates the DTR tooltip and optional Imaginary Fren state.
+- Confirm migrated v11 settings remain unchanged and do not open Quick Setup automatically.

@@ -3,23 +3,23 @@
     "$schema": "https://raw.githubusercontent.com/goatcorp/Dalamud/master/Dalamud/Configuration/PluginManifest/pluginmanifest.schema.json",
     "Author": "DhogGPT",
     "Name": "Dheacon",
-    "Punchline": "Another hand touches the crystal.",
-    "Description": "Another hand touches the crystal.",
+    "Punchline": "Local TTS commentary and classic transition alerts.",
+    "Description": "Preset-driven commentary for login, travel, combat, idle, BGM, and other events; cached Piper or Windows speech; configurable triggers and cooldowns; and optional Krangler integration.",
     "InternalName": "dheacon",
-    "AssemblyVersion": "2.1.0.1",
+    "AssemblyVersion": "2.1.0.2",
     "ApplicableVersion": "any",
     "DalamudApiLevel": 15,
     "Tags": [
-      "ffxiv",
-      "dheacon",
-      "dhog"
+      "audio",
+      "tts",
+      "commentary"
     ],
     "CategoryTags": [
       "utility"
     ],
     "RepoUrl": "https://github.com/McVaxius/dheacon",
-    "DownloadLinkInstall": "https://github.com/McVaxius/dheacon/releases/download/v2.1.0.1/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/McVaxius/dheacon/releases/download/v2.1.0.1/latest.zip",
+    "DownloadLinkInstall": "https://github.com/McVaxius/dheacon/releases/download/v2.1.0.2/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/McVaxius/dheacon/releases/download/v2.1.0.2/latest.zip",
     "IconUrl": "https://raw.githubusercontent.com/McVaxius/dheacon/main/dheacon/images/icon.png"
   }
 ]
