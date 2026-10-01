@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Build only the plugin project in GitHub Actions so test and regression projects do not block production artifacts.
+
 - Added a permanent three-step Quick Setup tab for mode/preset selection, local speech preparation with Windows fallback, required audio testing, and explicit enablement.
 - Added first-run-only setup persistence through configuration schema v12 while preserving all migrated user settings.
 - Documented preset descriptions and optional Imaginary Fren behavior in setup.
