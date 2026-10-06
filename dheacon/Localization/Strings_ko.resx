@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [템플릿]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [사용자]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> 미니 창</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> 설정</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f 반음</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f 초</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. 작동 모드 선택</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. 로컬 음성 선택</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. 테스트 및 완료</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Piper 작업 진행 중...</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>작업</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>활성 프리셋</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>선택된 프리셋: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>환경 변수 및 기본값을 적용한 실제 폴더입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>변환됨</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>변환기</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>변환기 ID, 버전 및 기존 콘텐츠 해시가 Piper 캐시 키에 포함됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>변환기: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>변환기: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>미리 보기와 Piper 합성에 사용할 텍스트 변환기입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>변환기 ID, 버전 및 기존 콘텐츠 해시가 Piper 캐시 키에 포함됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>변환기 버전: {0}  해시: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>변환기 경고: </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>음성 생성의 추가 맥락</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Piper 카탈로그의 추가 참고 사항입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>알림음 경로</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>알림음 경로: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>모두</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>재사용 대기시간에 따라 Machinations BGM 감지 시 해설합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>탈것, 임무, 제작 및 채집 전환 등의 추가 이벤트를 해설합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>충분히 유휴 상태가 지속되면 가끔 발화합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>현재 세션에서 플레이어가 준비되면 한 문장을 허용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>재사용 대기시간에 따라 전투 시작 및 종료 해설을 허용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>재사용 대기시간에 따라 지역 이동 해설을 허용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>재생 전 WAV 게인입니다. 변경 시 음성 캐시를 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Piper 합성 후 재생 게인이며 합성 음량이 아닙니다. 변경 시 WAV 캐시를 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>오디오 테스트 실패: </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>자동 발동 확률 %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>BGM 재사용 대기(초)</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>BGM 상태</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>BGM 상태: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>뒤로</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>엔진</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>파란색</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>내장</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>내장 템플릿은 읽기 전용이며 이름 변경, 삭제 또는 덮어쓰기가 불가합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>작업 중</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>캐시 폴더</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>캐시 크기: {0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>캐시 상태</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>캐시 상태: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>캐시 상태: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>카탈로그</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>카탈로그의 성별 정보입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>이 Piper 음성의 카탈로그 출처입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>템플릿 변경은 현재 세션에만 적용됩니다. +로 복제해야 저장됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>DTR에 텍스트, 아이콘과 텍스트 또는 아이콘만 표시합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>Piper 카탈로그 행을 선택하면 설치, 선택 및 제거 작업이 표시됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>소리를 선택하고 로컬 음성을 준비해 테스트한 후 자동 발동 여부를 결정합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>저장할 상태를 선택하세요. 활성화 옵션을 선택해야 Dheacon이 켜집니다.</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>Dheacon 활성화 여부를 선택하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>기존 알림 프리셋</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>기존 모드는 발화하지 않지만 나중에 선택할 음성 프리셋을 위해 저장됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>기존 이동 알림음과 텔레포트 및 귀환 억제 옵션을 유지합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>기존 지역 이동 알림</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>Piper WAV 캐시 삭제</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>캐시 삭제</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>설정 닫기</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>색상</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>전투 재사용 대기(초)</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>전투 시작/종료</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>명령어: {0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>해설 프리셋</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>컴팩트 모드</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>지원되는 최신 Windows 음높이입니다. 기존 SAPI는 무시할 수 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Piper --length_scale. 낮을수록 빠르고 높을수록 느립니다. 변경 시 WAV 캐시를 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Piper --sentence_silence. 높을수록 문장 간 휴지가 길어지고 WAV 캐시를 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Windows/SAPI 발화 속도입니다. 변경 시 해당 음성 캐시를 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>WAV 캐시 전 Windows/SAPI 합성 음량.</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>휴대 가능한 base64 프리셋 JSON을 클립보드에 복사합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>현재 BGM ID: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>현재 BGM 탐지 상태와 확인된 ID입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>현재 BGM 탐지 상태와 확인된 ID입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>검색 및 필터 후 Piper 카탈로그 개수입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Piper 카탈로그, 다운로드, 설치 또는 선택의 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>현재 로컬 Piper 런타임 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Piper 준비, 다운로드 또는 설치 진행률입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>빠른 설정에서 유지할 활성 프리셋입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>생성된 WAV 캐시의 현재 대략적인 크기입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>현재 로컬 Piper 런타임 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>현재 텍스트</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>현재 트리거 상태</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>새 음성 생성에 사용할 선택된 엔진과 음성입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>강조된 Piper 카탈로그 음성의 전체 표시 이름입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>사용자 지정 RGB</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>DTR 표시줄</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>DTR 비활성 기호</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>DTR 활성 기호</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>DTR 모드</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>모든 엔진의 음성 WAV를 삭제하며 이후 음성은 다시 생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>Piper WAV만 삭제하며 현재 속도, 휴지, 음높이, 게인 및 변환기 설정으로 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>활성 사용자 프리셋을 삭제합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>선택된 프리셋에 제공된 설명입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>선택된 프리셋에 제공된 설명입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>자세히</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>이 Piper 음성의 상세 정보와 작업을 표시합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon Mini — 음성 모니터</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Dheacon 설정</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Dheacon 모드는 해당 지역 이동에서 내장 WAV 알림음만 재생합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Dheacon 모드는 해당 지역 이동에서 내장 WAV 알림음만 재생합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — 메인(음성 설정)</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>진단</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>표시 이름</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>이 Piper 음성의 이름과 설치 또는 다운로드 크기입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>관리되는 Windows 휴대용 Piper 런타임을 다운로드하고 설치합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>이 Piper 음성을 다운로드하고 설치합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>이 Piper 음성을 다운로드하고 설치합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>Piper 런타임과 권장 음성을 다운로드하거나 복구합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>최신 Piper 카탈로그를 다운로드하고 설치된 음성 상태를 갱신합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>이름 변경 또는 저장 전 +로 템플릿을 복제하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>이름 변경 또는 저장 전 +로 템플릿을 복제하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>활성 프리셋을 편집 가능한 새 사용자 프리셋으로 복제합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>활성 사용자 프리셋의 표시 이름을 변경합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>지금 Dheacon 활성화</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>활성화</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>설정 완료 후 자동 알림 또는 해설을 활성화합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>스웨덴어 Piper 합성 전 텍스트 변환기를 켭니다. 변경은 향후 캐시 키에 영향을 줍니다.</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>확장 이벤트 재사용 대기(초)</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>확장 이벤트</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>변환기 활성 여부와 선택된 Piper 음성에 적용 가능한지를 나타냅니다.</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>활성 프리셋 내보내기</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>카탈로그 성별 정보로 Piper 음성을 필터링합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>언어로 Piper 음성을 필터링합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>모델 품질 등급으로 Piper 음성을 필터링합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>공식 또는 커뮤니티 출처로 Piper 음성을 필터링합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>설치 여부로 Piper 음성을 필터링합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>음성 키, 언어, 성별, 품질, 출처 또는 카탈로그 ID로 검색합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>빠른 설정 완료</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>추종자 상태</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>추종자 상태: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>추종자 경고: </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>템플릿 변경은 현재 세션에만 적용됩니다. +로 복제해야 저장됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>강조된 Piper 카탈로그 음성의 전체 표시 이름입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>성별</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>일반</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>기본 음성 엔진을 변경하지 않고 설정된 Piper 음성으로 미리 보기를 생성해 재생합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>아이콘과 텍스트</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>아이콘만</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>대기</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>유휴 재사용 대기(초)</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren: 이 프리셋에서 꺼짐</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren: Krangler를 통한 선택적 추종자 '{0}'</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>Krangler가 로드되어 있으면 활성 Fren 상태를 즉시 보냅니다.</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>프리셋 가져오기</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>사용자 프리셋 폴더로 가져옵니다. 보호된 내장 ID는 새 ID로 가져옵니다.</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>설치</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>Arctic 설치</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>선택됨, 설치됨 또는 카탈로그에만 있는 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>런타임 설치</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>설치됨</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>설치 필터</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>이 Piper 음성의 이름과 설치 또는 다운로드 크기입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>권장 en_US-arctic-medium 음성을 설치하고 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>키: {0}
+출처: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Krangler는 선택 사항이며 알림이나 해설 재생에 영향을 주지 않습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Krangler는 선택 사항이며 알림이나 해설 재생에 영향을 주지 않습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Krangler는 선택 사항입니다. 목록이 없으면 텍스트 입력을 사용할 수 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Krangler 프리셋</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>추종자에 적용할 Krangler 이름, ID 또는 파일명입니다. 목록을 사용할 수 없으면 표시됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>언어</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>이 Piper 음성의 언어 정보입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>언어: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Krangler Imaginary Fren IPC의 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Krangler 프리셋 목록 IPC의 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Piper 카탈로그, 다운로드, 설치 또는 선택의 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Piper 카탈로그, 다운로드, 설치 또는 선택의 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>최신 Piper 오류입니다. 다시 시도하거나 Windows 기본 음성을 선택하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>마지막 Piper 음높이 변경: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>마지막 Piper 음높이 변경: {0} 적용: {1}. 반음: {2} st.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>최신 Piper 오류입니다. 다시 시도하거나 Windows 기본 음성을 선택하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Reading Roegadyn의 최신 트리거 판단입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>마지막 변환됨: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>마지막 변환기: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>마지막 알림(UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>캐시 적중 또는 새 파일 생성의 최신 결과입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>마지막 원문: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>마지막 음성</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>캐시 적중 또는 새 파일 생성의 최신 결과입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>최신 대기열 오류입니다. 시도는 인정되며 설정을 변경해 다시 시도할 수 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>음성 대기열의 현재 또는 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>음성 합성 또는 캐시의 최신 경고입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>음성 텍스트 변환기의 최신 로드 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>음성 텍스트 변환기의 최신 경고입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>마지막 이동 판단</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>Dheacon 비활성 상태 유지</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>기존 SAPI</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>기존 SAPI - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>기존 SAPI 음성: {0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>음성 카탈로그의 라이선스 정보입니다.</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>라이선스: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>대사 팩</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>대사 팩: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>대사 팩: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>대사 팩: Dheacon 모드에서 사용하지 않음.</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>선택한 대사 팩의 상태와 설명입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>음성 대기열의 현재 또는 최신 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>글꼴 불러오는 중…</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>로컬 Piper - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>로그인</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>빠르게 이어지는 이벤트의 해설을 줄이려면 낮추세요.</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>자동 발동을 켜지 않고 오디오 테스트를 한 번 시도합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>향후 합성에 사용할 설치된 Piper 음성을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>향후 합성에 사용할 설치된 Piper 음성을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>최대 캐시 MB</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>최대 WAV 캐시 용량입니다. 새 음성 생성 후 오래된 파일을 정리합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>미니 창</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>다음 유휴 해설까지 최소 시간입니다. 30초 미만은 30초로 올립니다.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>Machinations BGM 해설 간 최소 시간입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>전투 시작 및 종료 해설 간 최소 시간입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>확장 이벤트 해설 간 최소 시간입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>지역 이동 해설 간 최소 시간입니다. 낮을수록 여행 해설이 잦아집니다.</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>엔진: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>최신 Windows</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>최신 Windows 음성: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>Piper 음높이 처리의 최신 결과입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>변환기 치환 전 정규화된 원문입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>변환기 치환 후 Piper에 보낼 텍스트입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>이름</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Krangler가 로컬 추종자에게 표시하는 이름입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>없음</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>다음: 음성</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>다음: 테스트 및 완료</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>아니요</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>일치하는 Krangler 프리셋이 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>Piper 음성이 선택되지 않음</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>설치된 Piper 음성이 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>선택 가능한 대사 팩이 로드되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>아직 음성이 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>없음</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>변환기 치환 전 정규화된 원문입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>설치되지 않음</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>탐지된 기존 SAPI 음성 개수입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>탐지된 최신 Windows 음성 개수입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>설치된 관리 Piper 음성 개수입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>대기 중인 발화 수</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>준비 또는 재생을 기다리는 음성 요청 개수입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>폴더 열기</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>음성 시작 시 미니 창 열기</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>Piper 음성 탭에서 권장 영어 Arctic 음성을 설치하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>이 설치된 Piper 음성의 폴더를 엽니다.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>런타임, 음성, 캐시 및 매니페스트가 있는 Piper 폴더를 엽니다.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>이 프리셋의 Imaginary Fren은 꺼져 있습니다. 일반 설정에서 구성하며 Krangler가 필요합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>Dheacon 활성 시 Krangler로 로컬 추종자 '{0}'를 생성할 수 있습니다. Krangler 없이도 해설은 동작합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>선택적 piper.exe 경로입니다. 비우면 관리 런타임 폴더 또는 PATH를 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>원문</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>출력 게인 %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>가져올 내용 붙여넣기</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>프리셋 base64를 붙여넣으세요</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>대기 중인 음성 요청: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>분홍색</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Piper 음성</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Piper 음성: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Piper 준비 실패로 Windows 기본 음성을 선택했습니다. 여기서 Piper를 다시 시도할 수 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>권장 영어 Arctic 음성으로 Piper가 준비되었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piper가 준비되었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>로컬 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Piper 모델의 품질 등급입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Piper 작업 진행 중...</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Piper 음높이</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Piper 작업 진행 중...</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piper는 로컬 음성을 생성합니다. 런타임과 음성은 한 번 다운로드하며 생성된 음성은 로컬에 캐시됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Piper 런타임 경로</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>로컬 합성에 사용하는 현재 Piper 런타임 경로입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>Piper 런타임 상태가 아직 확인되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Piper 런타임 경로: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Piper 런타임 경로: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Piper: 속도 {0:F2}, 문장 휴지 {1:F2}s, 음높이 {2} st, 게인 {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Piper 설정 실패로 Windows 기본 음성 선택: </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Piper 속도</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Piper 속도: {0:F2} · 문장 휴지: {1:F2}s · 음높이: {2} st · 재생 게인: {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>향후 WAV 캐시에 영향을 주는 Piper 합성 및 후처리 설정입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Piper 텍스트 변환기</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Piper 음성</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>이 Piper 음성의 언어 정보입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Piper 음성: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Piper 경고: </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>음높이</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>음높이: {0:F2} · 출력 게인: {1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>재생 게인 %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Dheacon 모드는 해당 지역 이동에서 내장 WAV 알림음만 재생합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>플러그인 활성화</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>Piper 합성 매개변수가 아닌 WAV 후처리이며 왜곡이 생길 수 있습니다. 음수는 목소리를 낮추며 캐시를 재생성합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>Piper 준비</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>계속하려면 Piper를 준비하거나 Windows 기본 음성을 선택하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>Piper 런타임과 권장 영어 Arctic 음성 준비 중...</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>프리셋 목록 경고: </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>프리셋: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>프리셋 로드, 가져오기 및 내보내기 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>프리셋 출처: {0}  보호됨: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>프리셋: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>프리셋: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>프리셋</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>텔레포트와 귀환 시 알림 및 해설을 억제합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>텔레포트와 귀환 시 알림 및 해설을 억제합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>미리 보기 변환기: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>미리 보기 텍스트</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>현재 모드 판단 및 상태를 채팅에 출력합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>내장 템플릿은 읽기 전용이며 이름 변경, 삭제 또는 덮어쓰기가 불가합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>내장 템플릿은 읽기 전용이며 이름 변경, 삭제 또는 덮어쓰기가 불가합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>품질</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>대기열</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>대기열 오류: </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>대기열 오류: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>대기열: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>선택된 엔진과 현재 음성으로 Reading Roegadyn 테스트를 대기열에 추가합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>빠른 설정</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>빠른 설정 완료. Dheacon: {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>빠른 설정의 음성 준비, 선택 또는 대안 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>빠른 설정의 음성 준비, 선택 또는 대안 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>속도</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>클립보드의 프리셋을 가져오기 상자에 붙여넣습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>권장 로컬 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>지금 동기화</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>카탈로그 새로 고침</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>음성 새로 고침</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>Windows/SAPI/Piper 음성을 새로 고치고 개수를 채팅으로 알립니다.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>Windows/SAPI/Piper 음성을 새로 고치고 개수를 채팅으로 알립니다.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>관리 음성 폴더에서 이 Piper 음성을 제거합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>관리 음성 폴더에서 이 Piper 음성을 제거합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>이름 변경</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>활성 사용자 프리셋의 표시 이름을 변경합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>캐시 폴더: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Dheacon 알림음에 사용할 실제 경로입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>선택한 설정을 검토하고 테스트 시도 결과를 표시합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>Piper 다시 시도</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>선택한 설정을 검토하고 테스트 시도 결과를 표시합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>빠른 설정 다시 실행</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>완료 전에 오디오 테스트를 실행하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>현재 설정 저장</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>저장됨: {0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>저장된 설정입니다. 이후 설정 창이 자동으로 열리지 않습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>설정을 저장하지만 나중에 플러그인을 켤 때까지 자동 발동을 비활성화합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>검색</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>Krangler 프리셋 검색...</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>선택</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>Arctic 선택</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>Piper 카탈로그 행을 선택하면 설치, 선택 및 제거 작업이 표시됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>설치된 Piper 음성 {0} 선택.</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>프리셋 선택</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>향후 음성에 {0} 선택.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>선택됨</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>Windows 기본 음성을 선택했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>Windows 기본 음성을 선택했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>선택한 대사 팩의 상태와 설명입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>선택한 작동 모드입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>빠른 설정에서 유지할 활성 프리셋입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>선택된 프리셋: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>새 음성 생성에 사용할 선택된 엔진과 음성입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>선택된 음성 상세 정보</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>음성: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>선택됨:</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>이름으로 Krangler 프리셋을 선택하고 고정 키를 Dheacon 프리셋에 저장합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>활성 게임 이벤트에 선택한 음성 해설 프리셋을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>향후 합성에 사용할 설치된 Piper 음성을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>합성에 사용할 설치된 Windows/SAPI 음성을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>설치된 권장 en_US-arctic-medium 음성을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>프리셋 자체 대사 다음에 사용할 대사 팩을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>음성 엔진을 선택합니다. Piper는 필요하면 권장 영어 Arctic 음성을 자동 준비합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>미리 보기와 Piper 합성에 사용할 텍스트 변환기입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>문장 간 휴지</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>이 플러그인 상태의 DTR 문자를 설정하며 긴 입력은 잘립니다.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>이 플러그인 상태의 DTR 문자를 설정하며 긴 입력은 잘립니다.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Dheacon 알림 WAV 경로입니다. 상대 경로는 플러그인 폴더 기준입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>WAV 캐시 폴더입니다. 비우면 기본 LocalAppData 폴더를 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>설정</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>DTR 항목 표시</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>카탈로그 {1}개 중 {0}개 표시.</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>이 Piper 음성의 상세 정보와 작업을 표시합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>Dalamud DTR 표시줄의 클릭 가능한 상태 항목을 표시하거나 숨깁니다.</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>크기</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>출처</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>이 프리셋에 Fren 생성</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>음성</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>음성 엔진</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>음성 처리 중: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>음성 맥락</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>음성은 PC에서 생성되고 재사용을 위해 WAV로 캐시됩니다.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>대기열: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>음성이 대기열에 추가되었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>음성 경고: </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>음성: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>음성 해설</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>음성 모드는 확률과 재사용 대기시간에 따라 로그인, 이동, 전투, 유휴, BGM 및 기타 이벤트를 해설합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>음성 프리셋</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>음성 테스트가 대기열에 추가되었습니다. 아래 상태를 확인하세요. 같은 내용은 캐시를 재사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>테스트를 시도했지만 대기열이 수락하지 않았습니다. 아래 상태를 확인하고 다시 시도하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>관련 없는 설정을 초기화하지 않고 세 단계를 다시 시작합니다.</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>상태</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>상태: 설치됨</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>상태: 설치되지 않음</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>상태: 선택된 Piper 음성</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>상태를 일시적으로 사용할 수 없음: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>상태를 채팅으로</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>단계 {0} / 3</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>Piper 대기를 중단하고 Windows 엔진의 기본 음성을 선택합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>Ko-fi에서 후원</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>텔레포트와 귀환 억제</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>합성 음량</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>TTS 음성(UI 언어와 별개)</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>청록색</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>지역 이동</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>지역 재사용 대기(초)</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>변환된 음성 테스트</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>음성 테스트</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>음성 해설 테스트</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>이동 알림 테스트</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>변환된 음성 테스트 중...</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>대기 중이거나 재생 중인 텍스트</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>텍스트만</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>변환기 치환 후 Piper에 보낼 텍스트입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>현재 Piper 변환기 미리 보기에 사용할 텍스트입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>음성 엔진(플러그인 설정)</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>FFXIV 음성 합성(Dalamud 플러그인)</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>새 음성 생성에 사용할 선택된 엔진과 음성입니다.</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>저장된 설정입니다. 이후 설정 창이 자동으로 열리지 않습니다.</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>최신 Piper 오류입니다. 다시 시도하거나 Windows 기본 음성을 선택하세요.</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>최신 대기열 오류입니다. 시도는 인정되며 설정을 변경해 다시 시도할 수 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>빠른 설정에서 유지할 활성 프리셋입니다.</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>권장 음성과 사용 가능한 Piper 런타임을 찾았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>이 설치된 Piper 음성은 이미 활성화되어 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>이 설치된 Piper 음성은 이미 활성화되어 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>알림 테스트를 시도했습니다. WAV가 없으면 Windows 느낌표 소리를 사용했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>트리거</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>트리거: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>모든 Dheacon/Reading Roegadyn 트리거를 즉시 켜거나 끕니다.</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>글꼴을 불러오지 못했습니다. 플러그인 로그를 확인하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>제거</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>알 수 없음</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>Windows 기본 음성 사용</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>Piper 합성 전 {0}로 {1}에서 {2}로 변환.</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>사용자</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>이 엔진의 Windows 기본 음성을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>관리되는 로컬 Piper와 권장 영어 Arctic 음성을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>이 엔진의 Windows 기본 음성을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>활성 게임 이벤트에 선택한 음성 해설 프리셋을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>음성</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>대기 중</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>활성 시 프리셋이 Krangler에 로컬 Imaginary Fren 추종자를 요청합니다.</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>다음 음성 문장에 미니 창이 열리고 열린 상태를 유지합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>음성 대기열이 오디오를 준비하거나 재생 중인지 나타냅니다.</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>선택됨, 설치됨 또는 카탈로그에만 있는 상태입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Windows 기본값</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Windows 기본값 - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Windows 기본 음성</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Windows 기본 음성은 Dheacon 다운로드 없이 사용하며 Piper 설정 실패 시 대안으로 사용할 수 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>현재 설정을 활성 사용자 프리셋에 저장합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>예</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[템플릿]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[사용자]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>비활성화</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0} (설치되지 않음)</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1}에서 {2}로</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>대기 {0}개</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>전투 시작</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>전투 종료</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>탈것 시작</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>탈것 종료</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>비행 시작</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>비행 종료</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>임무 참가 신청 시작</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>임무 참가 신청 종료</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>임무 시작</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>임무 종료</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>제작 시작</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>제작 종료</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>채집 시작</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>채집 종료</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>낚시 시작</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>낚시 종료</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>악기 연주 시작</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>악기 연주 종료</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>미니게임 시작</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>미니게임 종료</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>초인종 시작</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>초인종 종료</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>파티 모집 시작</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>파티 모집 종료</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>수영 시작</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>수영 종료</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>잠수 시작</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>잠수 종료</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>임무 영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>임무 영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>임무 외 영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>임무 외 영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>보물고 영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>보물고 영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>수동 테스트</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>지역 이동</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>레벨 변경</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>클래스/잡 변경</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>전투 불능</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>회복</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>PvP 진입</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>PvP 종료</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>주변 플레이어 관찰</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>주변 플레이어 집단 관찰</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>최신 Windows</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>기존 SAPI</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>로컬 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>플레이어가 준비되지 않아 {0}을(를) 무시했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>확장 이벤트 해설이 비활성화되어 {0}을(를) 무시했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>확장 이벤트 재사용 대기시간으로 {0}이(가) 억제되었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>{0} 건너뜀: 음성 처리 중입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>{0} 건너뜀: 자동 발동 확률이 0%입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>{0} 건너뜀: 발동 확률 {1}% 추첨에서 실패했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>{0} 대기열에 추가: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>{0} 대기열 추가 실패: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>{0} 대기열에 추가: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>{0} 준비 중: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>{0} 음성 출력 완료: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>{0} 음성 출력 실패.</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>{0} 생성: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>캐시 적중: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>{0} 음성 처리 실패; 기존 SAPI로 대체: {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0} 실패; 기존 SAPI로 대체: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>{0}에는 적용되지 않습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>{0} 대사를 찾지 못해 대체 텍스트를 사용했습니다.</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> (음높이 {0}반음)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> (음높이 {0}반음 건너뜀)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> (음높이 {0}반음 적용됨)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> (음높이 {0}반음 경고)</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>건너뜀 (음높이 {0}반음).</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>SoundTouch.NET으로 음높이 {0}반음 적용 (배율 {1}, 샘플 {2}개, 오디오 {3}바이트).</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>Piper 음높이 {0}반음 캐시 적중; 이 요청에서는 음높이 처리를 실행하지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Piper 음높이 변경 실패 ({0}반음): {1}. 변경하지 않은 WAV를 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>Piper {0} 다운로드 중: {1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>Piper {0} 다운로드 중: {1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>런타임</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>모델</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>설정</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>모델 카드</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>패키지</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>수동 테스트</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>플레이어 준비 완료</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>대기 재사용 대기시간</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>빠른 설정 테스트</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>PvP 진입</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>PvP 종료</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>클래스/잡 {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} 레벨 {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>주변 플레이어 {0}명</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>전투 시작</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>전투 종료</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>탈것 시작</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>탈것 종료</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>비행 시작</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>비행 종료</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>임무 참가 신청 시작</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>임무 참가 신청 종료</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>임무 시작</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>임무 종료</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>제작 시작</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>제작 종료</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>채집 시작</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>채집 종료</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>낚시 시작</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>낚시 종료</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>악기 연주 시작</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>악기 연주 종료</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>미니게임 시작</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>미니게임 종료</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>초인종 시작</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>초인종 종료</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>파티 모집 시작</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>파티 모집 종료</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>수영 시작</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>수영 종료</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>잠수 시작</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>잠수 종료</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>임무 영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>임무 영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>임무 외 영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>임무 외 영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>보물고 영상 시작</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>보물고 영상 종료</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>전투 불능 시작</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>전투 불능 종료</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>첫 지역 변경을 기다리는 중입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>지역을 {0}(으)로 초기화했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>플러그인이 비활성화되어 {0} -&gt; {1}을 무시했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>최근 실행 후 {2:F1}초가 지나 {0} -&gt; {1}을 억제했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>지역 변경 {0} -&gt; {1}에서 실행했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>BGM 감지가 초기화되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>BGM 제어 블록 포인터가 준비되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>BGM 장면 목록 포인터가 준비되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>BGM 감지가 활성화되어 있으나 우선 슬롯에 유효한 곡 ID가 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>BGM 감지 활성화; 현재 BGM ID: {0}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>BGM 감지 읽기 실패: {0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>BGM 시그니처를 확인하지 못해 BGM 반응이 비활성화되었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>BGM 시그니처 확인 완료; 첫 조회를 기다리는 중입니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>BGM 시그니처 확인 실패: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn이 플레이어 준비를 기다리는 중입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn이 로그인을 기다리는 중입니다.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Reading Roegadyn 모드가 활성화되지 않았거나 플러그인이 비활성화되어 수동 음성을 무시했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>지역 해설이 비활성화되어 무시했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>재사용 대기시간으로 {0} -&gt; {1} 지역 해설을 억제했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>플레이어 준비 완료; 로그인 해설 비활성화.</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>전투 상태 변경; 전투 해설 비활성화.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>재사용 대기시간으로 전투 해설을 억제했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>재사용 대기시간으로 Machinations BGM 해설을 억제했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>영상 상태 변경; 확장 해설 비활성화.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>음성 대기열 준비 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>음성 대기열 중지.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>예기치 않은 처리 오류로 음성 대기열이 중지되었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>음성 재생 취소.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>이번 세션에서 Piper 카탈로그를 새로 고치지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>Piper 음성 카탈로그를 새로 고치는 중...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Piper 카탈로그 새로 고침 완료: 음성 {0}개.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Piper 카탈로그 새로 고침 실패; 캐시된 음성과 설치된 음성을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Piper 음성 {0}은 설치되었지만 런타임 설정에 실패하여 기존 SAPI를 유지합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper 준비 완료: {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Piper 음성 {0}은 설치되었지만 런타임이 없어 기존 SAPI를 유지합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>포터블 Piper 런타임 설치 중...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>포터블 Piper 런타임 설치 완료 ({0}).</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>포터블 Piper 런타임 설치 실패: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0}은(는) 이미 설치되어 있습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>{0} 설치 중...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Piper 음성 {0} 설치 완료 ({1:F1} MB).</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Piper 음성 설치 실패: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Piper 음성 '{0}'이(가) 설치되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Piper 음성 {0} 제거 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>Piper 음성 {0} 선택 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>Piper 런타임이 없습니다. 포터블 piper.exe 경로를 설정하거나 piper.exe를 {0}에 두세요</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>Piper 런타임 발견: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>공식 Piper 음성 카탈로그 다운로드 중...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>스웨덴어 Piper 릴리스 카탈로그 다운로드 중...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>캐시된 Piper 카탈로그 로드 완료: 음성 {0}개.</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>아직 생성된 음성이 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>텍스트가 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>어댑터가 적용되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>일치하는 어댑터가 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>음성 텍스트 어댑터 {0}개 로드 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>대체 음성 텍스트 어댑터 로드 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>{0}에서 로드했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>대체 어댑터.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>캐시된 WAV 파일 {0}개 삭제 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>캐시된 Piper WAV 파일 {0}개 삭제 완료.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>아직 Piper 음높이 변경을 시도하지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>대사 팩이 로드되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>대사 팩 {0}개, 대사 {1}개 로드: 내장 {2}개, 사용자 {3}개.</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>프리셋이 로드되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>프리셋 '{0}'을(를) 찾지 못했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>활성 프리셋을 {0}(으)로 설정했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>사용자 프리셋 '{0}' 생성 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>프리셋 '{0}'은(는) 보호되어 이름을 바꿀 수 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>프리셋 이름은 비워 둘 수 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>프리셋 이름을 '{0}'(으)로 바꿨습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>프리셋 '{0}'은(는) 보호되어 덮어쓸 수 없습니다. 먼저 +로 복제하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>현재 설정을 '{0}'에 저장했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>보호된 프리셋 '{0}'의 실행 중 Fren 설정을 갱신했습니다. 변경을 저장하려면 +로 복제하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>'{0}'의 Fren 설정을 저장했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>보호된 프리셋 '{0}'의 실행 중 대사 팩을 갱신했습니다. 변경을 저장하려면 +로 복제하세요.</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>'{0}'의 대사 팩을 저장했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>프리셋 '{0}'은(는) 보호되어 삭제할 수 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>프리셋 '{0}'은(는) 사용자 프리셋 파일이 아닙니다.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>프리셋 '{0}' 삭제 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>프리셋 가져오기 텍스트가 비어 있었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>프리셋 가져오기 형식을 인식하지 못했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>프리셋 '{0}' 가져오기 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>프리셋 '{0}'은(는) 보호되어 덮어쓸 수 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>프리셋 '{0}' 저장 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>프리셋 {0}개 로드: 내장 {1}개, 사용자 {2}개.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>Krangler 동료 IPC 대기 중.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>Krangler 프리셋 목록이 로드되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>Krangler 프리셋 목록 IPC에서 실패를 반환했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Krangler 프리셋 목록을 사용할 수 없어 자유 텍스트 입력을 사용합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>Krangler 프리셋 {0}개 로드 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Krangler 프리셋 내보내기를 사용할 수 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>포함된 Krangler 프리셋이 없었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>포함된 Krangler 프리셋 가져오기 완료.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler가 포함된 프리셋 가져오기를 거부했습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Krangler 프리셋 가져오기를 사용할 수 없습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>Krangler Imaginary Fren IPC를 사용할 수 없어 동료 없이 음성을 계속합니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>동료를 비활성화하는 중 Krangler Imaginary Fren IPC를 사용할 수 없었습니다.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>Krangler 동료 상태 수신 완료.</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>RIFF/WAVE 파일이 아님</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>잘못된 WAV 청크 '{0}'</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>fmt 청크가 너무 작음</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>fmt 청크 누락</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>잘못된 fmt 청크</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>data 청크 누락</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>지원하지 않는 WAV 형식 태그 {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>지원하지 않는 PCM 비트 깊이 {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>지원하지 않는 IEEE 부동 소수점 비트 깊이 {0}</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>16비트 PCM 데이터의 샘플 정렬이 맞지 않음</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>24비트 PCM 데이터의 샘플 정렬이 맞지 않음</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>32비트 PCM 데이터의 샘플 정렬이 맞지 않음</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>부동 소수점 WAV 데이터의 샘플 정렬이 맞지 않음</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>원본 WAV를 사용할 수 없음: {0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>음높이를 변경한 WAV를 사용할 수 없음: {0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>음높이 처리기가 샘플을 생성하지 않음</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>음높이를 변경한 WAV가 생성되지 않음</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>변경된 오디오 데이터가 원본과 다르지 않음</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>변경 후 길이가 {0}ms에서 {1}ms로 달라짐 (허용 차이 {2}ms)</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>음성 텍스트 어댑터가 로드되지 않았습니다.</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>BGM {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>켜짐</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>꺼짐</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}. 프리셋: {2}. 클릭하여 전환하세요.</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>창 모양</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>메인 창에 간결 모드 전환 표시</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>메인 창에 언어 선택 표시</value></data>
+  <data name="Transparency" xml:space="preserve"><value>투명도</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>불투명도 (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>포커스를 잃으면 자동으로 흐리게 표시</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>포커스가 없을 때 불투명도 (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>포커스를 잃은 후 대기 시간 (초)</value></data>
+</root>

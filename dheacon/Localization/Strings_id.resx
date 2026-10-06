@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [templat]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [pengguna]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> Mini</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> Pengaturan</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f semiton</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f dtk</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. Pilih mode operasi</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. Pilih suara lokal</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. Uji dan selesaikan</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Operasi katalog, runtime, atau suara Piper sedang berjalan.</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>Tindakan</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>Preset aktif</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>Preset aktif: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>Folder sebenarnya setelah variabel lingkungan dan nilai bawaan diperluas.</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>Disesuaikan</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>Adaptor</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>Identitas adaptor yang digunakan pada kunci cache sintesis Piper terbaru.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>Layanan adaptor: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>Status adaptor: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>Adaptor yang akan diterapkan pada teks pratinjau ini.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>Versi adaptor dan hash konten disertakan dalam kunci cache WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>Versi adaptor: {0}  Hash: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>Peringatan adaptor: </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>Konteks tambahan untuk menghasilkan ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Catatan tambahan dari katalog suara Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>Jalur suara peringatan</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>Suara peringatan: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>Semua</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>Mengizinkan ucapan saat BGM Machinations terdeteksi, sesuai jeda waktunya.</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>Mengizinkan komentar tambahan berdasarkan kondisi, seperti perubahan tunggangan, tugas, kerajinan, dan pengumpulan.</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>Mengizinkan ucapan sesekali setelah klien menganggur cukup lama.</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>Mengizinkan satu ucapan setelah pemain lokal siap dalam sesi ini.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>Mengizinkan ucapan saat pertarungan dimulai atau berakhir, sesuai jeda waktunya.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>Mengizinkan ucapan saat berpindah wilayah, sesuai jeda waktunya.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>Menerapkan penguatan setelah WAV dibuat, sebelum pemutaran. Perubahan membuat ulang file ucapan dalam cache.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Menerapkan penguatan pemutaran setelah sintesis WAV Piper. Ini bukan volume sintesis Piper; perubahan membuat ulang WAV Piper dalam cache.</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>Uji audio gagal: </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>Peluang pemicu otomatis %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>Jeda BGM dalam detik</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>Status BGM</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>Status BGM: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>Kembali</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>Mesin</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>Biru</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>Bawaan</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>Templat bawaan hanya dapat dibaca.</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>Sibuk</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>Folder cache</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>Ukuran cache: {0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>Status cache</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>Status cache: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>Status cache: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>Katalog</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>Metadata gender katalog.</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>Sumber katalog untuk suara Piper ini.</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>Mengubah templat terlindungi ini untuk sesi saat ini. Duplikasikan dengan + untuk menyimpan pilihan paket dialog.</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>Mengubah tampilan bilah DTR: teks, ikon dan teks, atau hanya ikon.</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>Pilih baris katalog Piper untuk menampilkan tindakan instal/pilih/hapus di sini.</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>Pilih bagaimana Dheacon bersuara, siapkan ucapan lokal jika perlu, uji hasilnya, lalu tentukan apakah pemicu otomatis diaktifkan.</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>Pilih status plugin yang disimpan. Ini pilihan eksplisit: penyelesaian tidak mengaktifkan Dheacon kecuali Anda memilih opsi aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>Pilih apakah Dheacon diaktifkan.</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>Preset peringatan klasik</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>Mode klasik tidak berbicara, tetapi pilihan ini disimpan untuk preset ucapan yang dipilih nanti.</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>Mode klasik mempertahankan suara peringatan perpindahan asli Dheacon, termasuk opsi penekanan teleportasi dan Return yang sudah ada.</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>Peringatan perpindahan klasik</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>Hapus cache WAV Piper</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>Hapus cache</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>Tutup pengaturan</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>Warna</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>Jeda pertarungan dalam detik</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>Mulai/akhir pertarungan</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>Perintah: {0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>Preset komentar</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>Mode ringkas</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>Mengatur nada Modern Windows jika didukung; Legacy SAPI mungkin mengabaikannya.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Mengatur Piper --length_scale. Nilai lebih rendah mempercepat ucapan; nilai lebih tinggi memperlambatnya. Perubahan membuat ulang cache WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Mengatur Piper --sentence_silence. Nilai lebih tinggi menambah jeda antarkalimat dan membuat ulang cache WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Mengatur kecepatan bicara Windows/SAPI. Perubahan membuat ulang cache ucapan mesin tersebut.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>Mengatur volume sintesis Windows/SAPI sebelum WAV disimpan dalam cache.</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>Menyalin satu blok JSON preset portabel base64 ke papan klip.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>ID BGM saat ini: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>ID BGM saat ini yang diamati pemantau BGM.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>Status pemantau BGM saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>Jumlah entri katalog Piper saat ini setelah pencarian dan filter.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Status unduhan, instalasi, atau pemilihan Piper saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>Status penemuan runtime Piper saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Progres penyiapan, unduhan, atau instalasi Piper saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>Preset yang sedang aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>Perkiraan ukuran file WAV ucapan yang dihasilkan dalam cache saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>Status runtime Piper lokal saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>Teks saat ini</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>Status pemicu saat ini</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>Suara saat ini yang akan digunakan untuk menghasilkan ucapan.</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>Suara katalog Piper yang sedang disorot.</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>RGB khusus</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>Bilah DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>Glif DTR nonaktif</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>Glif DTR aktif</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>Mode DTR</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>Menghapus file WAV ucapan semua mesin; ucapan berikutnya membuatnya ulang.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>Hanya menghapus WAV Piper dalam cache; Piper membuatnya ulang dengan kecepatan, jeda, nada, penguatan, dan adaptor saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>Menghapus preset pengguna yang aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>Deskripsi dari preset aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>Deskripsi dari preset terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>Detail</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>Detail baris katalog Piper yang disorot.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon Mini — pemantau ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Pengaturan Dheacon</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Mode Dheacon memutar suara peringatan bawaan, bukan komentar lisan.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Mode Dheacon hanya menggunakan WAV lama bawaan.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — utama (pengaturan ucapan)</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>Diagnostik</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>Nama tampilan</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>Nama tampilan dan ukuran lokal/unduhan suara Piper ini.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>Mengunduh dan menginstal runtime Piper Windows portabel yang dikelola.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>Mengunduh dan menginstal suara Piper terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>Mengunduh dan menginstal suara Piper ini.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>Mengunduh atau memperbaiki runtime Piper yang dikelola dan suara yang disarankan.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>Mengunduh katalog suara Piper terbaru dan memperbarui status suara terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>Duplikasikan templat ini dengan + sebelum mengganti nama atau menimpanya.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>Duplikasikan templat ini dengan + sebelum mengganti nama.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>Menduplikasikan preset aktif menjadi preset pengguna baru yang dapat diedit.</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>Mengedit nama tampilan preset pengguna aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>Aktifkan Dheacon sekarang</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>Diaktifkan</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>Mengaktifkan peringatan perpindahan atau komentar otomatis setelah penyiapan selesai.</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>Mengaktifkan adaptor teks sebelum sintesis Piper bahasa Swedia; perubahan memengaruhi kunci cache Piper berikutnya.</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>Jeda peristiwa tambahan dalam detik</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>Peristiwa tambahan</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>Menjelaskan apakah adaptor aktif dan berlaku untuk suara Piper terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>Ekspor preset aktif</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>Memfilter suara Piper berdasarkan metadata gender.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>Memfilter suara Piper berdasarkan bahasa.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>Memfilter suara Piper berdasarkan tingkat kualitas model.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>Memfilter suara Piper berdasarkan sumber resmi atau komunitas.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>Memfilter suara Piper berdasarkan apakah sudah terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>Memfilter katalog Piper berdasarkan kunci suara, bahasa, gender, kualitas, sumber, atau ID katalog.</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>Selesaikan penyiapan cepat</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>Status pengikut</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>Status pengikut: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>Peringatan pengikut: </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>Editan Fren pada templat terlindungi ini hanya berlaku saat berjalan. Duplikasikan dengan + untuk menyimpannya.</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>Label lengkap suara Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>Gender</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>Umum</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>Menghasilkan dan memutar pratinjau ini melalui suara Piper yang dikonfigurasi tanpa mengubah mesin ucapan utama.</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>Ikon + teks</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>Ikon saja</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>Siaga</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>Jeda saat menganggur dalam detik</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren: nonaktif untuk preset ini</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren: pengikut opsional '{0}' melalui Krangler</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>Langsung mengirim status Fren preset aktif ke Krangler jika Krangler dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>Impor preset</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>Mengimpor preset portabel ke folder preset pengguna. ID preset bawaan terlindungi diimpor dengan ID baru.</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>Instal</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>Instal Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>Status instalasi dan pemilihan suara Piper yang disorot.</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>Instal runtime</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>Terinstal</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>Filter terinstal</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>Ukuran terinstal atau unduhan suara Piper ini.</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>Menginstal dan memilih suara Piper en_US-arctic-medium yang disarankan.</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>Kunci: {0}
+Sumber: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Integrasi Krangler bersifat opsional dan tidak memengaruhi pemutaran peringatan atau komentar.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Krangler bersifat opsional; peringatan ini tidak menghentikan ucapan Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Krangler bersifat opsional; saat daftar tidak tersedia, kolom teks cadangan tetap aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Preset Krangler</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>Nama, pengenal, atau nama file sumber preset Krangler untuk diterapkan ke pengikut. Ditampilkan saat daftar preset Krangler tidak tersedia.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>Bahasa</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>Metadata bahasa suara Piper ini.</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>Bahasa: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Status IPC Krangler Imaginary Fren terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Status IPC daftar preset Krangler terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Status katalog atau penyiapan Piper terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Status operasi katalog, runtime, instalasi, atau pemilihan Piper terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>Peringatan katalog, runtime, atau instalasi Piper terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>Pergeseran nada Piper terakhir: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>Pergeseran nada Piper terakhir: {0} Diterapkan: {1}. Semiton: {2} st.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>Peringatan atau kesalahan Piper terakhir dari operasi penyiapan atau katalog.</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Keputusan pemicu Reading Roegadyn terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>Teks disesuaikan terakhir: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>Adaptor terakhir: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>Peringatan terakhir (UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>Hasil operasi cache terakhir, termasuk temuan cache dan file yang dihasilkan.</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>Teks asli terakhir: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>Ucapan terakhir</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>Hasil cache ucapan terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>Kesalahan antrean ucapan terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>Status antrean ucapan terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>Peringatan sintesis atau cache ucapan terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>Status pemuatan adaptor teks ucapan terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>Peringatan adaptor teks ucapan terakhir.</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>Keputusan perpindahan terakhir</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>Biarkan Dheacon nonaktif</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>SAPI lama</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>SAPI lama - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>Suara SAPI lama: {0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>Metadata lisensi dari katalog suara.</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>Lisensi: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>Paket dialog</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>Status paket dialog: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>Status paket dialog: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>Paket dialog: tidak digunakan dalam mode Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>Status pemuat paket dialog.</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>Status langsung dialog uji yang diantrekan.</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>Memuat font antarmuka...</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>Piper lokal - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>Masuk</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>Turunkan jika ingin kejadian cepat berurutan hanya sesekali memicu komentar, bukan berbicara untuk setiap peristiwa yang memenuhi syarat.</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>Melakukan satu percobaan uji audio tanpa mengaktifkan pemicu otomatis.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>Mengaktifkan suara Piper terinstal ini.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>Menjadikan suara Piper terinstal ini sebagai suara Piper aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>Cache maksimum (MB)</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>Ukuran maksimum total cache WAV. File lama dibersihkan setelah ucapan baru dihasilkan.</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>Jendela Mini</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>Waktu menganggur minimum sebelum komentar berikutnya; nilai di bawah 30 detik dinaikkan menjadi 30.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>Waktu minimum antarkomentar BGM Machinations.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>Waktu minimum antarkomentar mulai/akhir pertarungan.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>Waktu minimum antarkomentar peristiwa tambahan.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>Waktu minimum antarkomentar perubahan wilayah; nilai rendah dapat membuat perjalanan lebih banyak bicara.</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>Mode: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>Windows modern</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>Suara Windows modern: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>Hasil pemrosesan pergeseran nada Piper terbaru.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>Teks ternormalisasi terbaru sebelum perubahan adaptor Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>Teks terbaru yang dikirim ke Piper setelah perubahan adaptor.</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>Nama</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Nama yang ditulis Krangler pada aktor pengikut khusus lokal.</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>Belum pernah</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>Berikutnya: Ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>Berikutnya: Uji dan selesaikan</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>Tidak</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>Tidak ada preset Krangler yang cocok dengan pencarian saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>Belum ada suara Piper terpilih</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>Belum ada suara Piper terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>Tidak ada paket dialog yang dapat dipilih dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>Belum ada ucapan.</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>Tidak ada</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>Teks sumber ternormalisasi sebelum substitusi adaptor.</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>Belum terinstal</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>Jumlah suara ucapan SAPI lama yang terdeteksi.</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>Jumlah suara ucapan Windows modern yang terdeteksi.</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>Jumlah suara Piper terkelola yang terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>Jumlah ucapan tertunda</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>Jumlah permintaan ucapan dalam antrean yang menunggu persiapan atau pemutaran.</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>Buka folder</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>Buka jendela Mini saat ucapan dimulai</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>Buka tab Suara Piper untuk menginstal suara Arctic bahasa Inggris yang disarankan.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>Membuka folder yang berisi suara Piper terinstal ini.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>Membuka folder Piper terkelola yang berisi runtime, suara, cache, dan manifes.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>Integrasi Imaginary Fren opsional dinonaktifkan untuk preset ini. Dapat dikonfigurasi nanti di pengaturan Umum dan memerlukan Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>Imaginary Fren opsional: preset ini dapat meminta Krangler memunculkan pengikut khusus lokal '{0}' saat Dheacon aktif. Krangler opsional; komentar tetap berfungsi tanpanya.</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>Jalur piper.exe eksplisit opsional. Jika kosong, menggunakan folder runtime terkelola atau pencarian PATH.</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>Asli</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>Penguatan keluaran %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>Tempel untuk impor</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>Tempel base64 preset di sini</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>Permintaan ucapan tertunda: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>Merah muda</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Suara Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Katalog Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Piper tidak dapat disiapkan, sehingga penyiapan cepat memilih ucapan bawaan Windows. Anda dapat mencoba Piper lagi di sini.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>Piper siap dengan suara Arctic bahasa Inggris yang disarankan.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piper siap.</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>Piper lokal</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Tingkat kualitas model Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Operasi Piper sedang berjalan...</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Nada Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Persiapan Piper sedang berjalan...</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piper menyediakan ucapan lokal yang konsisten. Runtime dan suara terpilih hanya diunduh sekali; ucapan yang dihasilkan tetap dalam cache lokal.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Jalur runtime Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>Jalur runtime Piper yang saat ini digunakan untuk sintesis lokal.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>Status runtime Piper belum diperiksa.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Runtime Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Runtime Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Pengaturan Piper: kecepatan {0:F2}, jeda kalimat {1:F2}s, nada {2} st, penguatan {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Penyiapan Piper gagal, sehingga penyiapan cepat memilih ucapan bawaan Windows: </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Kecepatan Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Kecepatan Piper: {0:F2} · Jeda kalimat: {1:F2}s · Nada: {2} st · Penguatan pemutaran: {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>Pengaturan sintesis dan pascaproses Piper yang memengaruhi entri cache WAV Piper berikutnya.</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Adaptor teks Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Suara Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>Bahasa suara Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Suara Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Peringatan Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>Nada</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>Nada: {0:F2} · Penguatan keluaran: {1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>Penguatan pemutaran %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Memutar peringatan perpindahan bawaan pada perubahan area yang memenuhi syarat dan tidak mengucapkan komentar.</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>Plugin aktif</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>Hanya pemrosesan setelah WAV; ini bukan parameter sintesis Piper dan dapat menimbulkan artefak. Nilai negatif membuat suara lebih rendah. Perubahan membuat ulang cache WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>Siapkan Piper</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>Siapkan Piper atau pilih ucapan bawaan Windows sebelum melanjutkan.</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>Menyiapkan runtime Piper terkelola dan suara Arctic bahasa Inggris yang disarankan...</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>Peringatan daftar preset: </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>Daftar preset: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>Status pemuatan/impor/ekspor preset.</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>Sumber preset: {0}  Terlindungi: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>Status preset: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>Preset: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>Preset</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>Mencegah perpindahan teleportasi dan Return memutar suara peringatan bawaan.</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>Mencegah perpindahan teleportasi dan Return memicu ucapan Reading Roegadyn.</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>Adaptor pratinjau: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>Teks pratinjau</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>Mencetak pesan keputusan/status mode saat ini ke obrolan.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>Preset bawaan terlindungi tidak dapat diganti nama, dihapus, atau ditimpa.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>Templat bawaan terlindungi tidak dapat dihapus.</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>Kualitas</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>Antrean</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>Kesalahan antrean: </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>Kesalahan antrean: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>Status antrean: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>Mengantrekan dialog uji Reading Roegadyn menggunakan mesin ucapan terpilih dan suara saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>Penyiapan cepat</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>Penyiapan cepat selesai. Dheacon {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>Status persiapan ucapan penyiapan cepat.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>Status pemilihan atau cadangan ucapan penyiapan cepat.</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>Kecepatan</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>Membaca blok preset portabel dari papan klip ke kotak impor.</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>Piper lokal yang disarankan</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>Sinkronkan sekarang</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>Perbarui katalog</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>Perbarui suara</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>Memperbarui daftar suara Windows modern, SAPI lama, dan Piper terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>Memperbarui suara ucapan yang terdeteksi dan melaporkan jumlahnya ke obrolan.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>Menghapus suara Piper ini dari folder suara terkelola.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>Menghapus suara Piper terinstal ini dari folder suara terkelola.</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>Ubah nama</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>Mengganti nama preset pengguna aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>Folder cache yang ditentukan: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Jalur yang ditentukan saat mode Dheacon memutar suara peringatannya.</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>Hasil percobaan uji wajib penyiapan cepat.</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>Coba Piper lagi</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>Meninjau dan menguji konfigurasi terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>Jalankan penyiapan cepat lagi</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>Jalankan uji audio sebelum menyelesaikan.</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>Simpan pengaturan saat ini</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>Disimpan: {0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>Menyimpan penyiapan dan mencegah pembukaan otomatis berikutnya.</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>Menyimpan penyiapan tetapi membiarkan pemicu otomatis nonaktif sampai plugin diaktifkan nanti.</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>Cari</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>Cari preset Krangler...</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>Pilih</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>Pilih Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>Pilih suara Piper untuk dikelola.</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>Pilih suara Piper terinstal {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>Pilih preset</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>Pilih {0} untuk ucapan yang dihasilkan berikutnya.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>Terpilih</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>Ucapan bawaan Windows dipilih sebagai pengganti Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>Ucapan bawaan Windows dipilih.</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>Deskripsi paket dialog terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>Mode operasi terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>Preset terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>Preset terpilih: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>Mesin ucapan dan suara terpilih.</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>Detail suara terpilih</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>Suara terpilih: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>Terpilih:</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>Memilih preset Krangler berdasarkan nama yang mudah dibaca dan menyimpan kunci tetapnya dalam preset Dheacon ini.</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>Memilih salah satu preset komentar lisan yang ada.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>Memilih suara Piper terinstal untuk sintesis Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>Memilih suara Windows/SAPI terinstal untuk menghasilkan ucapan.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>Memilih suara Piper en_US-arctic-medium yang disarankan dan terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>Memilih paket dialog yang digunakan setelah dialog langsung dalam preset.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>Memilih mesin ucapan. Memilih Piper otomatis menyiapkan suara Arctic bahasa Inggris yang disarankan jika perlu.</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>Memilih adaptor teks yang dijalankan sebelum sintesis Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>Jeda kalimat</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>Mengatur glif DTR saat plugin nonaktif; masukan yang terlalu panjang dipotong.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>Mengatur glif DTR saat plugin aktif; masukan yang terlalu panjang dipotong.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Mengatur jalur WAV peringatan mode Dheacon; jalur relatif ditentukan dari folder plugin.</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>Mengatur lokasi cache file WAV ucapan; jika kosong, menggunakan folder LocalAppData bawaan.</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>Pengaturan</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>Tampilkan entri bilah DTR</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>Menampilkan {0} dari {1} entri katalog.</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>Menampilkan detail dan bilah tindakan ringkas untuk suara Piper ini.</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>Menampilkan atau menyembunyikan entri status yang dapat diklik pada bilah DTR Dalamud.</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>Ukuran</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>Sumber</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>Munculkan Fren untuk preset ini</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>Ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>Mesin ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>Ucapan sibuk: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>Konteks ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>Ucapan dihasilkan pada PC Anda dan disimpan sebagai WAV dalam cache untuk digunakan ulang.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>Antrean ucapan: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>Ucapan diantrekan.</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>Peringatan ucapan: </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>Ucapan: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>Komentar lisan</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>Mode lisan menggunakan dialog berdasarkan preset untuk login, perjalanan, pertarungan, menganggur, BGM, dan peristiwa aktif lainnya, sesuai peluang pemicu dan jeda.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>Preset ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>Uji komentar lisan diantrekan. Lihat status ucapan di bawah; audio dalam cache akan digunakan ulang jika cocok di masa mendatang.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>Uji komentar lisan telah dicoba, tetapi antrean tidak menerima dialog. Tinjau status di bawah lalu coba lagi.</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>Memulai ulang tiga langkah penyiapan tanpa mereset pengaturan lain.</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>Status</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>Status: terinstal</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>Status: belum terinstal</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>Status: suara Piper terpilih</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>Status sementara tidak tersedia: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>Status ke obrolan</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>Langkah {0} dari 3</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>Berhenti menunggu Piper dan memilih mesin ucapan Windows bawaan dengan suara default.</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>Dukung di Ko-fi</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>Tekan teleportasi dan Return</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>Volume sintesis</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>Suara TTS (terpisah dari bahasa antarmuka)</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>Hijau kebiruan</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>Perubahan wilayah</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>Jeda wilayah dalam detik</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>Uji ucapan disesuaikan</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>Uji ucapan</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>Uji komentar lisan</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>Uji peringatan perpindahan</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>Menguji ucapan disesuaikan...</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>Teks yang sedang diantrekan atau diucapkan</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>Teks saja</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>Teks yang dikirim ke Piper setelah substitusi adaptor.</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>Teks untuk pratinjau adaptor Piper saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>Mesin teks ke ucapan (pengaturan plugin)</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>Teks ke ucapan untuk FFXIV (plugin Dalamud)</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>Suara Windows yang saat ini dipilih untuk menghasilkan ucapan.</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>Konfigurasi yang disimpan saat penyiapan cepat selesai.</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>Kesalahan persiapan Piper terakhir. Anda dapat mencoba lagi atau menggunakan ucapan bawaan Windows.</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>Kesalahan antrean ucapan terbaru; percobaan tetap dihitung sehingga Anda dapat mengubah pengaturan ucapan dan mencoba lagi.</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>Preset yang akan tetap aktif setelah penyiapan cepat.</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>Suara yang disarankan dan runtime Piper yang dapat digunakan ditemukan.</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>Suara Piper ini sudah aktif.</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>Suara Piper terinstal ini sedang dipilih.</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>Uji peringatan perpindahan dicoba. Jika WAV yang dikonfigurasi tidak tersedia, Dheacon menggunakan suara seruan Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>Pemicu</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>Status pemicu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>Langsung mengaktifkan atau menonaktifkan semua pemicu Dheacon/Reading Roegadyn.</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>Gagal memuat font antarmuka. Lihat log plugin.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>Hapus instalasi</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>Tidak diketahui</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>Gunakan bawaan Windows</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>Gunakan adaptor {0} untuk teks dari {1} ke {2} sebelum sintesis Piper.</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>Pengguna</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>Menggunakan suara bawaan Windows saat ini untuk mesin ini.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>Menggunakan runtime Piper lokal terkelola dan suara Arctic bahasa Inggris yang disarankan.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>Menggunakan mesin ucapan Windows modern dan suara bawaan Windows saat ini.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>Menggunakan preset terpilih untuk mengucapkan komentar pada peristiwa game yang aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>Suara</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>Menunggu</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>Saat aktif, preset aktif meminta Krangler memunculkan pengikut Imaginary Fren khusus lokal.</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>Saat aktif, jendela Mini terbuka pada ucapan berikutnya dan tetap terbuka.</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>Apakah antrean ucapan sedang menyiapkan atau memutar audio.</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>Apakah suara Piper ini dipilih, terinstal, atau hanya tersedia di katalog.</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Bawaan Windows</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Bawaan Windows - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Ucapan bawaan Windows</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Ucapan bawaan Windows tidak memerlukan unduhan yang dikelola Dheacon dan tetap tersedia sebagai cadangan jika penyiapan Piper gagal.</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>Menulis pengaturan saat ini ke preset pengguna aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>Ya</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[templat]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[pengguna]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>nonaktif</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0} (belum terinstal)</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1} ke {2}</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>{0} tertunda</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>Mulai pertarungan</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>Akhir pertarungan</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>Mulai menunggang</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>Akhir menunggang</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>Mulai terbang</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>Akhir terbang</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>Mulai antrean tugas</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>Akhir antrean tugas</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>Mulai tugas</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>Akhir tugas</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>Mulai kerajinan</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>Akhir kerajinan</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>Mulai pengumpulan</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>Akhir pengumpulan</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>Mulai memancing</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>Akhir memancing</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>Mulai adegan</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>Akhir adegan</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>Mulai pertunjukan</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>Akhir pertunjukan</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>Mulai permainan mini</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>Akhir permainan mini</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>Mulai bel pemanggilan</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>Akhir bel pemanggilan</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>Mulai pencari kelompok</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>Akhir pencari kelompok</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>Mulai berenang</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>Akhir berenang</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>Mulai menyelam</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>Akhir menyelam</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>Mulai adegan tugas</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>Akhir adegan tugas</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>Mulai adegan di luar tugas</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>Akhir adegan di luar tugas</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>Mulai adegan dungeon harta</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>Akhir adegan dungeon harta</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>Uji manual</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>Perubahan wilayah</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>Perubahan level</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>Perubahan kelas/job</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>Tidak sadarkan diri</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>Pulih</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>Masuk PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>Keluar PvP</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>Pengamatan pemain sekitar</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>Pengamatan kerumunan sekitar</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>Windows modern</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>SAPI lama</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>Piper lokal</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>Mengabaikan {0} karena pemain belum siap.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>Mengabaikan {0} karena komentar peristiwa tambahan nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>Menekan {0} karena jeda peristiwa tambahan.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>Melewati {0}: ucapan sedang sibuk.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>Melewati {0}: peluang pemicu otomatis adalah 0%.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>Melewati {0}: undian peluang pemicu otomatis gagal pada {1}%.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>Mengantrekan {0}: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>Gagal mengantrekan {0}: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>Mengantrekan {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>Menyiapkan {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>Mengucapkan {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>Gagal mengucapkan {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>Menghasilkan {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>Ditemukan dalam cache: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>Ucapan {0} gagal; menggunakan cadangan SAPI lama: {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0} gagal; menggunakan cadangan SAPI lama: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>Tidak berlaku untuk {0}.</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>Tidak ada dialog untuk {0}; menggunakan teks cadangan.</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> (nada {0} st)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> (nada {0} st dilewati)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> (nada {0} st diterapkan)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> (peringatan nada {0} st)</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>Dilewati (nada {0} st).</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>Menerapkan nada {0} st dengan SoundTouch.NET (faktor {1}, {2} sampel, {3} byte audio).</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>Cache ditemukan untuk nada Piper {0} st; pemroses nada tidak berjalan untuk permintaan ini.</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Pergeseran nada Piper gagal ({0} semiton): {1}. Menggunakan WAV tanpa pergeseran.</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>Mengunduh Piper {0}: {1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>Mengunduh Piper {0}: {1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>runtime</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>model</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>konfigurasi</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>kartu model</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>paket</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>uji manual</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>pemain siap</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>jeda menganggur</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>uji penyiapan cepat</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>masuk PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>keluar PvP</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>kelas/job {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} level {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>{0} pemain sekitar</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>mulai pertarungan</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>akhir pertarungan</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>mulai menunggang</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>akhir menunggang</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>mulai terbang</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>akhir terbang</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>mulai antrean tugas</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>akhir antrean tugas</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>mulai tugas</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>akhir tugas</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>mulai kerajinan</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>akhir kerajinan</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>mulai pengumpulan</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>akhir pengumpulan</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>mulai memancing</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>akhir memancing</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>mulai pertunjukan</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>akhir pertunjukan</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>mulai permainan mini</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>akhir permainan mini</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>mulai bel pemanggilan</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>akhir bel pemanggilan</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>mulai pencari kelompok</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>akhir pencari kelompok</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>mulai berenang</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>akhir berenang</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>mulai menyelam</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>akhir menyelam</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>mulai adegan tugas</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>akhir adegan tugas</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>mulai adegan di luar tugas</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>akhir adegan di luar tugas</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>mulai adegan dungeon harta</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>akhir adegan dungeon harta</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>mulai tidak sadarkan diri</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>akhir tidak sadarkan diri</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>Menunggu perubahan wilayah pertama.</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>Wilayah diinisialisasi ke {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>Mengabaikan {0} -&gt; {1} karena plugin nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>Menekan {0} -&gt; {1} setelah penggunaan kemampuan baru-baru ini ({2:F1}s lalu).</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>Dipicu pada perubahan wilayah {0} -&gt; {1}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>Pemantau BGM belum diinisialisasi.</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>Pointer blok kontrol BGM belum siap.</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>Pointer daftar adegan BGM belum siap.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>Pemantau BGM aktif; tidak ada ID lagu valid pada slot prioritas.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>Pemantau BGM aktif; ID BGM saat ini {0}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>Pembacaan pemantau BGM gagal: {0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>Signature BGM belum ditemukan; reaksi BGM dinonaktifkan.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>Signature BGM ditemukan; menunggu pemeriksaan pertama.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>Penemuan signature BGM gagal: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn menunggu pemain siap.</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn menunggu login.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Mengabaikan ucapan manual karena mode Reading Roegadyn tidak aktif atau plugin nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>Mengabaikan komentar wilayah karena nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>Menekan komentar wilayah karena jeda untuk {0} -&gt; {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>Pemain siap; komentar login nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>Status pertarungan berubah; komentar pertarungan nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>Menekan komentar pertarungan karena jeda.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>Menekan komentar BGM Machinations karena jeda.</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>Status adegan berubah; komentar tambahan nonaktif.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>Antrean ucapan siap.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>Antrean ucapan berhenti.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>Antrean ucapan berhenti setelah kesalahan pekerja tak terduga.</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>Pemutaran ucapan dibatalkan.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>Katalog Piper belum diperbarui dalam sesi ini.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>Memperbarui katalog suara Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Katalog Piper diperbarui: {0} entri suara.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Pembaruan katalog Piper gagal; menggunakan suara dalam cache dan terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Suara Piper {0} terinstal, tetapi penyiapan runtime gagal; SAPI lama tetap aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper siap dengan {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Suara Piper {0} terinstal, tetapi runtime tidak ada; SAPI lama tetap aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>Menginstal runtime Piper portabel...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>Runtime Piper portabel terinstal ({0}).</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>Instalasi runtime Piper portabel gagal: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0} sudah terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>Menginstal {0}...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Suara Piper {0} terinstal ({1:F1} MB).</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Instalasi suara Piper gagal: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Suara Piper '{0}' belum terinstal.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Suara Piper {0} dihapus.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>Suara Piper {0} dipilih.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>Runtime Piper tidak ada. Atur jalur piper.exe portabel atau tempatkan piper.exe di {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>Runtime Piper ditemukan: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>Mengunduh katalog suara Piper resmi...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>Mengunduh katalog rilis Piper bahasa Swedia...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>Katalog Piper dalam cache dimuat: {0} entri suara.</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>Belum ada ucapan dihasilkan.</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>Tidak ada teks.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>Adaptor tidak diterapkan.</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>Tidak ada adaptor yang cocok.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>Memuat {0} adaptor teks ucapan.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>Adaptor teks ucapan cadangan dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>Dimuat dari {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>Adaptor cadangan.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>Menghapus {0} file WAV dalam cache.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>Menghapus {0} file WAV Piper dalam cache.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>Belum ada percobaan pergeseran nada Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>Paket dialog belum dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>Memuat {0} paket dialog, {1} dialog: {2} bawaan, {3} pengguna.</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>Preset belum dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>Preset '{0}' tidak ditemukan.</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>Preset aktif diatur ke {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>Preset pengguna '{0}' dibuat.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>Preset '{0}' terlindungi dan tidak dapat diganti nama.</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>Nama preset tidak boleh kosong.</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>Nama preset diubah menjadi '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>Preset '{0}' terlindungi dan tidak dapat ditimpa. Duplikasikan dengan + terlebih dahulu.</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>Pengaturan saat ini disimpan ke '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Pengaturan Fren saat berjalan diperbarui untuk preset terlindungi '{0}'. Duplikasikan dengan + untuk menyimpan perubahan.</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>Pengaturan Fren disimpan untuk '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Paket dialog saat berjalan diperbarui untuk preset terlindungi '{0}'. Duplikasikan dengan + untuk menyimpan perubahan.</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>Paket dialog disimpan untuk '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>Preset '{0}' terlindungi dan tidak dapat dihapus.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>Preset '{0}' bukan file preset pengguna.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>Preset '{0}' dihapus.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>Teks impor preset kosong.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>Skema impor preset tidak dikenali.</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>Preset '{0}' diimpor.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>Preset '{0}' terlindungi dan tidak dapat ditimpa.</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>Preset '{0}' disimpan.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>Memuat {0} preset: {1} bawaan, {2} pengguna.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>IPC pengikut Krangler menganggur.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>Daftar preset Krangler belum dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>IPC daftar preset Krangler mengembalikan kegagalan.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Daftar preset Krangler tidak tersedia; masukan teks bebas cadangan aktif.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>Memuat {0} preset Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Ekspor preset Krangler tidak tersedia.</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>Tidak ada preset Krangler tertanam.</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>Preset Krangler tertanam diimpor.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler menolak impor preset tertanam.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Impor preset Krangler tidak tersedia.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>IPC Krangler Imaginary Fren tidak tersedia; ucapan berlanjut tanpa pengikut.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>IPC Krangler Imaginary Fren tidak tersedia saat menonaktifkan pengikut.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>Status pengikut Krangler diterima.</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>bukan file RIFF/WAVE</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>blok WAV '{0}' tidak valid</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>blok fmt terlalu kecil</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>blok fmt tidak ada</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>blok fmt tidak valid</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>blok data tidak ada</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>tag format WAV {0} tidak didukung</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>kedalaman bit PCM {0} tidak didukung</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>kedalaman bit float IEEE {0} tidak didukung</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>data PCM 16-bit tidak selaras dengan sampel</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>data PCM 24-bit tidak selaras dengan sampel</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>data PCM 32-bit tidak selaras dengan sampel</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>data WAV float tidak selaras dengan sampel</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>WAV asli tidak dapat digunakan: {0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>WAV bergeser tidak dapat digunakan: {0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>penulis nada tidak menghasilkan sampel</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>WAV bergeser tidak dibuat</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>data audio bergeser tidak berbeda dari aslinya</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>durasi bergeser menyimpang dari {0} ms ke {1} ms (simpangan yang diizinkan {2} ms)</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>Belum ada adaptor teks ucapan dimuat.</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>BGM {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>Aktif</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>Nonaktif</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}. Preset: {2}. Klik untuk beralih.</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>Tampilan jendela</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Tampilkan mode ringkas di jendela utama</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Tampilkan pilihan bahasa di jendela utama</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Transparansi</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Opasitas (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Redupkan otomatis saat tidak fokus</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Opasitas saat tidak fokus (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Jeda saat tidak fokus (detik)</value></data>
+</root>

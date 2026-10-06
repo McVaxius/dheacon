@@ -9,6 +9,7 @@ using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using Dheacon.Services;
 using Dheacon.Windows;
+using Dheacon.Ui;
 
 namespace Dheacon;
 
@@ -25,6 +26,7 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IPluginLog Log { get; private set; } = null!;
     [PluginService] internal static ICondition Condition { get; private set; } = null!;
     [PluginService] internal static IDataManager DataManager { get; private set; } = null!;
+    [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
     [PluginService] internal static ISigScanner SigScanner { get; private set; } = null!;
 
     public Configuration Configuration { get; }
@@ -40,6 +42,7 @@ public sealed class Plugin : IDalamudPlugin
     public BgmProbeService BgmProbeService { get; }
     public KranglerImaginaryFrenIpcClient KranglerImaginaryFrenIpcClient { get; }
     public WindowSystem WindowSystem { get; } = new(PluginInfo.InternalName);
+    internal DheaconAppearance Appearance { get; }
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
     private readonly MiniWindow miniWindow;
@@ -71,6 +74,7 @@ public sealed class Plugin : IDalamudPlugin
             SpeechQueueService,
             BgmProbeService);
         AetheryteTriggerService = new AetheryteTriggerService(ClientState, Condition, Log, Configuration, OnTriggeredAreaTransition);
+        Appearance = new DheaconAppearance(this);
         mainWindow = new MainWindow(this);
         configWindow = new ConfigWindow(this);
         miniWindow = new MiniWindow(this);
@@ -81,7 +85,7 @@ public sealed class Plugin : IDalamudPlugin
             configWindow.OpenQuickSetup();
         lastMiniAutoOpenSpeechSequence = SpeechQueueService.SpeechSequence;
         CommandManager.AddHandler(PluginInfo.Command, new CommandInfo(OnCommand) { HelpMessage = $"Open {PluginInfo.DisplayName}. Use {PluginInfo.Command} config, mini, fren, preset <name>, mode dheacon|roe, say, voices, piperpreview, clearcache, on, or off." });
-        PluginInterface.UiBuilder.Draw += WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw += DrawUi;
         PluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
         Framework.Update += OnFrameworkUpdate;
@@ -98,13 +102,16 @@ public sealed class Plugin : IDalamudPlugin
         SpeechQueueService.Dispose();
         PiperVoiceCatalogService.Dispose();
         Framework.Update -= OnFrameworkUpdate;
-        PluginInterface.UiBuilder.Draw -= WindowSystem.Draw;
+        PluginInterface.UiBuilder.Draw -= DrawUi;
         PluginInterface.UiBuilder.OpenConfigUi -= ToggleConfigUi;
         PluginInterface.UiBuilder.OpenMainUi -= ToggleMainUi;
         CommandManager.RemoveHandler(PluginInfo.Command);
         WindowSystem.RemoveAllWindows();
+        Appearance.Dispose();
         dtrEntry?.Remove();
     }
+
+    private void DrawUi() => Appearance.Draw(WindowSystem);
 
     public void ToggleMainUi() => mainWindow.Toggle();
     public void ToggleConfigUi() => configWindow.Toggle();
@@ -391,7 +398,21 @@ public sealed class Plugin : IDalamudPlugin
 
     public void UpdateDtrBar()
     {
-        if (dtrEntry == null) return; dtrEntry.Shown = Configuration.DtrBarEnabled; if (!Configuration.DtrBarEnabled) return; var g = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled; var s = Configuration.PluginEnabled ? "On" : "Off"; dtrEntry.Text = Configuration.DtrBarMode switch { 1 => new SeString(new TextPayload($"{g} DH")), 2 => new SeString(new TextPayload(g)), _ => new SeString(new TextPayload("DH: " + s)), }; var mode = PresetService.ActivePreset.Name; dtrEntry.Tooltip = new SeString(new TextPayload($"{PluginInfo.DisplayName} {s}. Preset: {mode}. Click to toggle."));
+        if (dtrEntry == null) return;
+        dtrEntry.Shown = Configuration.DtrBarEnabled;
+        if (!Configuration.DtrBarEnabled) return;
+        var glyph = Configuration.PluginEnabled ? Configuration.DtrIconEnabled : Configuration.DtrIconDisabled;
+        var status = Appearance.NativeEnglish ? (Configuration.PluginEnabled ? "On" : "Off") : Appearance.Label(Configuration.PluginEnabled ? "On" : "Off");
+        dtrEntry.Text = Configuration.DtrBarMode switch
+        {
+            1 => new SeString(new TextPayload($"{glyph} DH")),
+            2 => new SeString(new TextPayload(glyph)),
+            _ => new SeString(new TextPayload("DH: " + status)),
+        };
+        var presetName = PresetService.ActivePreset.Name;
+        dtrEntry.Tooltip = new SeString(new TextPayload(Appearance.NativeEnglish
+            ? $"{PluginInfo.DisplayName} {status}. Preset: {presetName}. Click to toggle."
+            : Appearance.Format("{0} {1}. Preset: {2}. Click to toggle.", PluginInfo.DisplayName, status, presetName)));
     }
 
     private void OnFrameworkUpdate(IFramework framework)

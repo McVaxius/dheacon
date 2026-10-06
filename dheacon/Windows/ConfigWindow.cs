@@ -2,11 +2,16 @@ using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Windowing;
 using Dheacon.Services;
+using Dheacon.Ui;
+using AethertekUI;
+using AethertekUI.Dalamud;
 
 namespace Dheacon.Windows;
 
 public sealed class ConfigWindow : Window, IDisposable
 {
+    private readonly MaterialWindowMotion windowMotion = new();
+    private readonly AethertekUI.MaterialWindowOpacity windowOpacity = new();
     private static readonly string[] DtrModes = { "Text only", "Icon + text", "Icon only" };
     private static readonly string[] TtsBackendLabels = { "Modern Windows", "Legacy SAPI", "Piper local" };
     private static readonly string[] PiperInstalledFilters = { "All", "Installed", "Not installed" };
@@ -42,6 +47,7 @@ public sealed class ConfigWindow : Window, IDisposable
     public ConfigWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Settings##Config")
     {
         this.plugin = plugin;
+        Flags |= ImGuiWindowFlags.HorizontalScrollbar;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(720f, 560f), MaximumSize = new Vector2(1500f, 1300f) };
     }
 
@@ -53,61 +59,76 @@ public sealed class ConfigWindow : Window, IDisposable
         IsOpen = true;
     }
 
+    public override void PreDraw() => windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
+
+    public override void PostDraw()
+    {
+        windowMotion.Restore(this);
+        plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
+    }
+
     public override void Draw()
     {
-        if (!ImGui.BeginTabBar("DheaconSettingsTabs"))
+        windowMotion.DrawChrome();
+        UiGui.Title(PluginInfo.DisplayName + " Settings", UiText.T("Dheacon Settings"));
+        if (MaterialText.CollapsingHeader(UiText.T("Window appearance") + "###WindowAppearanceSection", ImGuiTreeNodeFlags.DefaultOpen))
+            plugin.Appearance.DrawWindowAppearance();
+        ImGui.Separator();
+        using var tabHeight = MaterialText.PushLineHeight(new[] { "Quick Setup", "General", "Speech", "Piper Voices", "Diagnostics" }.Select(UiText.T).ToArray());
+        var tabsOpen = ImGui.BeginTabBar("DheaconSettingsTabs", ImGuiTabBarFlags.FittingPolicyScroll);
+        tabHeight.Dispose();
+        if (!tabsOpen)
             return;
 
+        try
+        {
+
         var quickSetupFlags = quickSetupTabRequested ? ImGuiTabItemFlags.SetSelected : ImGuiTabItemFlags.None;
-        var quickSetupOpen = ImGui.BeginTabItem("Quick Setup", quickSetupFlags);
+        var quickSetupOpen = UiGui.BeginTabItem("Quick Setup", quickSetupFlags);
         quickSetupTabRequested = false;
         if (quickSetupOpen)
         {
-            DrawQuickSetupTab(plugin.Configuration);
-            ImGui.EndTabItem();
+            try { DrawQuickSetupTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }
         }
 
-        if (ImGui.BeginTabItem("General"))
+        if (UiGui.BeginTabItem("General"))
         {
-            DrawGeneralTab(plugin.Configuration);
-            ImGui.EndTabItem();
+            try { DrawGeneralTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }
         }
 
-        if (ImGui.BeginTabItem("Speech"))
+        if (UiGui.BeginTabItem("Speech"))
         {
-            DrawSpeechTab(plugin.Configuration);
-            ImGui.EndTabItem();
+            try { DrawSpeechTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }
         }
 
-        if (ImGui.BeginTabItem("Piper Voices"))
+        if (UiGui.BeginTabItem("Piper Voices"))
         {
-            DrawPiperVoicesTab(plugin.Configuration);
-            ImGui.EndTabItem();
+            try { DrawPiperVoicesTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }
         }
 
-        if (ImGui.BeginTabItem("Diagnostics"))
+        if (UiGui.BeginTabItem("Diagnostics"))
         {
-            DrawDiagnosticsTab(plugin.Configuration);
-            ImGui.EndTabItem();
+            try { DrawDiagnosticsTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }
         }
 
-        ImGui.EndTabBar();
+        }
+        finally { ImGui.EndTabBar(); }
     }
 
     private void DrawQuickSetupTab(Configuration cfg)
     {
-        ImGui.TextUnformatted("Quick Setup");
-        ImGui.TextWrapped("Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.");
+        UiGui.TextUnformatted("Quick Setup");
+        UiGui.TextWrapped("Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.");
 
         if (quickSetupFinishedThisSession)
         {
             ImGui.Separator();
-            ImGui.TextWrapped(quickSetupTestStatus);
+            UiGui.TextWrapped(quickSetupTestStatus);
             DrawWrappedStatus(
-                $"Saved: {FormatQuickSetupMode()} | {plugin.PresetService.ActivePreset.Name} | {FormatQuickSetupSpeechBackend(cfg)} | {(cfg.PluginEnabled ? "enabled" : "disabled")}",
+                UiText.Interpolated($"Saved: {UiText.T(FormatQuickSetupMode())} | {plugin.PresetService.ActivePreset.Name} | {FormatQuickSetupSpeechBackend(cfg)} | {UiText.T(cfg.PluginEnabled ? "enabled" : "disabled")}"),
                 "The configuration saved when Quick Setup finished.");
 
-            if (ImGui.Button("Run Quick Setup again"))
+            if (UiGui.Button("Run Quick Setup again"))
             {
                 quickSetupFinishedThisSession = false;
                 quickSetupStep = 0;
@@ -118,14 +139,14 @@ public sealed class ConfigWindow : Window, IDisposable
             TooltipLastItem("Starts the three setup steps again without resetting unrelated settings.");
 
             ImGui.SameLine();
-            if (ImGui.Button("Close settings"))
+            if (UiGui.Button("Close settings"))
                 IsOpen = false;
 
             return;
         }
 
         ImGui.Separator();
-        ImGui.TextDisabled($"Step {quickSetupStep + 1} of 3");
+        UiGui.TextDisabled(UiText.Interpolated($"Step {quickSetupStep + 1} of 3"));
 
         switch (quickSetupStep)
         {
@@ -143,22 +164,22 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawQuickSetupModeStep()
     {
-        ImGui.TextUnformatted("1. Choose an operating mode");
+        UiGui.TextUnformatted("1. Choose an operating mode");
         ImGui.Spacing();
 
         var active = plugin.PresetService.ActivePreset;
         var classicSelected = active.Mode == CommentaryMode.Dheacon;
-        if (ImGui.RadioButton("Classic transition alerts", classicSelected))
+        if (UiGui.RadioButton("Classic transition alerts", classicSelected))
             SelectPreset(DheaconPresetIds.Dheacon, printStatus: false);
         TooltipLastItem("Plays the packaged transition alert for eligible area changes and does not speak commentary.");
-        ImGui.TextWrapped("Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.");
+        UiGui.TextWrapped("Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.");
 
         ImGui.Spacing();
         var spokenSelected = plugin.PresetService.ActivePreset.Mode == CommentaryMode.ReadingRoegadyn;
-        if (ImGui.RadioButton("Spoken commentary", spokenSelected) && !spokenSelected)
+        if (UiGui.RadioButton("Spoken commentary", spokenSelected) && !spokenSelected)
             SelectPreset(DheaconPresetIds.ReadingRoegadyn, printStatus: false);
         TooltipLastItem("Uses the selected preset to speak commentary for enabled game events.");
-        ImGui.TextWrapped("Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.");
+        UiGui.TextWrapped("Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.");
 
         active = plugin.PresetService.ActivePreset;
         if (active.Mode == CommentaryMode.ReadingRoegadyn)
@@ -173,28 +194,28 @@ public sealed class ConfigWindow : Window, IDisposable
             if (labels.Length > 0)
             {
                 ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
-                if (ImGui.Combo("Commentary preset", ref presetIndex, labels, labels.Length))
+                if (UiGui.Combo("Commentary preset", ref presetIndex, labels, labels.Length))
                     SelectPreset(spokenPresets[presetIndex].Id, printStatus: false);
                 TooltipLastItem("Selects one of the existing spoken-commentary presets.");
             }
         }
 
         active = plugin.PresetService.ActivePreset;
-        DrawWrappedStatus($"Selected preset: {active.Name}", "The preset Quick Setup will keep active.");
+        DrawWrappedStatus(UiText.Interpolated($"Selected preset: {active.Name}"), "The preset Quick Setup will keep active.");
         if (!string.IsNullOrWhiteSpace(active.Description))
-            DrawWrappedStatus(active.Description, "Description supplied by the selected preset.");
+            DrawWrappedStatus(active.Description, "Description supplied by the selected preset.", translate: false);
 
         if (active.ImaginaryFren?.Enabled == true)
         {
-            ImGui.TextWrapped($"Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{active.ImaginaryFren.Name}' when Dheacon is enabled. Krangler is optional; commentary still works without it.");
+            UiGui.TextWrapped(UiText.Interpolated($"Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{active.ImaginaryFren.Name}' when Dheacon is enabled. Krangler is optional; commentary still works without it."));
         }
         else
         {
-            ImGui.TextWrapped("Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.");
+            UiGui.TextWrapped("Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.");
         }
 
         ImGui.Spacing();
-        if (ImGui.Button("Next: Speech"))
+        if (UiGui.Button("Next: Speech"))
         {
             quickSetupStep = 1;
             quickSetupTestAttempted = false;
@@ -207,17 +228,17 @@ public sealed class ConfigWindow : Window, IDisposable
     {
         TryStartPendingQuickSetupPiperPreparation(cfg);
 
-        ImGui.TextUnformatted("2. Choose local speech");
-        ImGui.TextWrapped(plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
+        UiGui.TextUnformatted("2. Choose local speech");
+        UiGui.TextWrapped(plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
             ? "Classic mode does not speak, but this choice is saved for any spoken preset you select later."
             : "Speech is generated on your PC and cached as WAV files for reuse.");
         ImGui.Spacing();
 
         var piperSelected = cfg.TtsBackend == TtsBackend.PiperLocal;
-        if (ImGui.RadioButton("Recommended local Piper", piperSelected) && !piperSelected)
+        if (UiGui.RadioButton("Recommended local Piper", piperSelected) && !piperSelected)
             RequestQuickSetupPiperPreparation(cfg);
         TooltipLastItem("Uses the managed local Piper runtime and recommended English Arctic voice.");
-        ImGui.TextWrapped("Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.");
+        UiGui.TextWrapped("Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.");
 
         var piperReady = IsQuickSetupPiperReady(cfg);
         if (cfg.TtsBackend == TtsBackend.PiperLocal)
@@ -225,25 +246,25 @@ public sealed class ConfigWindow : Window, IDisposable
             DrawWrappedStatus(plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false), "Current local Piper runtime status.");
             DrawWrappedStatus(plugin.PiperVoiceCatalogService.LastStatus, "Current Piper download, install, or selection status.");
             if (!string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError))
-                DrawWrappedStatus("Piper warning: " + plugin.PiperVoiceCatalogService.LastError, "The last Piper preparation error. You can retry or use Windows default speech.");
+                DrawWrappedStatus(UiText.T("Piper warning: ") + plugin.PiperVoiceCatalogService.LastError, "The last Piper preparation error. You can retry or use Windows default speech.");
             if (!string.IsNullOrWhiteSpace(quickSetupSpeechStatus))
                 DrawWrappedStatus(quickSetupSpeechStatus, "Quick Setup speech preparation status.");
 
             if (plugin.PiperVoiceCatalogService.IsBusy && plugin.PiperVoiceCatalogService.OperationProgress >= 0d)
                 ImGui.ProgressBar((float)plugin.PiperVoiceCatalogService.OperationProgress, new Vector2(-1f, 0f));
             else if (plugin.PiperVoiceCatalogService.IsBusy || quickSetupPiperPreparationInProgress || quickSetupPiperPreparationPending)
-                ImGui.TextDisabled("Piper preparation is in progress...");
+                UiGui.TextDisabled("Piper preparation is in progress...");
 
             if (!piperReady)
             {
                 ImGui.BeginDisabled(plugin.PiperVoiceCatalogService.IsBusy || quickSetupPiperPreparationInProgress);
-                if (ImGui.Button(string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError) ? "Prepare Piper" : "Retry Piper"))
+                if (UiGui.Button(string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError) ? "Prepare Piper" : "Retry Piper"))
                     RequestQuickSetupPiperPreparation(cfg);
                 ImGui.EndDisabled();
                 TooltipLastItem("Downloads or repairs the managed Piper runtime and recommended voice.");
 
                 ImGui.SameLine();
-                if (ImGui.Button("Use Windows default instead"))
+                if (UiGui.Button("Use Windows default instead"))
                     SelectQuickSetupWindowsDefault(cfg, "Selected Windows default speech instead of Piper.");
                 TooltipLastItem("Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.");
             }
@@ -255,23 +276,23 @@ public sealed class ConfigWindow : Window, IDisposable
 
         ImGui.Spacing();
         var windowsSelected = IsQuickSetupWindowsDefaultSelected(cfg);
-        if (ImGui.RadioButton("Windows default speech", windowsSelected) && !windowsSelected)
+        if (UiGui.RadioButton("Windows default speech", windowsSelected) && !windowsSelected)
             SelectQuickSetupWindowsDefault(cfg, "Selected Windows default speech.");
         TooltipLastItem("Uses the modern Windows speech backend and the current Windows default voice.");
-        ImGui.TextWrapped("Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.");
+        UiGui.TextWrapped("Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.");
         if (windowsSelected)
-            DrawWrappedStatus("Selected voice: " + plugin.SpeechCacheService.GetSelectedVoiceLabel(), "The Windows voice currently selected for generated speech.");
+            DrawWrappedStatus(UiText.T("Selected voice: ") + UiText.VoiceLabel(plugin.SpeechCacheService.GetSelectedVoiceLabel()), "The Windows voice currently selected for generated speech.");
         if (windowsSelected && !string.IsNullOrWhiteSpace(quickSetupSpeechStatus))
             DrawWrappedStatus(quickSetupSpeechStatus, "Quick Setup speech selection or fallback status.");
 
         ImGui.Spacing();
-        if (ImGui.Button("Back"))
+        if (UiGui.Button("Back"))
             quickSetupStep = 0;
 
         ImGui.SameLine();
         var speechReady = piperReady || windowsSelected;
         ImGui.BeginDisabled(!speechReady);
-        if (ImGui.Button("Next: Test and finish"))
+        if (UiGui.Button("Next: Test and finish"))
         {
             quickSetupStep = 2;
             quickSetupTestAttempted = false;
@@ -284,13 +305,13 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawQuickSetupReviewStep(Configuration cfg)
     {
-        ImGui.TextUnformatted("3. Test and finish");
+        UiGui.TextUnformatted("3. Test and finish");
         var active = plugin.PresetService.ActivePreset;
-        DrawWrappedStatus("Mode: " + FormatQuickSetupMode(), "Selected operating mode.");
-        DrawWrappedStatus("Preset: " + active.Name, "Selected preset.");
+        DrawWrappedStatus(UiText.T("Mode: ") + UiText.T(FormatQuickSetupMode()), "Selected operating mode.");
+        DrawWrappedStatus(UiText.T("Preset: ") + active.Name, "Selected preset.");
         if (!string.IsNullOrWhiteSpace(active.Description))
-            DrawWrappedStatus(active.Description, "Description supplied by the selected preset.");
-        DrawWrappedStatus("Speech: " + FormatQuickSetupSpeechBackend(cfg), "Selected speech backend and voice.");
+            DrawWrappedStatus(active.Description, "Description supplied by the selected preset.", translate: false);
+        DrawWrappedStatus(UiText.T("Speech: ") + FormatQuickSetupSpeechBackend(cfg), "Selected speech backend and voice.");
         DrawWrappedStatus(
             active.ImaginaryFren?.Enabled == true
                 ? $"Imaginary Fren: optional '{active.ImaginaryFren.Name}' follower through Krangler"
@@ -298,7 +319,7 @@ public sealed class ConfigWindow : Window, IDisposable
             "Krangler integration is optional and does not affect alert or commentary playback.");
 
         ImGui.Separator();
-        if (ImGui.Button(active.Mode == CommentaryMode.Dheacon ? "Test transition alert" : "Test spoken commentary"))
+        if (UiGui.Button(active.Mode == CommentaryMode.Dheacon ? "Test transition alert" : "Test spoken commentary"))
             RunQuickSetupTest(active);
         TooltipLastItem("Makes one audio test attempt without enabling automatic triggers.");
 
@@ -306,27 +327,27 @@ public sealed class ConfigWindow : Window, IDisposable
             DrawWrappedStatus(quickSetupTestStatus, "Result of the required Quick Setup test attempt.");
         if (quickSetupTestAttempted && active.Mode == CommentaryMode.ReadingRoegadyn)
         {
-            DrawWrappedStatus("Speech queue: " + plugin.SpeechQueueService.LastStatus, "Live status for the queued test line.");
+            DrawWrappedStatus(UiText.T("Speech queue: ") + UiText.T(plugin.SpeechQueueService.LastStatus), "Live status for the queued test line.");
             if (!string.IsNullOrWhiteSpace(plugin.SpeechQueueService.LastError))
-                DrawWrappedStatus("Speech warning: " + plugin.SpeechQueueService.LastError, "The latest speech queue error; the attempt still counts so you can change speech settings and retry.");
+                DrawWrappedStatus(UiText.T("Speech warning: ") + plugin.SpeechQueueService.LastError, "The latest speech queue error; the attempt still counts so you can change speech settings and retry.");
         }
 
         ImGui.Separator();
-        ImGui.TextWrapped("Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.");
-        if (ImGui.RadioButton("Enable Dheacon now", quickSetupEnableChoice == true))
+        UiGui.TextWrapped("Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.");
+        if (UiGui.RadioButton("Enable Dheacon now", quickSetupEnableChoice == true))
             quickSetupEnableChoice = true;
         TooltipLastItem("Enables automatic transition alerts or commentary after setup finishes.");
-        if (ImGui.RadioButton("Leave Dheacon disabled", quickSetupEnableChoice == false))
+        if (UiGui.RadioButton("Leave Dheacon disabled", quickSetupEnableChoice == false))
             quickSetupEnableChoice = false;
         TooltipLastItem("Saves setup but leaves automatic triggers disabled until you enable the plugin later.");
 
         ImGui.Spacing();
-        if (ImGui.Button("Back"))
+        if (UiGui.Button("Back"))
             quickSetupStep = 1;
 
         ImGui.SameLine();
         ImGui.BeginDisabled(!quickSetupTestAttempted || !quickSetupEnableChoice.HasValue);
-        if (ImGui.Button("Finish Quick Setup"))
+        if (UiGui.Button("Finish Quick Setup"))
         {
             cfg.PluginEnabled = quickSetupEnableChoice == true;
             cfg.SetupWizardCompleted = true;
@@ -465,15 +486,15 @@ public sealed class ConfigWindow : Window, IDisposable
     private string FormatQuickSetupSpeechBackend(Configuration cfg)
         => cfg.TtsBackend switch
         {
-            TtsBackend.PiperLocal => "Local Piper - " + plugin.SpeechCacheService.GetSelectedVoiceLabel(),
-            TtsBackend.ModernWindows => "Windows default - " + plugin.SpeechCacheService.GetSelectedVoiceLabel(),
-            _ => "Legacy SAPI - " + plugin.SpeechCacheService.GetSelectedVoiceLabel(),
+            TtsBackend.PiperLocal => UiText.T("Local Piper - ") + UiText.VoiceLabel(plugin.SpeechCacheService.GetSelectedVoiceLabel()),
+            TtsBackend.ModernWindows => UiText.T("Windows default - ") + UiText.VoiceLabel(plugin.SpeechCacheService.GetSelectedVoiceLabel()),
+            _ => UiText.T("Legacy SAPI - ") + UiText.VoiceLabel(plugin.SpeechCacheService.GetSelectedVoiceLabel()),
         };
 
     private void DrawGeneralTab(Configuration cfg)
     {
         var enabled = cfg.PluginEnabled;
-        if (ImGui.Checkbox("Plugin enabled", ref enabled))
+        if (UiGui.Checkbox("Plugin enabled", ref enabled))
         {
             cfg.PluginEnabled = enabled;
             cfg.Save();
@@ -489,10 +510,10 @@ public sealed class ConfigWindow : Window, IDisposable
         DrawImaginaryFrenPanel();
 
         ImGui.Separator();
-        ImGui.TextUnformatted("DTR");
+        UiGui.TextUnformatted("DTR");
 
         var dtr = cfg.DtrBarEnabled;
-        if (ImGui.Checkbox("Show DTR bar entry", ref dtr))
+        if (UiGui.Checkbox("Show DTR bar entry", ref dtr))
         {
             cfg.DtrBarEnabled = dtr;
             cfg.Save();
@@ -501,7 +522,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Shows or hides the clickable status entry in the Dalamud DTR bar.");
 
         var dtrMode = cfg.DtrBarMode;
-        if (ImGui.Combo("DTR mode", ref dtrMode, DtrModes, DtrModes.Length))
+        if (UiGui.Combo("DTR mode", ref dtrMode, DtrModes, DtrModes.Length))
         {
             cfg.DtrBarMode = dtrMode;
             cfg.Save();
@@ -510,7 +531,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Changes whether the DTR bar shows text, icon plus text, or only the icon.");
 
         var onIcon = cfg.DtrIconEnabled;
-        if (ImGui.InputText("DTR enabled glyph", ref onIcon, 8))
+        if (UiGui.InputText("DTR enabled glyph", ref onIcon, 8))
         {
             cfg.DtrIconEnabled = onIcon.Length <= 3 ? onIcon : onIcon[..3];
             cfg.Save();
@@ -519,7 +540,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.");
 
         var offIcon = cfg.DtrIconDisabled;
-        if (ImGui.InputText("DTR disabled glyph", ref offIcon, 8))
+        if (UiGui.InputText("DTR disabled glyph", ref offIcon, 8))
         {
             cfg.DtrIconDisabled = offIcon.Length <= 3 ? offIcon : offIcon[..3];
             cfg.Save();
@@ -528,10 +549,10 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.");
 
         ImGui.Separator();
-        ImGui.TextUnformatted("Mini Window");
+        UiGui.TextUnformatted("Mini Window");
 
         var miniAutoOpen = cfg.MiniAutoOpenOnSpeech;
-        if (ImGui.Checkbox("Open mini window when speech starts", ref miniAutoOpen))
+        if (UiGui.Checkbox("Open mini window when speech starts", ref miniAutoOpen))
         {
             cfg.MiniAutoOpenOnSpeech = miniAutoOpen;
             cfg.Save();
@@ -547,7 +568,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawSpeechTab(Configuration cfg)
     {
-        if (ImGui.Button("Test speech"))
+        if (UiGui.Button("Test speech"))
         {
             var queued = plugin.CommentaryTriggerService.SpeakManual();
             plugin.PrintStatus(queued ? "Speech queued." : plugin.CommentaryTriggerService.LastDecision);
@@ -555,18 +576,18 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Queues a Reading Roegadyn test line using the selected speech backend and current voice.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Clear cache"))
+        if (UiGui.Button("Clear cache"))
             ClearCacheToChat();
         TooltipLastItem("Deletes generated speech WAV files for all backends; future speech regenerates them.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Clear Piper WAV cache"))
+        if (UiGui.Button("Clear Piper WAV cache"))
             ClearPiperCacheToChat();
         TooltipLastItem("Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.");
 
         ImGui.Separator();
         DrawBackendSelector(cfg);
-        DrawWrappedStatus("Selected voice: " + plugin.SpeechCacheService.GetSelectedVoiceLabel(), "Current voice that will be used for generated speech.");
+        DrawWrappedStatus(UiText.T("Selected voice: ") + UiText.VoiceLabel(plugin.SpeechCacheService.GetSelectedVoiceLabel()), "Current voice that will be used for generated speech.");
         DrawVoiceActions();
         DrawVoiceSelector(cfg);
 
@@ -596,12 +617,12 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.Separator();
 
         ImGui.SetNextItemWidth(Math.Min(360f, ImGui.GetContentRegionAvail().X));
-        ImGui.InputText("Search", ref piperSearchText, 160);
+        UiGui.InputText("Search", ref piperSearchText, 160);
         TooltipLastItem("Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.");
         DrawPiperFilters(entries);
 
         var filtered = SortPiperEntries(FilterPiperEntries(entries), cfg).ToList();
-        DrawDisabledStatus($"Showing {filtered.Count} of {entries.Count} catalog entr{(entries.Count == 1 ? "y" : "ies")}.", "Current Piper catalog count after search and filters.");
+        DrawDisabledStatus(UiText.Interpolated($"Showing {filtered.Count} of {entries.Count} catalog entries."), "Current Piper catalog count after search and filters.");
         DrawPiperSelectedActionBar(entries, cfg);
         DrawPiperCatalogTable(filtered, cfg);
         DrawPiperSelectedVoicePanel(entries, cfg);
@@ -609,7 +630,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawDiagnosticsTab(Configuration cfg)
     {
-        if (ImGui.Button("Refresh voices"))
+        if (UiGui.Button("Refresh voices"))
         {
             plugin.SpeechCacheService.RefreshInstalledVoices();
             var modernCount = plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.ModernWindows).Count;
@@ -620,61 +641,61 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Refreshes detected speech voices and reports counts to chat.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Status to chat"))
+        if (UiGui.Button("Status to chat"))
             plugin.PrintStatus(plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon ? plugin.AetheryteTriggerService.LastDecision : plugin.CommentaryTriggerService.LastDecision);
         TooltipLastItem("Prints the current mode decision/status message to chat.");
 
         ImGui.Separator();
-        ImGui.Text($"Modern Windows voices: {plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.ModernWindows).Count}");
+        UiGui.Text(UiText.Interpolated($"Modern Windows voices: {plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.ModernWindows).Count}"));
         TooltipLastItem("Number of detected Modern Windows speech voices.");
-        ImGui.Text($"Legacy SAPI voices: {plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.LegacySapi).Count}");
+        UiGui.Text(UiText.Interpolated($"Legacy SAPI voices: {plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.LegacySapi).Count}"));
         TooltipLastItem("Number of detected Legacy SAPI speech voices.");
-        ImGui.Text($"Piper voices: {plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.PiperLocal).Count}");
+        UiGui.Text(UiText.Interpolated($"Piper voices: {plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.PiperLocal).Count}"));
         TooltipLastItem("Number of installed managed Piper voices.");
-        DrawWrappedStatus("Piper runtime: " + plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false), "Current Piper runtime discovery status.");
-        DrawWrappedStatus("Piper catalog: " + plugin.PiperVoiceCatalogService.LastStatus, "Last Piper catalog or setup status.");
+        DrawWrappedStatus(UiText.T("Piper runtime: ") + UiText.T(plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false)), "Current Piper runtime discovery status.");
+        DrawWrappedStatus(UiText.T("Piper catalog: ") + UiText.T(plugin.PiperVoiceCatalogService.LastStatus), "Last Piper catalog or setup status.");
         if (!string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError))
-            DrawWrappedStatus("Piper warning: " + plugin.PiperVoiceCatalogService.LastError, "Last Piper catalog, runtime, or install warning.");
+            DrawWrappedStatus(UiText.T("Piper warning: ") + plugin.PiperVoiceCatalogService.LastError, "Last Piper catalog, runtime, or install warning.");
         DrawWrappedStatus(
-            $"Piper settings: speed {cfg.TtsPiperLengthScale:F2}, sentence pause {cfg.TtsPiperSentenceSilence:F2}s, pitch {FormatPiperSemitones(cfg.TtsPiperPitchShiftSemitones)} st, gain {cfg.TtsOutputGainPercent}%",
+            UiText.Interpolated($"Piper settings: speed {cfg.TtsPiperLengthScale:F2}, sentence pause {cfg.TtsPiperSentenceSilence:F2}s, pitch {FormatPiperSemitones(cfg.TtsPiperPitchShiftSemitones)} st, gain {cfg.TtsOutputGainPercent}%"),
             "Piper synthesis and post-processing settings that affect future Piper WAV cache entries.");
         DrawWrappedStatus(
-            $"Last Piper pitch shift: {plugin.SpeechCacheService.LastPiperPitchShiftStatus} Applied: {plugin.SpeechCacheService.LastPiperPitchShiftApplied}. Semitones: {FormatPiperSemitones(plugin.SpeechCacheService.LastPiperPitchShiftSemitones)} st.",
+            UiText.Interpolated($"Last Piper pitch shift: {UiText.T(plugin.SpeechCacheService.LastPiperPitchShiftStatus)} Applied: {plugin.SpeechCacheService.LastPiperPitchShiftApplied}. Semitones: {FormatPiperSemitones(plugin.SpeechCacheService.LastPiperPitchShiftSemitones)} st."),
             "Most recent Piper pitch-shift processing result.");
 
         ImGui.Separator();
-        DrawWrappedStatus("Adapter service: " + plugin.SpokenTextAdapterService.LastStatus, "Last spoken text adapter load status.");
+        DrawWrappedStatus(UiText.T("Adapter service: ") + UiText.T(plugin.SpokenTextAdapterService.LastStatus), "Last spoken text adapter load status.");
         if (!string.IsNullOrWhiteSpace(plugin.SpokenTextAdapterService.LastError))
-            DrawWrappedStatus("Adapter warning: " + plugin.SpokenTextAdapterService.LastError, "Last spoken text adapter warning.");
-        DrawWrappedStatus($"Last original: {plugin.SpeechCacheService.LastOriginalText}", "Most recent normalized text before Piper adapter changes.");
-        DrawWrappedStatus($"Last adapted: {plugin.SpeechCacheService.LastAdaptedText}", "Most recent text sent to Piper after adapter changes.");
+            DrawWrappedStatus(UiText.T("Adapter warning: ") + plugin.SpokenTextAdapterService.LastError, "Last spoken text adapter warning.");
+        DrawWrappedStatus(UiText.Interpolated($"Last original: {plugin.SpeechCacheService.LastOriginalText}"), "Most recent normalized text before Piper adapter changes.");
+        DrawWrappedStatus(UiText.Interpolated($"Last adapted: {plugin.SpeechCacheService.LastAdaptedText}"), "Most recent text sent to Piper after adapter changes.");
         if (!string.IsNullOrWhiteSpace(plugin.SpeechCacheService.LastTextAdapterId))
         {
             DrawWrappedStatus(
-                $"Last adapter: {plugin.SpeechCacheService.LastTextAdapterId} {plugin.SpeechCacheService.LastTextAdapterVersion} {ShortHash(plugin.SpeechCacheService.LastTextAdapterContentHash)}",
+                UiText.Interpolated($"Last adapter: {plugin.SpeechCacheService.LastTextAdapterId} {plugin.SpeechCacheService.LastTextAdapterVersion} {ShortHash(plugin.SpeechCacheService.LastTextAdapterContentHash)}"),
                 "Adapter identity used for the most recent Piper synthesis cache key.");
         }
 
         ImGui.Separator();
-        DrawWrappedStatus($"Trigger status: {plugin.CommentaryTriggerService.LastDecision}", "Last Reading Roegadyn trigger decision.");
-        DrawWrappedStatus($"Queue status: {plugin.SpeechQueueService.LastStatus}", "Last speech queue state.");
+        DrawWrappedStatus(UiText.Interpolated($"Trigger status: {UiText.T(plugin.CommentaryTriggerService.LastDecision)}"), "Last Reading Roegadyn trigger decision.");
+        DrawWrappedStatus(UiText.Interpolated($"Queue status: {UiText.T(plugin.SpeechQueueService.LastStatus)}"), "Last speech queue state.");
         if (!string.IsNullOrWhiteSpace(plugin.SpeechQueueService.LastError))
-            DrawWrappedStatus("Queue error: " + plugin.SpeechQueueService.LastError, "Last speech queue error.");
-        ImGui.Text($"Pending speech requests: {plugin.SpeechQueueService.PendingCount}");
+            DrawWrappedStatus(UiText.T("Queue error: ") + plugin.SpeechQueueService.LastError, "Last speech queue error.");
+        UiGui.Text(UiText.Interpolated($"Pending speech requests: {plugin.SpeechQueueService.PendingCount}"));
         TooltipLastItem("Number of queued speech requests waiting to be prepared or played.");
-        ImGui.Text($"Speech busy: {plugin.SpeechQueueService.IsBusy}");
+        UiGui.Text(UiText.Interpolated($"Speech busy: {plugin.SpeechQueueService.IsBusy}"));
         TooltipLastItem("Whether the speech queue is currently preparing or playing audio.");
-        DrawWrappedStatus($"BGM status: {plugin.BgmProbeService.Status}", "Current BGM probe status.");
-        ImGui.Text($"Current BGM ID: {plugin.BgmProbeService.CurrentBgmId}");
+        DrawWrappedStatus(UiText.Interpolated($"BGM status: {UiText.T(plugin.BgmProbeService.Status)}"), "Current BGM probe status.");
+        UiGui.Text(UiText.Interpolated($"Current BGM ID: {plugin.BgmProbeService.CurrentBgmId}"));
         TooltipLastItem("Current BGM id observed by the BGM probe.");
-        DrawWrappedStatus($"Cache status: {plugin.SpeechCacheService.LastStatus}", "Last speech cache result.");
+        DrawWrappedStatus(UiText.Interpolated($"Cache status: {UiText.T(plugin.SpeechCacheService.LastStatus)}"), "Last speech cache result.");
         if (!string.IsNullOrWhiteSpace(plugin.SpeechCacheService.LastError))
-            DrawWrappedStatus("Speech warning: " + plugin.SpeechCacheService.LastError, "Last speech synthesis or cache warning.");
+            DrawWrappedStatus(UiText.T("Speech warning: ") + UiText.SpeechWarning(plugin.SpeechCacheService.LastError), "Last speech synthesis or cache warning.");
     }
 
     private void DrawPresetManager()
     {
-        ImGui.TextUnformatted("Presets");
+        UiGui.TextUnformatted("Presets");
         var presets = plugin.PresetService.Presets.ToList();
         var active = plugin.PresetService.ActivePreset;
         EnsurePresetRenameBuffer(active);
@@ -682,18 +703,21 @@ public sealed class ConfigWindow : Window, IDisposable
         var listWidth = Math.Min(420f, ImGui.GetContentRegionAvail().X);
         var visibleRows = Math.Clamp(presets.Count, 4, 8);
         var listHeight = (ImGui.GetTextLineHeightWithSpacing() * visibleRows) + 8f;
-        ImGui.BeginChild("##DheaconPresetList", new Vector2(listWidth, listHeight), true);
+        ImGui.BeginChild("##DheaconPresetList", new Vector2(listWidth, listHeight), true, ImGuiWindowFlags.HorizontalScrollbar);
+        try
+        {
         foreach (var preset in presets)
         {
             var selected = string.Equals(preset.Id, active.Id, StringComparison.OrdinalIgnoreCase);
             var suffix = preset.Protected ? "  [template]" : "  [user]";
-            if (ImGui.Selectable($"{preset.Name}{suffix}##Preset-{preset.Id}", selected))
+            if (UiGui.Selectable($"{preset.Name}{suffix}##Preset-{preset.Id}", selected, preset.Name + UiText.T(suffix)))
                 SelectPreset(preset.Id);
-            TooltipLastItem(preset.Description);
+            TooltipLastItemRaw(preset.Description);
         }
-        ImGui.EndChild();
+        }
+        finally { ImGui.EndChild(); }
 
-        if (ImGui.SmallButton("+"))
+        if (UiGui.SmallButton("+"))
         {
             if (plugin.PresetService.DuplicateActivePreset(out var duplicated, out var message))
             {
@@ -712,7 +736,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
         ImGui.SameLine();
         ImGui.BeginDisabled(active.Protected);
-        if (ImGui.SmallButton("-"))
+        if (UiGui.SmallButton("-"))
         {
             if (plugin.PresetService.DeleteUserPreset(active.Id, out var message))
             {
@@ -729,19 +753,19 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.EndDisabled();
         TooltipLastItem(active.Protected ? "Protected bundled templates cannot be deleted." : "Deletes the active user preset.");
 
-        DrawWrappedStatus($"Active preset: {active.Name}", "Current active preset.");
+        DrawWrappedStatus(UiText.Interpolated($"Active preset: {active.Name}"), "Current active preset.");
         if (!string.IsNullOrWhiteSpace(active.Description))
-            DrawWrappedStatus(active.Description, "Description supplied by the active preset.");
-        DrawWrappedStatus($"Preset source: {(active.Bundled ? "Bundled" : "User")}  Protected: {active.Protected}", "Protected bundled presets cannot be renamed, deleted, or overwritten.");
-        DrawWrappedStatus("Preset status: " + plugin.PresetService.LastStatus, "Preset load/import/export status.");
+            DrawWrappedStatus(active.Description, "Description supplied by the active preset.", translate: false);
+        DrawWrappedStatus(UiText.Interpolated($"Preset source: {UiText.T(active.Bundled ? "Bundled" : "User")}  Protected: {active.Protected}"), "Protected bundled presets cannot be renamed, deleted, or overwritten.");
+        DrawWrappedStatus(UiText.T("Preset status: ") + UiText.T(plugin.PresetService.LastStatus), "Preset load/import/export status.");
         DrawLinePackSelector(active);
 
         ImGui.BeginDisabled(active.Protected);
         ImGui.SetNextItemWidth(Math.Min(320f, ImGui.GetContentRegionAvail().X));
-        ImGui.InputText("Name", ref presetRenameText, 96);
+        UiGui.InputText("Name", ref presetRenameText, 96);
         TooltipLastItem(active.Protected ? "Duplicate this template with + before renaming." : "Edit the active user preset display name.");
 
-        if (ImGui.Button("Rename"))
+        if (UiGui.Button("Rename"))
         {
             if (plugin.PresetService.RenameUserPreset(active.Id, presetRenameText, out var message))
             {
@@ -757,7 +781,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Renames the active user preset.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Save current settings"))
+        if (UiGui.Button("Save current settings"))
         {
             if (plugin.PresetService.SaveActivePresetFromConfiguration(out var message))
                 plugin.PrintStatus(message);
@@ -770,7 +794,7 @@ public sealed class ConfigWindow : Window, IDisposable
         if (active.Protected)
             DrawDisabledStatus("Duplicate this template with + before renaming or saving over it.", "Bundled templates are read-only.");
 
-        if (ImGui.Button("Export active preset"))
+        if (UiGui.Button("Export active preset"))
         {
             try
             {
@@ -786,14 +810,14 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Copies one portable base64 preset JSON blob to the clipboard.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Paste import"))
+        if (UiGui.Button("Paste import"))
             presetImportText = ImGui.GetClipboardText() ?? string.Empty;
         TooltipLastItem("Reads a portable preset blob from the clipboard into the import box.");
 
         ImGui.SetNextItemWidth(-1f);
-        ImGui.InputTextWithHint("##PresetImport", "Paste preset base64 here", ref presetImportText, 16384);
+        UiGui.InputTextWithHint("##PresetImport", "Paste preset base64 here", ref presetImportText, 16384);
 
-        if (ImGui.Button("Import preset") && !string.IsNullOrWhiteSpace(presetImportText))
+        if (UiGui.Button("Import preset") && !string.IsNullOrWhiteSpace(presetImportText))
         {
             if (plugin.PresetService.ImportPresetBase64(presetImportText, out var imported, out var message))
             {
@@ -825,7 +849,7 @@ public sealed class ConfigWindow : Window, IDisposable
         var linePacks = plugin.CommentaryLinePackService.LinePacks.ToList();
         if (linePacks.Count == 0)
         {
-            DrawWrappedStatus("Line pack status: " + plugin.CommentaryLinePackService.LastLoadStatus, "No selectable line packs were loaded.");
+            DrawWrappedStatus(UiText.T("Line pack status: ") + UiText.T(plugin.CommentaryLinePackService.LastLoadStatus), "No selectable line packs were loaded.");
             return;
         }
 
@@ -840,9 +864,12 @@ public sealed class ConfigWindow : Window, IDisposable
         var labels = linePacks
             .Select(info => $"{info.Name} [{(info.Bundled ? "bundled" : "user")}]")
             .ToArray();
+        var displayLabels = linePacks
+            .Select(info => info.Name + " [" + UiText.T(info.Bundled ? "Bundled" : "User") + "]")
+            .ToArray();
 
         ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
-        if (ImGui.Combo("Line pack", ref currentIndex, labels, labels.Length))
+        if (UiGui.Combo("Line pack", ref currentIndex, labels, labels.Length, displayLabels))
         {
             if (plugin.PresetService.UpdateActiveLinePack(linePacks[currentIndex].Id, out var message))
                 plugin.PrintStatus(message);
@@ -852,9 +879,9 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem(active.Protected ? "Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice." : "Selects the line pack used after any inline preset lines.");
 
         var selected = linePacks[Math.Clamp(currentIndex, 0, linePacks.Count - 1)];
-        DrawWrappedStatus($"Line pack status: {plugin.CommentaryLinePackService.LastLoadStatus}", "Line-pack loader status.");
+        DrawWrappedStatus(UiText.Interpolated($"Line pack status: {UiText.T(plugin.CommentaryLinePackService.LastLoadStatus)}"), "Line-pack loader status.");
         if (!string.IsNullOrWhiteSpace(selected.Description))
-            DrawWrappedStatus(selected.Description, "Selected line-pack description.");
+            DrawWrappedStatus(selected.Description, "Selected line-pack description.", translate: false);
     }
 
     private void DrawImaginaryFrenPanel()
@@ -862,15 +889,15 @@ public sealed class ConfigWindow : Window, IDisposable
         var active = plugin.PresetService.ActivePreset;
         var fren = active.ImaginaryFren ?? new KranglerImaginaryFrenPreset();
 
-        ImGui.TextUnformatted("Imaginary Fren");
+        UiGui.TextUnformatted("Imaginary Fren");
         var enabled = fren.Enabled;
-        if (ImGui.Checkbox("Spawn Fren for this preset", ref enabled))
+        if (UiGui.Checkbox("Spawn Fren for this preset", ref enabled))
             UpdateActiveFrenSettings(enabled, fren.Name, fren.PresetKey);
         TooltipLastItem("When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.");
 
         var name = fren.Name;
         ImGui.SetNextItemWidth(Math.Min(320f, ImGui.GetContentRegionAvail().X));
-        if (ImGui.InputText("Display name", ref name, 64))
+        if (UiGui.InputText("Display name", ref name, 64))
             UpdateActiveFrenSettings(enabled, name, fren.PresetKey);
         TooltipLastItem("Name Krangler writes onto the local-only follower actor.");
 
@@ -886,24 +913,24 @@ public sealed class ConfigWindow : Window, IDisposable
         else
         {
             ImGui.SetNextItemWidth(Math.Min(420f, ImGui.GetContentRegionAvail().X));
-            if (ImGui.InputText("Krangler preset", ref presetKey, 160))
+            if (UiGui.InputText("Krangler preset", ref presetKey, 160))
                 UpdateActiveFrenSettings(enabled, name, presetKey);
             TooltipLastItem("Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.");
         }
 
-        if (ImGui.Button("Reconcile now"))
+        if (UiGui.Button("Reconcile now"))
         {
             plugin.KranglerImaginaryFrenIpcClient.GetPresetSummaries(forceRefresh: true);
             plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
         }
         TooltipLastItem("Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.");
 
-        DrawWrappedStatus("Follower status: " + plugin.KranglerImaginaryFrenIpcClient.LastStatus, "Last Krangler Imaginary Fren IPC status.");
-        DrawWrappedStatus("Preset list: " + plugin.KranglerImaginaryFrenIpcClient.PresetListStatus, "Last Krangler preset-list IPC status.");
+        DrawWrappedStatus(UiText.T("Follower status: ") + UiText.FollowerStatus(plugin.KranglerImaginaryFrenIpcClient.LastStatus), "Last Krangler Imaginary Fren IPC status.");
+        DrawWrappedStatus(UiText.T("Preset list: ") + UiText.FollowerStatus(plugin.KranglerImaginaryFrenIpcClient.PresetListStatus), "Last Krangler preset-list IPC status.");
         if (!string.IsNullOrWhiteSpace(plugin.KranglerImaginaryFrenIpcClient.PresetListError))
-            DrawWrappedStatus("Preset list warning: " + plugin.KranglerImaginaryFrenIpcClient.PresetListError, "Krangler is optional; when the list is unavailable the text field fallback remains active.");
+            DrawWrappedStatus(UiText.T("Preset list warning: ") + UiText.FollowerStatus(plugin.KranglerImaginaryFrenIpcClient.PresetListError), "Krangler is optional; when the list is unavailable the text field fallback remains active.");
         if (!string.IsNullOrWhiteSpace(plugin.KranglerImaginaryFrenIpcClient.LastError))
-            DrawWrappedStatus("Follower warning: " + plugin.KranglerImaginaryFrenIpcClient.LastError, "Krangler is optional; this warning does not stop Dheacon speech.");
+            DrawWrappedStatus(UiText.T("Follower warning: ") + UiText.FollowerStatus(plugin.KranglerImaginaryFrenIpcClient.LastError), "Krangler is optional; this warning does not stop Dheacon speech.");
         if (active.Protected)
             DrawDisabledStatus("Fren edits on this protected template are runtime-only. Duplicate with + to persist them.", "Bundled templates are read-only.");
     }
@@ -914,15 +941,18 @@ public sealed class ConfigWindow : Window, IDisposable
         var preview = selected != null
             ? FormatKranglerPresetLabel(selected)
             : string.IsNullOrWhiteSpace(presetKey)
-                ? "Select preset"
+                ? UiText.T("Select preset")
                 : presetKey;
         var changed = false;
 
-        if (!ImGui.BeginCombo("Krangler preset", preview))
+        if (!UiGui.BeginCombo("Krangler preset", preview))
             return false;
 
+        try
+        {
+
         ImGui.SetNextItemWidth(-1f);
-        ImGui.InputTextWithHint("##KranglerPresetSearch", "Search Krangler presets...", ref kranglerPresetSearchText, 128);
+        UiGui.InputTextWithHint("##KranglerPresetSearch", "Search Krangler presets...", ref kranglerPresetSearchText, 128);
         ImGui.Separator();
 
         var filteredPresets = string.IsNullOrWhiteSpace(kranglerPresetSearchText)
@@ -937,19 +967,20 @@ public sealed class ConfigWindow : Window, IDisposable
         foreach (var summary in filteredPresets)
         {
             var isSelected = string.Equals(summary.Key, presetKey, StringComparison.OrdinalIgnoreCase);
-            if (ImGui.Selectable($"{FormatKranglerPresetLabel(summary)}##KranglerPreset-{summary.Key}", isSelected))
+            if (UiGui.Selectable($"{FormatKranglerPresetLabel(summary)}##KranglerPreset-{summary.Key}", isSelected, FormatKranglerPresetLabel(summary)))
             {
                 presetKey = summary.Key;
                 changed = true;
             }
 
-            TooltipLastItem($"Key: {summary.Key}\nSource: {summary.SourceFileName}");
+            TooltipLastItem(UiText.Interpolated($"Key: {summary.Key}\nSource: {summary.SourceFileName}"));
         }
 
         if (!filteredPresets.Any())
-            ImGui.TextDisabled("No Krangler presets match the current search.");
+            UiGui.TextDisabled("No Krangler presets match the current search.");
 
-        ImGui.EndCombo();
+        }
+        finally { UiGui.EndCombo(); }
         return changed;
     }
 
@@ -996,10 +1027,10 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawDheaconSettings(Configuration cfg)
     {
-        ImGui.TextUnformatted("Dheacon");
+        UiGui.TextUnformatted("Dheacon");
 
         var suppressTeleport = cfg.SuppressTeleportAndReturnTransitions;
-        if (ImGui.Checkbox("Suppress teleports and return", ref suppressTeleport))
+        if (UiGui.Checkbox("Suppress teleports and return", ref suppressTeleport))
         {
             cfg.SuppressTeleportAndReturnTransitions = suppressTeleport;
             cfg.Save();
@@ -1007,22 +1038,22 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Prevents teleport and Return transitions from playing the packaged alert sound.");
 
         var soundPath = cfg.AlertSoundRelativePath;
-        if (ImGui.InputText("Alert sound path", ref soundPath, 260))
+        if (UiGui.InputText("Alert sound path", ref soundPath, 260))
         {
             cfg.AlertSoundRelativePath = soundPath;
             cfg.Save();
         }
         TooltipLastItem("Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.");
 
-        DrawWrappedStatus("Alert sound: " + plugin.AudioPlaybackService.GetResolvedAlertPath(), "Resolved path used when Dheacon mode plays its alert sound.");
+        DrawWrappedStatus(UiText.T("Alert sound: ") + plugin.AudioPlaybackService.GetResolvedAlertPath(), "Resolved path used when Dheacon mode plays its alert sound.");
     }
 
     private void DrawReadingRoegadynGeneralSettings(Configuration cfg)
     {
-        ImGui.TextUnformatted("Reading Roegadyn");
+        UiGui.TextUnformatted("Reading Roegadyn");
 
         var suppressTeleport = cfg.SuppressTeleportAndReturnTransitions;
-        if (ImGui.Checkbox("Suppress teleports and return", ref suppressTeleport))
+        if (UiGui.Checkbox("Suppress teleports and return", ref suppressTeleport))
         {
             cfg.SuppressTeleportAndReturnTransitions = suppressTeleport;
             cfg.Save();
@@ -1038,7 +1069,7 @@ public sealed class ConfigWindow : Window, IDisposable
         if (cfg.TtsBackend == TtsBackend.PiperLocal)
         {
             var piperLengthScale = (float)cfg.TtsPiperLengthScale;
-            if (ImGui.SliderFloat("Piper speed", ref piperLengthScale, 0.5f, 2.0f, "%.2f"))
+            if (UiGui.SliderFloat("Piper speed", ref piperLengthScale, 0.5f, 2.0f, "%.2f"))
             {
                 cfg.TtsPiperLengthScale = Math.Clamp(piperLengthScale, 0.5f, 2.0f);
                 cfg.Save();
@@ -1046,7 +1077,7 @@ public sealed class ConfigWindow : Window, IDisposable
             TooltipLastItem("Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.");
 
             var sentencePause = (float)cfg.TtsPiperSentenceSilence;
-            if (ImGui.SliderFloat("Sentence pause", ref sentencePause, 0.0f, 2.0f, "%.2f sec"))
+            if (UiGui.SliderFloat("Sentence pause", ref sentencePause, 0.0f, 2.0f, "%.2f sec"))
             {
                 cfg.TtsPiperSentenceSilence = Math.Clamp(sentencePause, 0.0f, 5.0f);
                 cfg.Save();
@@ -1054,7 +1085,7 @@ public sealed class ConfigWindow : Window, IDisposable
             TooltipLastItem("Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.");
 
             var piperPitch = (float)cfg.TtsPiperPitchShiftSemitones;
-            if (ImGui.SliderFloat("Piper pitch", ref piperPitch, -12.0f, 12.0f, "%+.1f semitones"))
+            if (UiGui.SliderFloat("Piper pitch", ref piperPitch, -12.0f, 12.0f, "%+.1f semitones"))
             {
                 cfg.TtsPiperPitchShiftSemitones = Math.Clamp(piperPitch, -12.0f, 12.0f);
                 cfg.Save();
@@ -1062,7 +1093,7 @@ public sealed class ConfigWindow : Window, IDisposable
             TooltipLastItem("Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.");
 
             var playbackGain = cfg.TtsOutputGainPercent;
-            if (ImGui.SliderInt("Playback gain %", ref playbackGain, 0, 400))
+            if (UiGui.SliderInt("Playback gain %", ref playbackGain, 0, 400))
             {
                 cfg.TtsOutputGainPercent = Math.Clamp(playbackGain, 0, 400);
                 cfg.Save();
@@ -1073,7 +1104,7 @@ public sealed class ConfigWindow : Window, IDisposable
         }
 
         var rate = cfg.TtsRate;
-        if (ImGui.SliderInt("Rate", ref rate, -10, 10))
+        if (UiGui.SliderInt("Rate", ref rate, -10, 10))
         {
             cfg.TtsRate = rate;
             cfg.Save();
@@ -1081,7 +1112,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.");
 
         var volume = cfg.TtsVolume;
-        if (ImGui.SliderInt("Synth volume", ref volume, 0, 100))
+        if (UiGui.SliderInt("Synth volume", ref volume, 0, 100))
         {
             cfg.TtsVolume = volume;
             cfg.Save();
@@ -1089,7 +1120,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Controls Windows/SAPI synthesis volume before the WAV is cached.");
 
         var pitch = (float)cfg.TtsPitch;
-        if (ImGui.SliderFloat("Pitch", ref pitch, 0.25f, 2.0f, "%.2f"))
+        if (UiGui.SliderFloat("Pitch", ref pitch, 0.25f, 2.0f, "%.2f"))
         {
             cfg.TtsPitch = Math.Clamp(pitch, 0.0f, 2.0f);
             cfg.Save();
@@ -1097,7 +1128,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.");
 
         var outputGain = cfg.TtsOutputGainPercent;
-        if (ImGui.SliderInt("Output gain %", ref outputGain, 0, 400))
+        if (UiGui.SliderInt("Output gain %", ref outputGain, 0, 400))
         {
             cfg.TtsOutputGainPercent = Math.Clamp(outputGain, 0, 400);
             cfg.Save();
@@ -1108,34 +1139,34 @@ public sealed class ConfigWindow : Window, IDisposable
     private void DrawSpeechCacheSettings(Configuration cfg)
     {
         var cacheDirectory = cfg.TtsCacheDirectory;
-        if (ImGui.InputText("Cache folder", ref cacheDirectory, 512))
+        if (UiGui.InputText("Cache folder", ref cacheDirectory, 512))
         {
             cfg.TtsCacheDirectory = cacheDirectory;
             cfg.Save();
         }
         TooltipLastItem("Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.");
 
-        DrawWrappedStatus("Resolved cache folder: " + cfg.GetResolvedTtsCacheDirectory(), "Actual folder used after expanding environment variables and defaults.");
+        DrawWrappedStatus(UiText.T("Resolved cache folder: ") + cfg.GetResolvedTtsCacheDirectory(), "Actual folder used after expanding environment variables and defaults.");
 
         var maxMb = cfg.TtsMaxCacheMegabytes;
-        if (ImGui.InputInt("Max cache MB", ref maxMb))
+        if (UiGui.InputInt("Max cache MB", ref maxMb))
         {
             cfg.TtsMaxCacheMegabytes = Math.Max(1, maxMb);
             cfg.Save();
         }
         TooltipLastItem("Maximum total WAV cache size. Older cache files are pruned after new speech is generated.");
 
-        ImGui.Text($"Cache size: {plugin.SpeechCacheService.GetCacheSizeMegabytes():F1} MB");
+        UiGui.Text(UiText.Interpolated($"Cache size: {plugin.SpeechCacheService.GetCacheSizeMegabytes():F1} MB"));
         TooltipLastItem("Current approximate size of cached generated WAV files.");
-        DrawWrappedStatus("Cache status: " + plugin.SpeechCacheService.LastStatus, "Last cache operation result, including cache hits and generated files.");
+        DrawWrappedStatus(UiText.T("Cache status: ") + UiText.T(plugin.SpeechCacheService.LastStatus), "Last cache operation result, including cache hits and generated files.");
         if (!string.IsNullOrWhiteSpace(plugin.SpeechCacheService.LastError))
-            DrawWrappedStatus("Speech warning: " + plugin.SpeechCacheService.LastError, "Last speech synthesis or cache warning.");
+            DrawWrappedStatus(UiText.T("Speech warning: ") + UiText.SpeechWarning(plugin.SpeechCacheService.LastError), "Last speech synthesis or cache warning.");
     }
 
     private void DrawTextAdapterSettings(Configuration cfg)
     {
         var adapterEnabled = cfg.TtsPiperTextAdapterEnabled;
-        if (ImGui.Checkbox("Piper text adapter", ref adapterEnabled))
+        if (UiGui.Checkbox("Piper text adapter", ref adapterEnabled))
         {
             cfg.TtsPiperTextAdapterEnabled = adapterEnabled;
             cfg.Save();
@@ -1144,36 +1175,39 @@ public sealed class ConfigWindow : Window, IDisposable
 
         var adapters = plugin.SpokenTextAdapterService.GetAdapters();
         var adapterLabel = string.IsNullOrWhiteSpace(cfg.TtsPiperTextAdapterId) ? SpokenTextAdapterService.DefaultAdapterId : cfg.TtsPiperTextAdapterId;
-        var adapterComboOpen = ImGui.BeginCombo("Adapter", adapterLabel);
+        var adapterComboOpen = UiGui.BeginCombo("Adapter", adapterLabel);
+        try
+        {
         TooltipLastItem("Selects which text adapter runs before Piper synthesis.");
         if (adapterComboOpen)
         {
             foreach (var adapter in adapters)
             {
                 var selected = string.Equals(cfg.TtsPiperTextAdapterId, adapter.Id, StringComparison.OrdinalIgnoreCase);
-                if (ImGui.Selectable($"{adapter.Id} - {adapter.SourceLanguage} to {adapter.TargetLanguage}", selected))
+                if (UiGui.Selectable($"{adapter.Id} - {adapter.SourceLanguage} to {adapter.TargetLanguage}", selected, UiText.F("{0} - {1} to {2}", adapter.Id, adapter.SourceLanguage, adapter.TargetLanguage)))
                 {
                     cfg.TtsPiperTextAdapterId = adapter.Id;
                     cfg.Save();
                 }
-                TooltipLastItem($"Use adapter {adapter.Id} for {adapter.SourceLanguage} to {adapter.TargetLanguage} text before Piper synthesis.");
+                TooltipLastItem(UiText.Interpolated($"Use adapter {adapter.Id} for {adapter.SourceLanguage} to {adapter.TargetLanguage} text before Piper synthesis."));
             }
 
-            ImGui.EndCombo();
         }
+        }
+        finally { if (adapterComboOpen) UiGui.EndCombo(); }
 
         var selectedAdapter = plugin.SpokenTextAdapterService.GetAdapterInfo(cfg.TtsPiperTextAdapterId)
             ?? plugin.SpokenTextAdapterService.GetAdapterInfo(SpokenTextAdapterService.DefaultAdapterId);
         if (selectedAdapter != null)
-            DrawWrappedStatus($"Adapter version: {selectedAdapter.Version}  Hash: {ShortHash(selectedAdapter.ContentHash)}", "Adapter version and content hash are included in Piper WAV cache keys.");
+            DrawWrappedStatus(UiText.Interpolated($"Adapter version: {selectedAdapter.Version}  Hash: {ShortHash(selectedAdapter.ContentHash)}"), "Adapter version and content hash are included in Piper WAV cache keys.");
 
-        ImGui.InputText("Preview text", ref piperPreviewText, 1024);
+        UiGui.InputText("Preview text", ref piperPreviewText, 1024);
         TooltipLastItem("Text to run through the current Piper adapter preview.");
         var preview = plugin.SpeechCacheService.PreviewPiperText(piperPreviewText);
-        DrawWrappedStatus($"Preview adapter: {(string.IsNullOrWhiteSpace(preview.AdapterId) ? "none" : preview.AdapterId)} {preview.AdapterVersion} {ShortHash(preview.AdapterContentHash)}", "Adapter that would be applied to this preview text.");
-        DrawWrappedStatus("Adapter status: " + preview.Status, "Explains whether the adapter is enabled and applicable to the selected Piper voice.");
+        DrawWrappedStatus(UiText.Interpolated($"Preview adapter: {(string.IsNullOrWhiteSpace(preview.AdapterId) ? UiText.T("None") : preview.AdapterId)} {preview.AdapterVersion} {ShortHash(preview.AdapterContentHash)}"), "Adapter that would be applied to this preview text.");
+        DrawWrappedStatus(UiText.T("Adapter status: ") + UiText.T(preview.Status), "Explains whether the adapter is enabled and applicable to the selected Piper voice.");
 
-        if (ImGui.Button(piperPreviewSpeechInProgress ? "Testing adapted speech..." : "Test adapted speech"))
+        if (UiGui.Button(piperPreviewSpeechInProgress ? "Testing adapted speech..." : "Test adapted speech"))
             StartPiperPreviewSpeech(preview.Original);
         TooltipLastItem("Generates and plays this preview through the configured Piper voice without changing the main speech backend.");
 
@@ -1181,13 +1215,13 @@ public sealed class ConfigWindow : Window, IDisposable
         {
             ImGui.TableSetupColumn("Original");
             ImGui.TableSetupColumn("Adapted");
-            ImGui.TableHeadersRow();
+            UiGui.TableHeadersRow();
             ImGui.TableNextRow();
             ImGui.TableSetColumnIndex(0);
-            ImGui.TextWrapped(preview.Original);
+            MaterialText.TextWrapped(preview.Original);
             TooltipLastItem("Normalized source text before adapter substitutions.");
             ImGui.TableSetColumnIndex(1);
-            ImGui.TextWrapped(preview.Adapted);
+            MaterialText.TextWrapped(preview.Adapted);
             TooltipLastItem("Text that will be sent to Piper after adapter substitutions.");
             ImGui.EndTable();
         }
@@ -1202,9 +1236,11 @@ public sealed class ConfigWindow : Window, IDisposable
         }
 
         var voices = plugin.SpeechCacheService.GetInstalledVoices(cfg.TtsBackend);
-        var currentVoice = plugin.SpeechCacheService.GetSelectedVoiceLabel();
+        var currentVoice = UiText.VoiceLabel(plugin.SpeechCacheService.GetSelectedVoiceLabel());
 
-        var voiceComboOpen = ImGui.BeginCombo("Voice", currentVoice);
+        var voiceComboOpen = UiGui.BeginCombo("Voice", currentVoice);
+        try
+        {
         TooltipLastItem("Selects the installed Windows/SAPI voice used for generated speech.");
         if (!voiceComboOpen)
             return;
@@ -1212,7 +1248,7 @@ public sealed class ConfigWindow : Window, IDisposable
         var defaultSelected = cfg.TtsBackend == TtsBackend.ModernWindows
             ? string.IsNullOrWhiteSpace(cfg.TtsModernVoiceId) && string.IsNullOrWhiteSpace(cfg.TtsVoiceName)
             : string.IsNullOrWhiteSpace(cfg.TtsVoiceName);
-        if (ImGui.Selectable("Windows default", defaultSelected))
+        if (UiGui.Selectable("Windows default", defaultSelected))
         {
             if (cfg.TtsBackend == TtsBackend.ModernWindows)
                 cfg.TtsModernVoiceId = string.Empty;
@@ -1229,7 +1265,7 @@ public sealed class ConfigWindow : Window, IDisposable
                   (string.IsNullOrWhiteSpace(cfg.TtsModernVoiceId) &&
                    string.Equals(cfg.TtsVoiceName, voice.DisplayName, StringComparison.OrdinalIgnoreCase))
                 : string.Equals(cfg.TtsVoiceName, voice.DisplayName, StringComparison.OrdinalIgnoreCase);
-            if (ImGui.Selectable(voice.Label, selected))
+            if (UiGui.Selectable(voice.Label, selected, voice.Label))
             {
                 if (cfg.TtsBackend == TtsBackend.ModernWindows)
                     cfg.TtsModernVoiceId = voice.Id;
@@ -1237,10 +1273,11 @@ public sealed class ConfigWindow : Window, IDisposable
                 cfg.TtsVoiceName = voice.DisplayName;
                 cfg.Save();
             }
-            TooltipLastItem($"Select {voice.Label} for future generated speech.");
+            TooltipLastItem(UiText.Interpolated($"Select {voice.Label} for future generated speech."));
         }
 
-        ImGui.EndCombo();
+        }
+        finally { if (voiceComboOpen) UiGui.EndCombo(); }
     }
 
     private void DrawBackendSelector(Configuration cfg)
@@ -1252,7 +1289,7 @@ public sealed class ConfigWindow : Window, IDisposable
             _ => 0,
         };
 
-        if (ImGui.Combo("Backend", ref backendIndex, TtsBackendLabels, TtsBackendLabels.Length))
+        if (UiGui.Combo("Backend", ref backendIndex, TtsBackendLabels, TtsBackendLabels.Length))
         {
             var nextBackend = backendIndex switch
             {
@@ -1271,7 +1308,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawVoiceActions()
     {
-        if (ImGui.Button("Refresh voices"))
+        if (UiGui.Button("Refresh voices"))
         {
             plugin.SpeechCacheService.RefreshInstalledVoices();
             var modernCount = plugin.SpeechCacheService.GetInstalledVoices(TtsBackend.ModernWindows).Count;
@@ -1288,10 +1325,12 @@ public sealed class ConfigWindow : Window, IDisposable
         var currentVoice = plugin.PiperVoiceCatalogService.FindExactInstalledVoice(cfg.TtsPiperVoiceId) is { } selectedVoice
             ? FormatPiperInstalledVoiceLabel(selectedVoice)
             : string.IsNullOrWhiteSpace(cfg.TtsPiperVoiceId)
-                ? "No Piper voice selected"
-                : $"{cfg.TtsPiperVoiceId.Trim()} (not installed)";
+                ? UiText.T("No Piper voice selected")
+                : UiText.F("{0} (not installed)", cfg.TtsPiperVoiceId.Trim());
 
-        var piperVoiceComboOpen = ImGui.BeginCombo("Piper voice", currentVoice);
+        var piperVoiceComboOpen = UiGui.BeginCombo("Piper voice", currentVoice);
+        try
+        {
         TooltipLastItem("Selects the installed Piper voice used for Piper synthesis.");
         if (!piperVoiceComboOpen)
             return;
@@ -1300,18 +1339,19 @@ public sealed class ConfigWindow : Window, IDisposable
         {
             var label = FormatPiperInstalledVoiceLabel(voice);
             var selected = string.Equals(cfg.TtsPiperVoiceId, voice.CatalogId, StringComparison.OrdinalIgnoreCase);
-            if (ImGui.Selectable(label, selected))
+            if (UiGui.Selectable(label, selected, label))
             {
                 plugin.PiperVoiceCatalogService.SelectVoice(voice.CatalogId);
                 cfg.Save();
             }
-            TooltipLastItem($"Select installed Piper voice {label}.");
+            TooltipLastItem(UiText.Interpolated($"Select installed Piper voice {label}."));
         }
 
         if (voices.Count == 0)
             DrawDisabledStatus("No Piper voices installed.", "Open the Piper Voices tab to install the recommended English Arctic voice.");
 
-        ImGui.EndCombo();
+        }
+        finally { if (piperVoiceComboOpen) UiGui.EndCombo(); }
     }
 
     private void DrawPiperSetupStrip(Configuration cfg)
@@ -1319,7 +1359,7 @@ public sealed class ConfigWindow : Window, IDisposable
         DrawWrappedStatus(plugin.PiperVoiceCatalogService.RefreshRuntimeStatus(save: false), "Piper runtime path currently used for local synthesis.");
         DrawWrappedStatus(plugin.PiperVoiceCatalogService.LastStatus, "Last Piper catalog, runtime, install, or selection operation status.");
         if (!string.IsNullOrWhiteSpace(plugin.PiperVoiceCatalogService.LastError))
-            DrawWrappedStatus("Piper warning: " + plugin.PiperVoiceCatalogService.LastError, "Last Piper warning or error reported by setup or catalog operations.");
+            DrawWrappedStatus(UiText.T("Piper warning: ") + plugin.PiperVoiceCatalogService.LastError, "Last Piper warning or error reported by setup or catalog operations.");
 
         if (plugin.PiperVoiceCatalogService.IsBusy)
         {
@@ -1334,17 +1374,17 @@ public sealed class ConfigWindow : Window, IDisposable
             }
         }
 
-        if (ImGui.Button("Refresh catalog"))
+        if (UiGui.Button("Refresh catalog"))
             StartPiperCatalogRefresh();
         TooltipLastItem("Downloads the latest Piper voice catalog and refreshes installed voice state.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Install runtime"))
+        if (UiGui.Button("Install runtime"))
             StartPiperRuntimeInstall();
         TooltipLastItem("Downloads and installs the managed portable Windows Piper runtime.");
 
         ImGui.SameLine();
-        if (ImGui.Button("Open folder"))
+        if (UiGui.Button("Open folder"))
             plugin.PiperVoiceCatalogService.OpenFolder(cfg.GetResolvedPiperRootDirectory());
         TooltipLastItem("Opens the managed Piper folder containing runtime, voices, cache, and manifests.");
 
@@ -1352,11 +1392,11 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.SameLine();
         if (recommendedInstalled)
         {
-            if (ImGui.Button("Select Arctic"))
+            if (UiGui.Button("Select Arctic"))
                 plugin.PiperVoiceCatalogService.SelectVoice(PiperVoiceCatalogService.RecommendedVoiceCatalogId);
             TooltipLastItem("Selects the installed recommended en_US-arctic-medium Piper voice.");
         }
-        else if (ImGui.Button("Install Arctic"))
+        else if (UiGui.Button("Install Arctic"))
         {
             StartPiperRecommendedSetup(switchBackendWhenReady: false);
             TooltipLastItem("Installs and selects the recommended en_US-arctic-medium Piper voice.");
@@ -1367,7 +1407,7 @@ public sealed class ConfigWindow : Window, IDisposable
         }
 
         var runtimePath = cfg.TtsPiperRuntimePath;
-        if (ImGui.InputText("Piper runtime path", ref runtimePath, 512))
+        if (UiGui.InputText("Piper runtime path", ref runtimePath, 512))
         {
             cfg.TtsPiperRuntimePath = runtimePath;
             plugin.PiperVoiceCatalogService.RefreshRuntimeStatus();
@@ -1377,7 +1417,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawPiperFilters(IReadOnlyList<PiperVoiceCatalogEntry> entries)
     {
-        ImGui.Combo("Installed filter", ref piperInstalledFilter, PiperInstalledFilters, PiperInstalledFilters.Length);
+        UiGui.Combo("Installed filter", ref piperInstalledFilter, PiperInstalledFilters, PiperInstalledFilters.Length);
         TooltipLastItem("Filters Piper voices by whether they are already installed.");
 
         var languages = CreateLanguageFilterOptions(entries);
@@ -1400,7 +1440,7 @@ public sealed class ConfigWindow : Window, IDisposable
         if (index < 0)
             index = 0;
 
-        if (ImGui.Combo(label, ref index, options, options.Length))
+        if (UiGui.Combo(label, ref index, options, options.Length))
             selected = options[Math.Clamp(index, 0, options.Length - 1)];
         TooltipLastItem(tooltip);
     }
@@ -1417,16 +1457,16 @@ public sealed class ConfigWindow : Window, IDisposable
         var isCurrent = entry.Installed && string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
 
         ImGui.PushID("SelectedPiperActionBar");
-        ImGui.TextUnformatted("Selected:");
+        UiGui.TextUnformatted("Selected:");
         TooltipLastItem("Currently highlighted Piper catalog voice.");
         ImGui.SameLine();
-        ImGui.TextWrapped(FormatPiperVoiceLabel(entry));
+        MaterialText.TextWrapped(FormatPiperVoiceLabel(entry));
         TooltipLastItem(FormatPiperVoiceLabel(entry));
 
         ImGui.PushID(entry.CatalogId);
         if (!entry.Installed)
         {
-            if (ImGui.SmallButton("Install"))
+            if (UiGui.SmallButton("Install"))
                 StartPiperInstall(entry.CatalogId);
             TooltipLastItem("Downloads and installs the selected Piper voice.");
         }
@@ -1436,7 +1476,7 @@ public sealed class ConfigWindow : Window, IDisposable
             {
                 DrawDisabledStatus("Selected", "This installed Piper voice is currently selected.");
             }
-            else if (ImGui.SmallButton("Select"))
+            else if (UiGui.SmallButton("Select"))
             {
                 plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
                 TooltipLastItem("Makes this installed Piper voice the active Piper voice.");
@@ -1447,12 +1487,12 @@ public sealed class ConfigWindow : Window, IDisposable
             }
 
             ImGui.SameLine();
-            if (ImGui.SmallButton("Uninstall"))
+            if (UiGui.SmallButton("Uninstall"))
                 plugin.PiperVoiceCatalogService.UninstallVoice(entry.CatalogId);
             TooltipLastItem("Removes this Piper voice from the managed voices folder.");
 
             ImGui.SameLine();
-            if (ImGui.SmallButton("Open folder"))
+            if (UiGui.SmallButton("Open folder"))
                 plugin.PiperVoiceCatalogService.OpenFolder(entry.InstalledDirectory);
             TooltipLastItem("Opens the folder containing this installed Piper voice.");
         }
@@ -1464,10 +1504,12 @@ public sealed class ConfigWindow : Window, IDisposable
     private void DrawPiperCatalogTable(IReadOnlyList<PiperVoiceCatalogEntry> entries, Configuration cfg)
     {
         var tableHeight = Math.Max(220f, ImGui.GetContentRegionAvail().Y * 0.48f);
-        var widths = CalculatePiperCatalogColumnWidths(entries, ImGui.GetContentRegionAvail().X);
+        var widths = CalculatePiperCatalogColumnWidths(entries);
+        var innerWidth = widths.Voice + widths.Language + widths.Gender + widths.Quality + widths.Source + widths.Size + widths.State + widths.Actions
+            + 16 * ImGui.GetStyle().CellPadding.X + 17 * MaterialTheme.Metrics.Scale;
         var tableFlags = ImGuiTableFlags.Borders |
                          ImGuiTableFlags.RowBg |
-                         ImGuiTableFlags.ScrollY |
+                         ImGuiTableFlags.ScrollY | ImGuiTableFlags.ScrollX |
                          ImGuiTableFlags.SizingFixedFit |
                          ImGuiTableFlags.NoHostExtendX;
 
@@ -1475,7 +1517,7 @@ public sealed class ConfigWindow : Window, IDisposable
                 "PiperCatalogTable",
                 8,
                 tableFlags,
-                new Vector2(-1f, tableHeight)))
+                new Vector2(-1f, tableHeight), innerWidth))
             return;
 
         ImGui.TableSetupColumn("Voice", ImGuiTableColumnFlags.WidthFixed, widths.Voice);
@@ -1486,7 +1528,7 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.TableSetupColumn("Size", ImGuiTableColumnFlags.WidthFixed, widths.Size);
         ImGui.TableSetupColumn("State", ImGuiTableColumnFlags.WidthFixed, widths.State);
         ImGui.TableSetupColumn("Actions", ImGuiTableColumnFlags.WidthFixed, widths.Actions);
-        ImGui.TableHeadersRow();
+        UiGui.TableHeadersRow();
 
         foreach (var entry in entries)
             DrawPiperCatalogRow(entry, cfg);
@@ -1502,7 +1544,7 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.PushID(entry.CatalogId);
         ImGui.TableNextRow();
         ImGui.TableSetColumnIndex(0);
-        if (ImGui.Selectable($"{entry.VoiceKey}##voice", selected))
+        if (UiGui.Selectable($"{entry.VoiceKey}##voice", selected, entry.VoiceKey))
             selectedPiperCatalogId = entry.CatalogId;
         TooltipLastItem(FormatPiperVoiceLabel(entry));
 
@@ -1517,7 +1559,7 @@ public sealed class ConfigWindow : Window, IDisposable
         ImGui.TableSetColumnIndex(5);
         DrawClippedTableText(entry.SizeLabel, "Installed or download size for this Piper voice.");
         ImGui.TableSetColumnIndex(6);
-        DrawClippedTableText(isCurrent ? "Selected" : entry.Installed ? "Installed" : "Catalog", "Whether this Piper voice is selected, installed, or only available in the catalog.");
+        DrawClippedTableText(UiText.T(isCurrent ? "Selected" : entry.Installed ? "Installed" : "Catalog"), "Whether this Piper voice is selected, installed, or only available in the catalog.");
         ImGui.TableSetColumnIndex(7);
         DrawPiperCatalogRowActions(entry, isCurrent);
         ImGui.PopID();
@@ -1525,14 +1567,14 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawPiperCatalogRowActions(PiperVoiceCatalogEntry entry, bool isCurrent)
     {
-        if (ImGui.SmallButton("Details"))
+        if (UiGui.SmallButton("Details"))
             selectedPiperCatalogId = entry.CatalogId;
         TooltipLastItem("Shows details and the compact action bar for this Piper voice.");
 
         if (!entry.Installed)
         {
             ImGui.SameLine();
-            if (ImGui.SmallButton("Install"))
+            if (UiGui.SmallButton("Install"))
                 StartPiperInstall(entry.CatalogId);
             TooltipLastItem("Downloads and installs this Piper voice.");
             return;
@@ -1541,13 +1583,13 @@ public sealed class ConfigWindow : Window, IDisposable
         if (!isCurrent)
         {
             ImGui.SameLine();
-            if (ImGui.SmallButton("Select"))
+            if (UiGui.SmallButton("Select"))
                 plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
             TooltipLastItem("Makes this installed Piper voice the active Piper voice.");
         }
 
         ImGui.SameLine();
-        if (ImGui.SmallButton("Uninstall"))
+        if (UiGui.SmallButton("Uninstall"))
             plugin.PiperVoiceCatalogService.UninstallVoice(entry.CatalogId);
         TooltipLastItem("Removes this installed Piper voice from the managed voices folder.");
     }
@@ -1560,15 +1602,15 @@ public sealed class ConfigWindow : Window, IDisposable
 
         ImGui.Separator();
         var isCurrent = entry.Installed && string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
-        ImGui.TextUnformatted("Selected voice details");
+        UiGui.TextUnformatted("Selected voice details");
         TooltipLastItem("Details for the highlighted Piper catalog row.");
         DrawWrappedStatus(isCurrent ? "State: selected Piper voice" : entry.Installed ? "State: installed" : "State: not installed", "Install and selection state for the highlighted Piper voice.");
-        DrawWrappedStatus(FormatPiperVoiceLabel(entry), "Full Piper voice label.");
-        DrawWrappedStatus($"Language: {FormatPiperLanguage(entry.LanguageName, entry.LanguageCode)}", "Language metadata for this Piper voice.");
-        DrawWrappedStatus($"{entry.DisplayName}  {entry.SizeLabel}", "Display name and local/download size for this Piper voice.");
-        DrawWrappedStatus($"License: {entry.License}", "License metadata from the voice catalog.");
+        DrawWrappedStatus(FormatPiperVoiceLabel(entry), "Full Piper voice label.", translate: false);
+        DrawWrappedStatus(UiText.Interpolated($"Language: {FormatPiperLanguage(entry.LanguageName, entry.LanguageCode)}"), "Language metadata for this Piper voice.");
+        DrawWrappedStatus(UiText.Interpolated($"{entry.DisplayName}  {entry.SizeLabel}"), "Display name and local/download size for this Piper voice.");
+        DrawWrappedStatus(UiText.Interpolated($"License: {entry.License}"), "License metadata from the voice catalog.");
         if (!string.IsNullOrWhiteSpace(entry.Notes))
-            DrawWrappedStatus(entry.Notes, "Additional notes from the Piper voice catalog.");
+            DrawWrappedStatus(entry.Notes, "Additional notes from the Piper voice catalog.", translate: false);
 
         ImGui.PushID(entry.CatalogId);
         if (entry.Installed)
@@ -1577,24 +1619,24 @@ public sealed class ConfigWindow : Window, IDisposable
                 DrawDisabledStatus("Selected", "This Piper voice is already active.");
             else
             {
-                if (ImGui.Button("Select"))
+                if (UiGui.Button("Select"))
                     plugin.PiperVoiceCatalogService.SelectVoice(entry.CatalogId);
                 TooltipLastItem("Makes this installed Piper voice active.");
             }
 
             ImGui.SameLine();
-            if (ImGui.Button("Uninstall"))
+            if (UiGui.Button("Uninstall"))
                 plugin.PiperVoiceCatalogService.UninstallVoice(entry.CatalogId);
             TooltipLastItem("Removes this Piper voice from the managed voices folder.");
 
             ImGui.SameLine();
-            if (ImGui.Button("Open folder"))
+            if (UiGui.Button("Open folder"))
                 plugin.PiperVoiceCatalogService.OpenFolder(entry.InstalledDirectory);
             TooltipLastItem("Opens the folder containing this installed Piper voice.");
         }
         else
         {
-            if (ImGui.Button("Install"))
+            if (UiGui.Button("Install"))
                 StartPiperInstall(entry.CatalogId);
             TooltipLastItem("Downloads and installs this Piper voice.");
         }
@@ -1840,14 +1882,14 @@ public sealed class ConfigWindow : Window, IDisposable
         => string.IsNullOrWhiteSpace(hash) ? string.Empty : hash[..Math.Min(12, hash.Length)];
 
     private static string FormatPiperSemitones(double semitones)
-        => semitones.ToString("+0.0;-0.0;0.0");
+        => semitones.ToString("+0.0;-0.0;0.0", UiText.Current.Culture);
 
-    private static PiperCatalogColumnWidths CalculatePiperCatalogColumnWidths(IReadOnlyList<PiperVoiceCatalogEntry> entries, float availableWidth)
+    private static PiperCatalogColumnWidths CalculatePiperCatalogColumnWidths(IReadOnlyList<PiperVoiceCatalogEntry> entries)
     {
-        const float actionsWidth = 206f;
-        const float padding = 18f;
+        var actionsWidth = new[] { "Details", "Install", "Select", "Uninstall" }.Sum(UiGui.ButtonWidth) + 36 * MaterialTheme.Metrics.Scale;
+        var padding = 18 * MaterialTheme.Metrics.Scale;
         var states = entries.Select(entry => entry.Installed ? "Installed" : "Catalog").Append("Selected");
-        var widths = new PiperCatalogColumnWidths(
+        return new PiperCatalogColumnWidths(
             NaturalColumnWidth("Voice", entries.Select(entry => entry.VoiceKey), padding),
             NaturalColumnWidth("Language", entries.Select(entry => FormatPiperLanguage(entry.LanguageName, entry.LanguageCode)), padding),
             NaturalColumnWidth("Gender", entries.Select(entry => entry.Gender), padding),
@@ -1856,88 +1898,46 @@ public sealed class ConfigWindow : Window, IDisposable
             NaturalColumnWidth("Size", entries.Select(entry => entry.SizeLabel), padding),
             NaturalColumnWidth("State", states, padding),
             actionsWidth);
-
-        var remaining = Math.Max(260f, availableWidth - actionsWidth);
-        var nonActionTotal = widths.Voice + widths.Language + widths.Gender + widths.Quality + widths.Source + widths.Size + widths.State;
-        if (nonActionTotal <= remaining)
-            return widths;
-
-        var voice = widths.Voice;
-        var language = widths.Language;
-        var gender = widths.Gender;
-        var quality = widths.Quality;
-        var source = widths.Source;
-        var size = widths.Size;
-        var state = widths.State;
-        var over = nonActionTotal - remaining;
-
-        ShrinkColumn(ref voice, 95f, ref over);
-        ShrinkColumn(ref source, 70f, ref over);
-        ShrinkColumn(ref language, 80f, ref over);
-        ShrinkColumn(ref quality, 56f, ref over);
-        ShrinkColumn(ref gender, 50f, ref over);
-        ShrinkColumn(ref size, 60f, ref over);
-        ShrinkColumn(ref state, 62f, ref over);
-
-        if (over > 0f)
-        {
-            var total = voice + language + gender + quality + source + size + state;
-            var scale = total > 0f ? remaining / total : 1f;
-            voice *= scale;
-            language *= scale;
-            gender *= scale;
-            quality *= scale;
-            source *= scale;
-            size *= scale;
-            state *= scale;
-        }
-
-        return new PiperCatalogColumnWidths(voice, language, gender, quality, source, size, state, actionsWidth);
     }
 
     private static float NaturalColumnWidth(string header, IEnumerable<string> values, float padding)
     {
-        var maxText = ImGui.CalcTextSize(header).X;
+        var maxText = MaterialText.Measure(UiText.T(header)).X;
         foreach (var value in values)
-            maxText = Math.Max(maxText, ImGui.CalcTextSize(string.IsNullOrWhiteSpace(value) ? " " : value).X);
+            maxText = Math.Max(maxText, MaterialText.Measure(string.IsNullOrWhiteSpace(value) ? " " : UiText.T(value)).X);
 
         return MathF.Ceiling((maxText * 1.1f) + padding);
     }
 
-    private static void ShrinkColumn(ref float width, float minWidth, ref float over)
-    {
-        if (over <= 0f)
-            return;
+    private static void TooltipLastItemRaw(string text) { if (!string.IsNullOrWhiteSpace(text) && ImGui.IsItemHovered()) MaterialText.SetTooltip(text); }
 
-        var shrink = Math.Min(width - minWidth, over);
-        if (shrink <= 0f)
-            return;
-
-        width -= shrink;
-        over -= shrink;
-    }
+    private static void TooltipLastItem(FormattableString text) => TooltipLastItem(UiText.Interpolated(text));
 
     private static void TooltipLastItem(string text)
     {
         if (!string.IsNullOrWhiteSpace(text) && ImGui.IsItemHovered())
-            ImGui.SetTooltip(text);
+            UiGui.SetTooltip(text);
     }
 
-    private static void DrawWrappedStatus(string text, string tooltip)
+    private static void DrawWrappedStatus(FormattableString text, string tooltip) => DrawWrappedStatus(UiText.Interpolated(text), tooltip);
+
+    private static void DrawWrappedStatus(string text, string tooltip, bool translate = true)
     {
-        ImGui.TextWrapped(text);
+        MaterialText.TextWrapped(translate ? UiText.T(text) : text);
         TooltipLastItem(tooltip);
     }
 
+    private static void DrawDisabledStatus(FormattableString text, string tooltip) => DrawDisabledStatus(UiText.Interpolated(text), tooltip);
+
     private static void DrawDisabledStatus(string text, string tooltip)
     {
-        ImGui.TextDisabled(text);
+        UiGui.TextDisabled(text);
         TooltipLastItem(tooltip);
     }
 
     private static void DrawClippedTableText(string text, string tooltip)
     {
-        ImGui.TextUnformatted(text);
+        MaterialText.Text(text);
         TooltipLastItem(string.IsNullOrWhiteSpace(tooltip) ? text : tooltip);
     }
 
@@ -1954,7 +1954,7 @@ public sealed class ConfigWindow : Window, IDisposable
     private void DrawCommentaryToggles(Configuration cfg)
     {
         var login = cfg.LoginCommentaryEnabled;
-        if (ImGui.Checkbox("Login", ref login))
+        if (UiGui.Checkbox("Login", ref login))
         {
             cfg.LoginCommentaryEnabled = login;
             cfg.Save();
@@ -1962,7 +1962,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Allows one spoken line after the local player becomes ready this session.");
 
         var territory = cfg.TerritoryCommentaryEnabled;
-        if (ImGui.Checkbox("Territory change", ref territory))
+        if (UiGui.Checkbox("Territory change", ref territory))
         {
             cfg.TerritoryCommentaryEnabled = territory;
             cfg.Save();
@@ -1970,7 +1970,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Allows spoken lines when moving between territories, subject to its cooldown.");
 
         var idle = cfg.IdleCommentaryEnabled;
-        if (ImGui.Checkbox("Idle", ref idle))
+        if (UiGui.Checkbox("Idle", ref idle))
         {
             cfg.IdleCommentaryEnabled = idle;
             cfg.Save();
@@ -1978,7 +1978,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Allows occasional spoken lines after the client has been idle long enough.");
 
         var combat = cfg.CombatCommentaryEnabled;
-        if (ImGui.Checkbox("Combat start/end", ref combat))
+        if (UiGui.Checkbox("Combat start/end", ref combat))
         {
             cfg.CombatCommentaryEnabled = combat;
             cfg.Save();
@@ -1986,7 +1986,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Allows spoken lines when combat starts or ends, subject to its cooldown.");
 
         var bgm = cfg.BgmMachinationsCommentaryEnabled;
-        if (ImGui.Checkbox("BGM Machinations", ref bgm))
+        if (UiGui.Checkbox("BGM Machinations", ref bgm))
         {
             cfg.BgmMachinationsCommentaryEnabled = bgm;
             cfg.Save();
@@ -1994,7 +1994,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.");
 
         var expanded = cfg.ExpandedEventCommentaryEnabled;
-        if (ImGui.Checkbox("Expanded events", ref expanded))
+        if (UiGui.Checkbox("Expanded events", ref expanded))
         {
             cfg.ExpandedEventCommentaryEnabled = expanded;
             cfg.Save();
@@ -2002,7 +2002,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.");
 
         var triggerChance = cfg.ReadingRoegadynTriggerChancePercent;
-        if (ImGui.SliderInt("Automatic trigger chance %", ref triggerChance, 0, 100))
+        if (UiGui.SliderInt("Automatic trigger chance %", ref triggerChance, 0, 100))
         {
             cfg.ReadingRoegadynTriggerChancePercent = Math.Clamp(triggerChance, 0, 100);
             cfg.Save();
@@ -2013,7 +2013,7 @@ public sealed class ConfigWindow : Window, IDisposable
     private void DrawCooldowns(Configuration cfg)
     {
         var territoryCooldown = cfg.TerritoryCommentaryCooldownSeconds;
-        if (ImGui.InputInt("Territory cooldown seconds", ref territoryCooldown))
+        if (UiGui.InputInt("Territory cooldown seconds", ref territoryCooldown))
         {
             cfg.TerritoryCommentaryCooldownSeconds = Math.Max(0, territoryCooldown);
             cfg.Save();
@@ -2021,7 +2021,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Minimum time between territory-change comments; lower values can make travel chatty.");
 
         var idleCooldown = cfg.IdleCommentaryCooldownSeconds;
-        if (ImGui.InputInt("Idle cooldown seconds", ref idleCooldown))
+        if (UiGui.InputInt("Idle cooldown seconds", ref idleCooldown))
         {
             cfg.IdleCommentaryCooldownSeconds = Math.Max(30, idleCooldown);
             cfg.Save();
@@ -2029,7 +2029,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Minimum idle time before another idle comment; values below 30 seconds are raised to 30.");
 
         var combatCooldown = cfg.CombatCommentaryCooldownSeconds;
-        if (ImGui.InputInt("Combat cooldown seconds", ref combatCooldown))
+        if (UiGui.InputInt("Combat cooldown seconds", ref combatCooldown))
         {
             cfg.CombatCommentaryCooldownSeconds = Math.Max(0, combatCooldown);
             cfg.Save();
@@ -2037,7 +2037,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Minimum time between combat start/end comments.");
 
         var bgmCooldown = cfg.BgmCommentaryCooldownSeconds;
-        if (ImGui.InputInt("BGM cooldown seconds", ref bgmCooldown))
+        if (UiGui.InputInt("BGM cooldown seconds", ref bgmCooldown))
         {
             cfg.BgmCommentaryCooldownSeconds = Math.Max(0, bgmCooldown);
             cfg.Save();
@@ -2045,7 +2045,7 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Minimum time between Machinations BGM comments.");
 
         var expandedCooldown = cfg.ExpandedEventCooldownSeconds;
-        if (ImGui.InputInt("Expanded event cooldown seconds", ref expandedCooldown))
+        if (UiGui.InputInt("Expanded event cooldown seconds", ref expandedCooldown))
         {
             cfg.ExpandedEventCooldownSeconds = Math.Max(0, expandedCooldown);
             cfg.Save();

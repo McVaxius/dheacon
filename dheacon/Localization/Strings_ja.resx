@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [テンプレート]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [ユーザー]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> ミニウィンドウ</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> 設定</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f 半音</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f 秒</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. 動作モードを選択</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. ローカル音声を選択</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. テストして完了</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Piperの処理中…</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>操作</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>使用中のプリセット</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>選択したプリセット：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>環境変数と既定値を解決した実際のフォルダーです。</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>変換後</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>変換器</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>変換器のID・バージョン・既存の内容ハッシュをPiperキャッシュキーに含めます。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>変換器: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>変換器: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>プレビューとPiper合成に使用するテキスト変換器です。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>変換器のID・バージョン・既存の内容ハッシュをPiperキャッシュキーに含めます。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>変換器バージョン：{0}  ハッシュ：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>変換器の警告： </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>音声生成の追加情報</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Piperカタログの追加注記です。</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>通知音のパス</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>通知音のパス: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>すべて</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>待機間隔に従ってMachinationsのBGM検出時に発話します。</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>マウント・コンテンツ・製作・採集などの変化に追加コメントします。</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>十分な待機時間後に時々発話します。</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>このセッションでプレイヤーの準備完了後に一度発話します。</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>待機間隔に従って戦闘開始・終了時に発話します。</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>待機間隔に従ってエリア移動時に発話します。</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>再生前のWAVゲイン。変更すると音声キャッシュを再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Piper合成後の再生ゲインで、合成音量ではありません。変更するとWAVを再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>音声テスト失敗： </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>自動発動確率 %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>BGMコメントの間隔秒数</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>BGMの状態</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>BGMの状態: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>戻る</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>エンジン</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>青</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>同梱</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>同梱テンプレートは保護され、名前変更・削除・上書きはできません。</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>処理中</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>キャッシュフォルダー</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>キャッシュ容量：{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>キャッシュの状態</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>キャッシュの状態: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>キャッシュの状態: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>カタログ</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>カタログの性別情報です。</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>このPiper音声のカタログ提供元です。</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>テンプレートの変更はこのセッションのみです。保存するには＋で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>DTR表示をテキスト、アイコン＋テキスト、アイコンのみから選びます。</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>Piperカタログの行を選ぶと導入・選択・削除操作を表示します。</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>音声を選び、必要な準備とテストを行い、自動発動を有効にするか決めます。</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>保存する状態を選択します。有効の選択肢を選ぶまでDheaconは有効になりません。</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>Dheaconを有効にするか選択してください。</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>従来の通知プリセット</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>従来モードでは発話しませんが、後で選ぶ音声プリセットのために保存します。</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>従来の移動通知音と、テレポ・デジョンの抑制設定を維持します。</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>従来のエリア移動通知</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>PiperのWAVキャッシュを消去</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>キャッシュを消去</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>設定を閉じる</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>色</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>戦闘コメントの間隔秒数</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>戦闘開始・終了</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>コマンド：{0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>コメントのプリセット</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>コンパクトモード</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>対応するWindows音声の音高。従来のSAPIでは無視される場合があります。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Piper --length_scale。小さいほど速く、大きいほど遅くなります。変更するとWAVを再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Piper --sentence_silence。大きいほど文間の休止が長くなり、WAVを再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Windows/SAPIの発話速度。変更すると対象の音声を再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>WAV保存前のWindows/SAPI合成音量。</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>持ち運び可能なbase64のプリセットJSONをクリップボードへコピーします。</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>現在のBGM ID：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>BGM検出の現在の状態と確認されたIDです。</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>BGM検出の現在の状態と確認されたIDです。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>検索と絞り込み後のPiperカタログ件数です。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Piperのカタログ・ダウンロード・導入・選択の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>ローカルPiper実行環境の現在の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Piperの準備・ダウンロード・導入の進行状況です。</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>クイック設定で維持する使用中のプリセットです。</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>生成済みWAVキャッシュの現在のおおよその容量です。</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>ローカルPiper実行環境の現在の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>現在のテキスト</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>現在のトリガー状態</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>新しく生成する音声に使用するエンジンと声です。</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>選択中のPiperカタログ音声の完全な表示名です。</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>カスタム RGB</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>DTRバー</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>DTR 無効時の記号</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>DTR 有効時の記号</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>DTR 表示方式</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>全エンジンの音声WAVを削除し、次回使用時に再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>PiperのWAVのみ削除し、現在の速度・休止・音高・ゲイン・変換設定で再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>使用中のユーザープリセットを削除します。</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>選択したプリセットの説明です。</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>選択したプリセットの説明です。</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>詳細</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>このPiper音声の詳細と操作を表示します。</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon Mini — 音声モニター</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Dheacon設定</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Dheaconモードは対象のエリア移動で同梱WAV通知音のみを再生します。</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Dheaconモードは対象のエリア移動で同梱WAV通知音のみを再生します。</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — メイン（音声設定）</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>診断</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>表示名</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>このPiper音声の名前と導入・ダウンロード容量です。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>管理対象のWindows用ポータブルPiper実行環境をダウンロードして導入します。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>このPiper音声をダウンロードして導入します。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>このPiper音声をダウンロードして導入します。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>Piper実行環境と推奨音声をダウンロードまたは修復します。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>最新のPiperカタログを取得して導入状態を更新します。</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>名前変更や保存の前に＋で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>名前変更や保存の前に＋で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>使用中のプリセットを編集可能なユーザープリセットとして複製します。</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>使用中のユーザープリセット名を変更します。</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>Dheaconを有効にする</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>有効</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>設定完了後に自動通知・コメントを有効にします。</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>スウェーデン語Piper合成前のテキスト変換。変更は今後のキャッシュキーに影響します。</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>追加イベントの間隔秒数</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>追加イベント</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>変換器が有効か、選択したPiper音声に適用できるかを示します。</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>使用中のプリセットを出力</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>カタログの性別情報でPiper音声を絞り込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>言語でPiper音声を絞り込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>モデル品質でPiper音声を絞り込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>公式またはコミュニティ提供元でPiper音声を絞り込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>導入状態でPiper音声を絞り込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>音声キー・言語・性別・品質・提供元・カタログIDを検索します。</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>クイック設定を完了</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>追従者の状態</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>追従者の状態: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>追従者の警告： </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>テンプレートの変更はこのセッションのみです。保存するには＋で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>選択中のPiperカタログ音声の完全な表示名です。</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>性別</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>一般</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>主音声エンジンを変更せず、設定したPiper音声でプレビューを生成して再生します。</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>アイコンとテキスト</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>アイコンのみ</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>待機</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>待機コメントの間隔秒数</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren：このプリセットでは無効</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren：Krangler経由の任意の追従者「{0}」</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>Krangler読込済みなら使用中のFren状態を直ちに送信します。</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>プリセットを取り込む</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>ユーザープリセットを取り込みます。保護済みの同梱IDは新しいIDで取り込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>導入</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>Arcticを導入</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>選択中・導入済み・カタログのみの状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>実行環境を導入</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>導入済み</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>インストール状態</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>このPiper音声の名前と導入・ダウンロード容量です。</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>推奨のen_US-arctic-medium音声を導入して選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>キー：{0}
+提供元：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Kranglerは任意で、通知音やコメントの再生には影響しません。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Kranglerは任意で、通知音やコメントの再生には影響しません。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Kranglerは任意です。一覧がない場合はテキスト入力を使用できます。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Kranglerのプリセット</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>追従者に使うKranglerの名前・ID・ファイル名です。一覧が利用できない場合に表示します。</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>言語</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>このPiper音声の言語情報です。</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>言語：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Krangler Imaginary Fren IPCの最新状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Kranglerプリセット一覧IPCの最新状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Piperのカタログ・ダウンロード・導入・選択の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Piperのカタログ・ダウンロード・導入・選択の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>最新のPiperエラーです。再試行またはWindows既定音声を選べます。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>最後のPiper音高変更：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>最後のPiper音高変更：{0} 適用：{1}。半音：{2} st。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>最新のPiperエラーです。再試行またはWindows既定音声を選べます。</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Reading Roegadynの最新のトリガー判定です。</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>最後の変換後テキスト：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>最後の変換器：{0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>最後の通知 (UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>キャッシュ再利用または新規生成の最新結果です。</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>最後の原文：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>最後の音声</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>キャッシュ再利用または新規生成の最新結果です。</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>最新のキューエラーです。テストは試行済みとして扱われ、設定変更後に再試行できます。</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>音声キューの現在または最新の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>音声合成またはキャッシュの最新警告です。</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>音声テキスト変換器の最新読込状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>音声テキスト変換器の最新警告です。</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>最後の移動判定</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>Dheaconを無効のままにする</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>従来のSAPI</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>従来のSAPI - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>従来のSAPI音声：{0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>音声カタログのライセンス情報です。</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>ライセンス：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>セリフ集</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>セリフ集: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>セリフ集: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>セリフ集：Dheaconモードでは未使用。</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>選択したセリフ集の状態と説明です。</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>音声キューの現在または最新の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>フォントを読み込み中…</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>ローカルPiper - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>ログイン</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>短時間に続くイベントの発話を減らすには値を下げます。</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>自動トリガーを有効にせず一度音声テストします。</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>今後の合成に導入済みPiper音声を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>今後の合成に導入済みPiper音声を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>キャッシュ上限 MB</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>WAVキャッシュの総容量上限。新しい音声生成後に古いファイルを削除します。</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>ミニウィンドウ</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>次の待機コメントまでの最短時間。30秒未満は30秒へ補正します。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>MachinationsのBGMコメント間の最短時間です。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>戦闘開始・終了コメント間の最短時間です。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>追加イベントコメント間の最短時間です。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>エリア移動コメントの最短間隔。小さいほど移動時の発話が増えます。</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>エンジン: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>Windows標準</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>Windows標準音声：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>Piper音高変換処理の最新結果です。</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>変換器による置換前の正規化した原文です。</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>変換器による置換後、Piperへ送るテキストです。</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>名前</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Kranglerがローカル追従者へ表示する名前です。</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>未実行</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>次へ：音声</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>次へ：テストと完了</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>いいえ</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>該当するKranglerプリセットはありません。</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>Piper音声は未選択</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>Piper音声は未導入です。</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>選択できるセリフ集はありません。</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>まだ音声はありません。</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>なし</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>変換器による置換前の正規化した原文です。</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>未導入</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>検出された従来のSAPI音声数です。</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>検出されたWindows標準音声数です。</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>管理対象の導入済みPiper音声数です。</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>待機中の発話数</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>準備または再生待ちの音声要求数です。</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>フォルダーを開く</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>音声開始時にミニを開く</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>Piper音声タブで推奨英語Arctic音声を導入してください。</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>この導入済みPiper音声のフォルダーを開きます。</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>実行環境・音声・キャッシュ・マニフェストのあるPiperフォルダーを開きます。</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>このプリセットではImaginary Frenは無効です。一般設定で変更でき、Kranglerが必要です。</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>Dheacon有効時にKranglerでローカル追従者「{0}」を呼べます。Kranglerなしでもコメントは動作します。</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>任意のpiper.exeパス。空欄では管理対象フォルダーまたはPATHを検索します。</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>原文</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>出力ゲイン %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>インポートを貼り付け</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>プリセットのbase64を貼り付け</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>待機中の音声要求：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>ピンク</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Piperの音声</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Piperの音声: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Piperを準備できないためWindowsの既定音声を選択しました。ここで再試行できます。</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>推奨の英語Arctic音声でPiperが使用可能です。</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piperの準備ができました。</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>ローカルPiper</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Piperモデルの品質等級です。</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Piperの処理中…</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Piperの音高</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Piperの処理中…</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piperはローカルで合成します。実行環境と音声は一度ダウンロードし、生成音声は端末に保存します。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Piper実行環境のパス</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>ローカル合成で現在使用するPiper実行環境のパスです。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>Piper実行環境の状態は未確認です。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Piper実行環境のパス: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Piper実行環境のパス: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Piper：速度{0:F2}、文間{1:F2}s、音高{2} st、ゲイン{3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Piper設定失敗のためWindowsの既定音声を選択： </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Piperの速度</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Piper速度：{0:F2} · 文間：{1:F2}s · 音高：{2} st · 再生ゲイン：{3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>今後のWAVキャッシュに影響するPiper合成・後処理設定です。</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Piperテキスト変換</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Piperの音声</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>このPiper音声の言語情報です。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Piper音声：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Piperの警告： </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>音高</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>音高：{0:F2} · 出力ゲイン：{1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>再生ゲイン %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Dheaconモードは対象のエリア移動で同梱WAV通知音のみを再生します。</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>プラグイン有効</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>WAV後処理でありPiperの合成設定ではありません。歪みが生じる場合があります。負値で低音になり、WAVを再生成します。</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>Piperを準備</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>続行するにはPiperを準備するかWindowsの既定音声を選んでください。</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>Piper実行環境と推奨英語Arctic音声を準備中…</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>プリセット一覧の警告： </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>プリセット: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>プリセットの読込・取込・出力の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>プリセット提供元：{0}  保護：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>プリセット: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>プリセット: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>プリセット</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>テレポとデジョンによる通知・コメントを抑制します。</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>テレポとデジョンによる通知・コメントを抑制します。</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>プレビュー変換器：{0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>プレビューテキスト</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>現在のモード判定・状態をチャットに出力します。</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>同梱テンプレートは保護され、名前変更・削除・上書きはできません。</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>同梱テンプレートは保護され、名前変更・削除・上書きはできません。</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>品質</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>キュー</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>キューエラー： </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>キューエラー：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>キュー: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>選択したエンジンと音声でReading Roegadynテストをキューへ追加します。</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>クイック設定</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>設定完了。Dheaconは{0}です。</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>クイック設定の音声準備・選択・代替音声の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>クイック設定の音声準備・選択・代替音声の状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>速度</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>クリップボードのプリセットをインポート欄へ読み込みます。</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>推奨ローカルPiper</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>今すぐ同期</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>カタログを更新</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>音声を更新</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>Windows/SAPI/Piper音声を更新し、件数をチャットへ報告します。</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>Windows/SAPI/Piper音声を更新し、件数をチャットへ報告します。</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>管理対象フォルダーからこのPiper音声を削除します。</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>管理対象フォルダーからこのPiper音声を削除します。</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>名前を変更</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>使用中のユーザープリセット名を変更します。</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>キャッシュフォルダー: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Dheacon通知音に使用する解決済みパスです。</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>選択した設定を確認・テストし、試行結果を示します。</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>Piperを再試行</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>選択した設定を確認・テストし、試行結果を示します。</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>クイック設定を再実行</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>完了前に音声テストを実行してください。</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>現在の設定を保存</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>保存済み：{0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>保存した設定です。以後ウィザードは自動で開きません。</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>設定を保存し、後で有効にするまで自動トリガーを無効にします。</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>検索</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>Kranglerのプリセットを検索…</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>選択</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>Arcticを選択</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>Piperカタログの行を選ぶと導入・選択・削除操作を表示します。</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>導入済みPiper音声{0}を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>プリセットを選択</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>今後の音声に{0}を使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>選択中</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>Windowsの既定音声を選択しました。</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>Windowsの既定音声を選択しました。</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>選択したセリフ集の状態と説明です。</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>選択した動作モードです。</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>クイック設定で維持する使用中のプリセットです。</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>選択したプリセット：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>新しく生成する音声に使用するエンジンと声です。</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>選択した音声の詳細</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>音声: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>選択中：</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>名前でKranglerプリセットを選び、固定キーをDheaconプリセットへ保存します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>有効なゲームイベントに選択した音声コメントプリセットを使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>今後の合成に導入済みPiper音声を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>合成に使用する導入済みWindows/SAPI音声を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>導入済みの推奨en_US-arctic-medium音声を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>プリセット内のセリフに続いて使用するセリフ集を選択します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>音声エンジンを選択。Piperでは必要に応じて推奨英語Arctic音声を自動準備します。</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>プレビューとPiper合成に使用するテキスト変換器です。</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>文間の間隔</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>この状態でのDTR記号。長すぎる入力は切り詰めます。</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>この状態でのDTR記号。長すぎる入力は切り詰めます。</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Dheaconの通知WAVパス。相対パスはプラグインフォルダー基準です。</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>WAVキャッシュ保存先。空欄ではLocalAppDataの既定フォルダーを使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>設定</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>DTR に表示</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>カタログ{1}件中{0}件を表示。</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>このPiper音声の詳細と操作を表示します。</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>DalamudのDTRバーでクリック可能な状態表示を切り替えます。</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>サイズ</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>出所</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>このプリセットでFrenを呼び出す</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>音声</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>音声エンジン</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>音声処理中：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>音声の状況</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>音声はPC上で生成され、再利用用のWAVとして保存されます。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>キュー: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>音声をキューに追加しました。</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>音声の警告： </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>音声: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>音声コメント</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>音声モードはログイン、移動、戦闘、待機、BGMなどを、確率と待機間隔に従ってコメントします。</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>音声プリセット</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>音声テストをキューに追加しました。下の状態を確認してください。同じ内容ではキャッシュを再利用します。</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>テストを試みましたがキューが受け付けませんでした。下の状態を確認して再試行してください。</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>ほかの設定をリセットせず3段階を再実行します。</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>状態</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>状態：導入済み</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>状態：未導入</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>状態：使用中のPiper音声</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>状態を一時的に取得できません：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>状態をチャットへ</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>ステップ {0} / 3</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>Piperの待機をやめ、Windowsエンジンの既定音声に切り替えます。</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>Ko-fiで支援</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>テレポとデジョンを抑制</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>合成音量</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>音声合成の声（UI言語とは別）</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>ティール</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>エリア移動</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>エリア移動の待機秒数</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>変換後の音声をテスト</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>音声テスト</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>音声コメントをテスト</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>移動通知をテスト</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>変換後の音声をテスト中…</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>待機中または発話中のテキスト</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>テキストのみ</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>変換器による置換後、Piperへ送るテキストです。</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>現在のPiper変換器でプレビューするテキストです。</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>音声エンジン（プラグイン設定）</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>FFXIV用の音声合成（Dalamudプラグイン）</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>新しく生成する音声に使用するエンジンと声です。</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>保存した設定です。以後ウィザードは自動で開きません。</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>最新のPiperエラーです。再試行またはWindows既定音声を選べます。</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>最新のキューエラーです。テストは試行済みとして扱われ、設定変更後に再試行できます。</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>クイック設定で維持する使用中のプリセットです。</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>推奨音声と使用可能なPiper実行環境が見つかりました。</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>この導入済みPiper音声は使用中です。</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>この導入済みPiper音声は使用中です。</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>通知音のテストを試みました。WAVが利用できない場合はWindowsの通知音を使用しました。</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>トリガー</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>トリガー: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>Dheacon/Reading Roegadynの全トリガーを直ちに切り替えます。</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>フォントを読み込めませんでした。プラグインのログを確認してください。</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>削除</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>不明</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>Windowsの既定に切り替え</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>Piper合成前に{0}で{1}から{2}へ変換します。</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>ユーザー</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>このエンジンのWindows既定音声を使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>管理対象のローカルPiperと推奨英語Arctic音声を使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>このエンジンのWindows既定音声を使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>有効なゲームイベントに選択した音声コメントプリセットを使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>音声</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>待機中</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>有効時はKranglerへローカルのImaginary Fren追従者を要求します。</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>次の発話でミニウィンドウが開き、そのまま表示されます。</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>音声キューが準備または再生中かを示します。</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>選択中・導入済み・カタログのみの状態です。</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Windowsの既定</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Windowsの既定 - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Windowsの既定音声</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Windowsの既定音声はDheaconによるダウンロード不要で、Piper設定失敗時にも使用できます。</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>現在の設定を使用中のユーザープリセットへ保存します。</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>はい</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[テンプレート]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[ユーザー]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>無効</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0}（未導入）</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1}から{2}</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>待機：{0}</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>戦闘開始</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>戦闘終了</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>マウント開始</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>マウント終了</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>飛行開始</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>飛行終了</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>コンテンツ申請開始</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>コンテンツ申請終了</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>コンテンツ開始</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>コンテンツ終了</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>製作開始</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>製作終了</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>採集開始</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>採集終了</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>釣り開始</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>釣り終了</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>楽器演奏開始</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>楽器演奏終了</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>ミニゲーム開始</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>ミニゲーム終了</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>呼び鈴開始</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>呼び鈴終了</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>パーティ募集開始</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>パーティ募集終了</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>泳ぎ開始</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>泳ぎ終了</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>潜水開始</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>潜水終了</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>コンテンツ内カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>コンテンツ内カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>コンテンツ外カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>コンテンツ外カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>宝物庫カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>宝物庫カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>手動テスト</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>エリア移動</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>レベル変更</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>クラス・ジョブ変更</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>戦闘不能</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>復帰</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>PvP開始</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>PvP終了</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>近くのプレイヤーの観察</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>近くのプレイヤー集団の観察</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>Windows標準</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>従来のSAPI</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>ローカルPiper</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>プレイヤーが準備できていないため{0}を無視しました。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>拡張イベントコメントが無効なため{0}を無視しました。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>拡張イベントのクールダウンにより{0}を抑制しました。</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>{0}をスキップ：音声処理中です。</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>{0}をスキップ：自動発動確率は0%です。</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>{0}をスキップ：発動確率{1}%の抽選に外れました。</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>{0}をキューに追加：{1}。</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>{0}をキューに追加できませんでした：{1}。</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>{0}をキューに追加：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>{0}を準備中：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>{0}を読み上げました：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>{0}の読み上げに失敗しました。</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>{0}を生成：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>キャッシュ一致：{0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>{0}の音声処理に失敗し、従来のSAPIを使用：{1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0}に失敗し、従来のSAPIを使用：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>{0}には適用されません。</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>{0}のセリフが見つからないため、代替テキストを使用しました。</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> (音高{0}半音)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> (音高{0}半音をスキップ)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> (音高{0}半音を適用)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> (音高{0}半音の警告)</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>スキップ（音高{0}半音）。</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>SoundTouch.NETで音高{0}半音を適用（倍率{1}、{2}サンプル、音声{3}バイト）。</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>Piperの音高{0}半音のキャッシュが一致したため、この要求では音高処理を実行しませんでした。</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Piperの音高変更に失敗（{0}半音）：{1}。変更前のWAVを使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>Piperの{0}をダウンロード中：{1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>Piperの{0}をダウンロード中：{1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>ランタイム</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>モデル</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>設定</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>モデルカード</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>パッケージ</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>手動テスト</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>プレイヤー準備完了</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>待機クールダウン</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>クイック設定テスト</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>PvP開始</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>PvP終了</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>クラス・ジョブ{0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} レベル{1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>近くのプレイヤー{0}人</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>戦闘開始</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>戦闘終了</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>マウント開始</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>マウント終了</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>飛行開始</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>飛行終了</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>コンテンツ申請開始</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>コンテンツ申請終了</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>コンテンツ開始</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>コンテンツ終了</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>製作開始</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>製作終了</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>採集開始</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>採集終了</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>釣り開始</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>釣り終了</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>楽器演奏開始</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>楽器演奏終了</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>ミニゲーム開始</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>ミニゲーム終了</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>呼び鈴開始</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>呼び鈴終了</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>パーティ募集開始</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>パーティ募集終了</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>泳ぎ開始</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>泳ぎ終了</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>潜水開始</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>潜水終了</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>コンテンツ内カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>コンテンツ内カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>コンテンツ外カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>コンテンツ外カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>宝物庫カットシーン開始</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>宝物庫カットシーン終了</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>戦闘不能開始</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>戦闘不能終了</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>最初のエリア移動を待っています。</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>エリアを {0} に初期化しました。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>プラグインが無効のため {0} -&gt; {1} を無視しました。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>直前の発動から {2:F1} 秒のため {0} -&gt; {1} を抑制しました。</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>エリア移動 {0} -&gt; {1} で発動しました。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>BGM 検出は未初期化です。</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>BGM 制御ブロックのポインターが準備できていません。</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>BGM シーン一覧のポインターが準備できていません。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>BGM 検出は有効ですが、優先スロットに有効な曲 ID がありません。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>BGM 検出は有効です。現在の BGM ID: {0}。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>BGM 検出の読み取りに失敗しました: {0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>BGM シグネチャを解決できません。BGM への反応は無効です。</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>BGM シグネチャを解決しました。最初の読み取りを待っています。</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>BGM シグネチャの解決に失敗しました: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn はプレイヤーの準備完了を待っています。</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn はログインを待っています。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Reading Roegadyn モードが無効かプラグインが無効のため、手動音声を無視しました。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>エリア移動のコメントは無効のため無視しました。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>クールダウンのため {0} -&gt; {1} のエリアコメントを抑制しました。</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>プレイヤーの準備が完了しました。ログインコメントは無効です。</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>戦闘状態が変わりました。戦闘コメントは無効です。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>クールダウンのため戦闘コメントを抑制しました。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>クールダウンのため Machinations BGM のコメントを抑制しました。</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>カットシーンの状態が変わりました。拡張コメントは無効です。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>音声キューの準備ができました。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>音声キューを停止しました。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>予期しない処理エラーにより音声キューを停止しました。</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>音声再生をキャンセルしました。</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>このセッションでは Piper カタログを更新していません。</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>Piper 音声カタログを更新しています...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Piper カタログを更新しました: {0} 件の音声。</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Piper カタログの更新に失敗しました。キャッシュ済みとインストール済みの音声を使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Piper 音声 {0} はインストール済みですが、ランタイムの設定に失敗しました。従来のSAPI を継続します。</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper は {0} で準備完了です。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Piper 音声 {0} はインストール済みですが、ランタイムがありません。従来のSAPI を継続します。</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>ポータブル版 Piper ランタイムをインストールしています...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>ポータブル版 Piper ランタイムをインストールしました ({0})。</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>ポータブル版 Piper ランタイムのインストールに失敗しました: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0} はインストール済みです。</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>{0} をインストールしています...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Piper 音声 {0} をインストールしました ({1:F1} MB)。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Piper 音声のインストールに失敗しました: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Piper 音声 '{0}' はインストールされていません。</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Piper 音声 {0} をアンインストールしました。</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>Piper 音声 {0} を選択しました。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>Piper ランタイムがありません。ポータブル版 piper.exe のパスを設定するか、piper.exe を {0} に配置してください</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>Piper ランタイムが見つかりました: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>公式 Piper 音声カタログをダウンロードしています...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>スウェーデン語版 Piper リリースカタログをダウンロードしています...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>キャッシュ済み Piper カタログを読み込みました: {0} 件の音声。</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>音声はまだ生成されていません。</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>テキストがありません。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>アダプターは適用されていません。</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>一致するアダプターがありません。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>音声テキストアダプターを {0} 件読み込みました。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>予備の音声テキストアダプターを読み込みました。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>{0} から読み込みました。</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>予備のアダプター。</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>キャッシュ済み WAV ファイルを {0} 件削除しました。</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>キャッシュ済み Piper WAV ファイルを {0} 件削除しました。</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>Piper の音高変更はまだ試行されていません。</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>セリフ集は読み込まれていません。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>セリフ集 {0} 件、セリフ {1} 件を読み込みました: 同梱 {2} 件、ユーザー {3} 件。</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>プリセットは読み込まれていません。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>プリセット '{0}' が見つかりません。</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>有効なプリセットを {0} に設定しました。</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>ユーザープリセット '{0}' を作成しました。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>プリセット '{0}' は保護されているため名前を変更できません。</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>プリセット名は空にできません。</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>プリセット名を '{0}' に変更しました。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>プリセット '{0}' は保護されているため上書きできません。先に + で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>現在の設定を '{0}' に保存しました。</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>保護されたプリセット '{0}' の実行中の Fren 設定を更新しました。変更を保存するには + で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>'{0}' の Fren 設定を保存しました。</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>保護されたプリセット '{0}' の実行中のセリフ集を更新しました。変更を保存するには + で複製してください。</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>'{0}' のセリフ集を保存しました。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>プリセット '{0}' は保護されているため削除できません。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>プリセット '{0}' はユーザープリセットファイルではありません。</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>プリセット '{0}' を削除しました。</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>プリセットのインポートテキストが空でした。</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>プリセットのインポート形式を認識できませんでした。</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>プリセット '{0}' をインポートしました。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>プリセット '{0}' は保護されているため上書きできません。</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>プリセット '{0}' を保存しました。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>プリセットを {0} 件読み込みました: 同梱 {1} 件、ユーザー {2} 件。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>Krangler フォロワー IPC は待機中です。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>Krangler プリセット一覧は読み込まれていません。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>Krangler プリセット一覧 IPC が失敗を返しました。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Krangler プリセット一覧は利用できません。代わりに自由入力を使用します。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>Krangler プリセットを {0} 件読み込みました。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Krangler プリセットのエクスポートは利用できません。</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>埋め込みの Krangler プリセットがありませんでした。</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>埋め込みの Krangler プリセットをインポートしました。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler が埋め込みプリセットのインポートを拒否しました。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Krangler プリセットのインポートは利用できません。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>Krangler Imaginary Fren IPC は利用できません。フォロワーなしで音声を継続します。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>フォロワーを無効にする際に Krangler Imaginary Fren IPC を利用できませんでした。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>Krangler フォロワーの状態を受信しました。</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>RIFF/WAVE ファイルではありません</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>WAV チャンク '{0}' が無効です</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>fmt チャンクが小さすぎます</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>fmt チャンクがありません</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>fmt チャンクが無効です</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>data チャンクがありません</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>WAV 形式タグ {0} は未対応です</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>PCM ビット深度 {0} は未対応です</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>IEEE 浮動小数点ビット深度 {0} は未対応です</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>16 ビット PCM データがサンプル境界に整列していません</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>24 ビット PCM データがサンプル境界に整列していません</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>32 ビット PCM データがサンプル境界に整列していません</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>浮動小数点 WAV データがサンプル境界に整列していません</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>元の WAV を使用できません: {0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>音高変更後の WAV を使用できません: {0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>音高処理でサンプルが生成されませんでした</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>音高変更後の WAV が作成されませんでした</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>変更後の音声データが元のデータと同じです</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>変更後の長さが {0} ms から {1} ms にずれました (許容差 {2} ms)</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>音声テキストアダプターは読み込まれていません。</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>BGM {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>オン</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>オフ</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}。プリセット: {2}。クリックで切り替え。</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>ウィンドウの外観</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>メインウィンドウにコンパクト切替を表示</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>メインウィンドウに言語選択を表示</value></data>
+  <data name="Transparency" xml:space="preserve"><value>透明度</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>不透明度 (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>フォーカスがないときに自動で薄くする</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>非フォーカス時の不透明度 (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>非フォーカス時の待機時間 (秒)</value></data>
+</root>

@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [şablon]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [kullanıcı]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> Küçük</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> Ayarlar</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f yarım ses</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f sn</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. Çalışma modunu seçin</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. Yerel konuşmayı seçin</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. Test edip tamamlayın</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Bir Piper kataloğu, çalışma ortamı veya ses işlemi zaten sürüyor.</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>İşlemler</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>Etkin ön ayar</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>Etkin ön ayar: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>Ortam değişkenleri ve varsayılanlar açıldıktan sonra kullanılan gerçek klasör.</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>Uyarlanmış</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>Uyarlayıcı</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>En son Piper sentezinin önbellek anahtarında kullanılan uyarlayıcı kimliği.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>Uyarlayıcı hizmeti: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>Uyarlayıcı durumu: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>Bu önizleme metnine uygulanacak uyarlayıcı.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>Uyarlayıcının sürümü ve içerik özeti Piper WAV önbellek anahtarlarına eklenir.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>Uyarlayıcı sürümü: {0}  Özet: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>Uyarlayıcı uyarısı: </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>Konuşma üretimi için ek bağlam</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Piper ses kataloğundan ek notlar.</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>Uyarı sesi yolu</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>Uyarı sesi: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>Tümü</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>Machinations arka plan müziği algılandığında bekleme süresine bağlı olarak bir repliğe izin verir.</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>Binek, görev, üretim ve toplama geçişleri gibi koşullara bağlı ek yorumlara izin verir.</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>İstemci yeterince uzun süre boşta kaldıktan sonra ara sıra konuşmaya izin verir.</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>Yerel oyuncu bu oturumda hazır olduğunda bir repliğe izin verir.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>Çatışma başladığında veya bittiğinde bekleme süresine bağlı olarak konuşmaya izin verir.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>Bölgeler arasında geçişte bekleme süresine bağlı olarak konuşmaya izin verir.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>WAV oluşturulduktan sonra, oynatmadan önce kazanç uygular. Değiştirilmesi önbellekteki konuşma dosyalarını yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Piper sentezinden sonra WAV oynatma kazancı uygular. Piper sentez ses düzeyi değildir; değiştirilmesi önbellekteki Piper WAV dosyalarını yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>Ses testi başarısız: </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>Otomatik tetikleme olasılığı %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>Machinations müziği</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>Müzik bekleme süresi (saniye)</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>Müzik durumu</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>Müzik durumu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>Geri</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>Motor</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>Mavi</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>Dahili</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>Dahili şablonlar salt okunurdur.</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>Meşgul</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>Önbellek klasörü</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>Önbellek boyutu: {0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>Önbellek durumu</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>Önbellek durumu: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>Önbellek durumu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>Katalog</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>Katalog cinsiyet üst verisi.</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>Bu Piper sesinin katalog kaynağı.</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>Korumalı şablonu geçerli oturum için değiştirir. Replik paketi seçimini kaydetmek için + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>DTR çubuğunun metin, simge ve metin veya yalnızca simge göstermesini değiştirir.</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>Yükleme/seçme/kaldırma işlemlerini burada görmek için Piper kataloğundan bir satır seçin.</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>Dheacon'un nasıl ses çıkaracağını seçin, gerekirse yerel konuşmayı hazırlayın, sonucu test edin ve otomatik tetikleyicileri etkinleştirip etkinleştirmeyeceğinize karar verin.</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>Kaydedilecek eklenti durumunu seçin. Bu açık bir seçimdir: etkin seçeneğini seçmedikçe tamamlama Dheacon'u etkinleştirmez.</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>Dheacon'un etkin olup olmayacağını seçin.</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>Klasik uyarı ön ayarı</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>Klasik mod konuşmaz; ancak bu seçim daha sonra seçeceğiniz konuşma ön ayarı için kaydedilir.</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>Klasik mod, mevcut ışınlanma ve Return bastırma seçeneği dahil Dheacon'un özgün geçiş uyarı sesini korur.</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>Klasik geçiş uyarıları</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>Piper WAV önbelleğini temizle</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>Önbelleği temizle</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>Ayarları kapat</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>Renk</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>Çatışma bekleme süresi (saniye)</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>Çatışma başlangıcı/bitişi</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>Komut: {0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>Yorum ön ayarı</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>Kompakt mod</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>Desteklendiğinde Modern Windows ses perdesini ayarlar; Legacy SAPI bunu yok sayabilir.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Piper --length_scale değerini ayarlar. Düşük değerler konuşmayı hızlandırır; yüksek değerler yavaşlatır. Değişiklik Piper WAV önbelleğini yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Piper --sentence_silence değerini ayarlar. Yüksek değerler cümle arası duraklamayı artırır ve Piper WAV önbelleğini yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Windows/SAPI konuşma hızını ayarlar. Değişiklik bu motorların konuşma önbelleğini yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>WAV önbelleğe alınmadan önce Windows/SAPI sentez ses düzeyini ayarlar.</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>Taşınabilir bir base64 ön ayar JSON bloğunu panoya kopyalar.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>Geçerli müzik kimliği: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>Müzik yoklaması tarafından gözlenen geçerli müzik kimliği.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>Geçerli müzik yoklaması durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>Arama ve filtrelerden sonraki geçerli Piper kataloğu kayıt sayısı.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Geçerli Piper indirme, yükleme veya seçim durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>Geçerli Piper çalışma ortamı keşif durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Geçerli Piper kurulum, indirme veya yükleme ilerlemesi.</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>Geçerli etkin ön ayar.</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>Önbellekteki üretilmiş konuşma WAV dosyalarının geçerli yaklaşık boyutu.</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>Geçerli yerel Piper çalışma ortamı durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>Geçerli metin</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>Geçerli tetikleyici durumu</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>Üretilen konuşma için kullanılacak geçerli ses.</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>Piper kataloğunda şu an vurgulanan ses.</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>Özel RGB</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>DTR Çubuğu</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>DTR devre dışı simgesi</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>DTR etkin simgesi</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>DTR modu</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>Tüm motorların üretilmiş konuşma WAV dosyalarını siler; sonraki konuşmalar bunları yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>Yalnızca önbellekteki Piper WAV dosyalarını siler; Piper çıktısı geçerli hız, duraklama, perde, kazanç ve uyarlayıcı ayarlarıyla yeniden üretilir.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>Etkin kullanıcı ön ayarını siler.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>Etkin ön ayarın sağladığı açıklama.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>Seçili ön ayarın sağladığı açıklama.</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>Ayrıntılar</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>Piper kataloğunda vurgulanan satırın ayrıntıları.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon Küçük — konuşma izleyicisi</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Dheacon Ayarları</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Dheacon modu sözlü yorum yerine paketlenmiş uyarı sesini oynatır.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Dheacon modu yalnızca eski paketlenmiş WAV dosyasını kullanır.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — ana (konuşma ayarları)</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>Tanılama</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>Görünen ad</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>Bu Piper sesinin görünen adı ve yerel/indirme boyutu.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>Yönetilen taşınabilir Windows Piper çalışma ortamını indirip yükler.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>Seçili Piper sesini indirip yükler.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>Bu Piper sesini indirip yükler.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>Yönetilen Piper çalışma ortamını ve önerilen sesi indirir veya onarır.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>En son Piper ses kataloğunu indirir ve yüklü ses durumunu yeniler.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>Yeniden adlandırmadan veya üzerine kaydetmeden önce bu şablonu + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>Yeniden adlandırmadan önce bu şablonu + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>Etkin ön ayarı yeni, düzenlenebilir bir kullanıcı ön ayarına çoğaltır.</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>Etkin kullanıcı ön ayarının görünen adını düzenler.</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>Dheacon'u şimdi etkinleştir</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>Etkin</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>Kurulum tamamlanınca otomatik geçiş uyarılarını veya yorumları etkinleştirir.</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>İsveççe Piper sentezinden önce metin uyarlayıcısını etkinleştirir; değişiklik sonraki Piper önbellek anahtarlarını etkiler.</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>Genişletilmiş olay bekleme süresi (saniye)</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>Genişletilmiş olaylar</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>Uyarlayıcının etkin olup olmadığını ve seçili Piper sesine uygulanıp uygulanmadığını açıklar.</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>Etkin ön ayarı dışa aktar</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>Piper seslerini cinsiyet üst verisine göre filtreler.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>Piper seslerini dile göre filtreler.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>Piper seslerini model kalite düzeyine göre filtreler.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>Piper seslerini resmî veya topluluk kaynağına göre filtreler.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>Piper seslerini yüklü olup olmamalarına göre filtreler.</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>Piper kataloğunu ses anahtarı, dil, cinsiyet, kalite, kaynak veya katalog kimliğine göre filtreler.</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>Hızlı kurulumu tamamla</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>Takipçi durumu</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>Takipçi durumu: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>Takipçi uyarısı: </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>Bu korumalı şablondaki Fren değişiklikleri yalnızca çalışma sırasında geçerlidir. Kaydetmek için + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>Piper sesinin tam etiketi.</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>Cinsiyet</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>Genel</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>Ana konuşma motorunu değiştirmeden yapılandırılmış Piper sesiyle bu önizlemeyi üretip oynatır.</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>Simge + metin</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>Yalnızca simge</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>Boşta</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>Boşta bekleme süresi (saniye)</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren: bu ön ayar için kapalı</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren: Krangler üzerinden isteğe bağlı '{0}' takipçisi</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>Krangler yüklüyse etkin ön ayarın Fren durumunu hemen Krangler'a gönderir.</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>Ön ayarı içe aktar</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>Taşınabilir bir ön ayarı kullanıcı ön ayarları klasörüne aktarır. Korumalı dahili ön ayar kimlikleri yeni bir kimlikle içe aktarılır.</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>Yükle</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>Arctic'i yükle</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>Vurgulanan Piper sesinin yükleme ve seçim durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>Çalışma ortamını yükle</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>Yüklü</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>Yüklü filtresi</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>Bu Piper sesinin yüklü veya indirme boyutu.</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>Önerilen en_US-arctic-medium Piper sesini yükleyip seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>Anahtar: {0}
+Kaynak: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Krangler entegrasyonu isteğe bağlıdır; uyarı veya yorum oynatımını etkilemez.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Krangler isteğe bağlıdır; bu uyarı Dheacon konuşmasını durdurmaz.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Krangler isteğe bağlıdır; liste yoksa yedek metin alanı etkin kalır.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Krangler ön ayarı</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>Takipçiye uygulanacak Krangler ön ayarının adı, kimliği veya kaynak dosya adı. Krangler ön ayar listesi yoksa gösterilir.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>Dil</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>Bu Piper sesinin dil üst verisi.</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>Dil: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Son Krangler Imaginary Fren IPC durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Son Krangler ön ayar listesi IPC durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Son Piper kataloğu veya kurulum durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Son Piper kataloğu, çalışma ortamı, yükleme veya seçim işlemi durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>Son Piper kataloğu, çalışma ortamı veya yükleme uyarısı.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>Son Piper perde kaydırması: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>Son Piper perde kaydırması: {0} Uygulandı: {1}. Yarım ses: {2} st.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>Kurulum veya katalog işlemlerinin bildirdiği son Piper uyarısı veya hatası.</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Son Reading Roegadyn tetikleme kararı.</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>Son uyarlanmış metin: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>Son uyarlayıcı: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>Son uyarı (UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>Önbellek isabetleri ve üretilen dosyalar dahil son önbellek işlemi sonucu.</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>Son özgün metin: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>Son konuşma</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>Son konuşma önbelleği sonucu.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>Son konuşma kuyruğu hatası.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>Son konuşma kuyruğu durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>Son konuşma sentezi veya önbellek uyarısı.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>Son konuşma metni uyarlayıcısı yükleme durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>Son konuşma metni uyarlayıcısı uyarısı.</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>Son geçiş kararı</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>Dheacon devre dışı kalsın</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>Eski SAPI</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>Eski SAPI - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>Eski SAPI sesleri: {0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>Ses kataloğundan lisans üst verisi.</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>Lisans: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>Replik paketi</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>Replik paketi durumu: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>Replik paketi durumu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>Replik paketi: Dheacon modunda kullanılmaz.</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>Replik paketi yükleyicisinin durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>Kuyruktaki test repliğinin anlık durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>Arayüz yazı tipleri yükleniyor...</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>Yerel Piper - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>Giriş</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>Art arda hızlı olayların her uygun olayda konuşmak yerine yalnızca bazen yorum tetiklemesini istiyorsanız bunu azaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>Otomatik tetikleyicileri etkinleştirmeden bir ses testi yapar.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>Bu yüklü Piper sesini etkinleştirir.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>Bu yüklü Piper sesini etkin Piper sesi olarak ayarlar.</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>En fazla önbellek (MB)</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>Toplam WAV önbelleğinin en fazla boyutu. Yeni konuşma üretildikten sonra eski dosyalar temizlenir.</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>Küçük pencere</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>Başka bir boşta yorumundan önce en az boşta kalma süresi; 30 saniyenin altındaki değerler 30'a yükseltilir.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>Machinations müziği yorumları arasındaki en az süre.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>Çatışma başlangıcı/bitişi yorumları arasındaki en az süre.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>Genişletilmiş olay yorumları arasındaki en az süre.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>Bölge değişimi yorumları arasındaki en az süre; düşük değerler yolculuğu daha konuşkan yapabilir.</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>Mod: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>Modern Windows</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>Modern Windows sesleri: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>En son Piper perde kaydırma işlemi sonucu.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>Piper uyarlayıcı değişikliklerinden önceki son normalleştirilmiş metin.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>Uyarlayıcı değişikliklerinden sonra Piper'a gönderilen son metin.</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>Ad</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Krangler'ın yalnızca yerel takipçi aktörüne yazdığı ad.</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>Hiçbir zaman</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>Sonraki: Konuşma</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>Sonraki: Test ve tamamlama</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>Hayır</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>Geçerli aramaya uyan Krangler ön ayarı yok.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>Piper sesi seçilmedi</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>Yüklü Piper sesi yok.</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>Seçilebilir replik paketi yüklenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>Henüz konuşma yok.</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>Yok</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>Uyarlayıcı değiştirmelerinden önce normalleştirilmiş kaynak metin.</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>Yüklü değil</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>Algılanan eski SAPI konuşma sesi sayısı.</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>Algılanan Modern Windows konuşma sesi sayısı.</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>Yüklü yönetilen Piper sesi sayısı.</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>Bekleyen konuşma sayısı</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>Hazırlanmayı veya oynatılmayı bekleyen kuyruktaki konuşma isteği sayısı.</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>Klasörü aç</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>Konuşma başlayınca küçük pencereyi aç</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>Önerilen İngilizce Arctic sesini yüklemek için Piper Sesleri sekmesini açın.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>Bu yüklü Piper sesini içeren klasörü açar.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>Çalışma ortamı, sesler, önbellek ve bildirimleri içeren yönetilen Piper klasörünü açar.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>İsteğe bağlı Imaginary Fren entegrasyonu bu ön ayar için kapalıdır. Daha sonra Genel ayarlardan yapılandırılabilir ve Krangler gerektirir.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>İsteğe bağlı Imaginary Fren: bu ön ayar, Dheacon etkinleşince Krangler'dan yalnızca yerel '{0}' takipçisini oluşturmasını isteyebilir. Krangler isteğe bağlıdır; yorumlar onsuz da çalışır.</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>İsteğe bağlı açık piper.exe yolu. Boşsa yönetilen çalışma ortamı klasörü veya PATH araması kullanılır.</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>Özgün</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>Çıkış kazancı %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>İçe aktarmak için yapıştır</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>Ön ayar base64 metnini buraya yapıştırın</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>Bekleyen konuşma istekleri: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>Pembe</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Piper Sesleri</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Piper kataloğu: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Piper hazırlanamadığı için hızlı kurulum Windows varsayılan konuşmasını seçti. Piper'ı burada yeniden deneyebilirsiniz.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>Piper, önerilen İngilizce Arctic sesiyle hazır.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piper hazır.</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>Yerel Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Piper model kalite düzeyi.</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Piper işlemi sürüyor...</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Piper perdesi</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Piper hazırlanıyor...</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piper tutarlı yerel konuşma sağlar. Çalışma ortamı ve seçili ses bir kez indirilir; üretilen konuşma yerel önbellekte kalır.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Piper çalışma ortamı yolu</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>Yerel sentez için kullanılan geçerli Piper çalışma ortamı yolu.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>Piper çalışma ortamı durumu henüz kontrol edilmedi.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Piper çalışma ortamı: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Piper çalışma ortamı: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Piper ayarları: hız {0:F2}, cümle duraklaması {1:F2}s, perde {2} st, kazanç {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Piper kurulumu başarısız olduğu için hızlı kurulum Windows varsayılan konuşmasını seçti: </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Piper hızı</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Piper hızı: {0:F2} · Cümle duraklaması: {1:F2}s · Perde: {2} st · Oynatma kazancı: {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>Sonraki Piper WAV önbellek kayıtlarını etkileyen sentez ve son işlem ayarları.</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Piper metin uyarlayıcısı</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Piper sesi</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>Piper ses dili.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Piper sesleri: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Piper uyarısı: </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>Perde</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>Perde: {0:F2} · Çıkış kazancı: {1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>Oynatma kazancı %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Uygun bölge değişikliklerinde paketlenmiş geçiş uyarısını oynatır; yorum konuşmaz.</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>Eklenti etkin</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>Yalnızca WAV sonrası işlemdir; Piper sentez parametresi değildir ve bozulmalara yol açabilir. Negatif değerler sesi kalınlaştırır. Değişiklik Piper WAV önbelleğini yeniden üretir.</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>Piper'ı hazırla</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>Devam etmeden önce Piper'ı hazırlayın veya Windows varsayılan konuşmasını seçin.</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>Yönetilen Piper çalışma ortamı ve önerilen İngilizce Arctic sesi hazırlanıyor...</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>Ön ayar listesi uyarısı: </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>Ön ayar listesi: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>Ön ayar yükleme/içe aktarma/dışa aktarma durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>Ön ayar kaynağı: {0}  Korumalı: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>Ön ayar durumu: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>Ön ayar: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>Ön Ayarlar</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>Işınlanma ve Return geçişlerinin paketlenmiş uyarı sesini oynatmasını engeller.</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>Işınlanma ve Return geçişlerinin Reading Roegadyn konuşmasını tetiklemesini engeller.</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>Önizleme uyarlayıcısı: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>Önizleme metni</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>Geçerli mod kararı/durumu iletisini sohbete yazar.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>Korumalı dahili ön ayarlar yeniden adlandırılamaz, silinemez veya üzerlerine yazılamaz.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>Korumalı dahili şablonlar silinemez.</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>Kalite</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>Kuyruk</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>Kuyruk hatası: </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>Kuyruk hatası: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>Kuyruk durumu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>Seçili konuşma motoru ve geçerli sesle bir Reading Roegadyn test repliğini kuyruğa ekler.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>Hızlı kurulum</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>Hızlı kurulum tamamlandı. Dheacon {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>Hızlı kurulum konuşma hazırlığı durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>Hızlı kurulum konuşma seçimi veya yedek durumu.</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>Hız</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>Panodaki taşınabilir ön ayar bloğunu içe aktarma kutusuna okur.</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>Önerilen yerel Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>Şimdi eşitle</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>Kataloğu yenile</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>Sesleri yenile</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>Modern Windows, eski SAPI ve yüklü Piper ses listelerini yeniler.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>Algılanan konuşma seslerini yeniler ve sayılarını sohbete bildirir.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>Bu Piper sesini yönetilen ses klasöründen kaldırır.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>Bu yüklü Piper sesini yönetilen ses klasöründen kaldırır.</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>Yeniden adlandır</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>Etkin kullanıcı ön ayarını yeniden adlandırır.</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>Çözümlenen önbellek klasörü: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Dheacon modu uyarı sesini oynatırken kullanılan çözümlenen yol.</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>Gerekli hızlı kurulum testinin sonucu.</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>Piper'ı yeniden dene</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>Seçili yapılandırmayı gözden geçirip test eder.</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>Hızlı kurulumu yeniden çalıştır</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>Tamamlamadan önce ses testini çalıştırın.</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>Geçerli ayarları kaydet</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>Kaydedildi: {0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>Kurulumu kaydeder ve ileride otomatik açılmasını engeller.</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>Kurulumu kaydeder; ancak eklentiyi daha sonra etkinleştirene kadar otomatik tetikleyicileri kapalı tutar.</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>Ara</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>Krangler ön ayarlarını ara...</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>Seç</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>Arctic'i seç</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>Yönetmek için bir Piper sesi seçin.</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>Yüklü {0} Piper sesini seçin.</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>Ön ayarı seç</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>Sonraki üretilen konuşmalar için {0} seçin.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>Seçili</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>Piper yerine Windows varsayılan konuşması seçildi.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>Windows varsayılan konuşması seçildi.</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>Seçili replik paketinin açıklaması.</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>Seçili çalışma modu.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>Seçili ön ayar.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>Seçili ön ayar: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>Seçili konuşma motoru ve ses.</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>Seçili ses ayrıntıları</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>Seçili ses: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>Seçili:</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>Krangler ön ayarını görünen adına göre seçer ve sabit anahtarını bu Dheacon ön ayarında saklar.</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>Mevcut sözlü yorum ön ayarlarından birini seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>Piper sentezinde kullanılan yüklü Piper sesini seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>Konuşma üretiminde kullanılan yüklü Windows/SAPI sesini seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>Yüklü önerilen en_US-arctic-medium Piper sesini seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>Ön ayardaki doğrudan repliklerden sonra kullanılan replik paketini seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>Konuşma motorunu seçer. Piper seçilmesi gerekirse önerilen İngilizce Arctic sesini otomatik hazırlar.</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>Piper sentezinden önce çalışan metin uyarlayıcısını seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>Cümle duraklaması</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>Eklenti devre dışıyken gösterilen DTR simgesini ayarlar; çok uzun girişler kısaltılır.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>Eklenti etkinken gösterilen DTR simgesini ayarlar; çok uzun girişler kısaltılır.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Dheacon modu için uyarı WAV yolunu ayarlar; göreli yollar eklenti klasöründen çözümlenir.</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>Konuşma WAV dosyalarının önbellek konumunu ayarlar; boşsa varsayılan LocalAppData klasörü kullanılır.</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>Ayarlar</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>DTR çubuğu kaydını göster</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>{1} katalog kaydından {0} tanesi gösteriliyor.</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>Bu Piper sesi için ayrıntıları ve küçük işlem çubuğunu gösterir.</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>Dalamud DTR çubuğundaki tıklanabilir durum kaydını gösterir veya gizler.</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>Boyut</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>Kaynak</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>Bu ön ayar için Fren oluştur</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>Konuşma</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>Konuşma motoru</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>Konuşma meşgul: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>Konuşma bağlamı</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>Konuşma bilgisayarınızda üretilir ve yeniden kullanım için WAV dosyaları olarak önbelleğe alınır.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>Konuşma kuyruğu: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>Konuşma kuyruğa eklendi.</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>Konuşma uyarısı: </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>Konuşma: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>Sözlü yorum</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>Konuşma modu giriş, yolculuk, çatışma, boşta kalma, müzik ve diğer etkin olaylarda tetikleme olasılığı ve bekleme sürelerine bağlı ön ayar repliklerini kullanır.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>Konuşma ön ayarı</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>Sözlü yorum testi kuyruğa eklendi. Aşağıdaki konuşma durumunu izleyin; önbellekteki ses sonraki eşleşmelerde yeniden kullanılacak.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>Sözlü yorum testi denendi ancak konuşma kuyruğu repliği kabul etmedi. Aşağıdaki durumu inceleyip yeniden deneyin.</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>İlgisiz ayarları sıfırlamadan üç kurulum adımını yeniden başlatır.</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>Durum</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>Durum: yüklü</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>Durum: yüklü değil</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>Durum: seçili Piper sesi</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>Durum geçici olarak kullanılamıyor: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>Durumu sohbete yaz</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>Adım {0} / 3</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>Piper'ı beklemeyi bırakır ve varsayılan sesiyle yerleşik Windows konuşma motorunu seçer.</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>Ko-fi'de Destekle</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>Işınlanmayı ve Return'ü bastır</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>Sentez ses düzeyi</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>TTS sesi (arayüz dilinden ayrı)</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>Turkuaz</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>Bölge değişimi</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>Bölge bekleme süresi (saniye)</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>Uyarlanmış konuşmayı test et</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>Konuşmayı test et</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>Sözlü yorumu test et</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>Geçiş uyarısını test et</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>Uyarlanmış konuşma test ediliyor...</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>Kuyruktaki veya konuşulan metin</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>Yalnızca metin</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>Uyarlayıcı değiştirmelerinden sonra Piper'a gönderilecek metin.</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>Geçerli Piper uyarlayıcısı önizlemesinden geçirilecek metin.</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>Metinden konuşmaya motoru (eklenti ayarı)</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>FFXIV için metinden konuşmaya (Dalamud eklentisi)</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>Konuşma üretimi için şu an seçili Windows sesi.</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>Hızlı kurulum tamamlanınca kaydedilen yapılandırma.</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>Son Piper hazırlık hatası. Yeniden deneyebilir veya Windows varsayılan konuşmasını kullanabilirsiniz.</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>Son konuşma kuyruğu hatası; deneme yine sayılır, böylece konuşma ayarlarını değiştirip yeniden deneyebilirsiniz.</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>Hızlı kurulumun etkin tutacağı ön ayar.</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>Önerilen ses ve kullanılabilir Piper çalışma ortamı bulundu.</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>Bu Piper sesi zaten etkin.</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>Bu yüklü Piper sesi şu an seçili.</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>Geçiş uyarısı testi denendi. Yapılandırılmış WAV yoksa Dheacon Windows ünlem sesini kullandı.</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>Tetikleyici</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>Tetikleyici durumu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>Tüm Dheacon/Reading Roegadyn tetikleyicilerini hemen açar veya kapatır.</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>Arayüz yazı tipleri yüklenemedi. Eklenti günlüğüne bakın.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>Kaldır</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>Bilinmiyor</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>Bunun yerine Windows varsayılanını kullan</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>Piper sentezinden önce {1} dilinden {2} diline metin için {0} uyarlayıcısını kullanın.</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>Kullanıcı</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>Bu motor için geçerli Windows varsayılan sesini kullanır.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>Yönetilen yerel Piper çalışma ortamını ve önerilen İngilizce Arctic sesini kullanır.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>Modern Windows konuşma motorunu ve geçerli Windows varsayılan sesini kullanır.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>Etkin oyun olaylarını yorumlamak için seçili ön ayarı kullanır.</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>Ses</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>Bekliyor</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>Etkin olduğunda geçerli ön ayar Krangler'dan yalnızca yerel Imaginary Fren takipçisini oluşturmasını ister.</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>Etkin olduğunda küçük pencere sonraki replikte açılır ve açık kalır.</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>Konuşma kuyruğunun şu anda ses hazırlayıp hazırlamadığı veya oynatıp oynatmadığı.</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>Bu Piper sesinin seçili, yüklü veya yalnızca katalogda mevcut olup olmadığı.</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Windows varsayılanı</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Windows varsayılanı - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Windows varsayılan konuşması</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Windows varsayılan konuşması Dheacon tarafından yönetilen indirme gerektirmez ve Piper kurulumu başarısız olursa yedek olarak kullanılabilir.</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>Geçerli ayarları etkin kullanıcı ön ayarına yazar.</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>Evet</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[şablon]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[kullanıcı]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>devre dışı</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0} (yüklü değil)</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1} dilinden {2} diline</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>{0} bekleyen</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>Çatışma başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>Çatışma bitişi</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>Binek başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>Binek bitişi</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>Uçuş başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>Uçuş bitişi</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>Görev kuyruğu başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>Görev kuyruğu bitişi</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>Görev başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>Görev bitişi</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>Üretim başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>Üretim bitişi</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>Toplama başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>Toplama bitişi</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>Balık tutma başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>Balık tutma bitişi</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>Ara sahne başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>Ara sahne bitişi</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>Performans başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>Performans bitişi</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>Mini oyun başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>Mini oyun bitişi</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>Çağırma çanı başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>Çağırma çanı bitişi</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>Grup Bulucu başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>Grup Bulucu bitişi</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>Yüzme başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>Yüzme bitişi</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>Dalış başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>Dalış bitişi</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>Görev ara sahnesi başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>Görev ara sahnesi bitişi</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>Görev dışı ara sahne başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>Görev dışı ara sahne bitişi</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>Hazine zindanı ara sahnesi başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>Hazine zindanı ara sahnesi bitişi</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>Elle test</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>Bölge değişimi</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>Seviye değişimi</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>Sınıf/meslek değişimi</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>Baygın</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>İyileşti</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>PvP'ye giriş</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>PvP'den çıkış</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>Yakındaki oyuncu gözlemi</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>Yakındaki kalabalık gözlemi</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>Machinations müziği</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>Modern Windows</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>Eski SAPI</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>Yerel Piper</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>Oyuncu hazır olmadığı için {0} yok sayıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>Genişletilmiş olay yorumları kapalı olduğu için {0} yok sayıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>Genişletilmiş olay bekleme süresi nedeniyle {0} bastırıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>{0} atlandı: konuşma zaten meşgul.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>{0} atlandı: otomatik tetikleme olasılığı 0%.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>{0} atlandı: {1}% otomatik tetikleme olasılığı tutmadı.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>{0} kuyruğa eklendi: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>{0} kuyruğa eklenemedi: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>{0} kuyruğa eklendi: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>{0} hazırlanıyor: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>{0} konuşuldu: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>{0} konuşulamadı.</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>{0} üretildi: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>Önbellek isabeti: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>{0} konuşması başarısız; eski SAPI yedeği kullanıldı: {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0} başarısız; eski SAPI yedeği kullanıldı: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>{0} için uygulanamaz.</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>{0} için replik bulunamadı; yedek metin kullanıldı.</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> (perde {0} st)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> ({0} st perde atlandı)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> ({0} st perde uygulandı)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> ({0} st perde uyarısı)</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>Atlandı ({0} st perde).</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>SoundTouch.NET ile {0} st perde uygulandı (çarpan {1}, {2} örnek, {3} ses baytı).</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>Piper {0} st perdesi için önbellek isabeti; bu istekte perde işlemcisi çalışmadı.</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Piper perde kaydırması başarısız ({0} yarım ses): {1}. Kaydırılmamış WAV kullanılıyor.</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>Piper {0} indiriliyor: {1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>Piper {0} indiriliyor: {1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>çalışma ortamı</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>model</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>yapılandırma</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>model kartı</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>paket</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>elle test</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>oyuncu hazır</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>boşta bekleme süresi</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>hızlı kurulum testi</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>PvP'ye giriş</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>PvP'den çıkış</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>sınıf/meslek {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} seviye {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>{0} yakındaki oyuncu</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>çatışma başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>çatışma bitişi</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>binek başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>binek bitişi</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>uçuş başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>uçuş bitişi</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>görev kuyruğu başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>görev kuyruğu bitişi</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>görev başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>görev bitişi</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>üretim başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>üretim bitişi</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>toplama başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>toplama bitişi</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>balık tutma başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>balık tutma bitişi</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>performans başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>performans bitişi</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>mini oyun başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>mini oyun bitişi</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>çağırma çanı başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>çağırma çanı bitişi</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>grup Bulucu başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>grup Bulucu bitişi</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>yüzme başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>yüzme bitişi</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>dalış başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>dalış bitişi</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>görev ara sahnesi başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>görev ara sahnesi bitişi</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>görev dışı ara sahne başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>görev dışı ara sahne bitişi</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>hazine zindanı ara sahnesi başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>hazine zindanı ara sahnesi bitişi</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>baygınlık başlangıcı</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>baygınlık bitişi</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>İlk bölge değişimi bekleniyor.</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>Bölge {0} olarak başlatıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>Eklenti devre dışı olduğu için {0} -&gt; {1} yok sayıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>Yakın zamanda yetenek kullanımı nedeniyle {0} -&gt; {1} bastırıldı ({2:F1}s önce).</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>{0} -&gt; {1} bölge değişiminde tetiklendi.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>Müzik yoklaması başlatılmadı.</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>Müzik kontrol bloğu işaretçisi hazır değil.</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>Müzik sahne listesi işaretçisi hazır değil.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>Müzik yoklaması etkin; öncelikli yuvalarda geçerli şarkı kimliği yok.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>Müzik yoklaması etkin; geçerli müzik kimliği {0}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>Müzik yoklaması okuması başarısız: {0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>Müzik imzası çözümlenmedi; müzik tepkileri kapalı.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>Müzik imzası çözümlendi; ilk yoklama bekleniyor.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>Müzik imzası çözümlemesi başarısız: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn oyuncunun hazır olmasını bekliyor.</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn giriş bekliyor.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Reading Roegadyn modu etkin olmadığı veya eklenti kapalı olduğu için elle konuşma yok sayıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>Bölge yorumu kapalı olduğu için yok sayıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>Bekleme süresi nedeniyle {0} -&gt; {1} bölge yorumu bastırıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>Oyuncu hazır; giriş yorumu kapalı.</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>Çatışma durumu değişti; çatışma yorumu kapalı.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>Bekleme süresi nedeniyle çatışma yorumu bastırıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>Bekleme süresi nedeniyle Machinations müziği yorumu bastırıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>Ara sahne durumu değişti; genişletilmiş yorum kapalı.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>Konuşma kuyruğu hazır.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>Konuşma kuyruğu durdu.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>Beklenmedik çalışan hatasından sonra konuşma kuyruğu durdu.</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>Konuşma oynatımı iptal edildi.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>Piper kataloğu bu oturumda yenilenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>Piper ses kataloğu yenileniyor...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Piper kataloğu yenilendi: {0} ses kaydı.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Piper kataloğu yenilenemedi; önbellekteki ve yüklü sesler kullanılıyor.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Piper {0} sesi yüklü ancak çalışma ortamı kurulumu başarısız; eski SAPI etkin tutuldu.</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper {0} ile hazır.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Piper {0} sesi yüklü ancak çalışma ortamı eksik; eski SAPI etkin tutuldu.</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>Taşınabilir Piper çalışma ortamı yükleniyor...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>Taşınabilir Piper çalışma ortamı yüklendi ({0}).</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>Taşınabilir Piper çalışma ortamı yüklenemedi: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0} zaten yüklü.</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>{0} yükleniyor...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Piper {0} sesi yüklendi ({1:F1} MB).</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Piper sesi yüklenemedi: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Piper '{0}' sesi yüklü değil.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Piper {0} sesi kaldırıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>Piper {0} sesi seçildi.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>Piper çalışma ortamı eksik. Taşınabilir piper.exe yolunu ayarlayın veya piper.exe dosyasını {0} içine yerleştirin</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>Piper çalışma ortamı bulundu: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>Resmî Piper ses kataloğu indiriliyor...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>İsveççe Piper sürüm kataloğu indiriliyor...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>Önbellekteki Piper kataloğu yüklendi: {0} ses kaydı.</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>Henüz konuşma üretilmedi.</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>Metin yok.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>Uyarlayıcı uygulanmadı.</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>Eşleşen uyarlayıcı yok.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>{0} konuşma metni uyarlayıcısı yüklendi.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>Yedek konuşma metni uyarlayıcısı yüklendi.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>{0} kaynağından yüklendi.</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>Yedek uyarlayıcı.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>Önbellekteki {0} WAV dosyası temizlendi.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>Önbellekteki {0} Piper WAV dosyası temizlendi.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>Henüz Piper perde kaydırması denenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>Replik paketleri yüklenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>{0} replik paketi, {1} replik yüklendi: {2} dahili, {3} kullanıcı.</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>Ön ayarlar yüklenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>Ön ayar '{0}' bulunamadı.</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>Etkin ön ayar {0} olarak ayarlandı.</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>'{0}' kullanıcı ön ayarı oluşturuldu.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>'{0}' ön ayarı korumalıdır ve yeniden adlandırılamaz.</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>Ön ayar adı boş olamaz.</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>Ön ayar '{0}' olarak yeniden adlandırıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>'{0}' ön ayarı korumalıdır ve üzerine yazılamaz. Önce + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>Geçerli ayarlar '{0}' içine kaydedildi.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Korumalı '{0}' ön ayarının çalışma zamanı Fren ayarları güncellendi. Değişiklikleri kaydetmek için + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>'{0}' için Fren ayarları kaydedildi.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Korumalı '{0}' ön ayarının çalışma zamanı replik paketi güncellendi. Değişiklikleri kaydetmek için + ile çoğaltın.</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>'{0}' için replik paketi kaydedildi.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>'{0}' ön ayarı korumalıdır ve silinemez.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>'{0}' ön ayarı bir kullanıcı ön ayar dosyası değil.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>'{0}' ön ayarı silindi.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>Ön ayar içe aktarma metni boştu.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>Ön ayar içe aktarma şeması tanınmadı.</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>'{0}' ön ayarı içe aktarıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>'{0}' ön ayarı korumalıdır ve üzerine yazılamaz.</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>'{0}' ön ayarı kaydedildi.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>{0} ön ayar yüklendi: {1} dahili, {2} kullanıcı.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>Krangler takipçi IPC boşta.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>Krangler ön ayar listesi yüklenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>Krangler ön ayar listesi IPC hata döndürdü.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Krangler ön ayar listesi kullanılamıyor; yedek serbest metin etkin.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>{0} Krangler ön ayarı yüklendi.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Krangler ön ayarı dışa aktarımı kullanılamıyor.</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>Gömülü Krangler ön ayarı yoktu.</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>Gömülü Krangler ön ayarı içe aktarıldı.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler gömülü ön ayar içe aktarımını reddetti.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Krangler ön ayarı içe aktarımı kullanılamıyor.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>Krangler Imaginary Fren IPC kullanılamıyor; konuşma takipçi olmadan sürüyor.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>Takipçi devre dışı bırakılırken Krangler Imaginary Fren IPC kullanılamıyor.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>Krangler takipçi durumu alındı.</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>RIFF/WAVE dosyası değil</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>geçersiz WAV parçası '{0}'</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>fmt parçası çok küçük</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>fmt parçası eksik</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>geçersiz fmt parçası</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>data parçası eksik</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>desteklenmeyen WAV biçim etiketi {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>desteklenmeyen PCM bit derinliği {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>desteklenmeyen IEEE kayan nokta bit derinliği {0}</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>16 bit PCM verisi örneklerle hizalı değil</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>24 bit PCM verisi örneklerle hizalı değil</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>32 bit PCM verisi örneklerle hizalı değil</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>kayan noktalı WAV verisi örneklerle hizalı değil</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>özgün WAV kullanılamıyor: {0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>kaydırılmış WAV kullanılamıyor: {0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>perde yazıcısı örnek üretmedi</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>kaydırılmış WAV oluşturulmadı</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>kaydırılmış ses verisi özgün veriden farklı değildi</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>kaydırılmış süre {0} ms değerinden {1} ms değerine saptı (izin verilen sapma {2} ms)</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>Konuşma metni uyarlayıcısı yüklenmedi.</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>Müzik {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>Açık</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>Kapalı</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}. Ön ayar: {2}. Değiştirmek için tıklayın.</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>Pencere görünümü</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Ana pencerede kompakt modu göster</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Ana pencerede dil seçimini göster</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Saydamlık</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Opaklık (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Odak yokken otomatik soldur</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Odak yokken opaklık (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Odak kaybı gecikmesi (saniye)</value></data>
+</root>

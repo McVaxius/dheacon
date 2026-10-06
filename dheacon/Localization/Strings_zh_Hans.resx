@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [模板]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [用户]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> 迷你窗口</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> 设置</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f 半音</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f 秒</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. 选择工作模式</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. 选择本地语音</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. 测试并完成</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Piper 操作进行中…</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>操作</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>当前预设</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>所选预设：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>展开环境变量及默认值后的实际文件夹。</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>适配后</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>适配器</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>适配器 ID、版本和现有内容哈希包含在 Piper 缓存键中。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>适配器: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>适配器: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>预览及 Piper 合成使用的文本适配器。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>适配器 ID、版本和现有内容哈希包含在 Piper 缓存键中。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>适配器版本：{0}  哈希：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>适配器警告： </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>语音生成的额外上下文</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Piper 目录的额外备注。</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>提示音路径</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>提示音路径: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>全部</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>按冷却时间在检测到 Machinations BGM 时解说。</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>允许坐骑、副本、制作及采集等状态切换的额外解说。</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>足够长的空闲后允许偶尔解说。</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>本会话玩家就绪后允许播报一句。</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>按冷却时间允许战斗开始或结束解说。</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>按冷却时间允许区域切换解说。</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>播放前的 WAV 增益，更改会重新生成语音缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Piper 合成后的播放增益，不是合成音量。更改会重新生成 WAV 缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>音频测试失败： </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>自动触发概率 %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>BGM 冷却秒数</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>背景音乐状态</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>背景音乐状态: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>返回</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>引擎</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>蓝色</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>内置</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>内置模板为只读，不能重命名、删除或覆盖。</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>忙碌</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>缓存文件夹</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>缓存大小：{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>缓存状态</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>缓存状态: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>缓存状态: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>目录</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>目录性别元数据。</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>此 Piper 语音的目录来源。</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>模板更改仅在当前会话有效。请用 + 复制以持久保存。</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>DTR 显示文本、图标加文本或仅图标。</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>选择 Piper 目录行以显示安装、选择及卸载操作。</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>选择声音，按需准备并测试本地语音，然后决定是否启用自动触发。</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>选择要保存的状态。只有明确选择启用选项才会启用 Dheacon。</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>请选择是否启用 Dheacon。</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>经典提示预设</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>经典模式不播报语音，但此选择会保存供日后语音预设使用。</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>经典模式保留原有切换提示音，以及传送和返回的抑制选项。</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>经典区域切换提示</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>清除 Piper WAV 缓存</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>清除缓存</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>关闭设置</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>颜色</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>战斗冷却秒数</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>战斗开始/结束</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>命令：{0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>解说预设</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>紧凑模式</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>受支持的现代 Windows 音高，旧版 SAPI 可能忽略此设置。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Piper --length_scale：较小更快，较大更慢。更改会重新生成 WAV 缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Piper --sentence_silence：值越高，句间停顿越长，并重新生成 WAV 缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Windows/SAPI 语速，更改会重新生成这些引擎的语音缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>缓存 WAV 前的 Windows/SAPI 合成音量。</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>将可移植的 base64 预设 JSON 复制到剪贴板。</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>当前 BGM ID：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>当前 BGM 检测状态及观测到的 ID。</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>当前 BGM 检测状态及观测到的 ID。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>搜索和筛选后的 Piper 目录数量。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Piper 目录、下载、安装或选择的最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>当前本地 Piper 运行环境状态。</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Piper 准备、下载或安装进度。</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>快速设置将保留的当前预设。</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>当前生成的 WAV 缓存的大致大小。</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>当前本地 Piper 运行环境状态。</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>当前文本</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>当前触发状态</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>新语音生成使用的所选引擎和语音。</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>当前高亮 Piper 目录语音的完整名称。</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>自定义 RGB</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>DTR 栏</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>DTR 禁用图标</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>DTR 启用图标</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>DTR 模式</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>删除所有引擎生成的 WAV，后续语音会重新生成。</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>仅删除 Piper WAV，按当前速度、停顿、音高、增益及适配器设置重新生成。</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>删除当前用户预设。</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>所选预设提供的说明。</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>所选预设提供的说明。</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>详情</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>显示此 Piper 语音的详情和操作。</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon Mini — 语音监视</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Dheacon 设置</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Dheacon 模式仅在符合条件的区域切换时播放内置 WAV 提示音。</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Dheacon 模式仅在符合条件的区域切换时播放内置 WAV 提示音。</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — 主界面（语音设置）</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>诊断</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>显示名称</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>此 Piper 语音的名称及安装或下载大小。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>下载并安装托管的 Windows 便携式 Piper 运行环境。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>下载并安装此 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>下载并安装此 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>下载或修复 Piper 运行环境和推荐语音。</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>下载最新 Piper 目录并刷新已安装语音状态。</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>重命名或保存前请用 + 复制模板。</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>重命名或保存前请用 + 复制模板。</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>将当前预设复制为可编辑的用户预设。</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>修改当前用户预设的显示名称。</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>立即启用 Dheacon</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>已启用</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>设置完成后启用自动提示或解说。</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>在瑞典语 Piper 合成前启用文本适配器，更改影响后续缓存键。</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>扩展事件冷却秒数</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>扩展事件</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>说明适配器是否启用且适用于所选 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>导出当前预设</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>按目录性别信息筛选 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>按语言筛选 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>按模型质量等级筛选 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>按官方或社区来源筛选 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>按安装状态筛选 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>按语音键、语言、性别、质量、来源或目录 ID 搜索。</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>完成快速设置</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>跟随者状态</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>跟随者状态: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>跟随者警告： </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>模板更改仅在当前会话有效。请用 + 复制以持久保存。</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>当前高亮 Piper 目录语音的完整名称。</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>性别</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>常规</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>使用配置的 Piper 语音生成并播放预览，不更改主语音引擎。</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>图标和文本</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>仅图标</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>空闲</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>空闲冷却秒数</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren：此预设已关闭</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren：通过 Krangler 的可选跟随者“{0}”</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>若 Krangler 已加载，立即发送当前预设的 Fren 状态。</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>导入预设</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>导入至用户预设文件夹，受保护的内置预设以新 ID 导入。</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>安装</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>安装 Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>已选中、已安装或仅存在于目录的状态。</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>安装运行环境</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>已安装</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>安装状态筛选</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>此 Piper 语音的名称及安装或下载大小。</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>安装并选择推荐的 en_US-arctic-medium 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>键：{0}
+来源：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Krangler 为可选集成，不影响提示音或解说播放。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Krangler 为可选集成，不影响提示音或解说播放。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Krangler 为可选项，列表不可用时仍可使用文本字段。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Krangler 预设</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>跟随者使用的 Krangler 名称、ID 或文件名，预设列表不可用时显示。</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>语言</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>此 Piper 语音的语言信息。</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>语言：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Krangler Imaginary Fren IPC 的最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Krangler 预设列表 IPC 的最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Piper 目录、下载、安装或选择的最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Piper 目录、下载、安装或选择的最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>最新 Piper 错误。可重试或选择 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>最近 Piper 音高变换：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>最近 Piper 音高变换：{0} 已应用：{1}。半音：{2} st。</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>最新 Piper 错误。可重试或选择 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Reading Roegadyn 的最新触发判定。</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>最近适配文本：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>最近适配器：{0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>最近提示 (UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>缓存命中或新文件生成的最新结果。</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>最近原文：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>最近语音</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>缓存命中或新文件生成的最新结果。</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>最新队列错误。测试仍算作已尝试，可更改设置后重试。</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>语音队列当前或最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>语音合成或缓存的最新警告。</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>语音文本适配器的最新加载状态。</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>语音文本适配器的最新警告。</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>最近切换判定</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>保持 Dheacon 禁用</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>旧版 SAPI</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>旧版 SAPI - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>旧版 SAPI 语音：{0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>语音目录中的许可证信息。</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>许可证：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>台词包</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>台词包: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>台词包: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>台词包：Dheacon 模式不使用。</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>所选台词包的状态及说明。</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>语音队列当前或最新状态。</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>正在加载字体…</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>本地 Piper - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>登录</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>降低此值可减少连续快速事件的解说频率。</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>尝试一次音频测试，不启用自动触发。</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>选择后续合成使用的已安装 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>选择后续合成使用的已安装 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>最大缓存 MB</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>WAV 缓存总量上限，新语音生成后清理旧文件。</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>迷你窗口</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>下次空闲解说前的最短时间，小于 30 秒会提升至 30 秒。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>Machinations BGM 解说的最小间隔。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>战斗开始或结束解说的最小间隔。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>扩展事件解说的最小间隔。</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>区域切换解说的最小间隔，较低值使旅行解说更频繁。</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>引擎: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>现代 Windows</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>现代 Windows 语音：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>Piper 音高处理的最新结果。</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>适配器替换前的规范化原文。</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>适配器替换后发送至 Piper 的文本。</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>名称</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Krangler 写入本地跟随者的显示名称。</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>从未</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>下一步：语音</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>下一步：测试并完成</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>否</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>没有匹配的 Krangler 预设。</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>未选择 Piper 语音</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>未安装 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>未加载可选台词包。</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>暂无语音。</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>无</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>适配器替换前的规范化原文。</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>未安装</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>检测到的旧版 SAPI 语音数量。</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>检测到的现代 Windows 语音数量。</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>已安装的托管 Piper 语音数量。</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>待处理语音数量</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>等待准备或播放的语音请求数量。</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>打开文件夹</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>语音开始时打开迷你窗口</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>打开 Piper 语音标签以安装推荐的英语 Arctic 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>打开此已安装 Piper 语音所在文件夹。</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>打开包含运行环境、语音、缓存和清单的 Piper 文件夹。</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>此预设已关闭 Imaginary Fren，可稍后在常规设置中配置，需要 Krangler。</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>启用 Dheacon 时可通过 Krangler 生成本地跟随者“{0}”。即使没有 Krangler，解说仍可工作。</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>可选 piper.exe 路径，留空使用托管运行环境文件夹或查找 PATH。</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>原文</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>输出增益 %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>粘贴导入内容</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>在此粘贴预设 base64</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>待处理语音请求：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>粉色</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Piper 语音</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Piper 语音: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Piper 准备失败，已选择 Windows 默认语音。可在此重试 Piper。</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>Piper 已配置推荐的英语 Arctic 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piper 已就绪。</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>本地 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Piper 模型质量等级。</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Piper 操作进行中…</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Piper 音高</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Piper 操作进行中…</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piper 在本地生成语音。运行环境和语音只需下载一次，生成的音频保存在本地缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Piper 运行环境路径</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>本地合成当前使用的 Piper 运行环境路径。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>尚未检查 Piper 运行环境状态。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Piper 运行环境路径: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Piper 运行环境路径: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Piper：速度 {0:F2}，句间停顿 {1:F2}s，音高 {2} st，增益 {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Piper 设置失败，已选择 Windows 默认语音： </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Piper 速度</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Piper 速度：{0:F2} · 句间停顿：{1:F2}s · 音高：{2} st · 播放增益：{3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>影响后续 WAV 缓存的 Piper 合成及后处理设置。</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Piper 文本适配器</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Piper 语音</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>此 Piper 语音的语言信息。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Piper 语音：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Piper 警告： </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>音高</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>音高：{0:F2} · 输出增益：{1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>播放增益 %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Dheacon 模式仅在符合条件的区域切换时播放内置 WAV 提示音。</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>启用插件</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>这是 WAV 后处理，不是 Piper 合成参数，可能产生失真。负值使声音更低，并重新生成 WAV 缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>准备 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>继续前请准备 Piper 或选择 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>正在准备 Piper 运行环境及推荐的英语 Arctic 语音…</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>预设列表警告： </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>预设: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>预设加载、导入及导出状态。</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>预设来源：{0}  受保护：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>预设: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>预设: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>预设</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>抑制传送和返回时的提示或解说。</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>抑制传送和返回时的提示或解说。</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>预览适配器：{0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>预览文本</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>将当前模式判定或状态发送到聊天。</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>内置模板为只读，不能重命名、删除或覆盖。</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>内置模板为只读，不能重命名、删除或覆盖。</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>质量</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>队列</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>队列错误： </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>队列错误：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>队列: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>按所选引擎和当前语音将 Reading Roegadyn 测试加入队列。</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>快速设置</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>快速设置完成。Dheacon：{0}。</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>快速设置的语音准备、选择或替代状态。</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>快速设置的语音准备、选择或替代状态。</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>语速</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>从剪贴板读取可移植预设至导入框。</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>推荐本地 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>立即同步</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>刷新目录</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>刷新语音</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>刷新 Windows/SAPI/Piper 语音并在聊天中报告数量。</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>刷新 Windows/SAPI/Piper 语音并在聊天中报告数量。</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>从托管语音文件夹删除此 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>从托管语音文件夹删除此 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>重命名</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>修改当前用户预设的显示名称。</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>缓存文件夹: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Dheacon 提示音使用的解析后路径。</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>检查所选设置并显示测试尝试结果。</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>重试 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>检查所选设置并显示测试尝试结果。</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>重新运行快速设置</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>完成前请运行音频测试。</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>保存当前设置</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>已保存：{0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>已保存的设置，之后不会自动打开设置向导。</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>保存设置，自動触发保持关闭，直到稍后启用插件。</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>搜索</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>搜索 Krangler 预设…</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>选择</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>选择 Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>选择 Piper 目录行以显示安装、选择及卸载操作。</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>选择已安装的 Piper 语音 {0}。</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>选择预设</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>为后续语音选择 {0}。</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>已选中</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>已选择 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>已选择 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>所选台词包的状态及说明。</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>所选工作模式。</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>快速设置将保留的当前预设。</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>所选预设：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>新语音生成使用的所选引擎和语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>所选语音详情</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>语音: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>已选中：</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>按名称选择 Krangler 预设，并将其稳定键保存于 Dheacon 预设。</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>使用所选语音解说预设播报启用的游戏事件。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>选择后续合成使用的已安装 Piper 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>选择生成语音使用的已安装 Windows/SAPI 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>选择已安装的推荐 en_US-arctic-medium 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>选择在预设自带台词之后使用的台词包。</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>选择语音引擎，选择 Piper 时按需自动准备推荐的英语 Arctic 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>预览及 Piper 合成使用的文本适配器。</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>句间停顿</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>设置此插件状态下的 DTR 字符，过长输入会截断。</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>设置此插件状态下的 DTR 字符，过长输入会截断。</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Dheacon 提示 WAV 路径，相对路径以插件文件夹为基准。</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>WAV 缓存文件夹，留空使用默认 LocalAppData 文件夹。</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>设置</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>显示 DTR 项目</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>显示目录 {1} 项中的 {0} 项。</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>显示此 Piper 语音的详情和操作。</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>显示或隐藏 Dalamud DTR 栏中可点击的状态项。</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>尺寸</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>来源</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>为此预设生成 Fren</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>语音</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>语音引擎</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>语音忙碌：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>语音上下文</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>语音在您的电脑上生成，并缓存为 WAV 以便复用。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>队列: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>语音已加入队列。</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>语音警告： </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>语音: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>语音解说</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>语音模式按触发概率和冷却时间解说登录、旅行、战斗、空闲、BGM 等启用的事件。</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>语音预设</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>语音测试已入队。请查看下方状态，相同内容将复用缓存。</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>已尝试测试，但队列未接受语句。请检查下方状态并重试。</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>重新开始三个设置步骤，不重置其他设置。</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>状态</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>状态：已安装</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>状态：未安装</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>状态：当前 Piper 语音</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>状态暂不可用：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>状态发送到聊天</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>第 {0} 步，共3步</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>停止等待 Piper，选择内置 Windows 引擎及其默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>在 Ko-fi 支持</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>抑制传送和返回</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>合成音量</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>TTS 语音（独立于界面语言）</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>青色</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>区域切换</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>区域冷却秒数</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>测试适配语音</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>测试语音</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>测试语音解说</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>测试切换提示</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>正在测试适配语音…</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>排队中或正在播报的文本</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>仅文本</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>适配器替换后发送至 Piper 的文本。</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>当前 Piper 适配器预览使用的文本。</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>语音引擎（插件设置）</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>FFXIV 文本转语音（Dalamud 插件）</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>新语音生成使用的所选引擎和语音。</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>已保存的设置，之后不会自动打开设置向导。</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>最新 Piper 错误。可重试或选择 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>最新队列错误。测试仍算作已尝试，可更改设置后重试。</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>快速设置将保留的当前预设。</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>已找到推荐语音和可用的 Piper 运行环境。</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>此已安装 Piper 语音当前已启用。</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>此已安装 Piper 语音当前已启用。</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>已尝试提示音测试。若 WAV 不可用，则使用 Windows 提示音。</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>触发器</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>触发器: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>立即开启或关闭所有 Dheacon/Reading Roegadyn 触发器。</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>字体加载失败。请查看插件日志。</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>卸载</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>未知</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>改用 Windows 默认语音</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>在 Piper 合成前使用 {0} 将 {1} 转为 {2}。</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>用户</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>使用此引擎当前 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>使用托管的本地 Piper 运行环境和推荐英语 Arctic 语音。</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>使用此引擎当前 Windows 默认语音。</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>使用所选语音解说预设播报启用的游戏事件。</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>语音</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>等待中</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>启用时当前预设请求 Krangler 生成仅本地可见的 Imaginary Fren。</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>下一句语音开始时打开迷你窗口并保持打开。</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>语音队列是否正在准备或播放音频。</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>已选中、已安装或仅存在于目录的状态。</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Windows 默认</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Windows 默认 - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Windows 默认语音</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Windows 默认语音无需 Dheacon 下载，Piper 设置失败时仍可使用。</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>将当前设置写入当前用户预设。</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>是</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[模板]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[用户]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>禁用</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0}（未安装）</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1} 至 {2}</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>待处理 {0}</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>战斗开始</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>战斗结束</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>骑乘开始</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>骑乘结束</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>飞行开始</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>飞行结束</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>任务排队开始</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>任务排队结束</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>任务开始</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>任务结束</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>制作开始</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>制作结束</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>采集开始</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>采集结束</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>钓鱼开始</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>钓鱼结束</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>乐器演奏开始</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>乐器演奏结束</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>小游戏开始</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>小游戏结束</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>传唤铃开始</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>传唤铃结束</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>招募队员开始</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>招募队员结束</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>游泳开始</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>游泳结束</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>潜水开始</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>潜水结束</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>任务过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>任务过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>任务外过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>任务外过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>藏宝副本过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>藏宝副本过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>手动测试</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>区域切换</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>等级变化</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>职业变化</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>战斗不能</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>恢复</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>进入PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>离开PvP</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>附近玩家观察</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>附近人群观察</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>BGM Machinations</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>现代 Windows</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>旧版 SAPI</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>本地 Piper</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>玩家尚未准备就绪，已忽略{0}。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>扩展事件解说已禁用，已忽略{0}。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>扩展事件冷却期间，已抑制{0}。</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>已跳过{0}：语音处理正忙。</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>已跳过{0}：自动触发概率为0%。</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>已跳过{0}：{1}%的自动触发概率判定未通过。</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>已将{0}加入队列：{1}。</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>无法将{0}加入队列：{1}。</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>已将{0}加入队列：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>正在准备{0}：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>已朗读{0}：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>无法朗读{0}。</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>已生成{0}：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>命中缓存：{0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>{0}语音处理失败；已改用旧版SAPI：{1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0}失败；已改用旧版SAPI：{1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>不适用于{0}。</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>未找到{0}的台词；已使用备用文本。</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> （音高{0}半音）</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> （已跳过音高{0}半音）</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> （已应用音高{0}半音）</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> （音高{0}半音警告）</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>已跳过（音高{0}半音）。</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>已通过SoundTouch.NET应用音高{0}半音（倍数{1}、{2}个采样、{3}字节音频）。</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>已命中Piper音高{0}半音的缓存；本次请求未运行音高处理。</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Piper音高调整失败（{0}半音）：{1}。将使用未调整的WAV。</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>正在下载Piper{0}：{1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>正在下载Piper{0}：{1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>运行时</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>模型</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>配置</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>模型卡</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>软件包</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>手动测试</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>玩家已就绪</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>空闲冷却</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>快速设置测试</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>进入PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>离开PvP</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>职业{0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} 等级{1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>附近有{0}名玩家</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>战斗开始</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>战斗结束</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>骑乘开始</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>骑乘结束</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>飞行开始</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>飞行结束</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>任务排队开始</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>任务排队结束</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>任务开始</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>任务结束</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>制作开始</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>制作结束</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>采集开始</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>采集结束</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>钓鱼开始</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>钓鱼结束</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>乐器演奏开始</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>乐器演奏结束</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>小游戏开始</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>小游戏结束</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>传唤铃开始</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>传唤铃结束</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>招募队员开始</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>招募队员结束</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>游泳开始</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>游泳结束</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>潜水开始</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>潜水结束</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>任务过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>任务过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>任务外过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>任务外过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>藏宝副本过场动画开始</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>藏宝副本过场动画结束</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>战斗不能开始</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>战斗不能结束</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>正在等待首次区域切换。</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>区域已初始化为 {0}。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>插件已禁用，已忽略 {0} -&gt; {1}。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>距上次触发仅 {2:F1} 秒，已抑制 {0} -&gt; {1}。</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>已在区域切换 {0} -&gt; {1} 时触发。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>BGM 检测尚未初始化。</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>BGM 控制块指针尚未就绪。</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>BGM 场景列表指针尚未就绪。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>BGM 检测已启用；优先槽位中没有有效的曲目 ID。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>BGM 检测已启用；当前 BGM ID：{0}。</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>BGM 检测读取失败：{0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>未解析到 BGM 特征码；BGM 响应已禁用。</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>BGM 特征码已解析；正在等待首次轮询。</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>BGM 特征码解析失败：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn 正在等待玩家就绪。</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn 正在等待登录。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Reading Roegadyn 模式未启用或插件已禁用，已忽略手动语音。</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>区域解说已禁用，已忽略。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>处于冷却时间，已抑制 {0} -&gt; {1} 的区域解说。</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>玩家已就绪；登录解说已禁用。</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>战斗状态已变化；战斗解说已禁用。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>处于冷却时间，已抑制战斗解说。</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>处于冷却时间，已抑制 Machinations BGM 解说。</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>过场动画状态已变化；扩展解说已禁用。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>语音队列已就绪。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>语音队列已停止。</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>处理程序发生意外错误，语音队列已停止。</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>语音播放已取消。</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>本次会话尚未刷新 Piper 目录。</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>正在刷新 Piper 语音目录...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Piper 目录已刷新：{0} 个语音条目。</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Piper 目录刷新失败；将使用缓存及已安装的语音。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Piper 语音 {0} 已安装，但运行时设置失败；继续启用 旧版 SAPI。</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper 已就绪，使用 {0}。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Piper 语音 {0} 已安装，但缺少运行时；继续启用 旧版 SAPI。</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>正在安装便携式 Piper 运行时...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>便携式 Piper 运行时已安装（{0}）。</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>便携式 Piper 运行时安装失败：{0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0} 已安装。</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>正在安装 {0}...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Piper 语音 {0} 已安装（{1:F1} MB）。</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Piper 语音安装失败：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Piper 语音“{0}”未安装。</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Piper 语音 {0} 已卸载。</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>已选择 Piper 语音 {0}。</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>缺少 Piper 运行时。请设置便携式 piper.exe 路径，或将 piper.exe 放入 {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>已找到 Piper 运行时：{0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>正在下载官方 Piper 语音目录...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>正在下载瑞典语 Piper 发布目录...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>已加载缓存的 Piper 目录：{0} 个语音条目。</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>尚未生成语音。</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>没有文本。</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>未应用适配器。</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>没有匹配的适配器。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>已加载 {0} 个语音文本适配器。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>已加载备用语音文本适配器。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>已从 {0} 加载。</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>备用适配器。</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>已清除 {0} 个缓存 WAV 文件。</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>已清除 {0} 个缓存 Piper WAV 文件。</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>尚未尝试调整 Piper 音高。</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>尚未加载台词包。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>已加载 {0} 个台词包、{1} 条台词：内置 {2} 个，用户 {3} 个。</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>尚未加载预设。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>未找到预设“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>已将活动预设设为 {0}。</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>已创建用户预设“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>预设“{0}”受保护，无法重命名。</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>预设名称不能为空。</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>预设已重命名为“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>预设“{0}”受保护，无法覆盖。请先用 + 复制。</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>当前设置已保存至“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>已更新受保护预设“{0}”的临时 Fren 设置。请用 + 复制以保存更改。</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>已保存“{0}”的 Fren 设置。</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>已更新受保护预设“{0}”的临时台词包。请用 + 复制以保存更改。</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>已保存“{0}”的台词包。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>预设“{0}”受保护，无法删除。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>预设“{0}”不是用户预设文件。</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>已删除预设“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>预设导入文本为空。</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>无法识别预设导入格式。</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>已导入预设“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>预设“{0}”受保护，无法覆盖。</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>已保存预设“{0}”。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>已加载 {0} 个预设：内置 {1} 个，用户 {2} 个。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>Krangler 随从 IPC 空闲。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>尚未加载 Krangler 预设列表。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>Krangler 预设列表 IPC 返回失败。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Krangler 预设列表不可用；已启用自由文本输入。</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>已加载 {0} 个 Krangler 预设。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Krangler 预设导出不可用。</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>没有内嵌的 Krangler 预设。</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>已导入内嵌的 Krangler 预设。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler 拒绝了内嵌预设的导入。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Krangler 预设导入不可用。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>Krangler Imaginary Fren IPC 不可用；语音将继续播放，不使用随从。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>禁用随从时，Krangler Imaginary Fren IPC 不可用。</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>已接收 Krangler 随从状态。</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>不是 RIFF/WAVE 文件</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>无效的 WAV 区块“{0}”</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>fmt 区块过小</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>缺少 fmt 区块</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>无效的 fmt 区块</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>缺少 data 区块</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>不支持的 WAV 格式标记 {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>不支持的 PCM 位深 {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>不支持的 IEEE 浮点位深 {0}</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>16 位 PCM 数据未按采样对齐</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>24 位 PCM 数据未按采样对齐</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>32 位 PCM 数据未按采样对齐</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>浮点 WAV 数据未按采样对齐</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>原始 WAV 无法使用：{0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>调整音高后的 WAV 无法使用：{0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>音高处理器未生成采样</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>未创建调整音高后的 WAV</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>调整后的音频数据与原始数据相同</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>调整后的时长从 {0} 毫秒变为 {1} 毫秒（允许偏差 {2} 毫秒）</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>尚未加载语音文本适配器。</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>BGM {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>开启</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>关闭</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}。预设：{2}。点击切换。</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>窗口外观</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>在主窗口显示紧凑模式开关</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>在主窗口显示语言选择</value></data>
+  <data name="Transparency" xml:space="preserve"><value>透明度</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>不透明度 (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>失去焦点后自动淡化</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>未聚焦时的不透明度 (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>失去焦点后的等待时间 (秒)</value></data>
+</root>

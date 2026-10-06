@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [mẫu]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [người dùng]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> Thu nhỏ</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> Cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f bán cung</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f giây</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. Chọn chế độ hoạt động</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. Chọn giọng nói cục bộ</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. Kiểm tra và hoàn tất</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Một thao tác danh mục, bộ chạy hoặc giọng Piper đang thực hiện.</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>Thao tác</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>Cấu hình đang hoạt động</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>Cấu hình đang hoạt động: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>Thư mục thực tế sau khi mở rộng biến môi trường và giá trị mặc định.</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>Đã điều chỉnh</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>Bộ điều chỉnh</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>Danh tính bộ điều chỉnh dùng trong khóa bộ nhớ đệm của lần tổng hợp Piper gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>Dịch vụ điều chỉnh: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>Trạng thái bộ điều chỉnh: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>Bộ điều chỉnh sẽ áp dụng cho văn bản xem trước này.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>Phiên bản và mã băm nội dung của bộ điều chỉnh được đưa vào khóa bộ nhớ đệm WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>Phiên bản bộ điều chỉnh: {0}  Mã băm: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>Cảnh báo bộ điều chỉnh: </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>Ngữ cảnh bổ sung để tạo giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Ghi chú bổ sung từ danh mục giọng Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>Đường dẫn âm báo</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>Âm báo: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>Tất cả</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>Cho phép một câu nói khi phát hiện nhạc nền Machinations, theo thời gian chờ của nó.</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>Cho phép bình luận thêm theo điều kiện, như chuyển trạng thái cưỡi thú, nhiệm vụ, chế tạo và thu thập.</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>Cho phép thỉnh thoảng nói sau khi máy khách đã nhàn rỗi đủ lâu.</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>Cho phép nói một câu sau khi người chơi cục bộ sẵn sàng trong phiên này.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>Cho phép nói khi chiến đấu bắt đầu hoặc kết thúc, theo thời gian chờ của nó.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>Cho phép nói khi chuyển khu vực, theo thời gian chờ của nó.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>Áp dụng tăng âm sau khi tạo WAV, trước phát lại. Thay đổi sẽ tạo lại tệp giọng nói đã lưu đệm.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Áp dụng tăng âm phát lại sau tổng hợp Piper và tạo WAV. Đây không phải âm lượng tổng hợp Piper; thay đổi sẽ tạo lại WAV Piper đã lưu đệm.</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>Kiểm tra âm thanh thất bại: </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>Tỷ lệ kích hoạt tự động %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>Nhạc nền Machinations</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>Thời gian chờ nhạc nền (giây)</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>Trạng thái nhạc nền</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>Trạng thái nhạc nền: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>Quay lại</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>Bộ máy</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>Xanh dương</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>Tích hợp sẵn</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>Mẫu tích hợp sẵn chỉ có thể đọc.</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>Đang bận</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>Thư mục bộ nhớ đệm</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>Dung lượng bộ nhớ đệm: {0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>Trạng thái bộ nhớ đệm</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>Trạng thái bộ nhớ đệm: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>Trạng thái bộ nhớ đệm: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>Danh mục</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>Siêu dữ liệu giới tính trong danh mục.</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>Nguồn danh mục cho giọng Piper này.</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>Thay đổi mẫu được bảo vệ trong phiên hiện tại. Nhân bản bằng + để lưu lựa chọn gói câu thoại.</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>Thay đổi cách thanh DTR hiển thị: văn bản, biểu tượng kèm văn bản hoặc chỉ biểu tượng.</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>Chọn một hàng trong danh mục Piper để hiển thị các thao tác cài đặt/chọn/gỡ cài đặt ở đây.</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>Chọn cách Dheacon phát âm, chuẩn bị giọng nói cục bộ nếu cần, kiểm tra kết quả và quyết định có bật kích hoạt tự động hay không.</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>Chọn trạng thái plugin cần lưu. Đây là lựa chọn rõ ràng: hoàn tất sẽ không bật Dheacon trừ khi bạn chọn tùy chọn bật.</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>Chọn có bật Dheacon hay không.</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>Cấu hình âm báo cổ điển</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>Chế độ cổ điển không nói, nhưng lựa chọn này được lưu cho cấu hình giọng nói bạn chọn sau đó.</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>Chế độ cổ điển giữ âm báo chuyển khu vực gốc của Dheacon, bao gồm tùy chọn chặn khi dịch chuyển và Return hiện có.</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>Âm báo chuyển khu vực cổ điển</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>Xóa bộ nhớ đệm WAV Piper</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>Xóa bộ nhớ đệm</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>Đóng cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>Màu</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>Thời gian chờ chiến đấu (giây)</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>Bắt đầu/kết thúc chiến đấu</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>Lệnh: {0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>Cấu hình bình luận</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>Chế độ gọn</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>Điều khiển cao độ Modern Windows khi được hỗ trợ; Legacy SAPI có thể bỏ qua.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Điều khiển Piper --length_scale. Giá trị thấp nói nhanh hơn, cao nói chậm hơn. Thay đổi sẽ tạo lại mục bộ nhớ đệm WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Điều khiển Piper --sentence_silence. Giá trị cao tăng thời gian nghỉ giữa câu và tạo lại mục bộ nhớ đệm WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Điều khiển tốc độ nói Windows/SAPI. Thay đổi sẽ tạo lại giọng nói đã lưu đệm của các bộ máy này.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>Điều khiển âm lượng tổng hợp Windows/SAPI trước khi WAV được lưu đệm.</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>Sao chép một khối JSON cấu hình base64 có thể chuyển sang máy khác vào bảng tạm.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>ID nhạc nền hiện tại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>ID nhạc nền hiện tại được bộ dò nhạc nền quan sát.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>Trạng thái bộ dò nhạc nền hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>Số mục danh mục Piper hiện tại sau tìm kiếm và lọc.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Trạng thái tải xuống, cài đặt hoặc lựa chọn Piper hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>Trạng thái tìm bộ chạy Piper hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Tiến độ thiết lập, tải xuống hoặc cài đặt Piper hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>Cấu hình đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>Dung lượng gần đúng hiện tại của tệp WAV giọng nói đã lưu đệm.</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>Trạng thái bộ chạy Piper cục bộ hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>Văn bản hiện tại</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>Trạng thái kích hoạt hiện tại</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>Giọng hiện tại sẽ dùng để tạo giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>Giọng đang được đánh dấu trong danh mục Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>RGB tùy chỉnh</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>Thanh DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>Ký hiệu DTR khi tắt</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>Ký hiệu DTR khi bật</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>Chế độ DTR</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>Xóa tệp WAV giọng nói của tất cả bộ máy; lần nói sau sẽ tạo lại.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>Chỉ xóa tệp WAV Piper đã lưu đệm; đầu ra Piper sẽ tạo lại với tốc độ, khoảng nghỉ, cao độ, tăng âm và bộ điều chỉnh hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>Xóa cấu hình người dùng đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>Mô tả do cấu hình đang hoạt động cung cấp.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>Mô tả do cấu hình đã chọn cung cấp.</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>Chi tiết</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>Chi tiết hàng danh mục Piper đang được đánh dấu.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon thu nhỏ — theo dõi giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Cài đặt Dheacon</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Chế độ Dheacon phát âm báo đi kèm thay vì bình luận bằng giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Chế độ Dheacon chỉ dùng WAV cũ đi kèm.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — chính (cài đặt giọng nói)</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>Chẩn đoán</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>Tên hiển thị</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>Tên hiển thị và dung lượng cục bộ/tải xuống của giọng Piper này.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>Tải xuống và cài đặt bộ chạy Piper Windows di động được quản lý.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>Tải xuống và cài đặt giọng Piper đã chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>Tải xuống và cài đặt giọng Piper này.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>Tải xuống hoặc sửa bộ chạy Piper được quản lý và giọng khuyến nghị.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>Tải danh mục giọng Piper mới nhất và cập nhật trạng thái giọng đã cài.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>Nhân bản mẫu này bằng + trước khi đổi tên hoặc lưu đè.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>Nhân bản mẫu này bằng + trước khi đổi tên.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>Nhân bản cấu hình đang hoạt động thành cấu hình người dùng mới có thể chỉnh sửa.</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>Chỉnh sửa tên hiển thị của cấu hình người dùng đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>Bật Dheacon ngay</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>Đã bật</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>Bật âm báo chuyển khu vực hoặc bình luận tự động sau khi hoàn tất thiết lập.</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>Bật bộ điều chỉnh văn bản trước tổng hợp Piper tiếng Thụy Điển; thay đổi ảnh hưởng khóa bộ nhớ đệm Piper sau này.</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>Thời gian chờ sự kiện mở rộng (giây)</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>Sự kiện mở rộng</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>Cho biết bộ điều chỉnh có bật và áp dụng được cho giọng Piper đã chọn hay không.</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>Xuất cấu hình đang hoạt động</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>Lọc giọng Piper theo siêu dữ liệu giới tính.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>Lọc giọng Piper theo ngôn ngữ.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>Lọc giọng Piper theo cấp chất lượng mô hình.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>Lọc giọng Piper theo nguồn chính thức hoặc cộng đồng.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>Lọc giọng Piper theo trạng thái đã cài đặt.</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>Lọc danh mục Piper theo khóa giọng, ngôn ngữ, giới tính, chất lượng, nguồn hoặc ID danh mục.</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>Hoàn tất thiết lập nhanh</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>Trạng thái người đi theo</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>Trạng thái người đi theo: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>Cảnh báo người đi theo: </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>Chỉnh sửa Fren trên mẫu được bảo vệ này chỉ áp dụng lúc chạy. Nhân bản bằng + để lưu.</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>Nhãn đầy đủ của giọng Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>Giới tính</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>Chung</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>Tạo và phát bản xem trước bằng giọng Piper đã cấu hình mà không đổi bộ máy giọng nói chính.</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>Biểu tượng + văn bản</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>Chỉ biểu tượng</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>Chờ</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>Thời gian chờ khi nhàn rỗi (giây)</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren: tắt cho cấu hình này</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren: người đi theo '{0}' tùy chọn qua Krangler</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>Gửi ngay trạng thái Fren của cấu hình đang hoạt động đến Krangler nếu Krangler đã tải.</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>Nhập cấu hình</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>Nhập một cấu hình có thể chuyển sang máy khác vào thư mục cấu hình người dùng. ID cấu hình tích hợp được bảo vệ sẽ nhập với ID mới.</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>Cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>Cài Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>Trạng thái cài đặt và lựa chọn của giọng Piper đang được đánh dấu.</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>Cài bộ chạy</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>Đã cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>Lọc giọng đã cài</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>Dung lượng đã cài hoặc tải xuống của giọng Piper này.</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>Cài đặt và chọn giọng Piper en_US-arctic-medium được khuyến nghị.</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>Khóa: {0}
+Nguồn: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Tích hợp Krangler là tùy chọn và không ảnh hưởng phát âm báo hoặc bình luận.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Krangler là tùy chọn; cảnh báo này không dừng giọng nói Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Krangler là tùy chọn; khi danh sách không có sẵn, ô văn bản dự phòng vẫn hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Cấu hình Krangler</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>Tên, mã định danh hoặc tên tệp nguồn của cấu hình Krangler để áp dụng cho người đi theo. Hiển thị khi danh sách cấu hình Krangler không có sẵn.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>Siêu dữ liệu ngôn ngữ của giọng Piper này.</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>Ngôn ngữ: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Trạng thái IPC Krangler Imaginary Fren gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Trạng thái IPC danh sách cấu hình Krangler gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Trạng thái danh mục hoặc thiết lập Piper gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Trạng thái thao tác danh mục, bộ chạy, cài đặt hoặc lựa chọn Piper gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>Cảnh báo danh mục, bộ chạy hoặc cài đặt Piper gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>Dịch cao độ Piper gần nhất: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>Dịch cao độ Piper gần nhất: {0} Đã áp dụng: {1}. Bán cung: {2} st.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>Cảnh báo hoặc lỗi Piper gần nhất từ thao tác thiết lập hoặc danh mục.</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Quyết định kích hoạt Reading Roegadyn gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>Bản điều chỉnh gần nhất: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>Bộ điều chỉnh gần nhất: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>Âm báo gần nhất (UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>Kết quả thao tác bộ nhớ đệm gần nhất, gồm lần dùng bộ nhớ đệm và tệp đã tạo.</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>Bản gốc gần nhất: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>Lần nói gần nhất</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>Kết quả bộ nhớ đệm giọng nói gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>Lỗi hàng đợi giọng nói gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>Trạng thái hàng đợi giọng nói gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>Cảnh báo tổng hợp hoặc bộ nhớ đệm giọng nói gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>Trạng thái tải bộ điều chỉnh văn bản nói gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>Cảnh báo bộ điều chỉnh văn bản nói gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>Quyết định chuyển khu vực gần nhất</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>Giữ Dheacon tắt</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>SAPI cũ</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>SAPI cũ - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>Giọng SAPI cũ: {0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>Siêu dữ liệu giấy phép từ danh mục giọng.</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>Giấy phép: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>Gói câu thoại</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>Trạng thái gói câu thoại: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>Trạng thái gói câu thoại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>Gói câu thoại: không dùng trong chế độ Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>Trạng thái tải gói câu thoại.</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>Trạng thái trực tiếp của câu thử trong hàng đợi.</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>Đang tải phông giao diện...</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>Piper cục bộ - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>Đăng nhập</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>Giảm giá trị này nếu muốn các sự kiện diễn ra nhanh liên tiếp chỉ thỉnh thoảng kích hoạt bình luận thay vì mỗi sự kiện hợp lệ đều nói.</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>Thực hiện một lần kiểm tra âm thanh mà không bật kích hoạt tự động.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>Đặt giọng Piper đã cài này thành giọng hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>Đặt giọng Piper đã cài này làm giọng Piper đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>Bộ nhớ đệm tối đa (MB)</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>Dung lượng tối đa của toàn bộ bộ nhớ đệm WAV. Tệp cũ được dọn sau khi tạo giọng nói mới.</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>Cửa sổ thu nhỏ</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>Thời gian nhàn rỗi tối thiểu trước bình luận nhàn rỗi tiếp theo; giá trị dưới 30 giây được tăng lên 30.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>Thời gian tối thiểu giữa các bình luận nhạc nền Machinations.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>Thời gian tối thiểu giữa các bình luận bắt đầu/kết thúc chiến đấu.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>Thời gian tối thiểu giữa các bình luận sự kiện mở rộng.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>Thời gian tối thiểu giữa các bình luận chuyển khu vực; giá trị thấp có thể khiến đi lại nhiều lời.</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>Chế độ: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>Windows hiện đại</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>Giọng Windows hiện đại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>Kết quả xử lý dịch cao độ Piper gần nhất.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>Văn bản được chuẩn hóa gần nhất trước khi bộ điều chỉnh Piper thay đổi.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>Văn bản gần nhất gửi đến Piper sau thay đổi của bộ điều chỉnh.</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>Tên</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Tên Krangler ghi lên nhân vật người đi theo chỉ có ở máy cục bộ.</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>Chưa từng</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>Tiếp: Giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>Tiếp: Kiểm tra và hoàn tất</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>Không</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>Không có cấu hình Krangler nào khớp tìm kiếm hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>Chưa chọn giọng Piper</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>Chưa cài giọng Piper nào.</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>Chưa tải gói câu thoại có thể chọn nào.</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>Chưa có giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>Không có</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>Văn bản nguồn đã chuẩn hóa trước khi bộ điều chỉnh thay thế.</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>Chưa cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>Số giọng nói SAPI cũ được phát hiện.</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>Số giọng nói Windows hiện đại được phát hiện.</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>Số giọng Piper được quản lý đã cài.</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>Số câu nói đang chờ</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>Số yêu cầu giọng nói trong hàng đợi đang chờ chuẩn bị hoặc phát.</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>Mở thư mục</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>Mở cửa sổ thu nhỏ khi bắt đầu nói</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>Mở thẻ Giọng Piper để cài giọng Arctic tiếng Anh được khuyến nghị.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>Mở thư mục chứa giọng Piper đã cài này.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>Mở thư mục Piper được quản lý chứa bộ chạy, giọng, bộ nhớ đệm và tệp kê khai.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>Tích hợp Imaginary Fren tùy chọn đang tắt cho cấu hình này. Có thể thiết lập sau trong cài đặt Chung và cần Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>Imaginary Fren tùy chọn: cấu hình này có thể yêu cầu Krangler tạo người đi theo '{0}' chỉ ở máy cục bộ khi Dheacon bật. Krangler là tùy chọn; bình luận vẫn hoạt động khi không có nó.</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>Đường dẫn piper.exe chỉ định tùy chọn. Để trống sẽ dùng thư mục bộ chạy được quản lý hoặc tìm qua PATH.</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>Bản gốc</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>Tăng âm đầu ra %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>Dán để nhập</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>Dán base64 cấu hình tại đây</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>Yêu cầu giọng nói đang chờ: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>Hồng</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Giọng Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Danh mục Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Không thể chuẩn bị Piper, nên thiết lập nhanh đã chọn giọng nói mặc định Windows. Bạn có thể thử Piper lại ở đây.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>Piper đã sẵn sàng với giọng Arctic tiếng Anh được khuyến nghị.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piper đã sẵn sàng.</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>Piper cục bộ</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Cấp chất lượng mô hình Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Đang thực hiện thao tác Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Cao độ Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Đang chuẩn bị Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piper cung cấp giọng nói cục bộ nhất quán. Bộ chạy và giọng đã chọn chỉ tải một lần; giọng nói được tạo vẫn lưu đệm ở máy cục bộ.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Đường dẫn bộ chạy Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>Đường dẫn bộ chạy Piper hiện dùng để tổng hợp cục bộ.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>Chưa kiểm tra trạng thái bộ chạy Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Bộ chạy Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Bộ chạy Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Cài đặt Piper: tốc độ {0:F2}, nghỉ giữa câu {1:F2}s, cao độ {2} st, tăng âm {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Thiết lập Piper thất bại, nên thiết lập nhanh đã chọn giọng nói mặc định Windows: </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Tốc độ Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Tốc độ Piper: {0:F2} · Nghỉ giữa câu: {1:F2}s · Cao độ: {2} st · Tăng âm phát lại: {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>Cài đặt tổng hợp và xử lý sau của Piper ảnh hưởng các mục bộ nhớ đệm WAV Piper sau này.</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Bộ điều chỉnh văn bản Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Giọng Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>Ngôn ngữ giọng Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Giọng Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Cảnh báo Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>Cao độ</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>Cao độ: {0:F2} · Tăng âm đầu ra: {1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>Tăng âm phát lại %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Phát âm báo chuyển khu vực đi kèm khi thay đổi khu vực hợp lệ và không nói bình luận.</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>Đã bật plugin</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>Chỉ xử lý sau khi tạo WAV; đây không phải tham số tổng hợp Piper và có thể gây nhiễu. Giá trị âm làm giọng trầm hơn. Thay đổi sẽ tạo lại bộ nhớ đệm WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>Chuẩn bị Piper</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>Chuẩn bị Piper hoặc chọn giọng nói mặc định Windows trước khi tiếp tục.</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>Đang chuẩn bị bộ chạy Piper được quản lý và giọng Arctic tiếng Anh được khuyến nghị...</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>Cảnh báo danh sách cấu hình: </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>Danh sách cấu hình: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>Trạng thái tải/nhập/xuất cấu hình.</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>Nguồn cấu hình: {0}  Được bảo vệ: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>Trạng thái cấu hình: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>Cấu hình: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>Cấu hình</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>Ngăn dịch chuyển và Return phát âm báo đi kèm.</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>Ngăn dịch chuyển và Return kích hoạt giọng nói Reading Roegadyn.</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>Bộ điều chỉnh xem trước: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>Văn bản xem trước</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>In thông báo quyết định/trạng thái chế độ hiện tại vào trò chuyện.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>Cấu hình tích hợp được bảo vệ không thể đổi tên, xóa hoặc ghi đè.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>Không thể xóa mẫu tích hợp được bảo vệ.</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>Chất lượng</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>Hàng đợi</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>Lỗi hàng đợi: </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>Lỗi hàng đợi: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>Trạng thái hàng đợi: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>Đưa một câu thử Reading Roegadyn vào hàng đợi bằng bộ máy giọng nói đã chọn và giọng hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>Thiết lập nhanh</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>Đã hoàn tất thiết lập nhanh. Dheacon {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>Trạng thái chuẩn bị giọng nói trong thiết lập nhanh.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>Trạng thái lựa chọn hoặc phương án dự phòng giọng nói trong thiết lập nhanh.</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>Tốc độ</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>Đọc khối cấu hình có thể chuyển sang máy khác từ bảng tạm vào ô nhập.</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>Piper cục bộ được khuyến nghị</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>Đồng bộ ngay</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>Cập nhật danh mục</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>Cập nhật giọng</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>Cập nhật danh sách giọng Windows hiện đại, SAPI cũ và Piper đã cài.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>Cập nhật giọng nói được phát hiện và báo số lượng vào trò chuyện.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>Xóa giọng Piper này khỏi thư mục giọng được quản lý.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>Xóa giọng Piper đã cài này khỏi thư mục giọng được quản lý.</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>Đổi tên</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>Đổi tên cấu hình người dùng đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>Thư mục bộ nhớ đệm đã xác định: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Đường dẫn đã xác định dùng khi chế độ Dheacon phát âm báo.</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>Kết quả lần thử bắt buộc của thiết lập nhanh.</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>Thử lại Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>Xem lại và kiểm tra cấu hình đã chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>Chạy lại thiết lập nhanh</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>Kiểm tra âm thanh trước khi hoàn tất.</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>Lưu cài đặt hiện tại</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>Đã lưu: {0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>Lưu thiết lập và ngăn tự mở về sau.</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>Lưu thiết lập nhưng giữ kích hoạt tự động tắt cho đến khi bạn bật plugin sau này.</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>Tìm</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>Tìm cấu hình Krangler...</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>Chọn</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>Chọn Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>Chọn một giọng Piper để quản lý.</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>Chọn giọng Piper đã cài {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>Chọn cấu hình</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>Chọn {0} cho giọng nói được tạo sau này.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>Đã chọn</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>Đã chọn giọng nói mặc định Windows thay vì Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>Đã chọn giọng nói mặc định Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>Mô tả gói câu thoại đã chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>Chế độ hoạt động đã chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>Cấu hình đã chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>Cấu hình đã chọn: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>Bộ máy giọng nói và giọng đã chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>Chi tiết giọng đã chọn</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>Giọng đã chọn: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>Đã chọn:</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>Chọn cấu hình Krangler theo tên dễ đọc và lưu khóa cố định trong cấu hình Dheacon này.</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>Chọn một cấu hình bình luận bằng giọng nói hiện có.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>Chọn giọng Piper đã cài dùng cho tổng hợp Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>Chọn giọng Windows/SAPI đã cài dùng để tạo giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>Chọn giọng Piper en_US-arctic-medium được khuyến nghị đã cài.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>Chọn gói câu thoại dùng sau các câu có sẵn trong cấu hình.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>Chọn bộ máy giọng nói. Chọn Piper sẽ tự chuẩn bị giọng Arctic tiếng Anh được khuyến nghị nếu cần.</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>Chọn bộ điều chỉnh văn bản chạy trước tổng hợp Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>Nghỉ giữa câu</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>Đặt ký hiệu DTR khi plugin tắt; đầu vào quá dài sẽ bị cắt.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>Đặt ký hiệu DTR khi plugin bật; đầu vào quá dài sẽ bị cắt.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Đặt đường dẫn WAV âm báo cho chế độ Dheacon; đường dẫn tương đối tính từ thư mục plugin.</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>Đặt nơi lưu đệm tệp WAV giọng nói; để trống dùng thư mục LocalAppData mặc định.</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>Cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>Hiện mục trên thanh DTR</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>Đang hiển thị {0} trong {1} mục danh mục.</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>Hiện chi tiết và thanh thao tác gọn cho giọng Piper này.</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>Hiện hoặc ẩn mục trạng thái có thể nhấp trên thanh DTR Dalamud.</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>Dung lượng</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>Nguồn</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>Tạo Fren cho cấu hình này</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>Giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>Bộ máy giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>Giọng nói đang bận: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>Ngữ cảnh giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>Giọng nói được tạo trên PC của bạn và lưu đệm dưới dạng WAV để dùng lại.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>Hàng đợi giọng nói: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>Đã đưa giọng nói vào hàng đợi.</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>Cảnh báo giọng nói: </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>Giọng nói: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>Bình luận bằng giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>Chế độ nói dùng câu thoại theo cấu hình cho đăng nhập, đi lại, chiến đấu, nhàn rỗi, nhạc nền và sự kiện khác đã bật, theo tỷ lệ kích hoạt và thời gian chờ.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>Cấu hình giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>Đã đưa thử bình luận giọng nói vào hàng đợi. Theo dõi trạng thái giọng nói bên dưới; âm thanh đã lưu đệm sẽ dùng lại khi khớp sau này.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>Đã thử bình luận giọng nói, nhưng hàng đợi không nhận câu thoại. Xem trạng thái bên dưới và thử lại.</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>Bắt đầu lại ba bước thiết lập mà không đặt lại các cài đặt không liên quan.</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>Trạng thái</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>Trạng thái: đã cài</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>Trạng thái: chưa cài</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>Trạng thái: giọng Piper đã chọn</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>Trạng thái tạm thời không có sẵn: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>Gửi trạng thái vào trò chuyện</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>Bước {0} trong 3</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>Ngừng chờ Piper và chọn bộ máy giọng nói Windows tích hợp với giọng mặc định.</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>Ủng hộ trên Ko-fi</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>Chặn dịch chuyển và Return</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>Âm lượng tổng hợp</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>Giọng TTS (riêng với ngôn ngữ giao diện)</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>Xanh ngọc</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>Chuyển khu vực</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>Thời gian chờ chuyển khu vực (giây)</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>Thử giọng nói đã điều chỉnh</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>Thử giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>Thử bình luận giọng nói</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>Thử âm báo chuyển khu vực</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>Đang thử giọng nói đã điều chỉnh...</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>Văn bản đang trong hàng đợi hoặc đang được nói</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>Chỉ văn bản</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>Văn bản sẽ gửi đến Piper sau khi bộ điều chỉnh thay thế.</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>Văn bản dùng để xem trước bộ điều chỉnh Piper hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>Bộ máy chuyển văn bản thành giọng nói (cài đặt plugin)</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>Chuyển văn bản thành giọng nói cho FFXIV (plugin Dalamud)</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>Giọng Windows đang chọn để tạo giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>Cấu hình đã lưu khi hoàn tất thiết lập nhanh.</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>Lỗi chuẩn bị Piper gần nhất. Bạn có thể thử lại hoặc dùng giọng nói mặc định Windows.</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>Lỗi hàng đợi giọng nói mới nhất; lần thử vẫn được tính để bạn có thể đổi cài đặt giọng nói và thử lại.</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>Cấu hình mà thiết lập nhanh sẽ giữ hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>Đã tìm thấy giọng khuyến nghị và bộ chạy Piper dùng được.</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>Giọng Piper này đã hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>Giọng Piper đã cài này hiện được chọn.</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>Đã thử âm báo chuyển khu vực. Nếu WAV đã cấu hình không có sẵn, Dheacon dùng âm thanh cảm thán Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>Kích hoạt</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>Trạng thái kích hoạt: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>Bật hoặc tắt ngay mọi kích hoạt Dheacon/Reading Roegadyn.</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>Không tải được phông giao diện. Xem nhật ký plugin.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>Gỡ cài đặt</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>Không rõ</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>Dùng mặc định Windows thay thế</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>Dùng bộ điều chỉnh {0} cho văn bản từ {1} sang {2} trước tổng hợp Piper.</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>Người dùng</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>Dùng giọng mặc định Windows hiện tại cho bộ máy này.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>Dùng bộ chạy Piper cục bộ được quản lý và giọng Arctic tiếng Anh được khuyến nghị.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>Dùng bộ máy giọng nói Windows hiện đại và giọng mặc định Windows hiện tại.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>Dùng cấu hình đã chọn để nói bình luận cho sự kiện trong trò chơi đã bật.</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>Giọng</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>Đang chờ</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>Khi bật, cấu hình đang hoạt động yêu cầu Krangler tạo người đi theo Imaginary Fren chỉ ở máy cục bộ.</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>Khi bật, cửa sổ thu nhỏ mở ở câu nói tiếp theo và vẫn mở.</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>Cho biết hàng đợi giọng nói hiện đang chuẩn bị hoặc phát âm thanh.</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>Cho biết giọng Piper này đã chọn, đã cài hay chỉ có trong danh mục.</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Mặc định Windows</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Mặc định Windows - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Giọng nói mặc định Windows</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Giọng nói mặc định Windows không cần Dheacon quản lý tải xuống và vẫn dùng làm dự phòng nếu thiết lập Piper thất bại.</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>Ghi cài đặt đang dùng vào cấu hình người dùng đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>Có</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[mẫu]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[người dùng]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>đã tắt</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0} (chưa cài)</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1} sang {2}</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>{0} đang chờ</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>Bắt đầu chiến đấu</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>Kết thúc chiến đấu</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>Bắt đầu cưỡi thú</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>Kết thúc cưỡi thú</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>Bắt đầu bay</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>Kết thúc bay</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>Bắt đầu xếp hàng nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>Kết thúc xếp hàng nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>Bắt đầu nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>Kết thúc nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>Bắt đầu chế tạo</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>Kết thúc chế tạo</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>Bắt đầu thu thập</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>Kết thúc thu thập</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>Bắt đầu câu cá</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>Kết thúc câu cá</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>Bắt đầu đoạn phim</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>Kết thúc đoạn phim</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>Bắt đầu biểu diễn</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>Kết thúc biểu diễn</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>Bắt đầu trò chơi nhỏ</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>Kết thúc trò chơi nhỏ</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>Bắt đầu dùng chuông triệu hồi</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>Kết thúc dùng chuông triệu hồi</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>Bắt đầu tìm tổ đội</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>Kết thúc tìm tổ đội</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>Bắt đầu bơi</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>Kết thúc bơi</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>Bắt đầu lặn</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>Kết thúc lặn</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>Bắt đầu đoạn phim nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>Kết thúc đoạn phim nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>Bắt đầu đoạn phim ngoài nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>Kết thúc đoạn phim ngoài nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>Bắt đầu đoạn phim ngục kho báu</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>Kết thúc đoạn phim ngục kho báu</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>Kiểm tra thủ công</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>Chuyển khu vực</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>Thay đổi cấp độ</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>Thay đổi lớp/nghề</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>Bất tỉnh</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>Hồi phục</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>Vào PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>Rời PvP</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>Quan sát người chơi lân cận</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>Quan sát đám đông lân cận</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>Nhạc nền Machinations</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>Windows hiện đại</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>SAPI cũ</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>Piper cục bộ</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>Bỏ qua {0} vì người chơi chưa sẵn sàng.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>Bỏ qua {0} vì bình luận sự kiện mở rộng đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>Chặn {0} do thời gian chờ sự kiện mở rộng.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>Bỏ qua {0}: giọng nói đang bận.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>Bỏ qua {0}: tỷ lệ kích hoạt tự động là 0%.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>Bỏ qua {0}: lượt thử tỷ lệ kích hoạt tự động không đạt ở {1}%.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>Đã đưa {0} vào hàng đợi: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>Không thể đưa {0} vào hàng đợi: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>Đã đưa {0} vào hàng đợi: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>Đang chuẩn bị {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>Đã nói {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>Không thể nói {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>Đã tạo {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>Dùng bộ nhớ đệm: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>Giọng nói {0} thất bại; đã dùng SAPI cũ dự phòng: {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0} thất bại; đã dùng SAPI cũ dự phòng: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>Không áp dụng cho {0}.</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>Không tìm thấy câu thoại cho {0}; đã dùng văn bản dự phòng.</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> (cao độ {0} st)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> (bỏ qua cao độ {0} st)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> (đã áp dụng cao độ {0} st)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> (cảnh báo cao độ {0} st)</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>Đã bỏ qua (cao độ {0} st).</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>Đã áp dụng cao độ {0} st với SoundTouch.NET (hệ số {1}, {2} mẫu, {3} byte âm thanh).</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>Dùng bộ nhớ đệm cho cao độ Piper {0} st; bộ xử lý cao độ không chạy cho yêu cầu này.</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Dịch cao độ Piper thất bại ({0} bán cung): {1}. Đang dùng WAV chưa dịch cao độ.</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>Đang tải Piper {0}: {1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>Đang tải Piper {0}: {1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>bộ chạy</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>mô hình</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>cấu hình</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>thẻ mô hình</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>gói</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>kiểm tra thủ công</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>người chơi sẵn sàng</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>thời gian chờ nhàn rỗi</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>kiểm tra thiết lập nhanh</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>vào PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>rời PvP</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>lớp/nghề {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} cấp {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>{0} người chơi lân cận</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>bắt đầu chiến đấu</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>kết thúc chiến đấu</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>bắt đầu cưỡi thú</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>kết thúc cưỡi thú</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>bắt đầu bay</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>kết thúc bay</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>bắt đầu xếp hàng nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>kết thúc xếp hàng nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>bắt đầu nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>kết thúc nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>bắt đầu chế tạo</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>kết thúc chế tạo</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>bắt đầu thu thập</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>kết thúc thu thập</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>bắt đầu câu cá</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>kết thúc câu cá</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>bắt đầu biểu diễn</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>kết thúc biểu diễn</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>bắt đầu trò chơi nhỏ</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>kết thúc trò chơi nhỏ</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>bắt đầu dùng chuông triệu hồi</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>kết thúc dùng chuông triệu hồi</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>bắt đầu tìm tổ đội</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>kết thúc tìm tổ đội</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>bắt đầu bơi</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>kết thúc bơi</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>bắt đầu lặn</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>kết thúc lặn</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>bắt đầu đoạn phim nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>kết thúc đoạn phim nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>bắt đầu đoạn phim ngoài nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>kết thúc đoạn phim ngoài nhiệm vụ</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>bắt đầu đoạn phim ngục kho báu</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>kết thúc đoạn phim ngục kho báu</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>bắt đầu bất tỉnh</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>hết bất tỉnh</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>Đang chờ chuyển khu vực đầu tiên.</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>Đã khởi tạo khu vực thành {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>Bỏ qua {0} -&gt; {1} vì plugin đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>Chặn {0} -&gt; {1} sau một lần dùng kỹ năng gần đây ({2:F1}s trước).</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>Đã kích hoạt khi chuyển khu vực {0} -&gt; {1}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>Bộ dò nhạc nền chưa khởi tạo.</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>Con trỏ khối điều khiển nhạc nền chưa sẵn sàng.</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>Con trỏ danh sách cảnh nhạc nền chưa sẵn sàng.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>Bộ dò nhạc nền hoạt động; không có ID bài hát hợp lệ trong các vị trí ưu tiên.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>Bộ dò nhạc nền hoạt động; ID nhạc nền hiện tại {0}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>Bộ dò nhạc nền đọc thất bại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>Chưa xác định chữ ký nhạc nền; phản ứng nhạc nền đã tắt.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>Đã xác định chữ ký nhạc nền; đang chờ lần kiểm tra đầu.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>Xác định chữ ký nhạc nền thất bại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn đang chờ người chơi sẵn sàng.</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn đang chờ đăng nhập.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Bỏ qua giọng nói thủ công vì chế độ Reading Roegadyn không hoạt động hoặc plugin đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>Bỏ qua bình luận khu vực vì đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>Chặn bình luận khu vực theo thời gian chờ cho {0} -&gt; {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>Người chơi sẵn sàng; bình luận đăng nhập đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>Trạng thái chiến đấu đã thay đổi; bình luận chiến đấu đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>Chặn bình luận chiến đấu theo thời gian chờ.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>Chặn bình luận nhạc nền Machinations theo thời gian chờ.</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>Trạng thái đoạn phim đã thay đổi; bình luận mở rộng đang tắt.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>Hàng đợi giọng nói đã sẵn sàng.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>Hàng đợi giọng nói đã dừng.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>Hàng đợi giọng nói đã dừng sau lỗi tác vụ không mong đợi.</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>Đã hủy phát giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>Chưa cập nhật danh mục Piper trong phiên này.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>Đang cập nhật danh mục giọng Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Đã cập nhật danh mục Piper: {0} mục giọng.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Cập nhật danh mục Piper thất bại; đang dùng giọng đã lưu đệm và đã cài.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Giọng Piper {0} đã cài, nhưng thiết lập bộ chạy thất bại; giữ SAPI cũ hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper đã sẵn sàng với {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Giọng Piper {0} đã cài, nhưng thiếu bộ chạy; giữ SAPI cũ hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>Đang cài bộ chạy Piper di động...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>Đã cài bộ chạy Piper di động ({0}).</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>Cài bộ chạy Piper di động thất bại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0} đã được cài.</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>Đang cài {0}...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Đã cài giọng Piper {0} ({1:F1} MB).</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Cài giọng Piper thất bại: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Giọng Piper '{0}' chưa cài.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Đã gỡ cài đặt giọng Piper {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>Đã chọn giọng Piper {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>Thiếu bộ chạy Piper. Đặt đường dẫn piper.exe di động hoặc đặt piper.exe trong {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>Đã tìm thấy bộ chạy Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>Đang tải danh mục giọng Piper chính thức...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>Đang tải danh mục bản phát hành Piper tiếng Thụy Điển...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>Đã tải danh mục Piper từ bộ nhớ đệm: {0} mục giọng.</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>Chưa tạo giọng nói.</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>Không có văn bản.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>Chưa áp dụng bộ điều chỉnh.</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>Không có bộ điều chỉnh phù hợp.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>Đã tải {0} bộ điều chỉnh văn bản nói.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>Đã tải bộ điều chỉnh văn bản nói dự phòng.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>Đã tải từ {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>Bộ điều chỉnh dự phòng.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>Đã xóa {0} tệp WAV lưu đệm.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>Đã xóa {0} tệp WAV Piper lưu đệm.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>Chưa thử dịch cao độ Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>Chưa tải gói câu thoại.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>Đã tải {0} gói câu thoại, {1} câu: {2} tích hợp, {3} người dùng.</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>Chưa tải cấu hình.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>Không tìm thấy cấu hình '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>Đã đặt cấu hình đang hoạt động thành {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>Đã tạo cấu hình người dùng '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>Cấu hình '{0}' được bảo vệ và không thể đổi tên.</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>Tên cấu hình không được để trống.</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>Đã đổi tên cấu hình thành '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>Cấu hình '{0}' được bảo vệ và không thể ghi đè. Hãy nhân bản bằng + trước.</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>Đã lưu cài đặt hiện tại vào '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Đã cập nhật cài đặt Fren lúc chạy cho cấu hình được bảo vệ '{0}'. Nhân bản bằng + để lưu thay đổi.</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>Đã lưu cài đặt Fren cho '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Đã cập nhật gói câu thoại lúc chạy cho cấu hình được bảo vệ '{0}'. Nhân bản bằng + để lưu thay đổi.</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>Đã lưu gói câu thoại cho '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>Cấu hình '{0}' được bảo vệ và không thể xóa.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>Cấu hình '{0}' không phải tệp cấu hình người dùng.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>Đã xóa cấu hình '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>Văn bản nhập cấu hình trống.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>Không nhận diện được lược đồ nhập cấu hình.</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>Đã nhập cấu hình '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>Cấu hình '{0}' được bảo vệ và không thể ghi đè.</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>Đã lưu cấu hình '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>Đã tải {0} cấu hình: {1} tích hợp, {2} người dùng.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>IPC người đi theo Krangler nhàn rỗi.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>Chưa tải danh sách cấu hình Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>IPC danh sách cấu hình Krangler trả về lỗi.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Danh sách cấu hình Krangler không có sẵn; nhập văn bản tự do dự phòng đang hoạt động.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>Đã tải {0} cấu hình Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Không thể xuất cấu hình Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>Không có cấu hình Krangler nhúng.</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>Đã nhập cấu hình Krangler nhúng.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler từ chối nhập cấu hình nhúng.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Không thể nhập cấu hình Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>IPC Krangler Imaginary Fren không có sẵn; giọng nói tiếp tục không có người đi theo.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>IPC Krangler Imaginary Fren không có sẵn khi tắt người đi theo.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>Đã nhận trạng thái người đi theo Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>không phải tệp RIFF/WAVE</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>khối WAV '{0}' không hợp lệ</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>khối fmt quá nhỏ</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>thiếu khối fmt</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>khối fmt không hợp lệ</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>thiếu khối data</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>thẻ định dạng WAV {0} không được hỗ trợ</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>độ sâu bit PCM {0} không được hỗ trợ</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>độ sâu bit số thực IEEE {0} không được hỗ trợ</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>dữ liệu PCM 16-bit không căn theo mẫu</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>dữ liệu PCM 24-bit không căn theo mẫu</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>dữ liệu PCM 32-bit không căn theo mẫu</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>dữ liệu WAV số thực không căn theo mẫu</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>WAV gốc không dùng được: {0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>WAV đã dịch cao độ không dùng được: {0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>bộ ghi cao độ không tạo mẫu nào</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>chưa tạo WAV đã dịch cao độ</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>dữ liệu âm thanh đã dịch cao độ không khác bản gốc</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>thời lượng đã dịch lệch từ {0} ms sang {1} ms (độ lệch cho phép {2} ms)</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>Chưa tải bộ điều chỉnh văn bản nói nào.</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>Nhạc nền {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>Bật</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>Tắt</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}. Cấu hình: {2}. Nhấp để bật/tắt.</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>Giao diện cửa sổ</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Hiển thị chế độ gọn trên cửa sổ chính</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Hiển thị lựa chọn ngôn ngữ trên cửa sổ chính</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Độ trong suốt</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Độ đục (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Tự giảm độ đục khi mất tiêu điểm</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Độ đục khi mất tiêu điểm (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Độ trễ khi mất tiêu điểm (giây)</value></data>
+</root>

@@ -25,6 +25,16 @@ public class Configuration : IPluginConfiguration
     private const int SetupWizardIntroducedVersion = 12;
 
     public int Version { get; set; } = CurrentVersion;
+    public string UiLanguage { get; set; } = "en";
+    public uint UiAccentRgb { get; set; } = 0xB98DEB;
+    public bool UiCompact { get; set; } = false;
+    public bool UiCompactVisibleOnMainWindow { get; set; } = true;
+    public bool UiLanguageVisibleOnMainWindow { get; set; } = true;
+    public bool UiTransparencyEnabled { get; set; } = true;
+    public int UiWindowOpacityPercent { get; set; } = 100;
+    public bool UiAutoFade { get; set; } = true;
+    public int UiFadedOpacityPercent { get; set; } = 50;
+    public float UiUnfocusedDelaySeconds { get; set; } = 10;
     public bool SetupWizardCompleted { get; set; } = false;
     public bool PluginEnabled { get; set; } = false;
     public CommentaryMode CommentaryMode { get; set; } = CommentaryMode.ReadingRoegadyn;

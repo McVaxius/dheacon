@@ -46,6 +46,15 @@
         "type": "Transitive",
         "resolved": "2.3.2",
         "contentHash": "5A29Pll/n4kEEPvCD5DFot3MJG+VgiaRG6LbNQVkF94VerC1b5iZtJKfdLQXZPFrl3LiVbKm3txKBe5/pbv5rw=="
+      },
+      "aethertekui": {
+        "type": "Project"
+      },
+      "aethertekui.dalamud": {
+        "type": "Project",
+        "dependencies": {
+          "AethertekUI": "[0.3.0, )"
+        }
       }
     }
   }

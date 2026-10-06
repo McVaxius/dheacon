@@ -1,0 +1,2172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data xml:space="preserve" name="  [template]">
+    <value>  [szablon]</value>
+  </data>
+  <data xml:space="preserve" name="  [user]">
+    <value>  [użytkownik]</value>
+  </data>
+  <data xml:space="preserve" name=" Mini">
+    <value> Mini</value>
+  </data>
+  <data xml:space="preserve" name=" Settings">
+    <value> Ustawienia</value>
+  </data>
+  <data xml:space="preserve" name="%+.1f semitones">
+    <value>%+.1f półtonów</value>
+  </data>
+  <data xml:space="preserve" name="%.2f sec">
+    <value>%.2f s</value>
+  </data>
+  <data xml:space="preserve" name="1. Choose an operating mode">
+    <value>1. Wybierz tryb działania</value>
+  </data>
+  <data xml:space="preserve" name="2. Choose local speech">
+    <value>2. Wybierz lokalną mowę</value>
+  </data>
+  <data xml:space="preserve" name="3. Test and finish">
+    <value>3. Przetestuj i zakończ</value>
+  </data>
+  <data xml:space="preserve" name="A Piper catalog, runtime, or voice operation is already running.">
+    <value>Trwa już operacja katalogu, środowiska wykonawczego lub głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Actions">
+    <value>Działania</value>
+  </data>
+  <data xml:space="preserve" name="Active preset">
+    <value>Aktywny profil</value>
+  </data>
+  <data xml:space="preserve" name="Active preset: {0}">
+    <value>Aktywny profil: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Actual folder used after expanding environment variables and defaults.">
+    <value>Rzeczywisty folder po rozwinięciu zmiennych środowiskowych i wartości domyślnych.</value>
+  </data>
+  <data xml:space="preserve" name="Adapted">
+    <value>Dostosowany</value>
+  </data>
+  <data xml:space="preserve" name="Adapter">
+    <value>Adapter</value>
+  </data>
+  <data xml:space="preserve" name="Adapter identity used for the most recent Piper synthesis cache key.">
+    <value>Tożsamość adaptera użyta w kluczu pamięci podręcznej ostatniej syntezy Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter service: ">
+    <value>Usługa adaptera: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter status: ">
+    <value>Stan adaptera: </value>
+  </data>
+  <data xml:space="preserve" name="Adapter that would be applied to this preview text.">
+    <value>Adapter, który zostanie zastosowany do tego tekstu podglądu.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version and content hash are included in Piper WAV cache keys.">
+    <value>Wersja adaptera i skrót treści są częścią kluczy pamięci podręcznej WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter version: {0}  Hash: {1}">
+    <value>Wersja adaptera: {0}  Skrót: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Adapter warning: ">
+    <value>Ostrzeżenie adaptera: </value>
+  </data>
+  <data xml:space="preserve" name="Additional context for speech generation">
+    <value>Dodatkowy kontekst generowania mowy</value>
+  </data>
+  <data xml:space="preserve" name="Additional notes from the Piper voice catalog.">
+    <value>Dodatkowe uwagi z katalogu głosów Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound path">
+    <value>Ścieżka dźwięku powiadomienia</value>
+  </data>
+  <data xml:space="preserve" name="Alert sound: ">
+    <value>Dźwięk powiadomienia: </value>
+  </data>
+  <data xml:space="preserve" name="All">
+    <value>Wszystkie</value>
+  </data>
+  <data xml:space="preserve" name="Allows a spoken line when the Machinations BGM is detected, subject to its cooldown.">
+    <value>Zezwala na wypowiedź po wykryciu muzyki Machinations, z zachowaniem jej odstępu czasowego.</value>
+  </data>
+  <data xml:space="preserve" name="Allows extra condition-based event commentary such as mount, duty, crafting, and gathering transitions.">
+    <value>Zezwala na dodatkowe komentarze zależne od warunków, np. zmiany dosiadania, instancji, wytwarzania i zbierania.</value>
+  </data>
+  <data xml:space="preserve" name="Allows occasional spoken lines after the client has been idle long enough.">
+    <value>Zezwala na sporadyczne wypowiedzi po dostatecznie długiej bezczynności klienta.</value>
+  </data>
+  <data xml:space="preserve" name="Allows one spoken line after the local player becomes ready this session.">
+    <value>Zezwala na jedną wypowiedź, gdy lokalny gracz będzie gotowy w tej sesji.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when combat starts or ends, subject to its cooldown.">
+    <value>Zezwala na wypowiedzi na początku lub końcu walki, z zachowaniem odstępu czasowego.</value>
+  </data>
+  <data xml:space="preserve" name="Allows spoken lines when moving between territories, subject to its cooldown.">
+    <value>Zezwala na wypowiedzi przy zmianie obszaru, z zachowaniem odstępu czasowego.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV gain before playback. Changing it regenerates cached speech files.">
+    <value>Stosuje wzmocnienie po utworzeniu WAV, przed odtwarzaniem. Zmiana odtwarza pliki mowy w pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="Applies post-WAV playback gain after Piper synthesis. This is not Piper synth volume and changing it regenerates cached Piper WAVs.">
+    <value>Stosuje wzmocnienie odtwarzania po syntezie WAV Piper. Nie jest to głośność syntezy Piper; zmiana odtwarza pliki WAV Piper w pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="Audio test failed: ">
+    <value>Test dźwięku nie powiódł się: </value>
+  </data>
+  <data xml:space="preserve" name="Automatic trigger chance %">
+    <value>Szansa automatycznego wyzwolenia %</value>
+  </data>
+  <data xml:space="preserve" name="BGM Machinations">
+    <value>Muzyka Machinations</value>
+  </data>
+  <data xml:space="preserve" name="BGM cooldown seconds">
+    <value>Odstęp muzyki w sekundach</value>
+  </data>
+  <data xml:space="preserve" name="BGM status">
+    <value>Stan muzyki</value>
+  </data>
+  <data xml:space="preserve" name="BGM status: {0}">
+    <value>Stan muzyki: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Back">
+    <value>Wstecz</value>
+  </data>
+  <data xml:space="preserve" name="Backend">
+    <value>Silnik</value>
+  </data>
+  <data xml:space="preserve" name="Blue">
+    <value>Niebieski</value>
+  </data>
+  <data xml:space="preserve" name="Bundled">
+    <value>Wbudowany</value>
+  </data>
+  <data xml:space="preserve" name="Bundled templates are read-only.">
+    <value>Wbudowane szablony są tylko do odczytu.</value>
+  </data>
+  <data xml:space="preserve" name="Busy">
+    <value>Zajęty</value>
+  </data>
+  <data xml:space="preserve" name="Cache folder">
+    <value>Folder pamięci podręcznej</value>
+  </data>
+  <data xml:space="preserve" name="Cache size: {0:F1} MB">
+    <value>Rozmiar pamięci podręcznej: {0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Cache status">
+    <value>Stan pamięci podręcznej</value>
+  </data>
+  <data xml:space="preserve" name="Cache status: ">
+    <value>Stan pamięci podręcznej: </value>
+  </data>
+  <data xml:space="preserve" name="Cache status: {0}">
+    <value>Stan pamięci podręcznej: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Catalog">
+    <value>Katalog</value>
+  </data>
+  <data xml:space="preserve" name="Catalog gender metadata.">
+    <value>Metadane płci w katalogu.</value>
+  </data>
+  <data xml:space="preserve" name="Catalog source for this Piper voice.">
+    <value>Źródło katalogowe tego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Changes this protected template for the current session. Duplicate it with + to persist a line-pack choice.">
+    <value>Zmienia chroniony szablon w bieżącej sesji. Powiel go przyciskiem +, aby zapisać wybór pakietu wypowiedzi.</value>
+  </data>
+  <data xml:space="preserve" name="Changes whether the DTR bar shows text, icon plus text, or only the icon.">
+    <value>Zmienia sposób wyświetlania paska DTR: tekst, ikona i tekst albo sama ikona.</value>
+  </data>
+  <data xml:space="preserve" name="Choose a row in the Piper catalog to show install/select/uninstall actions here.">
+    <value>Wybierz wiersz katalogu Piper, aby zobaczyć tutaj instalowanie, wybór i odinstalowanie.</value>
+  </data>
+  <data xml:space="preserve" name="Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.">
+    <value>Wybierz brzmienie Dheacon, w razie potrzeby przygotuj lokalną mowę, sprawdź wynik i zdecyduj o włączeniu automatycznych wyzwalaczy.</value>
+  </data>
+  <data xml:space="preserve" name="Choose the plugin state to save. This is explicit: finishing will not enable Dheacon unless you select the enabled option.">
+    <value>Wybierz stan wtyczki do zapisania. Decyzja jest jawna: zakończenie nie włączy Dheacon bez wybrania opcji włączenia.</value>
+  </data>
+  <data xml:space="preserve" name="Choose whether Dheacon should be enabled.">
+    <value>Wybierz, czy Dheacon ma być włączony.</value>
+  </data>
+  <data xml:space="preserve" name="Classic alert preset">
+    <value>Profil klasycznych powiadomień</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode does not speak, but this choice is saved for any spoken preset you select later.">
+    <value>Tryb klasyczny nie mówi, ale ten wybór zostaje zapisany dla później wybranego profilu mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Classic mode preserves Dheacon's original transition-alert sound, including the existing teleport and Return suppression option.">
+    <value>Tryb klasyczny zachowuje pierwotny dźwięk zmiany obszaru Dheacon, w tym istniejącą opcję tłumienia teleportacji i Return.</value>
+  </data>
+  <data xml:space="preserve" name="Classic transition alerts">
+    <value>Klasyczne powiadomienia o zmianie obszaru</value>
+  </data>
+  <data xml:space="preserve" name="Clear Piper WAV cache">
+    <value>Wyczyść pamięć podręczną WAV Piper</value>
+  </data>
+  <data xml:space="preserve" name="Clear cache">
+    <value>Wyczyść pamięć podręczną</value>
+  </data>
+  <data xml:space="preserve" name="Close settings">
+    <value>Zamknij ustawienia</value>
+  </data>
+  <data xml:space="preserve" name="Color">
+    <value>Kolor</value>
+  </data>
+  <data xml:space="preserve" name="Combat cooldown seconds">
+    <value>Odstęp walki w sekundach</value>
+  </data>
+  <data xml:space="preserve" name="Combat start/end">
+    <value>Początek/koniec walki</value>
+  </data>
+  <data xml:space="preserve" name="Command: {0} · v{1}">
+    <value>Polecenie: {0} · v{1}</value>
+  </data>
+  <data xml:space="preserve" name="Commentary preset">
+    <value>Profil komentarzy</value>
+  </data>
+  <data xml:space="preserve" name="Compact mode">
+    <value>Tryb kompaktowy</value>
+  </data>
+  <data xml:space="preserve" name="Controls Modern Windows pitch where supported; Legacy SAPI may ignore it.">
+    <value>Steruje wysokością głosu Modern Windows, jeśli obsługiwana; Legacy SAPI może ją ignorować.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --length_scale. Lower values speak faster; higher values speak slower. Changing this regenerates Piper WAV cache entries.">
+    <value>Steruje Piper --length_scale. Niższe wartości przyspieszają mowę, wyższe ją spowalniają. Zmiana odtwarza wpisy pamięci podręcznej WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Piper --sentence_silence. Higher values add more pause between sentences and regenerate Piper WAV cache entries.">
+    <value>Steruje Piper --sentence_silence. Wyższe wartości wydłużają pauzy między zdaniami i odtwarzają pamięć podręczną WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI speaking rate. Changing this regenerates cached speech for those backends.">
+    <value>Steruje szybkością mowy Windows/SAPI. Zmiana odtwarza pamięć podręczną mowy tych silników.</value>
+  </data>
+  <data xml:space="preserve" name="Controls Windows/SAPI synthesis volume before the WAV is cached.">
+    <value>Steruje głośnością syntezy Windows/SAPI przed zapisaniem WAV w pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="Copies one portable base64 preset JSON blob to the clipboard.">
+    <value>Kopiuje przenośny blok JSON profilu w base64 do schowka.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM ID: {0}">
+    <value>ID bieżącej muzyki: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM id observed by the BGM probe.">
+    <value>ID bieżącej muzyki zaobserwowany przez sondę muzyki.</value>
+  </data>
+  <data xml:space="preserve" name="Current BGM probe status.">
+    <value>Bieżący stan sondy muzyki.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper catalog count after search and filters.">
+    <value>Bieżąca liczba wpisów katalogu Piper po wyszukiwaniu i filtrowaniu.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper download, install, or selection status.">
+    <value>Bieżący stan pobierania, instalacji lub wyboru Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper runtime discovery status.">
+    <value>Bieżący stan wykrywania środowiska wykonawczego Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Current Piper setup, download, or install progress.">
+    <value>Bieżący postęp konfiguracji, pobierania lub instalacji Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Current active preset.">
+    <value>Bieżący aktywny profil.</value>
+  </data>
+  <data xml:space="preserve" name="Current approximate size of cached generated WAV files.">
+    <value>Bieżący przybliżony rozmiar plików WAV mowy w pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="Current local Piper runtime status.">
+    <value>Bieżący stan lokalnego środowiska wykonawczego Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Current text">
+    <value>Bieżący tekst</value>
+  </data>
+  <data xml:space="preserve" name="Current trigger status">
+    <value>Bieżący stan wyzwalacza</value>
+  </data>
+  <data xml:space="preserve" name="Current voice that will be used for generated speech.">
+    <value>Bieżący głos używany do generowania mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Currently highlighted Piper catalog voice.">
+    <value>Obecnie zaznaczony głos w katalogu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Custom RGB">
+    <value>Własny RGB</value>
+  </data>
+  <data xml:space="preserve" name="DTR">
+    <value>DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR Bar">
+    <value>Pasek DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR disabled glyph">
+    <value>Glif wyłączonego DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR enabled glyph">
+    <value>Glif włączonego DTR</value>
+  </data>
+  <data xml:space="preserve" name="DTR mode">
+    <value>Tryb DTR</value>
+  </data>
+  <data xml:space="preserve" name="Deletes generated speech WAV files for all backends; future speech regenerates them.">
+    <value>Usuwa pliki WAV mowy wszystkich silników; kolejne wypowiedzi utworzą je ponownie.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes only cached Piper WAV files; Piper output regenerates using current speed, pause, pitch, gain, and adapter settings.">
+    <value>Usuwa tylko WAV Piper z pamięci podręcznej; Piper odtworzy je z bieżącą szybkością, pauzą, wysokością, wzmocnieniem i adapterem.</value>
+  </data>
+  <data xml:space="preserve" name="Deletes the active user preset.">
+    <value>Usuwa aktywny profil użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the active preset.">
+    <value>Opis podany przez aktywny profil.</value>
+  </data>
+  <data xml:space="preserve" name="Description supplied by the selected preset.">
+    <value>Opis podany przez wybrany profil.</value>
+  </data>
+  <data xml:space="preserve" name="Details">
+    <value>Szczegóły</value>
+  </data>
+  <data xml:space="preserve" name="Details for the highlighted Piper catalog row.">
+    <value>Szczegóły zaznaczonego wiersza katalogu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Mini — speech monitor">
+    <value>Dheacon Mini — monitor mowy</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon Settings">
+    <value>Ustawienia Dheacon</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode plays the packaged alert sound instead of spoken commentary.">
+    <value>Tryb Dheacon odtwarza dołączony dźwięk zamiast komentarzy mówionych.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon mode uses the legacy packaged WAV only.">
+    <value>Tryb Dheacon używa tylko starszego dołączonego WAV.</value>
+  </data>
+  <data xml:space="preserve" name="Dheacon — main (speech settings)">
+    <value>Dheacon — główne (ustawienia mowy)</value>
+  </data>
+  <data xml:space="preserve" name="Diagnostics">
+    <value>Diagnostyka</value>
+  </data>
+  <data xml:space="preserve" name="Display name">
+    <value>Nazwa wyświetlana</value>
+  </data>
+  <data xml:space="preserve" name="Display name and local/download size for this Piper voice.">
+    <value>Nazwa wyświetlana i rozmiar lokalny/pobierania tego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the managed portable Windows Piper runtime.">
+    <value>Pobiera i instaluje zarządzane przenośne środowisko wykonawcze Piper dla Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs the selected Piper voice.">
+    <value>Pobiera i instaluje wybrany głos Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads and installs this Piper voice.">
+    <value>Pobiera i instaluje ten głos Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads or repairs the managed Piper runtime and recommended voice.">
+    <value>Pobiera lub naprawia zarządzane środowisko wykonawcze Piper i zalecany głos.</value>
+  </data>
+  <data xml:space="preserve" name="Downloads the latest Piper voice catalog and refreshes installed voice state.">
+    <value>Pobiera najnowszy katalog głosów Piper i odświeża stan zainstalowanych głosów.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming or saving over it.">
+    <value>Powiel szablon przyciskiem + przed zmianą nazwy lub nadpisaniem.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicate this template with + before renaming.">
+    <value>Powiel szablon przyciskiem + przed zmianą nazwy.</value>
+  </data>
+  <data xml:space="preserve" name="Duplicates the active preset into a new editable user preset.">
+    <value>Powiela aktywny profil jako nowy edytowalny profil użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Edit the active user preset display name.">
+    <value>Edytuje nazwę wyświetlaną aktywnego profilu użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Enable Dheacon now">
+    <value>Włącz Dheacon teraz</value>
+  </data>
+  <data xml:space="preserve" name="Enabled">
+    <value>Włączony</value>
+  </data>
+  <data xml:space="preserve" name="Enables automatic transition alerts or commentary after setup finishes.">
+    <value>Włącza automatyczne powiadomienia o zmianie obszaru lub komentarze po zakończeniu konfiguracji.</value>
+  </data>
+  <data xml:space="preserve" name="Enables the text adapter before Swedish Piper synthesis; changing it affects future Piper cache keys.">
+    <value>Włącza adapter tekstu przed szwedzką syntezą Piper; zmiany wpływają na przyszłe klucze pamięci podręcznej Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Expanded event cooldown seconds">
+    <value>Odstęp rozszerzonych zdarzeń w sekundach</value>
+  </data>
+  <data xml:space="preserve" name="Expanded events">
+    <value>Rozszerzone zdarzenia</value>
+  </data>
+  <data xml:space="preserve" name="Explains whether the adapter is enabled and applicable to the selected Piper voice.">
+    <value>Wyjaśnia, czy adapter jest włączony i pasuje do wybranego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Export active preset">
+    <value>Eksportuj aktywny profil</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by catalog gender metadata.">
+    <value>Filtruje głosy Piper według metadanych płci.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by language.">
+    <value>Filtruje głosy Piper według języka.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by model quality tier.">
+    <value>Filtruje głosy Piper według poziomu jakości modelu.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by official or community source.">
+    <value>Filtruje głosy Piper według źródła oficjalnego lub społecznościowego.</value>
+  </data>
+  <data xml:space="preserve" name="Filters Piper voices by whether they are already installed.">
+    <value>Filtruje głosy Piper według stanu instalacji.</value>
+  </data>
+  <data xml:space="preserve" name="Filters the Piper catalog by voice key, language, gender, quality, source, or catalog id.">
+    <value>Filtruje katalog Piper według klucza głosu, języka, płci, jakości, źródła lub ID katalogu.</value>
+  </data>
+  <data xml:space="preserve" name="Finish Quick Setup">
+    <value>Zakończ szybką konfigurację</value>
+  </data>
+  <data xml:space="preserve" name="Follower status">
+    <value>Stan towarzysza</value>
+  </data>
+  <data xml:space="preserve" name="Follower status: ">
+    <value>Stan towarzysza: </value>
+  </data>
+  <data xml:space="preserve" name="Follower warning: ">
+    <value>Ostrzeżenie towarzysza: </value>
+  </data>
+  <data xml:space="preserve" name="Fren edits on this protected template are runtime-only. Duplicate with + to persist them.">
+    <value>Zmiany Fren w chronionym szablonie działają tylko podczas uruchomienia. Powiel go przyciskiem +, aby je zapisać.</value>
+  </data>
+  <data xml:space="preserve" name="Full Piper voice label.">
+    <value>Pełna etykieta głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Gender">
+    <value>Płeć</value>
+  </data>
+  <data xml:space="preserve" name="General">
+    <value>Ogólne</value>
+  </data>
+  <data xml:space="preserve" name="Generates and plays this preview through the configured Piper voice without changing the main speech backend.">
+    <value>Generuje i odtwarza podgląd wybranym głosem Piper bez zmiany głównego silnika mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Icon + text">
+    <value>Ikona + tekst</value>
+  </data>
+  <data xml:space="preserve" name="Icon only">
+    <value>Tylko ikona</value>
+  </data>
+  <data xml:space="preserve" name="Idle">
+    <value>Bezczynność</value>
+  </data>
+  <data xml:space="preserve" name="Idle cooldown seconds">
+    <value>Odstęp bezczynności w sekundach</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: off for this preset">
+    <value>Imaginary Fren: wyłączony dla tego profilu</value>
+  </data>
+  <data xml:space="preserve" name="Imaginary Fren: optional '{0}' follower through Krangler">
+    <value>Imaginary Fren: opcjonalny towarzysz '{0}' przez Krangler</value>
+  </data>
+  <data xml:space="preserve" name="Immediately sends the active preset's Fren state to Krangler if Krangler is loaded.">
+    <value>Natychmiast wysyła stan Fren aktywnego profilu do Krangler, jeśli Krangler jest załadowany.</value>
+  </data>
+  <data xml:space="preserve" name="Import preset">
+    <value>Importuj profil</value>
+  </data>
+  <data xml:space="preserve" name="Imports one portable preset into the user preset folder. Protected bundled preset IDs are imported under a new ID.">
+    <value>Importuje przenośny profil do folderu profili użytkownika. Chronione profile wbudowane są importowane pod nowym ID.</value>
+  </data>
+  <data xml:space="preserve" name="Install">
+    <value>Zainstaluj</value>
+  </data>
+  <data xml:space="preserve" name="Install Arctic">
+    <value>Zainstaluj Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Install and selection state for the highlighted Piper voice.">
+    <value>Stan instalacji i wyboru zaznaczonego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Install runtime">
+    <value>Zainstaluj środowisko wykonawcze</value>
+  </data>
+  <data xml:space="preserve" name="Installed">
+    <value>Zainstalowany</value>
+  </data>
+  <data xml:space="preserve" name="Installed filter">
+    <value>Filtr instalacji</value>
+  </data>
+  <data xml:space="preserve" name="Installed or download size for this Piper voice.">
+    <value>Rozmiar instalacji lub pobierania tego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Installs and selects the recommended en_US-arctic-medium Piper voice.">
+    <value>Instaluje i wybiera zalecany głos Piper en_US-arctic-medium.</value>
+  </data>
+  <data xml:space="preserve" name="Key: {0}&#10;Source: {1}">
+    <value>Klucz: {0}
+Źródło: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Krangler integration is optional and does not affect alert or commentary playback.">
+    <value>Integracja z Krangler jest opcjonalna i nie wpływa na odtwarzanie powiadomień ani komentarzy.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; this warning does not stop Dheacon speech.">
+    <value>Krangler jest opcjonalny; to ostrzeżenie nie zatrzymuje mowy Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler is optional; when the list is unavailable the text field fallback remains active.">
+    <value>Krangler jest opcjonalny; gdy lista jest niedostępna, zastępcze pole tekstowe pozostaje aktywne.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset">
+    <value>Profil Krangler</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset name, identifier, or source filename to apply to the follower. Shown when the Krangler preset list is unavailable.">
+    <value>Nazwa, identyfikator lub nazwa pliku źródłowego profilu Krangler dla towarzysza. Widoczne, gdy lista profili Krangler jest niedostępna.</value>
+  </data>
+  <data xml:space="preserve" name="Language">
+    <value>Język</value>
+  </data>
+  <data xml:space="preserve" name="Language metadata for this Piper voice.">
+    <value>Metadane języka tego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Language: {0}">
+    <value>Język: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler Imaginary Fren IPC status.">
+    <value>Ostatni stan IPC Krangler Imaginary Fren.</value>
+  </data>
+  <data xml:space="preserve" name="Last Krangler preset-list IPC status.">
+    <value>Ostatni stan IPC listy profili Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog or setup status.">
+    <value>Ostatni stan katalogu lub konfiguracji Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, install, or selection operation status.">
+    <value>Ostatni stan operacji katalogu, środowiska wykonawczego, instalacji lub wyboru Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper catalog, runtime, or install warning.">
+    <value>Ostatnie ostrzeżenie katalogu, środowiska wykonawczego lub instalacji Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0}">
+    <value>Ostatnia zmiana wysokości Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper pitch shift: {0} Applied: {1}. Semitones: {2} st.">
+    <value>Ostatnia zmiana wysokości Piper: {0} Zastosowana: {1}. Półtony: {2} st.</value>
+  </data>
+  <data xml:space="preserve" name="Last Piper warning or error reported by setup or catalog operations.">
+    <value>Ostatnie ostrzeżenie lub błąd Piper z operacji konfiguracji lub katalogu.</value>
+  </data>
+  <data xml:space="preserve" name="Last Reading Roegadyn trigger decision.">
+    <value>Ostatnia decyzja wyzwalacza Reading Roegadyn.</value>
+  </data>
+  <data xml:space="preserve" name="Last adapted: {0}">
+    <value>Ostatni dostosowany tekst: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last adapter: {0} {1} {2}">
+    <value>Ostatni adapter: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Last alert (UTC)">
+    <value>Ostatnie powiadomienie (UTC)</value>
+  </data>
+  <data xml:space="preserve" name="Last cache operation result, including cache hits and generated files.">
+    <value>Wynik ostatniej operacji pamięci podręcznej, w tym trafienia i utworzone pliki.</value>
+  </data>
+  <data xml:space="preserve" name="Last original: {0}">
+    <value>Ostatni oryginalny tekst: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Last speech">
+    <value>Ostatnia wypowiedź</value>
+  </data>
+  <data xml:space="preserve" name="Last speech cache result.">
+    <value>Ostatni wynik pamięci podręcznej mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue error.">
+    <value>Ostatni błąd kolejki mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech queue state.">
+    <value>Ostatni stan kolejki mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Last speech synthesis or cache warning.">
+    <value>Ostatnie ostrzeżenie syntezy lub pamięci podręcznej mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter load status.">
+    <value>Ostatni stan ładowania adaptera tekstu mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Last spoken text adapter warning.">
+    <value>Ostatnie ostrzeżenie adaptera tekstu mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Last transition decision">
+    <value>Ostatnia decyzja o zmianie obszaru</value>
+  </data>
+  <data xml:space="preserve" name="Leave Dheacon disabled">
+    <value>Pozostaw Dheacon wyłączony</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI">
+    <value>Starsze SAPI</value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI - ">
+    <value>Starsze SAPI - </value>
+  </data>
+  <data xml:space="preserve" name="Legacy SAPI voices: {0}">
+    <value>Głosy starszego SAPI: {0}</value>
+  </data>
+  <data xml:space="preserve" name="License metadata from the voice catalog.">
+    <value>Metadane licencji z katalogu głosów.</value>
+  </data>
+  <data xml:space="preserve" name="License: {0}">
+    <value>Licencja: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack">
+    <value>Pakiet wypowiedzi</value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: ">
+    <value>Stan pakietu wypowiedzi: </value>
+  </data>
+  <data xml:space="preserve" name="Line pack status: {0}">
+    <value>Stan pakietu wypowiedzi: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Line pack: not used in Dheacon mode.">
+    <value>Pakiet wypowiedzi: nieużywany w trybie Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Line-pack loader status.">
+    <value>Stan modułu ładującego pakiety wypowiedzi.</value>
+  </data>
+  <data xml:space="preserve" name="Live status for the queued test line.">
+    <value>Bieżący stan testowej wypowiedzi w kolejce.</value>
+  </data>
+  <data xml:space="preserve" name="Loading UI fonts...">
+    <value>Ładowanie czcionek interfejsu...</value>
+  </data>
+  <data xml:space="preserve" name="Local Piper - ">
+    <value>Lokalny Piper - </value>
+  </data>
+  <data xml:space="preserve" name="Login">
+    <value>Logowanie</value>
+  </data>
+  <data xml:space="preserve" name="Lower this if you want sequentially quick things to only sometimes trigger a comment instead of every eligible event speaking.">
+    <value>Zmniejsz wartość, aby szybkie kolejne zdarzenia tylko czasami wywoływały komentarz zamiast wypowiedzi przy każdym odpowiednim zdarzeniu.</value>
+  </data>
+  <data xml:space="preserve" name="Makes one audio test attempt without enabling automatic triggers.">
+    <value>Wykonuje jedną próbę dźwięku bez włączania automatycznych wyzwalaczy.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice active.">
+    <value>Aktywuje ten zainstalowany głos Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Makes this installed Piper voice the active Piper voice.">
+    <value>Ustawia ten zainstalowany głos Piper jako aktywny.</value>
+  </data>
+  <data xml:space="preserve" name="Max cache MB">
+    <value>Maks. pamięć podręczna (MB)</value>
+  </data>
+  <data xml:space="preserve" name="Maximum total WAV cache size. Older cache files are pruned after new speech is generated.">
+    <value>Maksymalny łączny rozmiar pamięci podręcznej WAV. Starsze pliki są usuwane po wygenerowaniu nowej mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Mini Window">
+    <value>Okno Mini</value>
+  </data>
+  <data xml:space="preserve" name="Minimum idle time before another idle comment; values below 30 seconds are raised to 30.">
+    <value>Minimalny czas bezczynności przed kolejnym komentarzem; wartości poniżej 30 sekund są podnoszone do 30.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between Machinations BGM comments.">
+    <value>Minimalny czas między komentarzami o muzyce Machinations.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between combat start/end comments.">
+    <value>Minimalny czas między komentarzami o początku/końcu walki.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between expanded event comments.">
+    <value>Minimalny czas między komentarzami o rozszerzonych zdarzeniach.</value>
+  </data>
+  <data xml:space="preserve" name="Minimum time between territory-change comments; lower values can make travel chatty.">
+    <value>Minimalny czas między komentarzami o zmianie obszaru; niższe wartości zwiększają gadatliwość podczas podróży.</value>
+  </data>
+  <data xml:space="preserve" name="Mode: ">
+    <value>Tryb: </value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows">
+    <value>Nowoczesny Windows</value>
+  </data>
+  <data xml:space="preserve" name="Modern Windows voices: {0}">
+    <value>Głosy nowoczesnego Windows: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Most recent Piper pitch-shift processing result.">
+    <value>Ostatni wynik przetwarzania zmiany wysokości Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent normalized text before Piper adapter changes.">
+    <value>Ostatni znormalizowany tekst przed zmianami adaptera Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Most recent text sent to Piper after adapter changes.">
+    <value>Ostatni tekst wysłany do Piper po zmianach adaptera.</value>
+  </data>
+  <data xml:space="preserve" name="Name">
+    <value>Nazwa</value>
+  </data>
+  <data xml:space="preserve" name="Name Krangler writes onto the local-only follower actor.">
+    <value>Nazwa nadawana przez Krangler lokalnej postaci towarzysza.</value>
+  </data>
+  <data xml:space="preserve" name="Never">
+    <value>Nigdy</value>
+  </data>
+  <data xml:space="preserve" name="Next: Speech">
+    <value>Dalej: Mowa</value>
+  </data>
+  <data xml:space="preserve" name="Next: Test and finish">
+    <value>Dalej: Test i zakończenie</value>
+  </data>
+  <data xml:space="preserve" name="No">
+    <value>Nie</value>
+  </data>
+  <data xml:space="preserve" name="No Krangler presets match the current search.">
+    <value>Brak profili Krangler pasujących do bieżącego wyszukiwania.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voice selected">
+    <value>Nie wybrano głosu Piper</value>
+  </data>
+  <data xml:space="preserve" name="No Piper voices installed.">
+    <value>Brak zainstalowanych głosów Piper.</value>
+  </data>
+  <data xml:space="preserve" name="No selectable line packs were loaded.">
+    <value>Nie załadowano żadnych pakietów wypowiedzi do wyboru.</value>
+  </data>
+  <data xml:space="preserve" name="No speech yet.">
+    <value>Nie było jeszcze wypowiedzi.</value>
+  </data>
+  <data xml:space="preserve" name="None">
+    <value>Brak</value>
+  </data>
+  <data xml:space="preserve" name="Normalized source text before adapter substitutions.">
+    <value>Znormalizowany tekst źródłowy przed zamianami adaptera.</value>
+  </data>
+  <data xml:space="preserve" name="Not installed">
+    <value>Niezainstalowany</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Legacy SAPI speech voices.">
+    <value>Liczba wykrytych głosów starszego SAPI.</value>
+  </data>
+  <data xml:space="preserve" name="Number of detected Modern Windows speech voices.">
+    <value>Liczba wykrytych głosów nowoczesnego Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Number of installed managed Piper voices.">
+    <value>Liczba zainstalowanych zarządzanych głosów Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Number of pending utterances">
+    <value>Liczba oczekujących wypowiedzi</value>
+  </data>
+  <data xml:space="preserve" name="Number of queued speech requests waiting to be prepared or played.">
+    <value>Liczba żądań mowy w kolejce czekających na przygotowanie lub odtworzenie.</value>
+  </data>
+  <data xml:space="preserve" name="Open folder">
+    <value>Otwórz folder</value>
+  </data>
+  <data xml:space="preserve" name="Open mini window when speech starts">
+    <value>Otwórz okno Mini na początku mowy</value>
+  </data>
+  <data xml:space="preserve" name="Open the Piper Voices tab to install the recommended English Arctic voice.">
+    <value>Otwórz kartę Głosy Piper, aby zainstalować zalecany angielski głos Arctic.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the folder containing this installed Piper voice.">
+    <value>Otwiera folder tego zainstalowanego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Opens the managed Piper folder containing runtime, voices, cache, and manifests.">
+    <value>Otwiera zarządzany folder Piper ze środowiskiem wykonawczym, głosami, pamięcią podręczną i manifestami.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren integration is off for this preset. It can be configured later in General settings and requires Krangler.">
+    <value>Opcjonalna integracja Imaginary Fren jest wyłączona dla tego profilu. Można ją ustawić później w Ogólnych; wymaga Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Optional Imaginary Fren: this preset can ask Krangler to spawn the local-only follower '{0}' when Dheacon is enabled. Krangler is optional; commentary still works without it.">
+    <value>Opcjonalny Imaginary Fren: profil może poprosić Krangler o utworzenie lokalnego towarzysza '{0}' po włączeniu Dheacon. Krangler jest opcjonalny; komentarze działają bez niego.</value>
+  </data>
+  <data xml:space="preserve" name="Optional explicit piper.exe path. Empty uses the managed runtime folder or PATH lookup.">
+    <value>Opcjonalna jawna ścieżka piper.exe. Pusta używa zarządzanego folderu środowiska wykonawczego lub wyszukiwania PATH.</value>
+  </data>
+  <data xml:space="preserve" name="Original">
+    <value>Oryginał</value>
+  </data>
+  <data xml:space="preserve" name="Output gain %">
+    <value>Wzmocnienie wyjścia %</value>
+  </data>
+  <data xml:space="preserve" name="Paste import">
+    <value>Wklej do importu</value>
+  </data>
+  <data xml:space="preserve" name="Paste preset base64 here">
+    <value>Wklej tutaj profil w base64</value>
+  </data>
+  <data xml:space="preserve" name="Pending speech requests: {0}">
+    <value>Oczekujące żądania mowy: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Pink">
+    <value>Różowy</value>
+  </data>
+  <data xml:space="preserve" name="Piper Voices">
+    <value>Głosy Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog: ">
+    <value>Katalog Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Piper could not be prepared, so Quick Setup selected Windows default speech. You can retry Piper here.">
+    <value>Nie udało się przygotować Piper, więc szybka konfiguracja wybrała domyślną mowę Windows. Możesz tu ponowić próbę Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready with the recommended English Arctic voice.">
+    <value>Piper jest gotowy z zalecanym angielskim głosem Arctic.</value>
+  </data>
+  <data xml:space="preserve" name="Piper is ready.">
+    <value>Piper jest gotowy.</value>
+  </data>
+  <data xml:space="preserve" name="Piper local">
+    <value>Lokalny Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper model quality tier.">
+    <value>Poziom jakości modelu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper operation in progress...">
+    <value>Trwa operacja Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch">
+    <value>Wysokość Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper preparation is in progress...">
+    <value>Trwa przygotowanie Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Piper provides consistent local speech. Its runtime and selected voice are one-time downloads; generated speech remains cached locally.">
+    <value>Piper zapewnia spójną lokalną mowę. Środowisko wykonawcze i wybrany głos pobierasz raz; wygenerowana mowa pozostaje w lokalnej pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path">
+    <value>Ścieżka środowiska wykonawczego Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime path currently used for local synthesis.">
+    <value>Ścieżka środowiska wykonawczego Piper używana do lokalnej syntezy.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime status has not been checked yet.">
+    <value>Nie sprawdzono jeszcze stanu środowiska wykonawczego Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: ">
+    <value>Środowisko wykonawcze Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime: {0}">
+    <value>Środowisko wykonawcze Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper settings: speed {0:F2}, sentence pause {1:F2}s, pitch {2} st, gain {3}%">
+    <value>Ustawienia Piper: szybkość {0:F2}, pauza zdań {1:F2}s, wysokość {2} st, wzmocnienie {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper setup failed, so Quick Setup selected Windows default speech: ">
+    <value>Konfiguracja Piper nie powiodła się, więc szybka konfiguracja wybrała domyślną mowę Windows: </value>
+  </data>
+  <data xml:space="preserve" name="Piper speed">
+    <value>Szybkość Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper speed: {0:F2} · Sentence pause: {1:F2}s · Pitch: {2} st · Playback gain: {3}%">
+    <value>Szybkość Piper: {0:F2} · Pauza zdań: {1:F2}s · Wysokość: {2} st · Wzmocnienie odtwarzania: {3}%</value>
+  </data>
+  <data xml:space="preserve" name="Piper synthesis and post-processing settings that affect future Piper WAV cache entries.">
+    <value>Ustawienia syntezy i przetwarzania końcowego Piper wpływające na przyszłe wpisy pamięci podręcznej WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper text adapter">
+    <value>Adapter tekstu Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice">
+    <value>Głos Piper</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice language.">
+    <value>Język głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voices: {0}">
+    <value>Głosy Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper warning: ">
+    <value>Ostrzeżenie Piper: </value>
+  </data>
+  <data xml:space="preserve" name="Pitch">
+    <value>Wysokość głosu</value>
+  </data>
+  <data xml:space="preserve" name="Pitch: {0:F2} · Output gain: {1}%">
+    <value>Wysokość: {0:F2} · Wzmocnienie wyjścia: {1}%</value>
+  </data>
+  <data xml:space="preserve" name="Playback gain %">
+    <value>Wzmocnienie odtwarzania %</value>
+  </data>
+  <data xml:space="preserve" name="Plays the packaged transition alert for eligible area changes and does not speak commentary.">
+    <value>Odtwarza dołączone powiadomienie przy odpowiedniej zmianie obszaru i nie mówi komentarzy.</value>
+  </data>
+  <data xml:space="preserve" name="Plugin enabled">
+    <value>Plugin włączony</value>
+  </data>
+  <data xml:space="preserve" name="Post-WAV processing only; this is not a Piper synthesis parameter and can introduce artifacts. Negative values make the voice deeper. Changing it regenerates Piper WAV cache entries.">
+    <value>Tylko przetwarzanie po utworzeniu WAV; nie jest parametrem syntezy Piper i może powodować artefakty. Ujemne wartości obniżają głos. Zmiana odtwarza pamięć podręczną WAV Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper">
+    <value>Przygotuj Piper</value>
+  </data>
+  <data xml:space="preserve" name="Prepare Piper or choose Windows default speech before continuing.">
+    <value>Przygotuj Piper lub wybierz domyślną mowę Windows przed kontynuowaniem.</value>
+  </data>
+  <data xml:space="preserve" name="Preparing the managed Piper runtime and recommended English Arctic voice...">
+    <value>Przygotowywanie zarządzanego środowiska wykonawczego Piper i zalecanego angielskiego głosu Arctic...</value>
+  </data>
+  <data xml:space="preserve" name="Preset list warning: ">
+    <value>Ostrzeżenie listy profili: </value>
+  </data>
+  <data xml:space="preserve" name="Preset list: ">
+    <value>Lista profili: </value>
+  </data>
+  <data xml:space="preserve" name="Preset load/import/export status.">
+    <value>Stan ładowania/importu/eksportu profilu.</value>
+  </data>
+  <data xml:space="preserve" name="Preset source: {0}  Protected: {1}">
+    <value>Źródło profilu: {0}  Chroniony: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preset status: ">
+    <value>Stan profilu: </value>
+  </data>
+  <data xml:space="preserve" name="Preset: ">
+    <value>Profil: </value>
+  </data>
+  <data xml:space="preserve" name="Presets">
+    <value>Profile</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from playing the packaged alert sound.">
+    <value>Zapobiega odtwarzaniu dołączonego powiadomienia przy teleportacji i Return.</value>
+  </data>
+  <data xml:space="preserve" name="Prevents teleport and Return transitions from triggering Reading Roegadyn speech.">
+    <value>Zapobiega wyzwalaniu mowy Reading Roegadyn przy teleportacji i Return.</value>
+  </data>
+  <data xml:space="preserve" name="Preview adapter: {0} {1} {2}">
+    <value>Adapter podglądu: {0} {1} {2}</value>
+  </data>
+  <data xml:space="preserve" name="Preview text">
+    <value>Tekst podglądu</value>
+  </data>
+  <data xml:space="preserve" name="Prints the current mode decision/status message to chat.">
+    <value>Wypisuje bieżącą decyzję/stan trybu na czacie.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled presets cannot be renamed, deleted, or overwritten.">
+    <value>Chronionych profili wbudowanych nie można zmieniać, usuwać ani nadpisywać.</value>
+  </data>
+  <data xml:space="preserve" name="Protected bundled templates cannot be deleted.">
+    <value>Chronionych szablonów wbudowanych nie można usunąć.</value>
+  </data>
+  <data xml:space="preserve" name="Quality">
+    <value>Jakość</value>
+  </data>
+  <data xml:space="preserve" name="Queue">
+    <value>Kolejka</value>
+  </data>
+  <data xml:space="preserve" name="Queue error: ">
+    <value>Błąd kolejki: </value>
+  </data>
+  <data xml:space="preserve" name="Queue error: {0}">
+    <value>Błąd kolejki: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queue status: {0}">
+    <value>Stan kolejki: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Queues a Reading Roegadyn test line using the selected speech backend and current voice.">
+    <value>Dodaje testową wypowiedź Reading Roegadyn do kolejki z wybranym silnikiem i bieżącym głosem.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup">
+    <value>Szybka konfiguracja</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup complete. Dheacon is {0}.">
+    <value>Szybka konfiguracja zakończona. Dheacon jest {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech preparation status.">
+    <value>Stan przygotowania mowy w szybkiej konfiguracji.</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup speech selection or fallback status.">
+    <value>Stan wyboru lub zastępczej mowy w szybkiej konfiguracji.</value>
+  </data>
+  <data xml:space="preserve" name="Rate">
+    <value>Tempo</value>
+  </data>
+  <data xml:space="preserve" name="Reads a portable preset blob from the clipboard into the import box.">
+    <value>Wczytuje przenośny blok profilu ze schowka do pola importu.</value>
+  </data>
+  <data xml:space="preserve" name="Recommended local Piper">
+    <value>Zalecany lokalny Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reconcile now">
+    <value>Uzgodnij teraz</value>
+  </data>
+  <data xml:space="preserve" name="Refresh catalog">
+    <value>Odśwież katalog</value>
+  </data>
+  <data xml:space="preserve" name="Refresh voices">
+    <value>Odśwież głosy</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes Modern Windows, Legacy SAPI, and installed Piper voice lists.">
+    <value>Odświeża listy głosów nowoczesnego Windows, starszego SAPI i zainstalowanego Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshes detected speech voices and reports counts to chat.">
+    <value>Odświeża wykryte głosy i podaje ich liczby na czacie.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this Piper voice from the managed voices folder.">
+    <value>Usuwa ten głos Piper z zarządzanego folderu głosów.</value>
+  </data>
+  <data xml:space="preserve" name="Removes this installed Piper voice from the managed voices folder.">
+    <value>Usuwa ten zainstalowany głos Piper z zarządzanego folderu głosów.</value>
+  </data>
+  <data xml:space="preserve" name="Rename">
+    <value>Zmień nazwę</value>
+  </data>
+  <data xml:space="preserve" name="Renames the active user preset.">
+    <value>Zmienia nazwę aktywnego profilu użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Resolved cache folder: ">
+    <value>Ustalony folder pamięci podręcznej: </value>
+  </data>
+  <data xml:space="preserve" name="Resolved path used when Dheacon mode plays its alert sound.">
+    <value>Ustalona ścieżka używana do dźwięku powiadomienia w trybie Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Result of the required Quick Setup test attempt.">
+    <value>Wynik wymaganej próby w szybkiej konfiguracji.</value>
+  </data>
+  <data xml:space="preserve" name="Retry Piper">
+    <value>Ponów Piper</value>
+  </data>
+  <data xml:space="preserve" name="Reviews and tests the selected configuration.">
+    <value>Sprawdza i testuje wybraną konfigurację.</value>
+  </data>
+  <data xml:space="preserve" name="Run Quick Setup again">
+    <value>Uruchom ponownie szybką konfigurację</value>
+  </data>
+  <data xml:space="preserve" name="Run the audio test before finishing.">
+    <value>Wykonaj test dźwięku przed zakończeniem.</value>
+  </data>
+  <data xml:space="preserve" name="Save current settings">
+    <value>Zapisz bieżące ustawienia</value>
+  </data>
+  <data xml:space="preserve" name="Saved: {0} | {1} | {2} | {3}">
+    <value>Zapisano: {0} | {1} | {2} | {3}</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup and prevents future automatic opening.">
+    <value>Zapisuje konfigurację i zapobiega automatycznemu otwieraniu w przyszłości.</value>
+  </data>
+  <data xml:space="preserve" name="Saves setup but leaves automatic triggers disabled until you enable the plugin later.">
+    <value>Zapisuje konfigurację, ale pozostawia automatyczne wyzwalacze wyłączone do późniejszego włączenia wtyczki.</value>
+  </data>
+  <data xml:space="preserve" name="Search">
+    <value>Szukaj</value>
+  </data>
+  <data xml:space="preserve" name="Search Krangler presets...">
+    <value>Szukaj profili Krangler...</value>
+  </data>
+  <data xml:space="preserve" name="Select">
+    <value>Wybierz</value>
+  </data>
+  <data xml:space="preserve" name="Select Arctic">
+    <value>Wybierz Arctic</value>
+  </data>
+  <data xml:space="preserve" name="Select a Piper voice to manage it.">
+    <value>Wybierz głos Piper do zarządzania.</value>
+  </data>
+  <data xml:space="preserve" name="Select installed Piper voice {0}.">
+    <value>Wybierz zainstalowany głos Piper {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Select preset">
+    <value>Wybierz profil</value>
+  </data>
+  <data xml:space="preserve" name="Select {0} for future generated speech.">
+    <value>Wybierz {0} dla kolejnych generowanych wypowiedzi.</value>
+  </data>
+  <data xml:space="preserve" name="Selected">
+    <value>Wybrano</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech instead of Piper.">
+    <value>Wybrano domyślną mowę Windows zamiast Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Windows default speech.">
+    <value>Wybrano domyślną mowę Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Selected line-pack description.">
+    <value>Opis wybranego pakietu wypowiedzi.</value>
+  </data>
+  <data xml:space="preserve" name="Selected operating mode.">
+    <value>Wybrany tryb działania.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset.">
+    <value>Wybrany profil.</value>
+  </data>
+  <data xml:space="preserve" name="Selected preset: {0}">
+    <value>Wybrany profil: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Selected speech backend and voice.">
+    <value>Wybrany silnik i głos mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice details">
+    <value>Szczegóły wybranego głosu</value>
+  </data>
+  <data xml:space="preserve" name="Selected voice: ">
+    <value>Wybrany głos: </value>
+  </data>
+  <data xml:space="preserve" name="Selected:">
+    <value>Wybrano:</value>
+  </data>
+  <data xml:space="preserve" name="Selects a Krangler preset by friendly name and stores its stable key in this Dheacon preset.">
+    <value>Wybiera profil Krangler według przyjaznej nazwy i zapisuje jego stały klucz w tym profilu Dheacon.</value>
+  </data>
+  <data xml:space="preserve" name="Selects one of the existing spoken-commentary presets.">
+    <value>Wybiera jeden z istniejących profili komentarzy mówionych.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Piper voice used for Piper synthesis.">
+    <value>Wybiera zainstalowany głos do syntezy Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed Windows/SAPI voice used for generated speech.">
+    <value>Wybiera zainstalowany głos Windows/SAPI do generowania mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the installed recommended en_US-arctic-medium Piper voice.">
+    <value>Wybiera zainstalowany zalecany głos Piper en_US-arctic-medium.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the line pack used after any inline preset lines.">
+    <value>Wybiera pakiet wypowiedzi używany po wypowiedziach zawartych bezpośrednio w profilu.</value>
+  </data>
+  <data xml:space="preserve" name="Selects the speech engine. Choosing Piper automatically prepares the recommended English Arctic voice if needed.">
+    <value>Wybiera silnik mowy. Wybór Piper w razie potrzeby automatycznie przygotowuje zalecany angielski głos Arctic.</value>
+  </data>
+  <data xml:space="preserve" name="Selects which text adapter runs before Piper synthesis.">
+    <value>Wybiera adapter tekstu uruchamiany przed syntezą Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Sentence pause">
+    <value>Pauza między zdaniami</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.">
+    <value>Ustawia glif DTR przy wyłączonej wtyczce; zbyt długi tekst jest skracany.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the DTR glyph shown while the plugin is enabled; very long input is trimmed.">
+    <value>Ustawia glif DTR przy włączonej wtyczce; zbyt długi tekst jest skracany.</value>
+  </data>
+  <data xml:space="preserve" name="Sets the alert WAV path for Dheacon mode; relative paths resolve under the plugin folder.">
+    <value>Ustawia ścieżkę WAV powiadomienia trybu Dheacon; ścieżki względne są liczone od folderu wtyczki.</value>
+  </data>
+  <data xml:space="preserve" name="Sets where generated speech WAV files are cached; empty uses the default LocalAppData folder.">
+    <value>Ustawia miejsce pamięci podręcznej WAV mowy; puste używa domyślnego folderu LocalAppData.</value>
+  </data>
+  <data xml:space="preserve" name="Settings">
+    <value>Ustawienia</value>
+  </data>
+  <data xml:space="preserve" name="Show DTR bar entry">
+    <value>Pokaż wpis paska DTR</value>
+  </data>
+  <data xml:space="preserve" name="Showing {0} of {1} catalog entries.">
+    <value>Wyświetlane {0} z {1} wpisów katalogu.</value>
+  </data>
+  <data xml:space="preserve" name="Shows details and the compact action bar for this Piper voice.">
+    <value>Pokazuje szczegóły i zwarty pasek działań tego głosu Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Shows or hides the clickable status entry in the Dalamud DTR bar.">
+    <value>Pokazuje lub ukrywa klikalny wpis stanu na pasku DTR Dalamud.</value>
+  </data>
+  <data xml:space="preserve" name="Size">
+    <value>Rozmiar</value>
+  </data>
+  <data xml:space="preserve" name="Source">
+    <value>Źródło</value>
+  </data>
+  <data xml:space="preserve" name="Spawn Fren for this preset">
+    <value>Utwórz Fren dla tego profilu</value>
+  </data>
+  <data xml:space="preserve" name="Speech">
+    <value>Mowa</value>
+  </data>
+  <data xml:space="preserve" name="Speech backend">
+    <value>Silnik mowy</value>
+  </data>
+  <data xml:space="preserve" name="Speech busy: {0}">
+    <value>Mowa zajęta: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Speech context">
+    <value>Kontekst mowy</value>
+  </data>
+  <data xml:space="preserve" name="Speech is generated on your PC and cached as WAV files for reuse.">
+    <value>Mowa jest generowana na twoim PC i zapisywana jako WAV w pamięci podręcznej do ponownego użycia.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue: ">
+    <value>Kolejka mowy: </value>
+  </data>
+  <data xml:space="preserve" name="Speech queued.">
+    <value>Mowa dodana do kolejki.</value>
+  </data>
+  <data xml:space="preserve" name="Speech warning: ">
+    <value>Ostrzeżenie mowy: </value>
+  </data>
+  <data xml:space="preserve" name="Speech: ">
+    <value>Mowa: </value>
+  </data>
+  <data xml:space="preserve" name="Spoken commentary">
+    <value>Komentarze mówione</value>
+  </data>
+  <data xml:space="preserve" name="Spoken mode uses preset-driven lines for login, travel, combat, idle, BGM, and other enabled events, subject to trigger chance and cooldowns.">
+    <value>Tryb mowy używa wypowiedzi profilu przy logowaniu, podróży, walce, bezczynności, muzyce i innych włączonych zdarzeniach, z uwzględnieniem szansy i odstępów.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken preset">
+    <value>Profil mowy</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test queued. Watch the live speech status below; cached audio will be reused on future matches.">
+    <value>Test komentarza dodany do kolejki. Obserwuj stan mowy poniżej; dźwięk z pamięci podręcznej zostanie użyty ponownie przy kolejnych dopasowaniach.</value>
+  </data>
+  <data xml:space="preserve" name="Spoken-commentary test was attempted, but the speech queue did not accept the line. Review the status below and retry.">
+    <value>Podjęto próbę testu komentarza, lecz kolejka nie przyjęła wypowiedzi. Sprawdź stan poniżej i ponów próbę.</value>
+  </data>
+  <data xml:space="preserve" name="Starts the three setup steps again without resetting unrelated settings.">
+    <value>Uruchamia ponownie trzy kroki konfiguracji bez resetowania innych ustawień.</value>
+  </data>
+  <data xml:space="preserve" name="State">
+    <value>Stan</value>
+  </data>
+  <data xml:space="preserve" name="State: installed">
+    <value>Stan: zainstalowany</value>
+  </data>
+  <data xml:space="preserve" name="State: not installed">
+    <value>Stan: niezainstalowany</value>
+  </data>
+  <data xml:space="preserve" name="State: selected Piper voice">
+    <value>Stan: wybrany głos Piper</value>
+  </data>
+  <data xml:space="preserve" name="Status temporarily unavailable: {0}">
+    <value>Stan chwilowo niedostępny: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Status to chat">
+    <value>Stan na czacie</value>
+  </data>
+  <data xml:space="preserve" name="Step {0} of 3">
+    <value>Krok {0} z 3</value>
+  </data>
+  <data xml:space="preserve" name="Stops waiting for Piper and selects the built-in Windows speech backend with its default voice.">
+    <value>Przestaje czekać na Piper i wybiera wbudowany silnik mowy Windows z domyślnym głosem.</value>
+  </data>
+  <data xml:space="preserve" name="Support on Ko-fi">
+    <value>Wesprzyj na Ko-fi</value>
+  </data>
+  <data xml:space="preserve" name="Suppress teleports and return">
+    <value>Tłum teleportację i Return</value>
+  </data>
+  <data xml:space="preserve" name="Synth volume">
+    <value>Głośność syntezy</value>
+  </data>
+  <data xml:space="preserve" name="TTS voice (separate from UI language)">
+    <value>Głos TTS (niezależny od języka interfejsu)</value>
+  </data>
+  <data xml:space="preserve" name="Teal">
+    <value>Morski</value>
+  </data>
+  <data xml:space="preserve" name="Territory change">
+    <value>Zmiana obszaru</value>
+  </data>
+  <data xml:space="preserve" name="Territory cooldown seconds">
+    <value>Odstęp obszaru w sekundach</value>
+  </data>
+  <data xml:space="preserve" name="Test adapted speech">
+    <value>Testuj dostosowaną mowę</value>
+  </data>
+  <data xml:space="preserve" name="Test speech">
+    <value>Testuj mowę</value>
+  </data>
+  <data xml:space="preserve" name="Test spoken commentary">
+    <value>Testuj komentarze mówione</value>
+  </data>
+  <data xml:space="preserve" name="Test transition alert">
+    <value>Testuj powiadomienie o zmianie obszaru</value>
+  </data>
+  <data xml:space="preserve" name="Testing adapted speech...">
+    <value>Testowanie dostosowanej mowy...</value>
+  </data>
+  <data xml:space="preserve" name="Text currently in queue or being spoken">
+    <value>Tekst w kolejce lub wypowiadany</value>
+  </data>
+  <data xml:space="preserve" name="Text only">
+    <value>Tylko tekst</value>
+  </data>
+  <data xml:space="preserve" name="Text that will be sent to Piper after adapter substitutions.">
+    <value>Tekst wysyłany do Piper po zamianach adaptera.</value>
+  </data>
+  <data xml:space="preserve" name="Text to run through the current Piper adapter preview.">
+    <value>Tekst do podglądu bieżącego adaptera Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech engine (plugin setting)">
+    <value>Silnik syntezy mowy (ustawienie wtyczki)</value>
+  </data>
+  <data xml:space="preserve" name="Text to speech for FFXIV (Dalamud plugin)">
+    <value>Synteza mowy dla FFXIV (wtyczka Dalamud)</value>
+  </data>
+  <data xml:space="preserve" name="The Windows voice currently selected for generated speech.">
+    <value>Bieżący głos Windows wybrany do generowania mowy.</value>
+  </data>
+  <data xml:space="preserve" name="The configuration saved when Quick Setup finished.">
+    <value>Konfiguracja zapisana po zakończeniu szybkiej konfiguracji.</value>
+  </data>
+  <data xml:space="preserve" name="The last Piper preparation error. You can retry or use Windows default speech.">
+    <value>Ostatni błąd przygotowania Piper. Możesz ponowić próbę lub użyć domyślnej mowy Windows.</value>
+  </data>
+  <data xml:space="preserve" name="The latest speech queue error; the attempt still counts so you can change speech settings and retry.">
+    <value>Ostatni błąd kolejki mowy; próba nadal się liczy, więc możesz zmienić ustawienia i ponowić próbę.</value>
+  </data>
+  <data xml:space="preserve" name="The preset Quick Setup will keep active.">
+    <value>Profil, który szybka konfiguracja pozostawi aktywny.</value>
+  </data>
+  <data xml:space="preserve" name="The recommended voice and a usable Piper runtime were found.">
+    <value>Znaleziono zalecany głos i działające środowisko wykonawcze Piper.</value>
+  </data>
+  <data xml:space="preserve" name="This Piper voice is already active.">
+    <value>Ten głos Piper jest już aktywny.</value>
+  </data>
+  <data xml:space="preserve" name="This installed Piper voice is currently selected.">
+    <value>Ten zainstalowany głos Piper jest obecnie wybrany.</value>
+  </data>
+  <data xml:space="preserve" name="Transition-alert test attempted. If the configured WAV was unavailable, Dheacon used the Windows exclamation sound.">
+    <value>Wykonano próbę powiadomienia o zmianie obszaru. Jeśli skonfigurowany WAV był niedostępny, Dheacon użył dźwięku wykrzyknika Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Trigger">
+    <value>Wyzwalacz</value>
+  </data>
+  <data xml:space="preserve" name="Trigger status: {0}">
+    <value>Stan wyzwalacza: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Turns all Dheacon/Reading Roegadyn triggers on or off immediately.">
+    <value>Natychmiast włącza lub wyłącza wszystkie wyzwalacze Dheacon/Reading Roegadyn.</value>
+  </data>
+  <data xml:space="preserve" name="UI fonts failed to load. See the plugin log.">
+    <value>Nie udało się załadować czcionek. Sprawdź dziennik wtyczki.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstall">
+    <value>Odinstaluj</value>
+  </data>
+  <data xml:space="preserve" name="Unknown">
+    <value>Nieznany</value>
+  </data>
+  <data xml:space="preserve" name="Use Windows default instead">
+    <value>Użyj domyślnej mowy Windows</value>
+  </data>
+  <data xml:space="preserve" name="Use adapter {0} for {1} to {2} text before Piper synthesis.">
+    <value>Użyj adaptera {0} dla tekstu z {1} do {2} przed syntezą Piper.</value>
+  </data>
+  <data xml:space="preserve" name="User">
+    <value>Użytkownik</value>
+  </data>
+  <data xml:space="preserve" name="Uses the current Windows default voice for this backend.">
+    <value>Używa bieżącego domyślnego głosu Windows dla tego silnika.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the managed local Piper runtime and recommended English Arctic voice.">
+    <value>Używa zarządzanego lokalnego środowiska wykonawczego Piper i zalecanego angielskiego głosu Arctic.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the modern Windows speech backend and the current Windows default voice.">
+    <value>Używa nowoczesnego silnika mowy Windows i bieżącego domyślnego głosu Windows.</value>
+  </data>
+  <data xml:space="preserve" name="Uses the selected preset to speak commentary for enabled game events.">
+    <value>Używa wybranego profilu do komentowania włączonych zdarzeń gry.</value>
+  </data>
+  <data xml:space="preserve" name="Voice">
+    <value>Głos</value>
+  </data>
+  <data xml:space="preserve" name="Waiting">
+    <value>Oczekiwanie</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the active preset asks Krangler to spawn its local-only Imaginary Fren follower.">
+    <value>Po włączeniu aktywny profil prosi Krangler o lokalnego towarzysza Imaginary Fren.</value>
+  </data>
+  <data xml:space="preserve" name="When enabled, the mini window opens on the next spoken line and stays open.">
+    <value>Po włączeniu okno Mini otwiera się przy następnej wypowiedzi i pozostaje otwarte.</value>
+  </data>
+  <data xml:space="preserve" name="Whether the speech queue is currently preparing or playing audio.">
+    <value>Czy kolejka mowy obecnie przygotowuje lub odtwarza dźwięk.</value>
+  </data>
+  <data xml:space="preserve" name="Whether this Piper voice is selected, installed, or only available in the catalog.">
+    <value>Czy ten głos Piper jest wybrany, zainstalowany czy tylko dostępny w katalogu.</value>
+  </data>
+  <data xml:space="preserve" name="Windows default">
+    <value>Domyślny Windows</value>
+  </data>
+  <data xml:space="preserve" name="Windows default - ">
+    <value>Domyślny Windows - </value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech">
+    <value>Domyślna mowa Windows</value>
+  </data>
+  <data xml:space="preserve" name="Windows default speech needs no Dheacon-managed download and remains available as the fallback if Piper setup fails.">
+    <value>Domyślna mowa Windows nie wymaga pobierania zarządzanego przez Dheacon i pozostaje opcją zastępczą przy błędzie konfiguracji Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Writes the current live settings into the active user preset.">
+    <value>Zapisuje bieżące ustawienia w aktywnym profilu użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Yes">
+    <value>Tak</value>
+  </data>
+  <data xml:space="preserve" name="[template]">
+    <value>[szablon]</value>
+  </data>
+  <data xml:space="preserve" name="[user]">
+    <value>[użytkownik]</value>
+  </data>
+  <data xml:space="preserve" name="disabled">
+    <value>wyłączony</value>
+  </data>
+  <data xml:space="preserve" name="{0:F1} MB">
+    <value>{0:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="{0} (not installed)">
+    <value>{0} (niezainstalowany)</value>
+  </data>
+  <data xml:space="preserve" name="{0} - {1} to {2}">
+    <value>{0} - {1} do {2}</value>
+  </data>
+  <data xml:space="preserve" name="{0} pending">
+    <value>Oczekujące: {0}</value>
+  </data>
+  <data xml:space="preserve" name="CombatStart">
+    <value>Początek walki</value>
+  </data>
+  <data xml:space="preserve" name="CombatEnd">
+    <value>Koniec walki</value>
+  </data>
+  <data xml:space="preserve" name="MountStart">
+    <value>Początek dosiadania</value>
+  </data>
+  <data xml:space="preserve" name="MountEnd">
+    <value>Koniec dosiadania</value>
+  </data>
+  <data xml:space="preserve" name="FlightStart">
+    <value>Początek lotu</value>
+  </data>
+  <data xml:space="preserve" name="FlightEnd">
+    <value>Koniec lotu</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueStart">
+    <value>Początek kolejki do instancji</value>
+  </data>
+  <data xml:space="preserve" name="DutyQueueEnd">
+    <value>Koniec kolejki do instancji</value>
+  </data>
+  <data xml:space="preserve" name="DutyStart">
+    <value>Początek instancji</value>
+  </data>
+  <data xml:space="preserve" name="DutyEnd">
+    <value>Koniec instancji</value>
+  </data>
+  <data xml:space="preserve" name="CraftingStart">
+    <value>Początek wytwarzania</value>
+  </data>
+  <data xml:space="preserve" name="CraftingEnd">
+    <value>Koniec wytwarzania</value>
+  </data>
+  <data xml:space="preserve" name="GatheringStart">
+    <value>Początek zbierania</value>
+  </data>
+  <data xml:space="preserve" name="GatheringEnd">
+    <value>Koniec zbierania</value>
+  </data>
+  <data xml:space="preserve" name="FishingStart">
+    <value>Początek łowienia</value>
+  </data>
+  <data xml:space="preserve" name="FishingEnd">
+    <value>Koniec łowienia</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStart">
+    <value>Początek sceny</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEnd">
+    <value>Koniec sceny</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceStart">
+    <value>Początek występu</value>
+  </data>
+  <data xml:space="preserve" name="PerformanceEnd">
+    <value>Koniec występu</value>
+  </data>
+  <data xml:space="preserve" name="MinigameStart">
+    <value>Początek minigry</value>
+  </data>
+  <data xml:space="preserve" name="MinigameEnd">
+    <value>Koniec minigry</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellStart">
+    <value>Początek dzwonka przywołania</value>
+  </data>
+  <data xml:space="preserve" name="SummoningBellEnd">
+    <value>Koniec dzwonka przywołania</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderStart">
+    <value>Początek wyszukiwarki drużyn</value>
+  </data>
+  <data xml:space="preserve" name="PartyFinderEnd">
+    <value>Koniec wyszukiwarki drużyn</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingStart">
+    <value>Początek pływania</value>
+  </data>
+  <data xml:space="preserve" name="SwimmingEnd">
+    <value>Koniec pływania</value>
+  </data>
+  <data xml:space="preserve" name="DivingStart">
+    <value>Początek nurkowania</value>
+  </data>
+  <data xml:space="preserve" name="DivingEnd">
+    <value>Koniec nurkowania</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartDuty">
+    <value>Początek sceny instancji</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndDuty">
+    <value>Koniec sceny instancji</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartNonDuty">
+    <value>Początek sceny poza instancją</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndNonDuty">
+    <value>Koniec sceny poza instancją</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneStartTreasureDungeon">
+    <value>Początek sceny lochu skarbów</value>
+  </data>
+  <data xml:space="preserve" name="CutsceneEndTreasureDungeon">
+    <value>Koniec sceny lochu skarbów</value>
+  </data>
+  <data xml:space="preserve" name="ManualTest">
+    <value>Test ręczny</value>
+  </data>
+  <data xml:space="preserve" name="TerritoryChange">
+    <value>Zmiana obszaru</value>
+  </data>
+  <data xml:space="preserve" name="LevelChange">
+    <value>Zmiana poziomu</value>
+  </data>
+  <data xml:space="preserve" name="ClassJobChange">
+    <value>Zmiana klasy/zawodu</value>
+  </data>
+  <data xml:space="preserve" name="Unconscious">
+    <value>Nieprzytomność</value>
+  </data>
+  <data xml:space="preserve" name="Recovered">
+    <value>Odzyskanie przytomności</value>
+  </data>
+  <data xml:space="preserve" name="PvpEnter">
+    <value>Wejście do PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvpLeave">
+    <value>Wyjście z PvP</value>
+  </data>
+  <data xml:space="preserve" name="NearbyPlayerObservation">
+    <value>Obserwacja pobliskiego gracza</value>
+  </data>
+  <data xml:space="preserve" name="NearbyCrowdObservation">
+    <value>Obserwacja pobliskiego tłumu</value>
+  </data>
+  <data xml:space="preserve" name="BgmMachinations">
+    <value>Muzyka Machinations</value>
+  </data>
+  <data xml:space="preserve" name="ModernWindows">
+    <value>Nowoczesny Windows</value>
+  </data>
+  <data xml:space="preserve" name="LegacySapi">
+    <value>Starsze SAPI</value>
+  </data>
+  <data xml:space="preserve" name="PiperLocal">
+    <value>Lokalny Piper</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because the player is not ready.">
+    <value>Zignorowano {0}, bo gracz nie jest gotowy.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} because expanded event commentary is disabled.">
+    <value>Zignorowano {0}, bo komentarze rozszerzonych zdarzeń są wyłączone.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} by expanded event cooldown.">
+    <value>Wstrzymano {0} przez odstęp rozszerzonych zdarzeń.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: speech is already busy.">
+    <value>Pominięto {0}: mowa jest już zajęta.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance is 0%.">
+    <value>Pominięto {0}: szansa automatycznego wyzwolenia wynosi 0%.</value>
+  </data>
+  <data xml:space="preserve" name="Skipped {0}: automatic trigger chance roll missed at {1}%.">
+    <value>Pominięto {0}: losowanie automatycznego wyzwolenia nie powiodło się przy {1}%.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}.">
+    <value>Dodano do kolejki {0}: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Failed to queue {0}: {1}.">
+    <value>Nie udało się dodać do kolejki {0}: {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Queued {0}: {1}">
+    <value>Dodano do kolejki {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Preparing {0}: {1}">
+    <value>Przygotowywanie {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Spoke {0}: {1}">
+    <value>Wypowiedziano {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Failed to speak {0}.">
+    <value>Nie udało się wypowiedzieć {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Generated {0}: {1}">
+    <value>Wygenerowano {0}: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit: {0}">
+    <value>Trafienie pamięci podręcznej: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} speech failed; used Legacy SAPI fallback: {1}">
+    <value>Mowa {0} nie powiodła się; użyto zastępczego starszego SAPI: {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} failed; used Legacy SAPI fallback: {1}">
+    <value>{0} nie powiodło się; użyto zastępczego starszego SAPI: {1}</value>
+  </data>
+  <data xml:space="preserve" name="Not applicable for {0}.">
+    <value>Nie dotyczy {0}.</value>
+  </data>
+  <data xml:space="preserve" name="No lines found for {0}; used fallback text.">
+    <value>Nie znaleziono wypowiedzi dla {0}; użyto tekstu zastępczego.</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st)">
+    <value> (wysokość {0} st)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st skipped)">
+    <value> (wysokość {0} st pominięta)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st applied)">
+    <value> (wysokość {0} st zastosowana)</value>
+  </data>
+  <data xml:space="preserve" name=" (pitch {0} st warning)">
+    <value> (ostrzeżenie wysokości {0} st)</value>
+  </data>
+  <data xml:space="preserve" name="Skipped (pitch {0} st).">
+    <value>Pominięto (wysokość {0} st).</value>
+  </data>
+  <data xml:space="preserve" name="Applied pitch {0} st with SoundTouch.NET (factor {1}, {2} samples, {3} audio bytes).">
+    <value>Zastosowano wysokość {0} st przez SoundTouch.NET (współczynnik {1}, {2} próbki, {3} bajty dźwięku).</value>
+  </data>
+  <data xml:space="preserve" name="Cache hit for Piper pitch {0} st; pitch processor did not run for this request.">
+    <value>Trafienie pamięci podręcznej dla wysokości Piper {0} st; procesor wysokości nie uruchomił się dla tego żądania.</value>
+  </data>
+  <data xml:space="preserve" name="Piper pitch shift failed ({0} semitones): {1}. Using unshifted WAV.">
+    <value>Zmiana wysokości Piper nie powiodła się ({0} półtonów): {1}. Używany WAV bez zmiany wysokości.</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} / {2:F1} MB">
+    <value>Pobieranie Piper {0}: {1:F1} / {2:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Piper {0}: {1:F1} MB">
+    <value>Pobieranie Piper {0}: {1:F1} MB</value>
+  </data>
+  <data xml:space="preserve" name="runtime">
+    <value>środowisko wykonawcze</value>
+  </data>
+  <data xml:space="preserve" name="model">
+    <value>model</value>
+  </data>
+  <data xml:space="preserve" name="config">
+    <value>konfiguracja</value>
+  </data>
+  <data xml:space="preserve" name="model card">
+    <value>karta modelu</value>
+  </data>
+  <data xml:space="preserve" name="package">
+    <value>pakiet</value>
+  </data>
+  <data xml:space="preserve" name="manual test">
+    <value>test ręczny</value>
+  </data>
+  <data xml:space="preserve" name="player ready">
+    <value>gracz gotowy</value>
+  </data>
+  <data xml:space="preserve" name="idle cooldown">
+    <value>odstęp bezczynności</value>
+  </data>
+  <data xml:space="preserve" name="Quick Setup test">
+    <value>test szybkiej konfiguracji</value>
+  </data>
+  <data xml:space="preserve" name="PvP enter">
+    <value>wejście do PvP</value>
+  </data>
+  <data xml:space="preserve" name="PvP leave">
+    <value>wyjście z PvP</value>
+  </data>
+  <data xml:space="preserve" name="class/job {0}">
+    <value>klasa/zawód {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} level {1}">
+    <value>{0} poziom {1}</value>
+  </data>
+  <data xml:space="preserve" name="{0} nearby players">
+    <value>{0} pobliskich graczy</value>
+  </data>
+  <data xml:space="preserve" name="combat start">
+    <value>początek walki</value>
+  </data>
+  <data xml:space="preserve" name="combat end">
+    <value>koniec walki</value>
+  </data>
+  <data xml:space="preserve" name="mount start">
+    <value>początek dosiadania</value>
+  </data>
+  <data xml:space="preserve" name="mount end">
+    <value>koniec dosiadania</value>
+  </data>
+  <data xml:space="preserve" name="flight start">
+    <value>początek lotu</value>
+  </data>
+  <data xml:space="preserve" name="flight end">
+    <value>koniec lotu</value>
+  </data>
+  <data xml:space="preserve" name="duty queue start">
+    <value>początek kolejki do instancji</value>
+  </data>
+  <data xml:space="preserve" name="duty queue end">
+    <value>koniec kolejki do instancji</value>
+  </data>
+  <data xml:space="preserve" name="duty start">
+    <value>początek instancji</value>
+  </data>
+  <data xml:space="preserve" name="duty end">
+    <value>koniec instancji</value>
+  </data>
+  <data xml:space="preserve" name="crafting start">
+    <value>początek wytwarzania</value>
+  </data>
+  <data xml:space="preserve" name="crafting end">
+    <value>koniec wytwarzania</value>
+  </data>
+  <data xml:space="preserve" name="gathering start">
+    <value>początek zbierania</value>
+  </data>
+  <data xml:space="preserve" name="gathering end">
+    <value>koniec zbierania</value>
+  </data>
+  <data xml:space="preserve" name="fishing start">
+    <value>początek łowienia</value>
+  </data>
+  <data xml:space="preserve" name="fishing end">
+    <value>koniec łowienia</value>
+  </data>
+  <data xml:space="preserve" name="performance start">
+    <value>początek występu</value>
+  </data>
+  <data xml:space="preserve" name="performance end">
+    <value>koniec występu</value>
+  </data>
+  <data xml:space="preserve" name="mini-game start">
+    <value>początek minigry</value>
+  </data>
+  <data xml:space="preserve" name="mini-game end">
+    <value>koniec minigry</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell start">
+    <value>początek dzwonka przywołania</value>
+  </data>
+  <data xml:space="preserve" name="summoning bell end">
+    <value>koniec dzwonka przywołania</value>
+  </data>
+  <data xml:space="preserve" name="party finder start">
+    <value>początek wyszukiwarki drużyn</value>
+  </data>
+  <data xml:space="preserve" name="party finder end">
+    <value>koniec wyszukiwarki drużyn</value>
+  </data>
+  <data xml:space="preserve" name="swimming start">
+    <value>początek pływania</value>
+  </data>
+  <data xml:space="preserve" name="swimming end">
+    <value>koniec pływania</value>
+  </data>
+  <data xml:space="preserve" name="diving start">
+    <value>początek nurkowania</value>
+  </data>
+  <data xml:space="preserve" name="diving end">
+    <value>koniec nurkowania</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene start">
+    <value>początek sceny instancji</value>
+  </data>
+  <data xml:space="preserve" name="duty cutscene end">
+    <value>koniec sceny instancji</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene start">
+    <value>początek sceny poza instancją</value>
+  </data>
+  <data xml:space="preserve" name="non-duty cutscene end">
+    <value>koniec sceny poza instancją</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene start">
+    <value>początek sceny lochu skarbów</value>
+  </data>
+  <data xml:space="preserve" name="treasure dungeon cutscene end">
+    <value>koniec sceny lochu skarbów</value>
+  </data>
+  <data xml:space="preserve" name="unconscious start">
+    <value>początek nieprzytomności</value>
+  </data>
+  <data xml:space="preserve" name="unconscious end">
+    <value>koniec nieprzytomności</value>
+  </data>
+  <data xml:space="preserve" name="Waiting for first territory change.">
+    <value>Oczekiwanie na pierwszą zmianę obszaru.</value>
+  </data>
+  <data xml:space="preserve" name="Territory initialized to {0}.">
+    <value>Obszar zainicjowany jako {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored {0} -&gt; {1} because the plugin is disabled.">
+    <value>Zignorowano {0} -&gt; {1}, bo wtyczka jest wyłączona.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed {0} -&gt; {1} after a recent cast ({2:F1}s ago).">
+    <value>Wstrzymano {0} -&gt; {1} po niedawnym rzuceniu zaklęcia ({2:F1}s temu).</value>
+  </data>
+  <data xml:space="preserve" name="Triggered on territory change {0} -&gt; {1}.">
+    <value>Wyzwolono przy zmianie obszaru {0} -&gt; {1}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe not initialized.">
+    <value>Sonda muzyki niezainicjowana.</value>
+  </data>
+  <data xml:space="preserve" name="BGM control block pointer is not ready.">
+    <value>Wskaźnik bloku sterowania muzyką nie jest gotowy.</value>
+  </data>
+  <data xml:space="preserve" name="BGM scene list pointer is not ready.">
+    <value>Wskaźnik listy scen muzyki nie jest gotowy.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; no valid song id in priority slots.">
+    <value>Sonda muzyki aktywna; brak poprawnego ID utworu w slotach priorytetowych.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe active; current BGM ID {0}.">
+    <value>Sonda muzyki aktywna; bieżące ID muzyki {0}.</value>
+  </data>
+  <data xml:space="preserve" name="BGM probe read failed: {0}">
+    <value>Odczyt sondy muzyki nie powiódł się: {0}</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature not resolved; BGM reactions disabled.">
+    <value>Nie rozpoznano sygnatury muzyki; reakcje na muzykę wyłączone.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolved; waiting for first poll.">
+    <value>Rozpoznano sygnaturę muzyki; oczekiwanie na pierwsze sprawdzenie.</value>
+  </data>
+  <data xml:space="preserve" name="BGM signature resolution failed: {0}">
+    <value>Rozpoznanie sygnatury muzyki nie powiodło się: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for player-ready.">
+    <value>Reading Roegadyn czeka na gotowość gracza.</value>
+  </data>
+  <data xml:space="preserve" name="Reading Roegadyn waiting for login.">
+    <value>Reading Roegadyn czeka na logowanie.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored manual speech because Reading Roegadyn mode is not active or the plugin is disabled.">
+    <value>Zignorowano ręczną mowę, bo tryb Reading Roegadyn jest nieaktywny lub wtyczka wyłączona.</value>
+  </data>
+  <data xml:space="preserve" name="Ignored territory commentary because it is disabled.">
+    <value>Zignorowano komentarz obszaru, bo jest wyłączony.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed territory commentary by cooldown for {0} -&gt; {1}.">
+    <value>Wstrzymano komentarz obszaru przez odstęp dla {0} -&gt; {1}.</value>
+  </data>
+  <data xml:space="preserve" name="Player ready; login commentary disabled.">
+    <value>Gracz gotowy; komentarz logowania wyłączony.</value>
+  </data>
+  <data xml:space="preserve" name="Combat state changed; combat commentary disabled.">
+    <value>Stan walki zmieniony; komentarze walki wyłączone.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed combat commentary by cooldown.">
+    <value>Wstrzymano komentarz walki przez odstęp.</value>
+  </data>
+  <data xml:space="preserve" name="Suppressed Machinations BGM commentary by cooldown.">
+    <value>Wstrzymano komentarz muzyki Machinations przez odstęp.</value>
+  </data>
+  <data xml:space="preserve" name="Cutscene state changed; expanded commentary disabled.">
+    <value>Stan sceny zmieniony; rozszerzone komentarze wyłączone.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue ready.">
+    <value>Kolejka mowy gotowa.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped.">
+    <value>Kolejka mowy zatrzymana.</value>
+  </data>
+  <data xml:space="preserve" name="Speech queue stopped after an unexpected worker error.">
+    <value>Kolejka mowy zatrzymana po nieoczekiwanym błędzie wątku roboczego.</value>
+  </data>
+  <data xml:space="preserve" name="Speech playback canceled.">
+    <value>Odtwarzanie mowy anulowane.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog not refreshed this session.">
+    <value>Katalog Piper nieodświeżony w tej sesji.</value>
+  </data>
+  <data xml:space="preserve" name="Refreshing Piper voice catalog...">
+    <value>Odświeżanie katalogu głosów Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Refreshed Piper catalog: {0} voice entries.">
+    <value>Odświeżono katalog Piper: {0} wpisów głosów.</value>
+  </data>
+  <data xml:space="preserve" name="Piper catalog refresh failed; using cached and installed voices.">
+    <value>Odświeżenie katalogu Piper nie powiodło się; używane głosy zapisane i zainstalowane.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime setup failed; kept Legacy SAPI active.">
+    <value>Głos Piper {0} zainstalowany, ale konfiguracja środowiska wykonawczego nie powiodła się; starsze SAPI pozostaje aktywne.</value>
+  </data>
+  <data xml:space="preserve" name="Piper ready with {0}.">
+    <value>Piper gotowy z {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice {0} is installed, but runtime is missing; kept Legacy SAPI active.">
+    <value>Głos Piper {0} zainstalowany, ale brak środowiska wykonawczego; starsze SAPI pozostaje aktywne.</value>
+  </data>
+  <data xml:space="preserve" name="Installing portable Piper runtime...">
+    <value>Instalowanie przenośnego środowiska wykonawczego Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Installed portable Piper runtime ({0}).">
+    <value>Zainstalowano przenośne środowisko wykonawcze Piper ({0}).</value>
+  </data>
+  <data xml:space="preserve" name="Portable Piper runtime install failed: {0}">
+    <value>Instalacja przenośnego środowiska wykonawczego Piper nie powiodła się: {0}</value>
+  </data>
+  <data xml:space="preserve" name="{0} is already installed.">
+    <value>{0} jest już zainstalowany.</value>
+  </data>
+  <data xml:space="preserve" name="Installing {0}...">
+    <value>Instalowanie {0}...</value>
+  </data>
+  <data xml:space="preserve" name="Installed Piper voice {0} ({1:F1} MB).">
+    <value>Zainstalowano głos Piper {0} ({1:F1} MB).</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice install failed: {0}">
+    <value>Instalacja głosu Piper nie powiodła się: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper voice '{0}' is not installed.">
+    <value>Głos Piper '{0}' nie jest zainstalowany.</value>
+  </data>
+  <data xml:space="preserve" name="Uninstalled Piper voice {0}.">
+    <value>Odinstalowano głos Piper {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Selected Piper voice {0}.">
+    <value>Wybrano głos Piper {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime missing. Set a portable piper.exe path or place piper.exe in {0}">
+    <value>Brak środowiska wykonawczego Piper. Ustaw ścieżkę przenośnego piper.exe lub umieść piper.exe w {0}</value>
+  </data>
+  <data xml:space="preserve" name="Piper runtime found: {0}">
+    <value>Znaleziono środowisko wykonawcze Piper: {0}</value>
+  </data>
+  <data xml:space="preserve" name="Downloading official Piper voice catalog...">
+    <value>Pobieranie oficjalnego katalogu głosów Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Downloading Swedish Piper release catalog...">
+    <value>Pobieranie katalogu szwedzkich wydań Piper...</value>
+  </data>
+  <data xml:space="preserve" name="Loaded cached Piper catalog: {0} voice entries.">
+    <value>Wczytano zapisany katalog Piper: {0} wpisów głosów.</value>
+  </data>
+  <data xml:space="preserve" name="No speech generated yet.">
+    <value>Nie wygenerowano jeszcze mowy.</value>
+  </data>
+  <data xml:space="preserve" name="No text.">
+    <value>Brak tekstu.</value>
+  </data>
+  <data xml:space="preserve" name="Adapter not applied.">
+    <value>Adapter niezastosowany.</value>
+  </data>
+  <data xml:space="preserve" name="No matching adapter.">
+    <value>Brak pasującego adaptera.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} spoken text adapter(s).">
+    <value>Wczytano {0} adapterów tekstu mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded fallback spoken text adapter.">
+    <value>Wczytano zastępczy adapter tekstu mowy.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded from {0}.">
+    <value>Wczytano z {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Fallback adapter.">
+    <value>Adapter zastępczy.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached WAV file(s).">
+    <value>Usunięto {0} plików WAV z pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="Cleared {0} cached Piper WAV file(s).">
+    <value>Usunięto {0} plików WAV Piper z pamięci podręcznej.</value>
+  </data>
+  <data xml:space="preserve" name="No Piper pitch shift attempted yet.">
+    <value>Nie próbowano jeszcze zmiany wysokości Piper.</value>
+  </data>
+  <data xml:space="preserve" name="Line packs not loaded.">
+    <value>Pakiety wypowiedzi niewczytane.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} line pack(s), {1} line(s): {2} bundled, {3} user.">
+    <value>Wczytano {0} pakietów wypowiedzi, {1} wypowiedzi: {2} wbudowane, {3} użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Presets not loaded.">
+    <value>Profile niewczytane.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' was not found.">
+    <value>Nie znaleziono profilu '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Active preset set to {0}.">
+    <value>Aktywny profil ustawiony na {0}.</value>
+  </data>
+  <data xml:space="preserve" name="Created user preset '{0}'.">
+    <value>Utworzono profil użytkownika '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be renamed.">
+    <value>Profil '{0}' jest chroniony i nie można zmienić jego nazwy.</value>
+  </data>
+  <data xml:space="preserve" name="Preset name cannot be empty.">
+    <value>Nazwa profilu nie może być pusta.</value>
+  </data>
+  <data xml:space="preserve" name="Renamed preset to '{0}'.">
+    <value>Zmieniono nazwę profilu na '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten. Duplicate it with + first.">
+    <value>Profil '{0}' jest chroniony i nie można go nadpisać. Najpierw powiel go przyciskiem +.</value>
+  </data>
+  <data xml:space="preserve" name="Saved current settings to '{0}'.">
+    <value>Zapisano bieżące ustawienia w '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime Fren settings for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Zaktualizowano bieżące ustawienia Fren chronionego profilu '{0}'. Powiel go przyciskiem +, aby zapisać zmiany.</value>
+  </data>
+  <data xml:space="preserve" name="Saved Fren settings for '{0}'.">
+    <value>Zapisano ustawienia Fren dla '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Updated runtime line pack for protected preset '{0}'. Duplicate it with + to persist changes.">
+    <value>Zaktualizowano bieżący pakiet wypowiedzi chronionego profilu '{0}'. Powiel go przyciskiem +, aby zapisać zmiany.</value>
+  </data>
+  <data xml:space="preserve" name="Saved line pack for '{0}'.">
+    <value>Zapisano pakiet wypowiedzi dla '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be deleted.">
+    <value>Profil '{0}' jest chroniony i nie można go usunąć.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is not a user preset file.">
+    <value>Profil '{0}' nie jest plikiem profilu użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Deleted preset '{0}'.">
+    <value>Usunięto profil '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import text was empty.">
+    <value>Tekst importu profilu był pusty.</value>
+  </data>
+  <data xml:space="preserve" name="Preset import schema was not recognized.">
+    <value>Nie rozpoznano schematu importu profilu.</value>
+  </data>
+  <data xml:space="preserve" name="Imported preset '{0}'.">
+    <value>Zaimportowano profil '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Preset '{0}' is protected and cannot be overwritten.">
+    <value>Profil '{0}' jest chroniony i nie można go nadpisać.</value>
+  </data>
+  <data xml:space="preserve" name="Saved preset '{0}'.">
+    <value>Zapisano profil '{0}'.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} preset(s): {1} bundled, {2} user.">
+    <value>Wczytano {0} profili: {1} wbudowanych, {2} użytkownika.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower IPC idle.">
+    <value>IPC towarzysza Krangler bezczynne.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list not loaded.">
+    <value>Lista profili Krangler niewczytana.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list IPC returned a failure.">
+    <value>IPC listy profili Krangler zwróciło błąd.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset list unavailable; free text fallback is active.">
+    <value>Lista profili Krangler niedostępna; zastępczy tekst dowolny jest aktywny.</value>
+  </data>
+  <data xml:space="preserve" name="Loaded {0} Krangler preset(s).">
+    <value>Wczytano {0} profili Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset export unavailable.">
+    <value>Eksport profilu Krangler niedostępny.</value>
+  </data>
+  <data xml:space="preserve" name="No embedded Krangler preset was present.">
+    <value>Brak osadzonego profilu Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Imported embedded Krangler preset.">
+    <value>Zaimportowano osadzony profil Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler rejected embedded preset import.">
+    <value>Krangler odrzucił import osadzonego profilu.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler preset import unavailable.">
+    <value>Import profilu Krangler niedostępny.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable; speech continues without follower.">
+    <value>IPC Krangler Imaginary Fren niedostępne; mowa trwa bez towarzysza.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler Imaginary Fren IPC unavailable while disabling follower.">
+    <value>IPC Krangler Imaginary Fren niedostępne podczas wyłączania towarzysza.</value>
+  </data>
+  <data xml:space="preserve" name="Krangler follower status received.">
+    <value>Odebrano stan towarzysza Krangler.</value>
+  </data>
+  <data xml:space="preserve" name="not a RIFF/WAVE file">
+    <value>to nie jest plik RIFF/WAVE</value>
+  </data>
+  <data xml:space="preserve" name="invalid WAV chunk '{0}'">
+    <value>nieprawidłowy blok WAV '{0}'</value>
+  </data>
+  <data xml:space="preserve" name="fmt chunk is too small">
+    <value>blok fmt jest za mały</value>
+  </data>
+  <data xml:space="preserve" name="missing fmt chunk">
+    <value>brak bloku fmt</value>
+  </data>
+  <data xml:space="preserve" name="invalid fmt chunk">
+    <value>nieprawidłowy blok fmt</value>
+  </data>
+  <data xml:space="preserve" name="missing data chunk">
+    <value>brak bloku data</value>
+  </data>
+  <data xml:space="preserve" name="unsupported WAV format tag {0}">
+    <value>nieobsługiwany znacznik formatu WAV {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported PCM bit depth {0}">
+    <value>nieobsługiwana głębia bitowa PCM {0}</value>
+  </data>
+  <data xml:space="preserve" name="unsupported IEEE float bit depth {0}">
+    <value>nieobsługiwana głębia bitowa zmiennoprzecinkowa IEEE {0}</value>
+  </data>
+  <data xml:space="preserve" name="16-bit PCM data is not sample aligned">
+    <value>dane PCM 16-bit nie są wyrównane do próbek</value>
+  </data>
+  <data xml:space="preserve" name="24-bit PCM data is not sample aligned">
+    <value>dane PCM 24-bit nie są wyrównane do próbek</value>
+  </data>
+  <data xml:space="preserve" name="32-bit PCM data is not sample aligned">
+    <value>dane PCM 32-bit nie są wyrównane do próbek</value>
+  </data>
+  <data xml:space="preserve" name="float WAV data is not sample aligned">
+    <value>zmiennoprzecinkowe dane WAV nie są wyrównane do próbek</value>
+  </data>
+  <data xml:space="preserve" name="original WAV is not usable: {0}">
+    <value>oryginalny WAV jest nieużyteczny: {0}</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV is not usable: {0}">
+    <value>WAV po zmianie wysokości jest nieużyteczny: {0}</value>
+  </data>
+  <data xml:space="preserve" name="pitch writer produced no samples">
+    <value>moduł zapisu wysokości nie utworzył próbek</value>
+  </data>
+  <data xml:space="preserve" name="shifted WAV was not created">
+    <value>nie utworzono WAV po zmianie wysokości</value>
+  </data>
+  <data xml:space="preserve" name="shifted audio data did not differ from the original">
+    <value>dane dźwięku po zmianie wysokości nie różniły się od oryginału</value>
+  </data>
+  <data xml:space="preserve" name="shifted duration drifted from {0} ms to {1} ms (allowed drift {2} ms)">
+    <value>czas po zmianie odchylił się z {0} ms do {1} ms (dozwolone odchylenie {2} ms)</value>
+  </data>
+  <data xml:space="preserve" name="No spoken text adapters loaded.">
+    <value>Nie wczytano adapterów tekstu mowy.</value>
+  </data>
+  <data xml:space="preserve" name="BGM {0}">
+    <value>Muzyka {0}</value>
+  </data>
+  <data xml:space="preserve" name="On">
+    <value>Włączony</value>
+  </data>
+  <data xml:space="preserve" name="Off">
+    <value>Wyłączony</value>
+  </data>
+  <data xml:space="preserve" name="{0} {1}. Preset: {2}. Click to toggle.">
+    <value>{0} {1}. Profil: {2}. Kliknij, aby przełączyć.</value>
+  </data>
+  <data name="Window appearance" xml:space="preserve"><value>Wygląd okna</value></data>
+  <data name="Compact visible on main window" xml:space="preserve"><value>Pokaż tryb kompaktowy w oknie głównym</value></data>
+  <data name="Language visible on main window" xml:space="preserve"><value>Pokaż wybór języka w oknie głównym</value></data>
+  <data name="Transparency" xml:space="preserve"><value>Przezroczystość</value></data>
+  <data name="Opacity (%)" xml:space="preserve"><value>Nieprzezroczystość (%)</value></data>
+  <data name="Auto-fade when unfocused" xml:space="preserve"><value>Automatycznie przygaszaj bez fokusu</value></data>
+  <data name="Unfocused opacity (%)" xml:space="preserve"><value>Nieprzezroczystość bez fokusu (%)</value></data>
+  <data name="Unfocused delay (seconds)" xml:space="preserve"><value>Opóźnienie bez fokusu (sekundy)</value></data>
+</root>

@@ -19,6 +19,22 @@ https://aethertek.io/x.json
 
 Run `/dheacon` to open the main window or `/dheacon config` to open Settings.
 
+The main window places presets beside speech details, followed by follower,
+cache and BGM status. The Mini is a read-only speech monitor. The header's `C`
+checkbox shares compact spacing across Main, Mini and Settings while retaining
+your window sizes. UI language and colour selectors appear in Main and Settings.
+The fourteen UI languages are English, German, French, Spanish, Italian, Russian,
+Japanese, Korean, Simplified Chinese, Vietnamese, Brazilian Portuguese, Indonesian,
+Polish and Turkish. UI language is independent of speech
+backend, voice language, spoken text and preset content.
+
+Teal, blue, pink and custom RGB choices recolour the complete relative dark
+theme. Preferences use the existing configuration save path; old configurations
+receive defaults without changing their version or voice settings. Fonts use
+Dalamud's managed atlas, installed Segoe/symbol faces and the bundled CJK faces;
+Windows fonts are not distributed. Font readiness and required glyphs are checked
+before the windows draw.
+
 ## Quick Setup
 
 New installations open the permanent **Quick Setup** tab automatically. It guides you through:
@@ -52,3 +68,18 @@ Speech synthesis, playback, and caching happen locally. Network access is used o
 ## Support
 
 [Aethertek plugins and guides](https://aethertek.io/) · [Support development on Ko-fi](https://ko-fi.com/mcvaxius)
+
+## Building
+
+Keep `dheacon` and `aethertekUI` as sibling checkouts. Enter the environment in
+`aethertekUI/eng/Enter-RepoEnv.ps1`, then restore and build
+`dheacon/dheacon.csproj` with matching configuration and x64 platform. GitHub
+Actions uses the existing read-only `AETHERTEKUI_DEPLOY_KEY` for the sibling
+library checkout. The release payload includes `AethertekUI.dll` and fourteen
+embedded .NET UI resources, and excludes host-owned Dalamud/ImGui assemblies.
+
+Presentation constants record the approved regular and compact references:
+1046×892 and 982×704 envelopes, 14px and 10px gaps, and 37% and 35% preset panes.
+Local build and resource verification does not establish in-game visual, glyph,
+scale or custom-theme acceptance; those checks remain pending mcvaxius's accepted
+game screenshots.
