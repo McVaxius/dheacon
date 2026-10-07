@@ -1,5 +1,6 @@
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface;
 using Dalamud.Interface.Windowing;
 using AethertekUI;
 using AethertekUI.Dalamud;
@@ -14,6 +15,7 @@ public sealed class MiniWindow : Window, IDisposable
     private readonly Plugin plugin;
     private Vector2 contentFramePadding;
     private ImGuiDir menuButtonPosition;
+    private static string MiniTitle => DheaconPresentation.Compact ? UiText.T("Dheacon Mini — speech monitor") : "";
 
     public MiniWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Mini##Mini")
     {
@@ -24,6 +26,24 @@ public sealed class MiniWindow : Window, IDisposable
             MinimumSize = new Vector2(320f, 120f),
             MaximumSize = new Vector2(720f, 360f),
         };
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.WindowMaximize, Priority = 0, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.ToggleMainUi(); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Dheacon — main (speech settings)")),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.Cog, Priority = -10, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.ToggleConfigUi(); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Settings")),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.PowerOff, Priority = -20, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.SetPluginEnabledFromUi(!plugin.Configuration.PluginEnabled); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Enabled") + "\n" + UiText.T(plugin.Configuration.PluginEnabled ? "On" : "Off")),
+        });
     }
 
     public void Dispose() { }
@@ -35,6 +55,13 @@ public sealed class MiniWindow : Window, IDisposable
         style.WindowMenuButtonPosition = ImGuiDir.Right;
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(24, 15) : new Vector2(24, 20)) * scale);
         ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, (44 * scale - ImGui.GetFontSize()) * .5f));
+        var paintedTitleWidth = 0f;
+        if (!DheaconPresentation.Compact)
+        {
+            using var titleFont = UiText.Font(UiFontRole.CompactTitle);
+            paintedTitleWidth = 72 * scale + UiGui.ScaledTextSize("Dheacon Mini", 24.5f / 28).X;
+        }
+        UiGui.ReserveTitleSpace(this, DheaconPresentation.Compact ? MiniTitle : PluginInfo.DisplayName + " Mini", 320, paintedTitleWidth);
         windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
     }
 
@@ -50,7 +77,7 @@ public sealed class MiniWindow : Window, IDisposable
     {
         windowMotion.DrawChrome();
         var compact = DheaconPresentation.Compact; var scale = MaterialTheme.Metrics.Scale;
-        UiGui.Title(PluginInfo.DisplayName + " Mini", compact ? UiText.T("Dheacon Mini — speech monitor") : "");
+        UiGui.TitleWithButtons(PluginInfo.DisplayName + " Mini", MiniTitle, this);
         using var bodyStyle = new MaterialStyleScope();
         bodyStyle.Style(ImGuiStyleVar.FramePadding, contentFramePadding);
         var window = ImGuiP.GetCurrentWindow(); var dl = ImGui.GetWindowDrawList();

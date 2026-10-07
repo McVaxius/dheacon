@@ -116,6 +116,15 @@ public sealed class Plugin : IDalamudPlugin
     public void ToggleMainUi() => mainWindow.Toggle();
     public void ToggleConfigUi() => configWindow.Toggle();
     public void ToggleMiniUi() => miniWindow.Toggle();
+
+    public void SetPluginEnabledFromUi(bool enabled)
+    {
+        Configuration.PluginEnabled = enabled;
+        Configuration.Save();
+        UpdateDtrBar();
+        KranglerImaginaryFrenIpcClient.ReconcileNow();
+    }
+
     public void PrintStatus(string m) => ChatGui.Print($"[{PluginInfo.DisplayName}] {m}");
 
     private void OnCommand(string command, string arguments)

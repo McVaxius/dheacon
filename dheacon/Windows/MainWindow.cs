@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Numerics;
 using System.Reflection;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface;
 using Dalamud.Interface.Windowing;
 using AethertekUI;
 using AethertekUI.Dalamud;
@@ -19,12 +20,31 @@ public sealed class MainWindow : Window, IDisposable
     private DateTime lastStatusRenderWarningUtc = DateTime.MinValue;
     private Vector2 contentFramePadding;
     private ImGuiDir menuButtonPosition;
+    private static string MainTitle => UiText.T("Dheacon — main (speech settings)") + " v" + (typeof(Plugin).Assembly.GetName().Version?.ToString() ?? "0.0.0.0");
 
     public MainWindow(Plugin plugin) : base($"{PluginInfo.DisplayName}##Main")
     {
         this.plugin = plugin;
         Flags |= ImGuiWindowFlags.HorizontalScrollbar;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(560f, 430f), MaximumSize = new Vector2(1400f, 1200f) };
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.Cog, Priority = 0, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.ToggleConfigUi(); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Settings")),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.WindowMinimize, Priority = -10, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.ToggleMiniUi(); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Mini Window")),
+        });
+        TitleBarButtons.Add(new()
+        {
+            Icon = FontAwesomeIcon.PowerOff, Priority = -20, IconOffset = new(2, 1),
+            Click = button => { if (button == ImGuiMouseButton.Left) plugin.SetPluginEnabledFromUi(!plugin.Configuration.PluginEnabled); },
+            ShowTooltip = () => MaterialText.SetTooltip(UiText.T("Enabled") + "\n" + UiText.T(plugin.Configuration.PluginEnabled ? "On" : "Off")),
+        });
     }
 
     public void Dispose() { }
@@ -36,6 +56,7 @@ public sealed class MainWindow : Window, IDisposable
         style.WindowMenuButtonPosition = ImGuiDir.Right;
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(12, 4) : new Vector2(15)) * scale);
         ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, ((DheaconPresentation.Compact ? 44 : 37) * scale - ImGui.GetFontSize()) * .5f));
+        UiGui.ReserveTitleSpace(this, MainTitle, 560);
         windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
     }
 
@@ -50,7 +71,7 @@ public sealed class MainWindow : Window, IDisposable
     public override void Draw()
     {
         windowMotion.DrawChrome();
-        UiGui.Title(PluginInfo.DisplayName, UiText.T("Dheacon — main (speech settings)") + " v" + (typeof(Plugin).Assembly.GetName().Version?.ToString() ?? "0.0.0.0"));
+        UiGui.TitleWithButtons(PluginInfo.DisplayName, MainTitle, this);
         using var bodyStyle = new MaterialStyleScope();
         bodyStyle.Style(ImGuiStyleVar.FramePadding, contentFramePadding);
         var cfg = plugin.Configuration;
@@ -99,8 +120,7 @@ public sealed class MainWindow : Window, IDisposable
             var enabled = cfg.PluginEnabled;
             if (UiGui.Checkbox("Enabled", ref enabled))
             {
-                cfg.PluginEnabled = enabled; cfg.Save(); plugin.UpdateDtrBar();
-                plugin.KranglerImaginaryFrenIpcClient.ReconcileNow();
+                plugin.SetPluginEnabledFromUi(enabled);
             }
             UiGui.SameLineIfFits(ToggleWidth("DTR Bar"));
             var dtr = cfg.DtrBarEnabled;

@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased - Managed CJK font atlas
+
+- Merge one bundled CJK face per font role, selecting the active language's regional forms. Set both managed atlas dimensions to 4096 on every rebuild; preserve font heights, required glyph ranges, symbol merges and host-language coverage.
+- Current compilation and guarded production callback/rebuild checks pass, together with bounded native glyph checks for the checked text. Managed-host readiness, complete displayed glyph coverage, language/scale host rebuilds and game/GPU acceptance remain unverified.
+
+## Unreleased - Native titlebar shortcuts
+
+- Add Settings, Mini and Enabled shortcuts to Main, plus Main, Settings and Enabled to Mini. Share the retained enable action's configuration save, DTR update and Krangler follower reconciliation; keep the complete speech monitor and every body control.
+- Reserve native buttons and translated titles before motion, including Mini's original larger painted heading. Preserve window identities, geometry, font roles and release version. The unchanged dheacon.bat passes Debug/x64 with zero warnings/errors.
+- Focused English checks pass 197 consumer assertions plus shared native-cell checks, 64 installed-host pointer presses and 48 inert non-left callbacks across Main/Mini, both densities, 100%/150% scales and collapsed/expanded owners. Verify exact existing saves, DTR updates and follower reconciliation against supplied IPC responses, plus the actual retained Mini heading and title-button clearance. The 4096x4096 atlas completes within 60 seconds/768 MiB. Real speech, managed icon-font readiness, GPU and game acceptance remain separate.
+
 ## 2026-10-06 - Actions dependency revision
 
 - Pin the existing AethertekUI checkout to published revision `6c193cf06ac67f954c549cafc2033ac0efdd630a`, which includes the Hindi text host required by this plugin. The preceding Actions run checked out the library before those APIs were published; local compilation alone did not establish runner compatibility.
