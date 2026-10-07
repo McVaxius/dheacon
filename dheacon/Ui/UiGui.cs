@@ -237,6 +237,8 @@ internal static class UiGui
     internal static bool Button(string label,string? display=null)
     {
         var translated=display ?? UiText.T(label.Split("##",2)[0]);
+        using var controls = ImGui.GetStyle().FramePadding.Y == 0 || MaterialControls.Context == MaterialControlContext.Dense
+            ? default(MaterialControls.ControlScope) : MaterialControls.Push(MaterialControlContext.Toolbar);
         using var height=MaterialText.PushLineHeight(translated);
         var width=MaterialLayout.FitNextItemWidth(0,MaterialText.Measure(translated).X+2*ImGui.GetStyle().FramePadding.X);
         var foreground=ImGui.GetStyle().Colors[(int)ImGuiCol.Text];
@@ -251,7 +253,10 @@ internal static class UiGui
     internal static bool Button(string label, Vector2 pixels)
     {
         var translated = UiText.T(label.Split("##", 2)[0]);
+        using var controls = ImGui.GetStyle().FramePadding.Y == 0 || MaterialControls.Context == MaterialControlContext.Dense
+            ? default(MaterialControls.ControlScope) : MaterialControls.Push(MaterialControlContext.Toolbar);
         using var height=MaterialText.PushLineHeight(translated);
+        pixels.Y=Math.Max(pixels.Y,ImGui.GetFrameHeight());
         var color = ImGui.GetStyle().Colors[(int)ImGuiCol.Text];
         pixels.X = MaterialLayout.FitNextItemWidth(pixels.X, MaterialText.Measure(translated).X + 2 * ImGui.GetStyle().FramePadding.X);
         ImGui.PushStyleColor(ImGuiCol.Text, Vector4.Zero);
@@ -265,7 +270,8 @@ internal static class UiGui
         return clicked;
     }
     internal static float IconButtonWidth(string original, string? display = null, MaterialIcon trailing = MaterialIcon.None)
-        => MaterialText.Measure(display ?? UiText.T(original.Split("##", 2)[0])).X + (trailing == MaterialIcon.None ? 30 : 58) * MaterialTheme.Metrics.Scale + 2 * ImGui.GetStyle().FramePadding.X;
+        => MaterialText.Measure(display ?? UiText.T(original.Split("##", 2)[0])).X + (trailing == MaterialIcon.None ? 30 : 58) * MaterialTheme.Metrics.Scale
+            + 2 * MaterialControlMetrics.Measure(MaterialTheme.Metrics, ImGui.GetTextLineHeight(), MaterialControls.Context == MaterialControlContext.Dense ? MaterialControlContext.Dense : MaterialControlContext.Toolbar).NativePadding.X;
     internal static bool IconButton(string original, MaterialIcon icon, string? display = null, MaterialIcon trailing = MaterialIcon.None)
     {
         var s = MaterialTheme.Metrics.Scale;
@@ -278,8 +284,11 @@ internal static class UiGui
         appearance.Color(ImGuiCol.ButtonHovered, MaterialColor.Layer(fill, colors.OnSurface, .08f));
         appearance.Color(ImGuiCol.ButtonActive, MaterialColor.Layer(fill, colors.OnSurface, .14f));
         var label = display ?? UiText.T(original.Split("##", 2)[0]);
+        using var controls = MaterialControls.Context == MaterialControlContext.Dense
+            ? default(MaterialControls.ControlScope) : MaterialControls.Push(MaterialControlContext.Toolbar);
         using var height=MaterialText.PushLineHeight(label);
-        var size = new Vector2(MaterialLayout.FitNextItemWidth(0, IconButtonWidth(original, display, trailing)), Math.Max((DheaconPresentation.Compact ? 36 : DheaconPresentation.ControlHeight) * s, ImGui.GetFrameHeight()));
+        var vertical = MaterialControls.Context == MaterialControlContext.Dense ? DheaconPresentation.Compact ? 1 : 2 : DheaconPresentation.Compact ? 2 : 4;
+        var size = new Vector2(MaterialLayout.FitNextItemWidth(0, IconButtonWidth(original, display, trailing)), Math.Max(ImGui.GetFrameHeight(), (22 + 2 * vertical) * s));
         var foreground = ImGui.GetStyle().Colors[(int)ImGuiCol.Text];
         ImGui.PushStyleColor(ImGuiCol.Text, Vector4.Zero);
         var clicked = ImGui.Button(original, size);
