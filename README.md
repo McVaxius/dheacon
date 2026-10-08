@@ -37,6 +37,10 @@ before the windows draw.
 
 ## Quick Setup
 
+Hindi uses installed shaping fonts. The source now leaves other languages usable when the Hindi menu caption is unavailable, showing a disabled ASCII `Hindi (unavailable)` option. Required text for a selected Hindi UI still requires full validation; on failure, the readable status offers **Use English**, saving English only after an explicit press. Native verification and Linux/Wine acceptance remain pending for this change.
+
+Settings owns shared colour, UI language, compact spacing and window transparency/fade; optional Main selectors change the same saved preferences. Main branding and Main/Mini titles use the packaged Dheacon icon in its original colours, including collapsed titles. Quick Setup and presets still own speech/backend setup and automatic-trigger enablement; UI language remains separate from the voice and spoken text.
+
 New installations open the permanent **Quick Setup** tab automatically. It guides you through:
 
 1. Choosing classic alerts or a spoken-commentary preset.

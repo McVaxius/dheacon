@@ -68,6 +68,8 @@ public sealed class MiniWindow : Window, IDisposable
     public override void PostDraw()
     {
         windowMotion.Restore(this);
+        UiGui.PaintTitleWithImage(this, DheaconPresentation.Compact ? MiniTitle : UiText.T(PluginInfo.DisplayName + " Mini"),
+            collapsedOnly: !DheaconPresentation.Compact);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);
         ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
@@ -77,7 +79,7 @@ public sealed class MiniWindow : Window, IDisposable
     {
         windowMotion.DrawChrome();
         var compact = DheaconPresentation.Compact; var scale = MaterialTheme.Metrics.Scale;
-        UiGui.TitleWithButtons(PluginInfo.DisplayName + " Mini", MiniTitle, this);
+        if (!compact) UiGui.TitleWithButtons(PluginInfo.DisplayName + " Mini", MiniTitle, this);
         using var bodyStyle = new MaterialStyleScope();
         bodyStyle.Style(ImGuiStyleVar.FramePadding, contentFramePadding);
         var window = ImGuiP.GetCurrentWindow(); var dl = ImGui.GetWindowDrawList();
@@ -92,7 +94,7 @@ public sealed class MiniWindow : Window, IDisposable
         }
         try
         {
-        DheaconPresentation.Brand(start, (compact ? 30 : 36) * scale);
+        DheaconPresentation.DrawPluginIcon(dl, start, start + new Vector2((compact ? 30 : 36) * scale));
         using (UiText.Font(compact ? UiFontRole.PluginName : UiFontRole.CompactTitle))
             MaterialText.AddText(dl,ImGui.GetFont(), ImGui.GetFontSize() * (compact ? 22f / 24 : 24.5f / 28),
                 start + new Vector2(compact ? 53 : 52, compact ? -2 : -4) * scale, MaterialCanvas.Color(MaterialTheme.Current.Colors.OnSurface), "Dheacon Mini");

@@ -8,6 +8,17 @@ internal enum UiFontRole { Body, BodyStrong, Title, PluginName, CompactTitle }
 
 internal static class DheaconPresentation
 {
+    // Dalamud owns the shared texture through render submission; callers borrow its wrapper.
+    internal static Dalamud.Interface.Textures.TextureWraps.IDalamudTextureWrap? OriginalIcon
+        => Plugin.TextureProvider.GetFromManifestResource(typeof(Plugin).Assembly, "Dheacon.images.icon.png").GetWrapOrDefault();
+
+    internal static void DrawPluginIcon(ImDrawListPtr drawList, Vector2 min, Vector2 max)
+    {
+        var texture = OriginalIcon;
+        if (texture is not null)
+            MaterialCanvas.DrawImage(drawList, texture.Handle, new Vector2(texture.Width, texture.Height), min, max);
+    }
+
     // Approved regular: 1046×892 content envelope, 14px gaps, 37% preset pane,
     // 558px body and 122px status cards. Compact: 982×704, 10px gaps,
     // 35% preset pane, 436px body and 94px status strip. Native chrome is host-owned.

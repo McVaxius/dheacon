@@ -347,6 +347,17 @@ internal static class UiGui
     internal static void Title(string original,string translated)
         => TitleWithButtons(original, translated, null);
 
+    internal static void PaintTitleWithImage(Window owner, string display, bool collapsedOnly = false)
+    {
+        var window = ImGuiP.FindWindowByName(owner.WindowName);
+        if (window.IsNull || (collapsedOnly && !window.Collapsed)) return;
+        var extraRightWidth = AdditionalTitleButtonWidth(owner, ImGuiP.CalcFontSize(window));
+        var texture = DheaconPresentation.OriginalIcon;
+        using var font = UiText.Font(UiFontRole.Body);
+        MaterialWindowHeader.PaintTitle(window, display, texture?.Handle ?? default,
+            texture is null ? Vector2.Zero : new Vector2(texture.Width, texture.Height), extraRightWidth, owner.ShowCloseButton);
+    }
+
     internal static void ReserveTitleSpace(Window owner, string visible, float minimumWidth, float paintedTitleWidth = 0)
     {
         var style = ImGui.GetStyle();
@@ -355,7 +366,7 @@ internal static class UiGui
             && style.WindowMenuButtonPosition != ImGuiDir.None;
         var controls = AdditionalTitleButtonWidth(owner, fontSize)
             + ((owner.ShowCloseButton ? 1 : 0) + (collapse ? 1 : 0)) * (fontSize + style.ItemInnerSpacing.X);
-        var titleWidth = Math.Max(MaterialText.Measure(visible).X, paintedTitleWidth);
+        var titleWidth = Math.Max(MaterialText.Measure(visible).X + fontSize + style.ItemInnerSpacing.X, paintedTitleWidth);
         var required = (titleWidth + controls + style.FramePadding.X * 2 + style.ItemInnerSpacing.X)
             / ImGui.GetIO().FontGlobalScale;
         var bounds = owner.SizeConstraints ?? new WindowSizeConstraints();

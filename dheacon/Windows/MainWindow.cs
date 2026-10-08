@@ -63,6 +63,7 @@ public sealed class MainWindow : Window, IDisposable
     public override void PostDraw()
     {
         windowMotion.Restore(this);
+        UiGui.PaintTitleWithImage(this, MainTitle);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);
         ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
@@ -71,7 +72,6 @@ public sealed class MainWindow : Window, IDisposable
     public override void Draw()
     {
         windowMotion.DrawChrome();
-        UiGui.TitleWithButtons(PluginInfo.DisplayName, MainTitle, this);
         using var bodyStyle = new MaterialStyleScope();
         bodyStyle.Style(ImGuiStyleVar.FramePadding, contentFramePadding);
         var cfg = plugin.Configuration;
@@ -83,7 +83,8 @@ public sealed class MainWindow : Window, IDisposable
         var start = ImGui.GetCursorScreenPos() + new Vector2(0, compact ? 8 * s : 0);
         var width = Math.Min(ImGui.GetContentRegionAvail().X,
             nativeWindow.Size.X - 2 * ImGui.GetStyle().WindowPadding.X - nativeWindow.ScrollbarSizes.X);
-        DheaconPresentation.Brand(start + (compact ? new Vector2(12, 8) * s : Vector2.Zero), (compact ? 42 : 44) * s);
+        var iconMin = start + (compact ? new Vector2(12, 8) * s : Vector2.Zero);
+        DheaconPresentation.DrawPluginIcon(ImGui.GetWindowDrawList(), iconMin, iconMin + new Vector2((compact ? 42 : 44) * s));
         ImGui.SetCursorScreenPos(start + new Vector2((compact ? 76 : 66) * s, 0));
         using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title)) MaterialText.Text(PluginInfo.DisplayName);
         if (ImGui.IsItemHovered()) UiGui.SetTooltip(UiText.F("Command: {0} · v{1}", PluginInfo.Command, Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0.0"));
