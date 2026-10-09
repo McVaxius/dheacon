@@ -71,10 +71,8 @@ public sealed class ConfigWindow : Window, IDisposable
     {
         windowMotion.DrawChrome();
         UiGui.Title(PluginInfo.DisplayName + " Settings", UiText.T("Dheacon Settings"));
-        if (MaterialText.CollapsingHeader(UiText.T("Window appearance") + "###WindowAppearanceSection", ImGuiTreeNodeFlags.DefaultOpen))
-            plugin.Appearance.DrawWindowAppearance();
-        ImGui.Separator();
-        using var tabHeight = MaterialText.PushLineHeight(new[] { "Quick Setup", "General", "Speech", "Piper Voices", "Diagnostics" }.Select(UiText.T).ToArray());
+        using var tabHeight = MaterialText.PushLineHeight(new[] { "Quick Setup", "General", "Speech", "Piper Voices", "Window appearance", "Diagnostics" }.Select(UiText.T).ToArray());
+        var appearanceRoot = ImGui.GetID("");
         var tabsOpen = ImGui.BeginTabBar("DheaconSettingsTabs", ImGuiTabBarFlags.FittingPolicyScroll);
         tabHeight.Dispose();
         if (!tabsOpen)
@@ -106,6 +104,11 @@ public sealed class ConfigWindow : Window, IDisposable
             try { DrawPiperVoicesTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }
         }
 
+        if (UiGui.BeginTabItem("Window appearance", ImGuiTabItemFlags.NoPushId))
+        {
+            ImGuiP.PushOverrideID(appearanceRoot);
+            try { plugin.Appearance.DrawWindowAppearance(); } finally { ImGui.PopID(); ImGui.EndTabItem(); }
+        }
         if (UiGui.BeginTabItem("Diagnostics"))
         {
             try { DrawDiagnosticsTab(plugin.Configuration); } finally { ImGui.EndTabItem(); }

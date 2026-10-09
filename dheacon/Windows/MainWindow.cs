@@ -55,7 +55,7 @@ public sealed class MainWindow : Window, IDisposable
         contentFramePadding = style.FramePadding; menuButtonPosition = style.WindowMenuButtonPosition;
         style.WindowMenuButtonPosition = ImGuiDir.Right;
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(12, 4) : new Vector2(15)) * scale);
-        ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, ((DheaconPresentation.Compact ? 44 : 37) * scale - ImGui.GetFontSize()) * .5f));
+        ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, Math.Max(0, ((DheaconPresentation.Compact ? 32 : 37) * scale - ImGui.GetFontSize()) * .5f)));
         UiGui.ReserveTitleSpace(this, MainTitle, 560);
         windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
     }
