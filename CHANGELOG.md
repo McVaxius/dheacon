@@ -1,5 +1,6 @@
 2026-10-09 - Tight compact list grids (I503/I509)
 
+
 - Apply adjacent rows and narrow column insets to the compact voice catalog, preserving complete voice details and its download/open actions.
 
 2026-10-09 - Separate XA Slave log-tools shortcut (I512)
