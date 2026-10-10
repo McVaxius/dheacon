@@ -95,7 +95,7 @@ public sealed class MainWindow : Window, IDisposable
         var toggleHeight = (compact ? 22 : 24) * s;
         float ToggleWidth(string label) => toggleHeight + ImGui.GetStyle().ItemInnerSpacing.X + MaterialText.Measure(UiText.T(label)).X;
         var topWidth = UiGui.IconButtonWidth("Ko-fi", UiText.T("Support on Ko-fi"), MaterialIcon.ExternalLink) + selectorWidth + ImGui.GetStyle().ItemSpacing.X;
-        var bottomWidth = (cfg.UiCompactVisibleOnMainWindow ? ToggleWidth("C") + ImGui.GetStyle().ItemSpacing.X : 0) + ToggleWidth("Transparency") + ToggleWidth("Enabled") + ToggleWidth("DTR Bar") + UiGui.IconButtonWidth("Settings") + UiGui.IconButtonWidth("Status to chat") + ImGui.GetStyle().ItemSpacing.X * 4;
+        var bottomWidth = (cfg.UiCompactVisibleOnMainWindow ? ToggleWidth("C") + ImGui.GetStyle().ItemSpacing.X : 0) + (cfg.UiTransparencyVisibleOnMainWindow ? ToggleWidth("Transparency") + ImGui.GetStyle().ItemSpacing.X : 0) + ToggleWidth("Enabled") + ToggleWidth("DTR Bar") + UiGui.IconButtonWidth("Settings") + UiGui.IconButtonWidth("Status to chat") + ImGui.GetStyle().ItemSpacing.X * 3;
         var rightWidth = Math.Max(topWidth, bottomWidth);
         var leftWidth = (compact ? 76 : 66) * s + MaterialText.Measure(UiText.T("Text to speech for FFXIV (Dalamud plugin)")).X;
         var right = width >= leftWidth + rightWidth + gap;
@@ -115,9 +115,12 @@ public sealed class MainWindow : Window, IDisposable
                 if (UiGui.Checkbox("C", ref density)) { cfg.UiCompact = density; cfg.Save(); }
                 if (ImGui.IsItemHovered()) UiGui.SetTooltip("Compact mode");
             }
-            UiGui.SameLineIfFits(ToggleWidth("Transparency"));
-            plugin.Appearance.DrawTransparency();
-            UiGui.SameLineIfFits(ToggleWidth("Enabled"));
+            if (cfg.UiTransparencyVisibleOnMainWindow)
+            {
+                if (cfg.UiCompactVisibleOnMainWindow) UiGui.SameLineIfFits(ToggleWidth("Transparency"));
+                plugin.Appearance.DrawTransparency();
+            }
+            if (cfg.UiCompactVisibleOnMainWindow || cfg.UiTransparencyVisibleOnMainWindow) UiGui.SameLineIfFits(ToggleWidth("Enabled"));
             var enabled = cfg.PluginEnabled;
             if (UiGui.Checkbox("Enabled", ref enabled))
             {

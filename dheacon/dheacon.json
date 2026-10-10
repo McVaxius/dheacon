@@ -5,7 +5,7 @@
   "Punchline": "Local TTS commentary and classic transition alerts.",
   "Description": "Preset-driven commentary for login, travel, combat, idle, BGM, and other events; cached Piper or Windows speech; configurable triggers and cooldowns; and optional Krangler integration.",
   "InternalName": "dheacon",
-  "AssemblyVersion": "3.0.0.5",
+  "AssemblyVersion": "3.0.0.6",
   "ApplicableVersion": "any",
   "DalamudApiLevel": 15,
   "Tags": [
