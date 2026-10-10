@@ -10,6 +10,7 @@ namespace Dheacon.Windows;
 
 public sealed class ConfigWindow : Window, IDisposable
 {
+    private readonly AethertekUI.Dalamud.MaterialSupportLog supportLog = new();
     private readonly MaterialWindowMotion windowMotion = new();
     private readonly AethertekUI.MaterialWindowOpacity windowOpacity = new();
     private static readonly string[] DtrModes = { "Text only", "Icon + text", "Icon only" };
@@ -633,6 +634,8 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawDiagnosticsTab(Configuration cfg)
     {
+        supportLog.Draw(Plugin.PluginInterface, key => UiText.T(key),
+            plugin.PiperVoiceCatalogService.OpenFolder, ex => Plugin.Log.Error(ex, "Dalamud log export failed."), Plugin.CommandManager);
         if (UiGui.Button("Refresh voices"))
         {
             plugin.SpeechCacheService.RefreshInstalledVoices();
@@ -1506,6 +1509,7 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawPiperCatalogTable(IReadOnlyList<PiperVoiceCatalogEntry> entries, Configuration cfg)
     {
+        using var tightRows = cfg.UiCompact ? MaterialTable.PushTightRows() : default;
         var tableHeight = Math.Max(220f, ImGui.GetContentRegionAvail().Y * 0.48f);
         var widths = CalculatePiperCatalogColumnWidths(entries);
         var innerWidth = widths.Voice + widths.Language + widths.Gender + widths.Quality + widths.Source + widths.Size + widths.State + widths.Actions
