@@ -63,7 +63,7 @@ public sealed class MainWindow : Window, IDisposable
     public override void PostDraw()
     {
         windowMotion.Restore(this);
-        UiGui.PaintTitleWithImage(this, MainTitle);
+        UiGui.PaintTitleWithImageAndStatus(this, MainTitle, status: plugin.TitlebarStatus);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);

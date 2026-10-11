@@ -68,8 +68,8 @@ public sealed class MiniWindow : Window, IDisposable
     public override void PostDraw()
     {
         windowMotion.Restore(this);
-        UiGui.PaintTitleWithImage(this, DheaconPresentation.Compact ? MiniTitle : UiText.T(PluginInfo.DisplayName + " Mini"),
-            collapsedOnly: !DheaconPresentation.Compact);
+        UiGui.PaintTitleWithImageAndStatus(this, DheaconPresentation.Compact ? MiniTitle : UiText.T(PluginInfo.DisplayName + " Mini"),
+            collapsedOnly: !DheaconPresentation.Compact, status: plugin.TitlebarStatus);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);

@@ -348,13 +348,20 @@ internal static class UiGui
         => TitleWithButtons(original, translated, null);
 
     internal static void PaintTitleWithImage(Window owner, string display, bool collapsedOnly = false)
+        => PaintTitleWithImageAndStatus(owner, display, collapsedOnly, null);
+
+    internal static void PaintTitleWithImageAndStatus(Window owner, string display, bool collapsedOnly = false, MaterialTitlebarStatus? status = null)
     {
         var window = ImGuiP.FindWindowByName(owner.WindowName);
-        if (window.IsNull || (collapsedOnly && !window.Collapsed)) return;
+        if (window.IsNull || (collapsedOnly && !window.Collapsed && status is null)) return;
         var extraRightWidth = AdditionalTitleButtonWidth(owner, ImGuiP.CalcFontSize(window));
         var texture = DheaconPresentation.OriginalIcon;
         using var font = UiText.Font(UiFontRole.Body);
-        MaterialWindowHeader.PaintTitle(window, display, texture?.Handle ?? default,
+        if (status is { } summary)
+            MaterialWindowHeader.PaintTitleWithStatus(window, display, texture?.Handle ?? default,
+            texture is null ? Vector2.Zero : new Vector2(texture.Width, texture.Height), summary, extraRightWidth, owner.ShowCloseButton);
+        else
+            MaterialWindowHeader.PaintTitle(window, display, texture?.Handle ?? default,
             texture is null ? Vector2.Zero : new Vector2(texture.Width, texture.Height), extraRightWidth, owner.ShowCloseButton);
     }
 

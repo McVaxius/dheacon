@@ -29,6 +29,20 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
     [PluginService] internal static ISigScanner SigScanner { get; private set; } = null!;
 
+    internal AethertekUI.MaterialTitlebarStatus? TitlebarStatus
+    {
+        get
+        {
+            if (!Configuration.UiShowTitlebarStatus) return null;
+            var state = UiText.T(SpeechQueueService.IsBusy ? "Busy" : Configuration.PluginEnabled ? "Idle" : "Off");
+            var queued = UiText.F("{0} queued", SpeechQueueService.PendingCount);
+            var concise = state + " \u00b7 " + queued;
+            var details = state + " \u00b7 " + PresetService.ActivePreset.Name + " \u00b7 " + queued;
+            var tooltip = details + "\n" + UiText.T(SpeechQueueService.LastStatus);
+            return new(Configuration.UiDetailedTitlebarStatus ? details : concise, concise, tooltip);
+        }
+    }
+
     public Configuration Configuration { get; }
     public AetheryteTriggerService AetheryteTriggerService { get; }
     public AudioPlaybackService AudioPlaybackService { get; }

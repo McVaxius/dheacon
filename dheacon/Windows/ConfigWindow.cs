@@ -65,6 +65,7 @@ public sealed class ConfigWindow : Window, IDisposable
     public override void PostDraw()
     {
         windowMotion.Restore(this);
+        UiGui.PaintTitleWithImageAndStatus(this, UiText.T("Dheacon Settings"), status: plugin.TitlebarStatus);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
     }

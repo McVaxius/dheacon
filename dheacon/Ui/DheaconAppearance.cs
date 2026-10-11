@@ -170,6 +170,12 @@ internal sealed class DheaconAppearance : IDisposable
 
     internal void DrawWindowAppearance()
     {
+        var showTitlebarStatus = plugin.Configuration.UiShowTitlebarStatus;
+        if (UiGui.AppearanceCheckbox(UiText.T("Show titlebar status") + "###UiShowTitlebarStatus", ref showTitlebarStatus))
+        { plugin.Configuration.UiShowTitlebarStatus = showTitlebarStatus; plugin.Configuration.Save(); }
+        var detailedTitlebarStatus = plugin.Configuration.UiDetailedTitlebarStatus;
+        if (UiGui.AppearanceCheckbox(UiText.T("Detailed titlebar status") + "###UiDetailedTitlebarStatus", ref detailedTitlebarStatus))
+        { plugin.Configuration.UiDetailedTitlebarStatus = detailedTitlebarStatus; plugin.Configuration.Save(); }
         UiGui.TextUnformatted("Window appearance");
         DrawSelector();
         var compact = plugin.Configuration.UiCompact;
