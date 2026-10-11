@@ -20,9 +20,10 @@ https://aethertek.io/x.json
 Run `/dheacon` to open the main window or `/dheacon config` to open Settings.
 
 The main window places presets beside speech details, followed by follower,
-cache and BGM status. The Mini is a read-only speech monitor. The header's `C`
-checkbox shares compact spacing across Main, Mini and Settings while retaining
-your window sizes. UI language and colour selectors appear in Main and Settings.
+cache and BGM status. The Mini is a read-only speech monitor. Native titlebars
+expose language, compact spacing, transparency and colour shortcuts, including
+while collapsed. Settings retains the editors and Main's saved icon-visibility
+choices while preserving window sizes.
 The fourteen UI languages are English, German, French, Spanish, Italian, Russian,
 Japanese, Korean, Simplified Chinese, Vietnamese, Brazilian Portuguese, Indonesian,
 Polish and Turkish. UI language is independent of speech
@@ -39,7 +40,7 @@ before the windows draw.
 
 Hindi uses installed shaping fonts. The source now leaves other languages usable when the Hindi menu caption is unavailable, showing a disabled ASCII `Hindi (unavailable)` option. Required text for a selected Hindi UI still requires full validation; on failure, the readable status offers **Use English**, saving English only after an explicit press. Native verification and Linux/Wine acceptance remain pending for this change.
 
-Settings owns shared colour, UI language, compact spacing and window transparency/fade; optional Main selectors change the same saved preferences. Main branding and Main/Mini titles use the packaged Dheacon icon in its original colours, including collapsed titles. Quick Setup and presets still own speech/backend setup and automatic-trigger enablement; UI language remains separate from the voice and spoken text.
+Settings owns shared colour, UI language, compact spacing and window transparency/fade; titlebar appearance actions change the same saved preferences. Main branding and Main/Mini titles use the packaged Dheacon icon in its original colours, including collapsed titles. Quick Setup and presets still own speech/backend setup and automatic-trigger enablement; UI language remains separate from the voice and spoken text.
 
 New installations open the permanent **Quick Setup** tab automatically. It guides you through:
 

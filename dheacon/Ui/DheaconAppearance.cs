@@ -13,6 +13,7 @@ internal sealed class DheaconAppearance : IDisposable
     private UiText text;
     private DheaconFonts fonts;
     private MaterialTheme theme;
+    private readonly Dictionary<Dalamud.Interface.Windowing.Window, AethertekUI.Dalamud.MaterialAppearanceTitleBar> appearanceTitleBars = new();
     private readonly MaterialTextHost shapedText;
     private readonly MaterialWindowFold fontStatusMotion = new();
     private readonly MaterialWindowDecorations fontStatusDecorations = new();
@@ -116,6 +117,7 @@ internal sealed class DheaconAppearance : IDisposable
         style.Style(ImGuiStyleVar.FrameRounding, 4 * s);
         style.Style(ImGuiStyleVar.ChildRounding, 4 * s);
         using var body = fonts.Push(UiFontRole.Body);
+        PrepareAppearanceTitleBars(windows);
         windows.Draw();
     }
 
@@ -184,6 +186,48 @@ internal sealed class DheaconAppearance : IDisposable
         var languageVisibleOnMainWindow = config.UiLanguageVisibleOnMainWindow;
         if (UiGui.AppearanceCheckbox("Language visible on main window###UiLanguageVisibleOnMainWindowSettings", ref languageVisibleOnMainWindow))
         { config.UiLanguageVisibleOnMainWindow = languageVisibleOnMainWindow; changed = true; }
+        if (changed) config.Save();
+        DrawTransparencySettings();
+    }
+
+    private void PrepareAppearanceTitleBars(Dalamud.Interface.Windowing.WindowSystem windows)
+    {
+        foreach (var window in windows.Windows.OfType<Dalamud.Interface.Windowing.Window>())
+        {
+            if ((window.Flags & ImGuiWindowFlags.NoTitleBar) != 0) continue;
+            if (!appearanceTitleBars.ContainsKey(window))
+                appearanceTitleBars.Add(window, AethertekUI.Dalamud.MaterialAppearanceTitleBar.Register(window,
+                    () => new(UiText.T("Language"), UiText.T("Compact mode"), UiText.T("Transparency"), UiText.T("Color")),
+                    () => DrawLanguage(),
+                    () => { plugin.Configuration.UiCompact = !plugin.Configuration.UiCompact; plugin.Configuration.Save(); },
+                    DrawTransparencySettings, DrawTitleBarColour,
+                    () => window is global::Dheacon.Windows.MainWindow
+                        ? new(plugin.Configuration.UiLanguageVisibleOnMainWindow, plugin.Configuration.UiCompactVisibleOnMainWindow,
+                            plugin.Configuration.UiTransparencyVisibleOnMainWindow, true)
+                        : new(true, true, true, true)));
+            appearanceTitleBars[window].RefreshVisibility();
+        }
+    }
+
+    internal void DrawAppearanceTitleBarPopups(Dalamud.Interface.Windowing.Window window)
+    {
+        if (appearanceTitleBars.TryGetValue(window, out var titlebar)) titlebar.DrawPopups();
+    }
+
+    private void DrawTitleBarColour()
+    {
+        if (!MaterialAppearanceSelector.DrawPalette("appearance", ref accentDraft,
+                new(UiText.T("Color"), UiText.T("Language"), UiText.T("Teal"), UiText.T("Blue"), UiText.T("Pink"), UiText.T("Custom RGB")))) return;
+        plugin.Configuration.UiAccentRgb = ((uint)Math.Clamp((int)MathF.Round(accentDraft.X * 255), 0, 255) << 16)
+            | ((uint)Math.Clamp((int)MathF.Round(accentDraft.Y * 255), 0, 255) << 8)
+            | (uint)Math.Clamp((int)MathF.Round(accentDraft.Z * 255), 0, 255);
+        plugin.Configuration.Save();
+    }
+
+    private void DrawTransparencySettings()
+    {
+        var config = plugin.Configuration;
+        var changed = false;
         var transparencyEnabled = config.UiTransparencyEnabled;
         if (UiGui.AppearanceCheckbox("Transparency###UiTransparencyEnabledSettings", ref transparencyEnabled))
         { config.UiTransparencyEnabled = transparencyEnabled; changed = true; }

@@ -65,13 +65,14 @@ public sealed class ConfigWindow : Window, IDisposable
     public override void PostDraw()
     {
         windowMotion.Restore(this);
+        plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
     }
 
     public override void Draw()
     {
         windowMotion.DrawChrome();
-        UiGui.Title(PluginInfo.DisplayName + " Settings", UiText.T("Dheacon Settings"));
+        UiGui.TitleWithButtons(PluginInfo.DisplayName + " Settings", UiText.T("Dheacon Settings"), this);
         using var tabHeight = MaterialText.PushLineHeight(new[] { "Quick Setup", "General", "Speech", "Piper Voices", "Window appearance", "Diagnostics" }.Select(UiText.T).ToArray());
         var appearanceRoot = ImGui.GetID("");
         var tabsOpen = ImGui.BeginTabBar("DheaconSettingsTabs", ImGuiTabBarFlags.FittingPolicyScroll);

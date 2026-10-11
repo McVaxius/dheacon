@@ -70,6 +70,7 @@ public sealed class MiniWindow : Window, IDisposable
         windowMotion.Restore(this);
         UiGui.PaintTitleWithImage(this, DheaconPresentation.Compact ? MiniTitle : UiText.T(PluginInfo.DisplayName + " Mini"),
             collapsedOnly: !DheaconPresentation.Compact);
+        plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);
         ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;

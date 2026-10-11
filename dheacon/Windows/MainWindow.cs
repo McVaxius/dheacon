@@ -64,6 +64,7 @@ public sealed class MainWindow : Window, IDisposable
     {
         windowMotion.Restore(this);
         UiGui.PaintTitleWithImage(this, MainTitle);
+        plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);
         ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
@@ -91,36 +92,21 @@ public sealed class MainWindow : Window, IDisposable
         ImGui.SetCursorScreenPos(start + new Vector2((compact ? 76 : 66) * s, (compact ? 46 : 50) * s));
         MaterialText.TextColored(c.OnSurfaceVariant, UiText.T("Text to speech for FFXIV (Dalamud plugin)"));
         var subtitleBottom = ImGui.GetItemRectMax().Y;
-        var selectorWidth = cfg.UiLanguageVisibleOnMainWindow ? 180 * s : 0;
         var toggleHeight = (compact ? 22 : 24) * s;
         float ToggleWidth(string label) => toggleHeight + ImGui.GetStyle().ItemInnerSpacing.X + MaterialText.Measure(UiText.T(label)).X;
-        var topWidth = UiGui.IconButtonWidth("Ko-fi", UiText.T("Support on Ko-fi"), MaterialIcon.ExternalLink) + selectorWidth + ImGui.GetStyle().ItemSpacing.X;
-        var bottomWidth = (cfg.UiCompactVisibleOnMainWindow ? ToggleWidth("C") + ImGui.GetStyle().ItemSpacing.X : 0) + (cfg.UiTransparencyVisibleOnMainWindow ? ToggleWidth("Transparency") + ImGui.GetStyle().ItemSpacing.X : 0) + ToggleWidth("Enabled") + ToggleWidth("DTR Bar") + UiGui.IconButtonWidth("Settings") + UiGui.IconButtonWidth("Status to chat") + ImGui.GetStyle().ItemSpacing.X * 3;
+        var topWidth = UiGui.IconButtonWidth("Ko-fi", UiText.T("Support on Ko-fi"), MaterialIcon.ExternalLink);
+        var bottomWidth = ToggleWidth("Enabled") + ToggleWidth("DTR Bar") + UiGui.IconButtonWidth("Settings") + UiGui.IconButtonWidth("Status to chat") + ImGui.GetStyle().ItemSpacing.X * 3;
         var rightWidth = Math.Max(topWidth, bottomWidth);
         var leftWidth = (compact ? 76 : 66) * s + MaterialText.Measure(UiText.T("Text to speech for FFXIV (Dalamud plugin)")).X;
         var right = width >= leftWidth + rightWidth + gap;
         ImGui.SetCursorScreenPos(right ? start + new Vector2(width - topWidth, 0) : new Vector2(start.X, Math.Max(subtitleBottom + gap, start.Y + (compact ? 70 : 84) * s)));
         if (UiGui.IconButton("Ko-fi", MaterialIcon.Heart, UiText.T("Support on Ko-fi"), MaterialIcon.ExternalLink))
             Process.Start(new ProcessStartInfo { FileName = PluginInfo.SupportUrl, UseShellExecute = true });
-        if (cfg.UiLanguageVisibleOnMainWindow)
-        { UiGui.SameLineIfFits(selectorWidth); plugin.Appearance.DrawLanguage(); }
         var toolbarY = start.Y + Math.Max((compact ? 48 : 57) * s, ImGui.GetItemRectMax().Y - start.Y + ImGui.GetStyle().ItemSpacing.Y);
         if (right) ImGui.SetCursorScreenPos(new Vector2(start.X + width - bottomWidth, toolbarY + (compact ? 7 : 8) * s));
         using (var toggleStyle = new MaterialStyleScope())
         {
             toggleStyle.Style(ImGuiStyleVar.FramePadding, new Vector2(ImGui.GetStyle().FramePadding.X, Math.Max(0, (toggleHeight - ImGui.GetFontSize()) * .5f)));
-            if (cfg.UiCompactVisibleOnMainWindow)
-            {
-                var density = cfg.UiCompact;
-                if (UiGui.Checkbox("C", ref density)) { cfg.UiCompact = density; cfg.Save(); }
-                if (ImGui.IsItemHovered()) UiGui.SetTooltip("Compact mode");
-            }
-            if (cfg.UiTransparencyVisibleOnMainWindow)
-            {
-                if (cfg.UiCompactVisibleOnMainWindow) UiGui.SameLineIfFits(ToggleWidth("Transparency"));
-                plugin.Appearance.DrawTransparency();
-            }
-            if (cfg.UiCompactVisibleOnMainWindow || cfg.UiTransparencyVisibleOnMainWindow) UiGui.SameLineIfFits(ToggleWidth("Enabled"));
             var enabled = cfg.PluginEnabled;
             if (UiGui.Checkbox("Enabled", ref enabled))
             {
