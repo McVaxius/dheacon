@@ -27,7 +27,6 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static ICondition Condition { get; private set; } = null!;
     [PluginService] internal static IDataManager DataManager { get; private set; } = null!;
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
-    [PluginService] internal static ISigScanner SigScanner { get; private set; } = null!;
 
     internal AethertekUI.MaterialTitlebarStatus? TitlebarStatus
     {
@@ -75,7 +74,7 @@ public sealed class Plugin : IDalamudPlugin
         SpokenTextAdapterService = new SpokenTextAdapterService(Log);
         SpeechCacheService = new SpeechCacheService(Log, Configuration, PiperVoiceCatalogService, SpokenTextAdapterService);
         SpeechQueueService = new SpeechQueueService(Log, SpeechCacheService, AudioPlaybackService);
-        BgmProbeService = new BgmProbeService(SigScanner, Log);
+        BgmProbeService = new BgmProbeService(Log);
         KranglerImaginaryFrenIpcClient = new KranglerImaginaryFrenIpcClient(PluginInterface, Log, Configuration, PresetService);
         CommentaryTriggerService = new CommentaryTriggerService(
             ClientState,

@@ -1,3 +1,7 @@
+2026-10-13 - Current-game BGM detection
+
+- Read playing BGM IDs through ClientStructs' BGMSystem binding, bounded by the available scenes and the existing 12-slot priority limit. Preserve two-second polling, ignored IDs, change detection and commentary cooldowns; unavailable data is checked again on later polls. Keep the release version unchanged.
+
 2026-10-11 - Native titlebar status (I536)
 
 - Show speech activity, queued count and the active preset in native main, mini and settings titles. Keep concise state and available numeric progress when detailed wording is off; hover retains full details.
