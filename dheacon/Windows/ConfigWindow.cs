@@ -73,6 +73,8 @@ public sealed class ConfigWindow : Window, IDisposable
     public override void Draw()
     {
         windowMotion.DrawChrome();
+        if (MaterialTheme.Current.IsLcars)
+            using (UiText.Font(UiFontRole.Title)) MaterialLcars.Header(UiText.T("Settings"));
         UiGui.TitleWithButtons(PluginInfo.DisplayName + " Settings", UiText.T("Dheacon Settings"), this);
         using var tabHeight = MaterialText.PushLineHeight(new[] { "Quick Setup", "General", "Speech", "Piper Voices", "Window appearance", "Diagnostics" }.Select(UiText.T).ToArray());
         var appearanceRoot = ImGui.GetID("");

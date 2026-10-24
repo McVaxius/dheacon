@@ -85,11 +85,21 @@ public sealed class MainWindow : Window, IDisposable
         var width = Math.Min(ImGui.GetContentRegionAvail().X,
             nativeWindow.Size.X - 2 * ImGui.GetStyle().WindowPadding.X - nativeWindow.ScrollbarSizes.X);
         var iconMin = start + (compact ? new Vector2(12, 8) * s : Vector2.Zero);
-        DheaconPresentation.DrawPluginIcon(ImGui.GetWindowDrawList(), iconMin, iconMin + new Vector2((compact ? 42 : 44) * s));
-        ImGui.SetCursorScreenPos(start + new Vector2((compact ? 76 : 66) * s, 0));
-        using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title)) MaterialText.Text(PluginInfo.DisplayName);
+        if (MaterialTheme.Current.IsLcars)
+        {
+            ImGui.SetCursorScreenPos(start);
+            using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title)) MaterialLcars.Header(PluginInfo.DisplayName);
+        }
+        else
+        {
+            DheaconPresentation.DrawPluginIcon(ImGui.GetWindowDrawList(), iconMin, iconMin + new Vector2((compact ? 42 : 44) * s));
+            ImGui.SetCursorScreenPos(start + new Vector2((compact ? 76 : 66) * s, 0));
+            using (UiText.Font(compact ? UiFontRole.CompactTitle : UiFontRole.Title)) MaterialText.Text(PluginInfo.DisplayName);
+        }
         if (ImGui.IsItemHovered()) UiGui.SetTooltip(UiText.F("Command: {0} · v{1}", PluginInfo.Command, Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "0.0.0.0"));
-        ImGui.SetCursorScreenPos(start + new Vector2((compact ? 76 : 66) * s, (compact ? 46 : 50) * s));
+        ImGui.SetCursorScreenPos(MaterialTheme.Current.IsLcars
+            ? new Vector2(start.X, ImGui.GetItemRectMax().Y + 4 * s)
+            : start + new Vector2((compact ? 76 : 66) * s, (compact ? 46 : 50) * s));
         MaterialText.TextColored(c.OnSurfaceVariant, UiText.T("Text to speech for FFXIV (Dalamud plugin)"));
         var subtitleBottom = ImGui.GetItemRectMax().Y;
         var toggleHeight = (compact ? 22 : 24) * s;
@@ -98,7 +108,7 @@ public sealed class MainWindow : Window, IDisposable
         var bottomWidth = ToggleWidth("Enabled") + ToggleWidth("DTR Bar") + UiGui.IconButtonWidth("Settings") + UiGui.IconButtonWidth("Status to chat") + ImGui.GetStyle().ItemSpacing.X * 3;
         var rightWidth = Math.Max(topWidth, bottomWidth);
         var leftWidth = (compact ? 76 : 66) * s + MaterialText.Measure(UiText.T("Text to speech for FFXIV (Dalamud plugin)")).X;
-        var right = width >= leftWidth + rightWidth + gap;
+        var right = !MaterialTheme.Current.IsLcars && width >= leftWidth + rightWidth + gap;
         ImGui.SetCursorScreenPos(right ? start + new Vector2(width - topWidth, 0) : new Vector2(start.X, Math.Max(subtitleBottom + gap, start.Y + (compact ? 70 : 84) * s)));
         if (UiGui.IconButton("Ko-fi", MaterialIcon.Heart, UiText.T("Support on Ko-fi"), MaterialIcon.ExternalLink))
             Process.Start(new ProcessStartInfo { FileName = PluginInfo.SupportUrl, UseShellExecute = true });
@@ -161,7 +171,8 @@ public sealed class MainWindow : Window, IDisposable
         var presets = plugin.PresetService.Presets.ToList();
         var active = plugin.PresetService.ActivePreset;
         // Keep the original child directly under Main, preserving its window and selectable roots.
-        var insetTop = DheaconPresentation.Compact ? 48 : 57;
+        var insetTop = DheaconPresentation.Compact ? 48f : 57f;
+        if (MaterialTheme.Current.IsLcars) insetTop = Math.Max(insetTop, (ImGui.GetItemRectMax().Y - origin.Y) / scale + 12);
         ImGui.SetCursorScreenPos(origin + new Vector2(10, insetTop) * scale);
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, Vector2.Zero);
         var childVisible = ImGui.BeginChild("##DheaconPresetListMain", size - new Vector2(20, insetTop + 10) * scale, true, ImGuiWindowFlags.HorizontalScrollbar);
@@ -216,7 +227,12 @@ public sealed class MainWindow : Window, IDisposable
     {
         var originalScale = ImGuiP.GetCurrentWindow().FontWindowScale;
         ImGui.SetWindowFontScale(originalScale * 22 / 16);
-        try { using (UiText.Font(UiFontRole.BodyStrong)) UiGui.TextUnformatted(label); }
+        try
+        {
+            using (UiText.Font(UiFontRole.BodyStrong))
+                if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T(label), 1);
+                else UiGui.TextUnformatted(label);
+        }
         finally { ImGui.SetWindowFontScale(originalScale); }
     }
 

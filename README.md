@@ -2,6 +2,8 @@
 
 Local TTS commentary and classic transition alerts.
 
+Appearance offers Auto, Picker and LCARS while preserving saved Picker colours. LCARS adds segmented headers, framed status/preset cards, outlined controls and a separate Mini speech-monitor layout. Optional UI tones start muted and share one saved setting between Appearance and the titlebar speaker. UI tones are independent of speech output, its volume and classic alerts.
+
 Dheacon brings both modes to FINAL FANTASY XIV.
 
 Dheacon offers two operating modes:

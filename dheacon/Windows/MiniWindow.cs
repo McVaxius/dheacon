@@ -69,7 +69,7 @@ public sealed class MiniWindow : Window, IDisposable
     {
         windowMotion.Restore(this);
         UiGui.PaintTitleWithImageAndStatus(this, DheaconPresentation.Compact ? MiniTitle : UiText.T(PluginInfo.DisplayName + " Mini"),
-            collapsedOnly: !DheaconPresentation.Compact, status: plugin.TitlebarStatus);
+            collapsedOnly: !DheaconPresentation.Compact && !MaterialTheme.Current.IsLcars, status: plugin.TitlebarStatus);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
         ImGui.PopStyleVar(2);
@@ -79,6 +79,7 @@ public sealed class MiniWindow : Window, IDisposable
     public override void Draw()
     {
         windowMotion.DrawChrome();
+        if (MaterialTheme.Current.IsLcars) { DrawLcarsMini(); return; }
         var compact = DheaconPresentation.Compact; var scale = MaterialTheme.Metrics.Scale;
         if (!compact) UiGui.TitleWithButtons(PluginInfo.DisplayName + " Mini", MiniTitle, this);
         using var bodyStyle = new MaterialStyleScope();
@@ -142,5 +143,18 @@ public sealed class MiniWindow : Window, IDisposable
             }
         }
         finally { ImGui.SetWindowFontScale(originalScale); }
+    }
+
+    private void DrawLcarsMini()
+    {
+        using (UiText.Font(UiFontRole.CompactTitle)) MaterialLcars.Header(UiText.T("Dheacon Mini — speech monitor"));
+        MaterialLcars.PanelHeading(UiText.T("Active preset"), 1);
+        MaterialText.TextWrapped(plugin.PresetService.ActivePreset.Name);
+        ImGui.Spacing();
+        MaterialLcars.PanelHeading(UiText.T("Last speech"), 2);
+        var speech = plugin.SpeechQueueService;
+        var content = string.IsNullOrWhiteSpace(speech.CurrentText) ? speech.LastText : speech.CurrentText;
+        if (string.IsNullOrWhiteSpace(content)) UiGui.TextDisabled("No speech yet.");
+        else MaterialText.TextWrapped(content);
     }
 }

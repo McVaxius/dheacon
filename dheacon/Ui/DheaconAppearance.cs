@@ -4,6 +4,7 @@ using AethertekUI.Dalamud;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
+using Dalamud.Interface;
 
 namespace Dheacon.Ui;
 
@@ -27,6 +28,9 @@ internal sealed class DheaconAppearance : IDisposable
     private MaterialColorSettings? appliedSavedColors;
     private int checkedGeneration = -1;
     private bool fontIssueLogged;
+    private MaterialUiSoundPlayer? uiSoundPlayer;
+    private bool appliedSoundsMuted = true;
+    private readonly Dictionary<Window, TitleBarButton> soundTitleButtons = new();
 
     private void Apply()
     {
@@ -52,10 +56,17 @@ internal sealed class DheaconAppearance : IDisposable
             appliedAccent = plugin.Configuration.UiAccentRgb & 0xFFFFFF;
             appliedColors = colorDraft;
             theme = DheaconPresentation.Theme(appliedAccent, colorDraft);
+        theme.Feedback = PlayLcarsSound;
+        if (!theme.IsLcars) uiSoundPlayer?.Stop();
             var rgb = DheaconPresentation.Rgb(appliedAccent);
             accentDraft = new(rgb.X, rgb.Y, rgb.Z);
         }
         theme.Density = plugin.Configuration.UiCompact ? MaterialDensity.Compact : MaterialDensity.Standard;
+        if (appliedSoundsMuted != plugin.Configuration.UiLcarsSoundsMuted)
+        {
+            appliedSoundsMuted = plugin.Configuration.UiLcarsSoundsMuted;
+            if (appliedSoundsMuted) uiSoundPlayer?.Stop();
+        }
     }
 
     internal void Draw(WindowSystem windows)
@@ -153,6 +164,8 @@ internal sealed class DheaconAppearance : IDisposable
         colorDraft = plugin.Configuration.UiColors ?? new MaterialColorSettings();
         appliedSavedColors = appliedColors = colorDraft;
         theme = DheaconPresentation.Theme(appliedAccent, colorDraft);
+        theme.Feedback = PlayLcarsSound;
+        if (!theme.IsLcars) uiSoundPlayer?.Stop();
         var rgb = DheaconPresentation.Rgb(appliedAccent);
         accentDraft = new(rgb.X, rgb.Y, rgb.Z);
     }
@@ -161,7 +174,49 @@ internal sealed class DheaconAppearance : IDisposable
     internal string Format(string key, params object?[] arguments) => text.Format(key, arguments);
     internal bool NativeEnglish => text.Language is "en" or "hi";
 
-    public void Dispose() { shapedText.Dispose(); fonts?.Dispose(); text?.Dispose(); }
+    private bool LcarsActive => plugin.Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
+
+    private void PlayLcarsSound(MaterialUiSoundCue cue)
+    {
+        if (!LcarsActive || plugin.Configuration.UiLcarsSoundsMuted) return;
+        (uiSoundPlayer ??= new MaterialUiSoundPlayer()).TryPlay(cue);
+    }
+
+    internal void SetLcarsSounds(bool enabled)
+    {
+        plugin.Configuration.UiLcarsSoundsMuted = !enabled;
+        if (!enabled) uiSoundPlayer?.Stop();
+        plugin.Configuration.Save();
+    }
+
+    private void DrawLcarsSounds()
+    {
+        MaterialSettings.Section(UiText.T("LCARS UI sounds"));
+        ImGui.BeginDisabled(!LcarsActive);
+        try
+        {
+            var enabled = !plugin.Configuration.UiLcarsSoundsMuted;
+            if (UiGui.Checkbox("UI sounds", ref enabled)) SetLcarsSounds(enabled);
+            UiGui.TextWrapped("Custom UI tones. The titlebar speaker toggles the same setting.");
+            ImGui.BeginDisabled(plugin.Configuration.UiLcarsSoundsMuted);
+            try
+            {
+                var activeTheme = MaterialTheme.Current;
+                var feedback = activeTheme.Feedback;
+                bool preview;
+                try { activeTheme.Feedback = null; preview = UiGui.Button("Preview sound"); }
+                finally { activeTheme.Feedback = feedback; }
+                MaterialLcars.Feedback(preview, MaterialUiSoundCue.Preview);
+            }
+            finally { ImGui.EndDisabled(); }
+            if (uiSoundPlayer?.Error is not null) UiGui.TextWrapped("Audio output is unavailable.");
+        }
+        finally { ImGui.EndDisabled(); }
+        if (!LcarsActive) UiGui.TextDisabled("Select LCARS to use UI sounds.");
+        else if (plugin.Configuration.UiLcarsSoundsMuted) UiGui.TextDisabled("Turn on UI sounds to preview.");
+    }
+
+    public void Dispose() { uiSoundPlayer?.Dispose(); shapedText.Dispose(); fonts?.Dispose(); text?.Dispose(); }
     internal void DrawLanguage(string id = "appearance")
     {
         var language = appliedLanguage;
@@ -204,6 +259,7 @@ internal sealed class DheaconAppearance : IDisposable
         { config.UiLanguageVisibleOnMainWindow = languageVisibleOnMainWindow; changed = true; }
         if (changed) config.Save();
         DrawTransparencySettings();
+        DrawLcarsSounds();
     }
 
     private void PrepareAppearanceTitleBars(Dalamud.Interface.Windowing.WindowSystem windows)
@@ -222,6 +278,21 @@ internal sealed class DheaconAppearance : IDisposable
                             plugin.Configuration.UiTransparencyVisibleOnMainWindow, true)
                         : new(true, true, true, true)));
             appearanceTitleBars[window].RefreshVisibility();
+            appearanceTitleBars[window].SetLcarsIcons(theme.IsLcars);
+            if (!soundTitleButtons.TryGetValue(window, out var sound))
+            {
+                sound = new TitleBarButton
+                {
+                    Priority = (int)Math.Max(int.MinValue + 1L, window.TitleBarButtons.Select(static button => (long)button.Priority).DefaultIfEmpty(0).Min() - 1),
+                    IconOffset = new(2, 1),
+                    Click = mouse => { if (mouse == ImGuiMouseButton.Left && LcarsActive) SetLcarsSounds(plugin.Configuration.UiLcarsSoundsMuted); },
+                    ShowTooltip = () => MaterialText.SetTooltip(UiText.T(plugin.Configuration.UiLcarsSoundsMuted ? "UI sounds muted" : "UI sounds on")),
+                };
+                soundTitleButtons.Add(window, sound);
+            }
+            sound.Icon = plugin.Configuration.UiLcarsSoundsMuted ? FontAwesomeIcon.VolumeMute : FontAwesomeIcon.VolumeUp;
+            if (theme.IsLcars && !window.TitleBarButtons.Contains(sound)) window.TitleBarButtons.Add(sound);
+            else if (!theme.IsLcars) window.TitleBarButtons.Remove(sound);
         }
     }
 
@@ -237,7 +308,8 @@ internal sealed class DheaconAppearance : IDisposable
                 new(UiText.T("Auto"), UiText.T("Picker"), UiText.T("Default"), UiText.T("Background, controls and text follow your theme."),
                     UiText.T("Theme colour"), UiText.T("Choose each colour independently."), UiText.T("Background"), UiText.T("Controls"),
                     UiText.T("Text"), UiText.T("Aa  Preview text"), UiText.T("Control"),
-                    UiText.T("Switch to Picker to set each colour yourself."), UiText.T("Switch back to Auto to use the automatic theme.")),
+                    UiText.T("Switch to Picker to set each colour yourself."), UiText.T("Switch back to Auto to use the automatic theme."))
+                    { Lcars = UiText.T("LCARS"), LcarsHelp = UiText.T("LCARS panels, bars and controls") },
                 plugin.Configuration.UiCompact ? 298 : 316)) return;
         plugin.Configuration.UiColors = colorDraft;
         plugin.Configuration.UiAccentRgb = MaterialColorSettings.ToRgb(accentDraft);

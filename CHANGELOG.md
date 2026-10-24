@@ -1,3 +1,10 @@
+2026-10-23 - LCARS appearance (unreleased)
+
+- Add LCARS after Auto and Picker through the existing global appearance owner, retaining saved RGB choices and all six Settings pages.
+- Add segmented headers, framed preset/status cards, outlined actions and a dedicated regular/compact Mini view retaining Active preset, Last speech and the existing native title actions.
+- Add original optional UI tones, muted by default, with one Settings/titlebar preference and consumer-owned playback. Keep speech, its volume and classic transition alerts independent.
+- Translate eleven new captions across fifteen catalogs and pin the published compatible UI library in existing workflows. Keep version 3.0.0.10 and all voice/Piper behavior.
+
 2026-10-20 - Independent UI colours
 
 - Add Auto and Picker colour choices in the native Colour popup and Appearance settings. Auto preserves the existing theme; Picker saves independent Background, Controls and Text choices through the existing configuration.
