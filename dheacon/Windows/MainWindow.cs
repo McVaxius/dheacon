@@ -72,6 +72,7 @@ public sealed class MainWindow : Window, IDisposable
 
     public override void Draw()
     {
+        MaterialSkin.Backdrop();
         windowMotion.DrawChrome();
         using var bodyStyle = new MaterialStyleScope();
         bodyStyle.Style(ImGuiStyleVar.FramePadding, contentFramePadding);
@@ -80,6 +81,7 @@ public sealed class MainWindow : Window, IDisposable
         var compact = DheaconPresentation.Compact;
         var gap = DheaconPresentation.Gap * s;
         var c = MaterialTheme.Current.Colors;
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
         var nativeWindow = ImGuiP.GetCurrentWindow();
         var start = ImGui.GetCursorScreenPos() + new Vector2(0, compact ? 8 * s : 0);
         var width = Math.Min(ImGui.GetContentRegionAvail().X,
@@ -147,7 +149,15 @@ public sealed class MainWindow : Window, IDisposable
         DrawPresetList(new Vector2(presetWidth, sideBySide ? bodyHeight : 190 * s));
         if (sideBySide) ImGui.SameLine(0, gap);
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(compact ? 16 : 18) * s);
-        var speechPanelVisible = ImGui.BeginChild("##DheaconSpeechPanel", new Vector2(sideBySide ? width - presetWidth - gap : width, bodyHeight), true, ImGuiWindowFlags.HorizontalScrollbar);
+        var speechPanelSize = new Vector2(sideBySide ? width - presetWidth - gap : width, bodyHeight);
+        var speechPanelStyle = new MaterialStyleScope();
+        if (material)
+        {
+            DheaconPresentation.Surface(ImGui.GetCursorScreenPos(), ImGui.GetCursorScreenPos() + speechPanelSize);
+            speechPanelStyle.Color(ImGuiCol.ChildBg, Vector4.Zero);
+            speechPanelStyle.Style(ImGuiStyleVar.ChildBorderSize, 0);
+        }
+        var speechPanelVisible = ImGui.BeginChild("##DheaconSpeechPanel", speechPanelSize, true, ImGuiWindowFlags.HorizontalScrollbar);
         try
         {
             if (speechPanelVisible)
@@ -157,7 +167,7 @@ public sealed class MainWindow : Window, IDisposable
             finally { ImGui.PopID(); }
             }
         }
-        finally { ImGui.EndChild(); ImGui.PopStyleVar(); }
+        finally { ImGui.EndChild(); speechPanelStyle.Dispose(); ImGui.PopStyleVar(); }
         ImGui.SetCursorScreenPos(new Vector2(start.X, ImGui.GetItemRectMax().Y + footerGap));
         DrawStatusSafely(DrawStatusCards);
     }
@@ -172,9 +182,16 @@ public sealed class MainWindow : Window, IDisposable
         var active = plugin.PresetService.ActivePreset;
         // Keep the original child directly under Main, preserving its window and selectable roots.
         var insetTop = DheaconPresentation.Compact ? 48f : 57f;
-        if (MaterialTheme.Current.IsLcars) insetTop = Math.Max(insetTop, (ImGui.GetItemRectMax().Y - origin.Y) / scale + 12);
+        if (MaterialTheme.Current.IsLcars || MaterialTheme.Current.IsCyberpunk) insetTop = Math.Max(insetTop, (ImGui.GetItemRectMax().Y - origin.Y) / scale + 12);
         ImGui.SetCursorScreenPos(origin + new Vector2(10, insetTop) * scale);
         ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, Vector2.Zero);
+        var listStyle = new MaterialStyleScope();
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        if (material)
+        {
+            listStyle.Color(ImGuiCol.ChildBg, Vector4.Zero);
+            listStyle.Style(ImGuiStyleVar.ChildBorderSize, 0);
+        }
         var childVisible = ImGui.BeginChild("##DheaconPresetListMain", size - new Vector2(20, insetTop + 10) * scale, true, ImGuiWindowFlags.HorizontalScrollbar);
         try
         {
@@ -196,6 +213,7 @@ public sealed class MainWindow : Window, IDisposable
                 if (MaterialText.RequiresShaping(nameLabel) || MaterialText.RequiresShaping(preset.Description))
                     height = Math.Max(height, descriptionY + descriptionSize.Y + 10 * scale);
                 var rowWidth = Math.Max(ImGui.GetContentRegionAvail().X, 74 * scale + Math.Max(nameWidth, descriptionSize.X));
+                if (material) MaterialSkin.PanelFrame(min, min + new Vector2(rowWidth, height), inset: true);
                 ImGui.PushStyleColor(ImGuiCol.Text, Vector4.Zero);
                 var clicked = ImGui.Selectable(raw, selected, ImGuiSelectableFlags.None, new Vector2(rowWidth, height));
                 ImGui.PopStyleColor();
@@ -219,7 +237,7 @@ public sealed class MainWindow : Window, IDisposable
             }
             }
         }
-        finally { ImGui.EndChild(); ImGui.PopStyleVar(); }
+        finally { ImGui.EndChild(); listStyle.Dispose(); ImGui.PopStyleVar(); }
         ImGui.SetCursorScreenPos(origin); ImGui.Dummy(size);
     }
 
@@ -231,6 +249,7 @@ public sealed class MainWindow : Window, IDisposable
         {
             using (UiText.Font(UiFontRole.BodyStrong))
                 if (MaterialTheme.Current.IsLcars) MaterialLcars.PanelHeading(UiText.T(label), 1);
+                else if (MaterialTheme.Current.IsCyberpunk) MaterialSkin.Heading(UiText.T(label));
                 else UiGui.TextUnformatted(label);
         }
         finally { ImGui.SetWindowFontScale(originalScale); }
@@ -255,7 +274,13 @@ public sealed class MainWindow : Window, IDisposable
         var buttonsWidth = UiGui.IconButtonWidth("Test speech") + UiGui.IconButtonWidth("Clear cache") + ImGui.GetStyle().ItemSpacing.X;
         var window = ImGuiP.GetCurrentWindow();
         var right = window.Pos.X + window.Size.X - window.ScrollbarSizes.X - ImGui.GetStyle().WindowPadding.X - window.Scroll.X;
-        if (ImGui.GetItemRectMax().X + ImGui.GetStyle().ItemSpacing.X + buttonsWidth <= right)
+        var headingRight = ImGui.GetItemRectMax().X;
+        if (MaterialTheme.Current.IsCyberpunk)
+        {
+            using var headingFont = UiText.Font(UiFontRole.BodyStrong);
+            headingRight = header.X + Math.Max(256 * scale, UiGui.ScaledTextSize(UiText.T("Spoken preset"), 22f / 16).X + 42 * scale);
+        }
+        if (headingRight + ImGui.GetStyle().ItemSpacing.X + buttonsWidth <= right)
         {
             ImGui.SameLine();
             ImGui.SetCursorScreenPos(new Vector2(right - buttonsWidth, header.Y - 2 * scale));
@@ -324,8 +349,13 @@ public sealed class MainWindow : Window, IDisposable
             if (outlined)
             {
                 dl.ChannelsSetCurrent(0);
-                dl.AddRectFilled(min, new Vector2(min.X + remaining, bottom), MaterialCanvas.Color(c.SurfaceContainerLowest), 4 * scale);
-                dl.AddRect(min, new Vector2(min.X + remaining, bottom), MaterialCanvas.Color(c.OutlineVariant), 4 * scale);
+                if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+                    MaterialSkin.PanelFrame(min, new Vector2(min.X + remaining, bottom), inset: true);
+                else
+                {
+                    dl.AddRectFilled(min, new Vector2(min.X + remaining, bottom), MaterialCanvas.Color(c.SurfaceContainerLowest), 4 * scale);
+                    dl.AddRect(min, new Vector2(min.X + remaining, bottom), MaterialCanvas.Color(c.OutlineVariant), 4 * scale);
+                }
             }
             }
             finally { dl.ChannelsMerge(); }
@@ -372,7 +402,14 @@ public sealed class MainWindow : Window, IDisposable
 
     private static void StatusCard(string title, string value, string detail, MaterialIcon icon, Vector2 size)
     {
-        if (DheaconPresentation.Compact) ImGui.PushStyleColor(ImGuiCol.ChildBg, Vector4.Zero);
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        using var cardStyle = new MaterialStyleScope();
+        if (DheaconPresentation.Compact || material) cardStyle.Color(ImGuiCol.ChildBg, Vector4.Zero);
+        if (material)
+        {
+            cardStyle.Style(ImGuiStyleVar.ChildBorderSize, 0);
+            if (!DheaconPresentation.Compact) DheaconPresentation.Surface(ImGui.GetCursorScreenPos(), ImGui.GetCursorScreenPos() + size);
+        }
         var childVisible = ImGui.BeginChild("##Status-" + title, size, !DheaconPresentation.Compact, ImGuiWindowFlags.HorizontalScrollbar | ImGuiWindowFlags.AlwaysUseWindowPadding);
         try
         {
@@ -383,6 +420,12 @@ public sealed class MainWindow : Window, IDisposable
             start += new Vector2(insetX, (DheaconPresentation.Compact ? 8 : 4) * scale);
             var textOffset = (DheaconPresentation.Compact ? 67 : 70) * scale;
             var nativeWindow = ImGuiP.GetCurrentWindow();
+            if (MaterialTheme.Current.IsCyberpunk)
+            {
+                ImGui.SetCursorScreenPos(nativeWindow.Pos + new Vector2(ImGui.GetStyle().WindowPadding.X, scale) - nativeWindow.Scroll);
+                using (UiText.Font(UiFontRole.BodyStrong)) MaterialSkin.Heading(UiText.T(title), 1);
+                start.Y = Math.Max(start.Y, ImGui.GetItemRectMax().Y + 6 * scale);
+            }
             float WrapWidth(float leading = 0) => Math.Max(40 * scale, nativeWindow.Size.X - 2 * ImGui.GetStyle().WindowPadding.X
                 - nativeWindow.ScrollbarSizes.X - insetX - textOffset - leading);
             if (icon == MaterialIcon.None) DheaconPresentation.Music(start, 34 * scale);
@@ -394,8 +437,11 @@ public sealed class MainWindow : Window, IDisposable
             }
             else MaterialIcons.Draw(icon, start, 34 * scale, MaterialTheme.Current.Colors.Primary);
             ImGui.SetCursorScreenPos(start + new Vector2(textOffset, 0));
-            using (UiText.Font(UiFontRole.BodyStrong)) UiGui.TextUnformatted(title);
-            ImGui.SetCursorScreenPos(new Vector2(start.X + textOffset, Math.Max(start.Y + 27 * scale, ImGui.GetItemRectMax().Y + 4 * scale)));
+            if (!MaterialTheme.Current.IsCyberpunk)
+            {
+                using (UiText.Font(UiFontRole.BodyStrong)) UiGui.TextUnformatted(title);
+                ImGui.SetCursorScreenPos(new Vector2(start.X + textOffset, Math.Max(start.Y + 27 * scale, ImGui.GetItemRectMax().Y + 4 * scale)));
+            }
             var marker = ImGui.GetCursorScreenPos();
             ImGui.GetWindowDrawList().AddCircleFilled(marker + new Vector2(7 * scale, ImGui.GetTextLineHeight() * .5f), 7 * scale,
                 MaterialCanvas.Color(MaterialColor.Layer(MaterialTheme.Current.Colors.OnSurfaceVariant, MaterialTheme.Current.Colors.Surface, .35f)), 20);
@@ -407,7 +453,7 @@ public sealed class MainWindow : Window, IDisposable
             try { MaterialText.TextColored(MaterialTheme.Current.Colors.OnSurfaceVariant, detail); } finally { ImGui.PopTextWrapPos(); }
         }
         }
-        finally { ImGui.EndChild(); if (DheaconPresentation.Compact) ImGui.PopStyleColor(); }
+        finally { ImGui.EndChild(); }
     }
 
     private void DrawStatusSafely(Action drawStatus)

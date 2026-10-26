@@ -1,3 +1,9 @@
+2026-10-26 - 3.0.0.12 - Shared material appearance
+
+- Add Glassmorphism, Spatial and Cyberpunk across Main, Mini, Settings, appearance popups and native controls while retaining Auto, Picker and LCARS.
+- Retain independent palettes and resets, four LCARS colours, and Glass animation, speed and three editable wave colours in the existing appearance settings.
+- Translate the new appearance controls in all fifteen languages and preserve speech, presets, protected Fren settings and native actions.
+
 2026-10-23 - LCARS appearance (unreleased)
 
 - Add LCARS after Auto and Picker through the existing global appearance owner, retaining saved RGB choices and all six Settings pages.

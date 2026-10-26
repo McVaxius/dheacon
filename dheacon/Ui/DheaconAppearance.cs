@@ -104,11 +104,14 @@ internal sealed class DheaconAppearance : IDisposable
             if (!fontIssueLogged && fonts.LoadException is { } error) { Plugin.Log.Error(error, "[Dheacon] Required UI fonts failed to load."); fontIssueLogged = true; }
             ImGui.SetNextWindowSize(new Vector2(460 * ImGuiHelpers.GlobalScale, 0));
             fontStatusMotion.PreDraw("Dheacon##FontStatus", null, null, reducedMotion: false, prepareDecorations: fontStatusDecorations.Prepare);
-            var visible = ImGui.Begin("Dheacon##FontStatus", ImGuiWindowFlags.AlwaysAutoResize);
+            bool visible;
+            using (MaterialSkin.BackdropStyle())
+                visible = ImGui.Begin("Dheacon##FontStatus", ImGuiWindowFlags.AlwaysAutoResize);
             try
             {
                 if (visible)
                 {
+                MaterialSkin.Backdrop();
                 fontStatusDecorations.Paint();
                 var failed = fonts.LoadException is not null || fontIssueLogged;
                 ImGui.TextWrapped(appliedLanguage == "hi" && failed ? "Hindi UI fonts are unavailable. Use English to continue."
@@ -139,7 +142,8 @@ internal sealed class DheaconAppearance : IDisposable
         style.Style(ImGuiStyleVar.ChildRounding, 4 * s);
         using var body = fonts.Push(UiFontRole.Body);
         PrepareAppearanceTitleBars(windows);
-        windows.Draw();
+        using (MaterialSkin.BackdropStyle())
+            windows.Draw();
     }
 
     internal void DrawSelector()
@@ -309,7 +313,17 @@ internal sealed class DheaconAppearance : IDisposable
                     UiText.T("Theme colour"), UiText.T("Choose each colour independently."), UiText.T("Background"), UiText.T("Controls"),
                     UiText.T("Text"), UiText.T("Aa  Preview text"), UiText.T("Control"),
                     UiText.T("Switch to Picker to set each colour yourself."), UiText.T("Switch back to Auto to use the automatic theme."))
-                    { Lcars = UiText.T("LCARS"), LcarsHelp = UiText.T("LCARS panels, bars and controls") },
+                    {
+                        Lcars = UiText.T("LCARS"), LcarsHelp = UiText.T("LCARS panels, bars and controls"),
+                        Glassmorphism = UiText.T("Glassmorphism"), Spatial = UiText.T("Spatial"), Cyberpunk = UiText.T("Cyberpunk"),
+                        LcarsBar1 = UiText.T("LCARS bar 1"), LcarsBar2 = UiText.T("LCARS bar 2"), LcarsBar3 = UiText.T("LCARS bar 3"),
+                        Reset = UiText.T("Reset"), ResetColors = UiText.T("Reset colours"),
+                        Animation = UiText.T("Animation"), AnimationSpeed = UiText.T("Animation speed (0.1–10x; default 1x)"),
+                        WaveColors = UiText.T("Wave colours"), GlassWave1 = UiText.T("Wave colour 1"),
+                        GlassWave2 = UiText.T("Wave colour 2"), GlassWave3 = UiText.T("Wave colour 3"),
+                        ResetWaveColors = UiText.T("Reset wave colours"),
+                    },
+                new MaterialColorSettings(), MaterialColorSettings.Rgb(DheaconPresentation.ReferenceAccent),
                 plugin.Configuration.UiCompact ? 298 : 316)) return;
         plugin.Configuration.UiColors = colorDraft;
         plugin.Configuration.UiAccentRgb = MaterialColorSettings.ToRgb(accentDraft);

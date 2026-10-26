@@ -2,7 +2,7 @@
 
 Local TTS commentary and classic transition alerts.
 
-Appearance offers Auto, Picker and LCARS while preserving saved Picker colours. LCARS adds segmented headers, framed status/preset cards, outlined controls and a separate Mini speech-monitor layout. Optional UI tones start muted and share one saved setting between Appearance and the titlebar speaker. UI tones are independent of speech output, its volume and classic alerts.
+Appearance offers Auto, Picker, LCARS, Glassmorphism, Spatial and Cyberpunk. Picker and each new material retain independent Background, Controls and Text colours, with per-colour and palette resets. LCARS adds segmented headers, framed status/preset cards, outlined controls and a separate Mini speech-monitor layout, with independent Background and three bar colours. Glassmorphism includes animation enabled by default, adjustable speed and three editable wave colours. Optional LCARS UI tones start muted and share one saved setting between Appearance and the titlebar speaker. UI tones are independent of speech output, its volume and classic alerts.
 
 Dheacon brings both modes to FINAL FANTASY XIV.
 
@@ -26,9 +26,9 @@ cache and BGM status. The Mini is a read-only speech monitor. Native titlebars
 expose language, compact spacing, transparency and colour shortcuts, including
 while collapsed. Settings retains the editors and Main's saved icon-visibility
 choices while preserving window sizes.
-The fourteen UI languages are English, German, French, Spanish, Italian, Russian,
+The fifteen UI languages are English, German, French, Spanish, Italian, Russian,
 Japanese, Korean, Simplified Chinese, Vietnamese, Brazilian Portuguese, Indonesian,
-Polish and Turkish. UI language is independent of speech
+Polish, Turkish and Hindi. UI language is independent of speech
 backend, voice language, spoken text and preset content.
 
 Teal, blue, pink and custom RGB choices recolour the complete relative dark

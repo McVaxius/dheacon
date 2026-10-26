@@ -72,10 +72,23 @@ public sealed class ConfigWindow : Window, IDisposable
 
     public override void Draw()
     {
+        MaterialSkin.Backdrop();
         windowMotion.DrawChrome();
         if (MaterialTheme.Current.IsLcars)
             using (UiText.Font(UiFontRole.Title)) MaterialLcars.Header(UiText.T("Settings"));
         UiGui.TitleWithButtons(PluginInfo.DisplayName + " Settings", UiText.T("Dheacon Settings"), this);
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        var panelStart = ImGui.GetCursorScreenPos();
+        var panelWidth = ImGui.GetContentRegionAvail().X;
+        var drawList = ImGui.GetWindowDrawList();
+        if (material)
+        {
+            ImGui.BeginGroup();
+            drawList.ChannelsSplit(2);
+            drawList.ChannelsSetCurrent(1);
+        }
+        try
+        {
         using var tabHeight = MaterialText.PushLineHeight(new[] { "Quick Setup", "General", "Speech", "Piper Voices", "Window appearance", "Diagnostics" }.Select(UiText.T).ToArray());
         var appearanceRoot = ImGui.GetID("");
         var tabsOpen = ImGui.BeginTabBar("DheaconSettingsTabs", ImGuiTabBarFlags.FittingPolicyScroll);
@@ -121,11 +134,26 @@ public sealed class ConfigWindow : Window, IDisposable
 
         }
         finally { ImGui.EndTabBar(); }
+        }
+        finally
+        {
+            if (material)
+            {
+                ImGui.EndGroup();
+                var scale = MaterialTheme.Metrics.Scale;
+                var bottom = Math.Max(panelStart.Y + ImGui.GetTextLineHeight(), ImGui.GetItemRectMax().Y);
+                drawList.ChannelsSetCurrent(0);
+                MaterialSkin.PanelFrame(panelStart - new Vector2(4 * scale), new Vector2(panelStart.X + panelWidth + 4 * scale, bottom + 4 * scale));
+                drawList.ChannelsMerge();
+            }
+        }
     }
 
     private void DrawQuickSetupTab(Configuration cfg)
     {
-        UiGui.TextUnformatted("Quick Setup");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("Quick Setup"));
+        else UiGui.TextUnformatted("Quick Setup");
         UiGui.TextWrapped("Choose how Dheacon should sound, prepare local speech if needed, test the result, and decide whether to enable automatic triggers.");
 
         if (quickSetupFinishedThisSession)
@@ -172,7 +200,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawQuickSetupModeStep()
     {
-        UiGui.TextUnformatted("1. Choose an operating mode");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("1. Choose an operating mode"), 1);
+        else UiGui.TextUnformatted("1. Choose an operating mode");
         ImGui.Spacing();
 
         var active = plugin.PresetService.ActivePreset;
@@ -236,7 +266,9 @@ public sealed class ConfigWindow : Window, IDisposable
     {
         TryStartPendingQuickSetupPiperPreparation(cfg);
 
-        UiGui.TextUnformatted("2. Choose local speech");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("2. Choose local speech"), 1);
+        else UiGui.TextUnformatted("2. Choose local speech");
         UiGui.TextWrapped(plugin.PresetService.ActivePreset.Mode == CommentaryMode.Dheacon
             ? "Classic mode does not speak, but this choice is saved for any spoken preset you select later."
             : "Speech is generated on your PC and cached as WAV files for reuse.");
@@ -313,7 +345,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawQuickSetupReviewStep(Configuration cfg)
     {
-        UiGui.TextUnformatted("3. Test and finish");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("3. Test and finish"), 1);
+        else UiGui.TextUnformatted("3. Test and finish");
         var active = plugin.PresetService.ActivePreset;
         DrawWrappedStatus(UiText.T("Mode: ") + UiText.T(FormatQuickSetupMode()), "Selected operating mode.");
         DrawWrappedStatus(UiText.T("Preset: ") + active.Name, "Selected preset.");
@@ -518,7 +552,9 @@ public sealed class ConfigWindow : Window, IDisposable
         DrawImaginaryFrenPanel();
 
         ImGui.Separator();
-        UiGui.TextUnformatted("DTR");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("DTR"), 1);
+        else UiGui.TextUnformatted("DTR");
 
         var dtr = cfg.DtrBarEnabled;
         if (UiGui.Checkbox("Show DTR bar entry", ref dtr))
@@ -557,7 +593,9 @@ public sealed class ConfigWindow : Window, IDisposable
         TooltipLastItem("Sets the DTR glyph shown while the plugin is disabled; very long input is trimmed.");
 
         ImGui.Separator();
-        UiGui.TextUnformatted("Mini Window");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("Mini Window"), 1);
+        else UiGui.TextUnformatted("Mini Window");
 
         var miniAutoOpen = cfg.MiniAutoOpenOnSpeech;
         if (UiGui.Checkbox("Open mini window when speech starts", ref miniAutoOpen))
@@ -705,7 +743,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawPresetManager()
     {
-        UiGui.TextUnformatted("Presets");
+        var material = MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk;
+        if (material) MaterialSkin.Heading(UiText.T("Presets"));
+        else UiGui.TextUnformatted("Presets");
         var presets = plugin.PresetService.Presets.ToList();
         var active = plugin.PresetService.ActivePreset;
         EnsurePresetRenameBuffer(active);
@@ -713,6 +753,13 @@ public sealed class ConfigWindow : Window, IDisposable
         var listWidth = Math.Min(420f, ImGui.GetContentRegionAvail().X);
         var visibleRows = Math.Clamp(presets.Count, 4, 8);
         var listHeight = (ImGui.GetTextLineHeightWithSpacing() * visibleRows) + 8f;
+        var listStyle = new MaterialStyleScope();
+        if (material)
+        {
+            MaterialSkin.PanelFrame(ImGui.GetCursorScreenPos(), ImGui.GetCursorScreenPos() + new Vector2(listWidth, listHeight), inset: true);
+            listStyle.Color(ImGuiCol.ChildBg, Vector4.Zero);
+            listStyle.Style(ImGuiStyleVar.ChildBorderSize, 0);
+        }
         ImGui.BeginChild("##DheaconPresetList", new Vector2(listWidth, listHeight), true, ImGuiWindowFlags.HorizontalScrollbar);
         try
         {
@@ -725,7 +772,7 @@ public sealed class ConfigWindow : Window, IDisposable
             TooltipLastItemRaw(preset.Description);
         }
         }
-        finally { ImGui.EndChild(); }
+        finally { ImGui.EndChild(); listStyle.Dispose(); }
 
         if (UiGui.SmallButton("+"))
         {
@@ -899,7 +946,9 @@ public sealed class ConfigWindow : Window, IDisposable
         var active = plugin.PresetService.ActivePreset;
         var fren = active.ImaginaryFren ?? new KranglerImaginaryFrenPreset();
 
-        UiGui.TextUnformatted("Imaginary Fren");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("Imaginary Fren"), 1);
+        else UiGui.TextUnformatted("Imaginary Fren");
         var enabled = fren.Enabled;
         if (UiGui.Checkbox("Spawn Fren for this preset", ref enabled))
             UpdateActiveFrenSettings(enabled, fren.Name, fren.PresetKey);
@@ -1037,7 +1086,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawDheaconSettings(Configuration cfg)
     {
-        UiGui.TextUnformatted("Dheacon");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("Dheacon"), 1);
+        else UiGui.TextUnformatted("Dheacon");
 
         var suppressTeleport = cfg.SuppressTeleportAndReturnTransitions;
         if (UiGui.Checkbox("Suppress teleports and return", ref suppressTeleport))
@@ -1060,7 +1111,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
     private void DrawReadingRoegadynGeneralSettings(Configuration cfg)
     {
-        UiGui.TextUnformatted("Reading Roegadyn");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("Reading Roegadyn"), 1);
+        else UiGui.TextUnformatted("Reading Roegadyn");
 
         var suppressTeleport = cfg.SuppressTeleportAndReturnTransitions;
         if (UiGui.Checkbox("Suppress teleports and return", ref suppressTeleport))
@@ -1613,7 +1666,9 @@ public sealed class ConfigWindow : Window, IDisposable
 
         ImGui.Separator();
         var isCurrent = entry.Installed && string.Equals(cfg.TtsPiperVoiceId, entry.CatalogId, StringComparison.OrdinalIgnoreCase);
-        UiGui.TextUnformatted("Selected voice details");
+        if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+            MaterialSkin.Heading(UiText.T("Selected voice details"), 1);
+        else UiGui.TextUnformatted("Selected voice details");
         TooltipLastItem("Details for the highlighted Piper catalog row.");
         DrawWrappedStatus(isCurrent ? "State: selected Piper voice" : entry.Installed ? "State: installed" : "State: not installed", "Install and selection state for the highlighted Piper voice.");
         DrawWrappedStatus(FormatPiperVoiceLabel(entry), "Full Piper voice label.", translate: false);

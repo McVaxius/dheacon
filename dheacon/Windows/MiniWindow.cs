@@ -78,6 +78,7 @@ public sealed class MiniWindow : Window, IDisposable
 
     public override void Draw()
     {
+        MaterialSkin.Backdrop();
         windowMotion.DrawChrome();
         if (MaterialTheme.Current.IsLcars) { DrawLcarsMini(); return; }
         var compact = DheaconPresentation.Compact; var scale = MaterialTheme.Metrics.Scale;
@@ -92,7 +93,9 @@ public sealed class MiniWindow : Window, IDisposable
         {
             var background = ImGui.GetStyle().Colors[(int)(ImGui.IsWindowFocused(ImGuiFocusedFlags.RootAndChildWindows) ? ImGuiCol.TitleBgActive : ImGuiCol.TitleBg)];
             dl.PushClipRect(window.Pos + Vector2.One * scale, window.Pos + new Vector2(window.Size.X - scale, 73 * scale), false);
-            dl.AddRectFilled(window.Pos + new Vector2(scale, 44 * scale), window.Pos + new Vector2(window.Size.X - scale, 72 * scale), MaterialCanvas.Color(background));
+            if (MaterialTheme.Current.IsGlassmorphism || MaterialTheme.Current.IsSpatial || MaterialTheme.Current.IsCyberpunk)
+                MaterialSkin.PanelFrame(window.Pos + new Vector2(scale, 44 * scale), window.Pos + new Vector2(window.Size.X - scale, 72 * scale), inset: true);
+            else dl.AddRectFilled(window.Pos + new Vector2(scale, 44 * scale), window.Pos + new Vector2(window.Size.X - scale, 72 * scale), MaterialCanvas.Color(background));
         }
         try
         {
@@ -118,7 +121,8 @@ public sealed class MiniWindow : Window, IDisposable
             var contentX = origin.X + ImGui.GetStyle().WindowPadding.X;
             var labelStart = new Vector2(contentX + (compact ? 0 : scale), origin.Y + (compact ? 114 : 93) * scale);
             ImGui.SetCursorScreenPos(labelStart);
-            UiGui.TextColored(MaterialTheme.Current.Colors.OnSurfaceVariant, "Active preset");
+            if (MaterialTheme.Current.IsCyberpunk) MaterialSkin.Heading(UiText.T("Active preset"));
+            else UiGui.TextColored(MaterialTheme.Current.Colors.OnSurfaceVariant, "Active preset");
             ImGui.SetCursorScreenPos(new Vector2(contentX, Math.Max(labelStart.Y + (compact ? 24 : 26) * scale, ImGui.GetItemRectMax().Y + 2 * scale)));
             ImGui.SetWindowFontScale(originalScale * (compact ? 19.5f : 20) / 16);
             MaterialText.Text(plugin.PresetService.ActivePreset.Name);
@@ -129,7 +133,8 @@ public sealed class MiniWindow : Window, IDisposable
             ImGui.SetWindowFontScale(originalScale * (compact ? 1 : 17f / 16));
             var lastStart = new Vector2(labelStart.X, Math.Max(origin.Y + (compact ? 190 : 175) * scale, ImGui.GetCursorScreenPos().Y));
             ImGui.SetCursorScreenPos(lastStart);
-            UiGui.TextColored(MaterialTheme.Current.Colors.OnSurfaceVariant, "Last speech");
+            if (MaterialTheme.Current.IsCyberpunk) MaterialSkin.Heading(UiText.T("Last speech"), 1);
+            else UiGui.TextColored(MaterialTheme.Current.Colors.OnSurfaceVariant, "Last speech");
             ImGui.SetCursorScreenPos(new Vector2(contentX - (compact ? scale : 0), Math.Max(lastStart.Y + (compact ? 25 : 29) * scale, ImGui.GetItemRectMax().Y + 2 * scale)));
             ImGui.SetWindowFontScale(originalScale * 19 / 16);
             var speech = plugin.SpeechQueueService;
