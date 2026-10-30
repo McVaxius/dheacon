@@ -13,6 +13,7 @@ namespace Dheacon.Windows;
 public sealed class MainWindow : Window, IDisposable
 {
     private readonly MaterialWindowMotion windowMotion = new();
+    private readonly MaterialWindowLock movementLock = new();
     private readonly AethertekUI.MaterialWindowOpacity windowOpacity = new();
     private static readonly TimeSpan StatusRenderWarningInterval = TimeSpan.FromSeconds(10);
 
@@ -20,6 +21,7 @@ public sealed class MainWindow : Window, IDisposable
     private DateTime lastStatusRenderWarningUtc = DateTime.MinValue;
     private Vector2 contentFramePadding;
     private ImGuiDir menuButtonPosition;
+    private bool hostGeometryPushed;
     private static string MainTitle => UiText.T("Dheacon — main (speech settings)") + " v" + (typeof(Plugin).Assembly.GetName().Version?.ToString() ?? "0.0.0.0");
 
     public MainWindow(Plugin plugin) : base($"{PluginInfo.DisplayName}##Main")
@@ -53,26 +55,39 @@ public sealed class MainWindow : Window, IDisposable
     {
         var style = ImGui.GetStyle(); var scale = MaterialTheme.Metrics.Scale;
         contentFramePadding = style.FramePadding; menuButtonPosition = style.WindowMenuButtonPosition;
-        style.WindowMenuButtonPosition = ImGuiDir.Right;
-        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(12, 4) : new Vector2(15)) * scale);
-        ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, Math.Max(0, ((DheaconPresentation.Compact ? 32 : 37) * scale - ImGui.GetFontSize()) * .5f)));
+        hostGeometryPushed = plugin.Configuration.UiStylingEnabled;
+        if (hostGeometryPushed)
+        {
+            style.WindowMenuButtonPosition = ImGuiDir.Right;
+            ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(12, 4) : new Vector2(15)) * scale);
+            ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, Math.Max(0, ((DheaconPresentation.Compact ? 32 : 37) * scale - ImGui.GetFontSize()) * .5f)));
+        }
         UiGui.ReserveTitleSpace(this, MainTitle, 560);
-        windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
+        windowMotion.Prepare(this, reducedMotion: !plugin.Configuration.UiStylingEnabled, roundedCorners: plugin.Configuration.UiStylingEnabled);
+        movementLock.Apply(this, plugin.Configuration.UiWindowsLocked);
     }
 
     public override void PostDraw()
     {
+        movementLock.Restore(this);
         windowMotion.Restore(this);
         UiGui.PaintTitleWithImageAndStatus(this, MainTitle, status: plugin.TitlebarStatus);
+        plugin.Appearance.PrepareBackgroundOpacity(windowOpacity, WindowName);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
-        ImGui.PopStyleVar(2);
-        ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
+        if (hostGeometryPushed)
+        {
+            ImGui.PopStyleVar(2);
+            ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
+            hostGeometryPushed = false;
+        }
     }
 
     public override void Draw()
     {
+        plugin.Appearance.PrepareBackgroundOpacity(windowOpacity, WindowName, ImGui.IsWindowAppearing());
         MaterialSkin.Backdrop();
+        using var structuralBackgrounds = MaterialSkin.StructuralBackgroundStyle();
         windowMotion.DrawChrome();
         using var bodyStyle = new MaterialStyleScope();
         bodyStyle.Style(ImGuiStyleVar.FramePadding, contentFramePadding);

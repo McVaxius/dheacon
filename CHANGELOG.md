@@ -1,3 +1,9 @@
+2026-10-29 - 3.0.0.13 - Shared glass backgrounds and window controls
+
+- Add actual glass Background rendering, Waves/Lights/Image choices, image browsing and runtime screenshot pause in Colour and Transparency. Preserve palettes, languages, opacity/fade and speech workflows.
+- Add native/styled UI and movement/resize locks in Settings and native titles, with `/dheacon style`, `style on`, `style off`, `lock` and `unlock`.
+- Include the shared renderer dependencies and Glasswork MIT notice. Host GPU and screenshot acceptance remain separate from local compilation.
+
 2026-10-26 - 3.0.0.12 - Shared material appearance
 
 - Add Glassmorphism, Spatial and Cyberpunk across Main, Mini, Settings, appearance popups and native controls while retaining Auto, Picker and LCARS.

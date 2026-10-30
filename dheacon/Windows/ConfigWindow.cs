@@ -12,6 +12,7 @@ public sealed class ConfigWindow : Window, IDisposable
 {
     private readonly AethertekUI.Dalamud.MaterialSupportLog supportLog = new();
     private readonly MaterialWindowMotion windowMotion = new();
+    private readonly MaterialWindowLock movementLock = new();
     private readonly AethertekUI.MaterialWindowOpacity windowOpacity = new();
     private static readonly string[] DtrModes = { "Text only", "Icon + text", "Icon only" };
     private static readonly string[] TtsBackendLabels = { "Modern Windows", "Legacy SAPI", "Piper local" };
@@ -60,19 +61,27 @@ public sealed class ConfigWindow : Window, IDisposable
         IsOpen = true;
     }
 
-    public override void PreDraw() => windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
+    public override void PreDraw()
+    {
+        windowMotion.Prepare(this, reducedMotion: !plugin.Configuration.UiStylingEnabled, roundedCorners: plugin.Configuration.UiStylingEnabled);
+        movementLock.Apply(this, plugin.Configuration.UiWindowsLocked);
+    }
 
     public override void PostDraw()
     {
+        movementLock.Restore(this);
         windowMotion.Restore(this);
         UiGui.PaintTitleWithImageAndStatus(this, UiText.T("Dheacon Settings"), status: plugin.TitlebarStatus);
+        plugin.Appearance.PrepareBackgroundOpacity(windowOpacity, WindowName);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
     }
 
     public override void Draw()
     {
+        plugin.Appearance.PrepareBackgroundOpacity(windowOpacity, WindowName, ImGui.IsWindowAppearing());
         MaterialSkin.Backdrop();
+        using var structuralBackgrounds = MaterialSkin.StructuralBackgroundStyle();
         windowMotion.DrawChrome();
         if (MaterialTheme.Current.IsLcars)
             using (UiText.Font(UiFontRole.Title)) MaterialLcars.Header(UiText.T("Settings"));

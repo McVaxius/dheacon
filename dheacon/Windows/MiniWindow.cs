@@ -11,10 +11,12 @@ namespace Dheacon.Windows;
 public sealed class MiniWindow : Window, IDisposable
 {
     private readonly MaterialWindowMotion windowMotion = new();
+    private readonly MaterialWindowLock movementLock = new();
     private readonly AethertekUI.MaterialWindowOpacity windowOpacity = new();
     private readonly Plugin plugin;
     private Vector2 contentFramePadding;
     private ImGuiDir menuButtonPosition;
+    private bool hostGeometryPushed;
     private static string MiniTitle => DheaconPresentation.Compact ? UiText.T("Dheacon Mini — speech monitor") : "";
 
     public MiniWindow(Plugin plugin) : base($"{PluginInfo.DisplayName} Mini##Mini")
@@ -52,9 +54,13 @@ public sealed class MiniWindow : Window, IDisposable
     {
         var style = ImGui.GetStyle(); var scale = MaterialTheme.Metrics.Scale;
         contentFramePadding = style.FramePadding; menuButtonPosition = style.WindowMenuButtonPosition;
-        style.WindowMenuButtonPosition = ImGuiDir.Right;
-        ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(24, 15) : new Vector2(24, 20)) * scale);
-        ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, (44 * scale - ImGui.GetFontSize()) * .5f));
+        hostGeometryPushed = plugin.Configuration.UiStylingEnabled;
+        if (hostGeometryPushed)
+        {
+            style.WindowMenuButtonPosition = ImGuiDir.Right;
+            ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, (DheaconPresentation.Compact ? new Vector2(24, 15) : new Vector2(24, 20)) * scale);
+            ImGui.PushStyleVar(ImGuiStyleVar.FramePadding, new Vector2(contentFramePadding.X, (44 * scale - ImGui.GetFontSize()) * .5f));
+        }
         var paintedTitleWidth = 0f;
         if (!DheaconPresentation.Compact)
         {
@@ -62,23 +68,32 @@ public sealed class MiniWindow : Window, IDisposable
             paintedTitleWidth = 72 * scale + UiGui.ScaledTextSize("Dheacon Mini", 24.5f / 28).X;
         }
         UiGui.ReserveTitleSpace(this, DheaconPresentation.Compact ? MiniTitle : PluginInfo.DisplayName + " Mini", 320, paintedTitleWidth);
-        windowMotion.Prepare(this, reducedMotion: false, roundedCorners: true);
+        windowMotion.Prepare(this, reducedMotion: !plugin.Configuration.UiStylingEnabled, roundedCorners: plugin.Configuration.UiStylingEnabled);
+        movementLock.Apply(this, plugin.Configuration.UiWindowsLocked);
     }
 
     public override void PostDraw()
     {
+        movementLock.Restore(this);
         windowMotion.Restore(this);
         UiGui.PaintTitleWithImageAndStatus(this, DheaconPresentation.Compact ? MiniTitle : UiText.T(PluginInfo.DisplayName + " Mini"),
             collapsedOnly: !DheaconPresentation.Compact && !MaterialTheme.Current.IsLcars, status: plugin.TitlebarStatus);
+        plugin.Appearance.PrepareBackgroundOpacity(windowOpacity, WindowName);
         plugin.Appearance.DrawAppearanceTitleBarPopups(this);
         plugin.Appearance.ApplyWindowOpacity(windowOpacity, WindowName);
-        ImGui.PopStyleVar(2);
-        ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
+        if (hostGeometryPushed)
+        {
+            ImGui.PopStyleVar(2);
+            ImGui.GetStyle().WindowMenuButtonPosition = menuButtonPosition;
+            hostGeometryPushed = false;
+        }
     }
 
     public override void Draw()
     {
+        plugin.Appearance.PrepareBackgroundOpacity(windowOpacity, WindowName, ImGui.IsWindowAppearing());
         MaterialSkin.Backdrop();
+        using var structuralBackgrounds = MaterialSkin.StructuralBackgroundStyle();
         windowMotion.DrawChrome();
         if (MaterialTheme.Current.IsLcars) { DrawLcarsMini(); return; }
         var compact = DheaconPresentation.Compact; var scale = MaterialTheme.Metrics.Scale;

@@ -142,6 +142,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnCommand(string command, string arguments)
     {
+        if (Appearance.TryApplyCommand(arguments)) return;
         var trimmed = arguments.Trim();
         if (string.IsNullOrWhiteSpace(trimmed))
         {
