@@ -1,6 +1,6 @@
-Unreleased - Bundled UI fonts
+2026-11-22 - 3.0.0.16 - Bundled UI fonts for Wine
 
-- Load the bundled UI fonts from the installed plugin folder for Linux and Wine.
+- Load bundled UI fonts when opening plugin windows on Windows and Wine.
 
 2026-11-12 - 3.0.0.15 - Highlight contrast
 
