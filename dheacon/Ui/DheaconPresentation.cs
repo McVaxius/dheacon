@@ -1,5 +1,6 @@
 using System.Numerics;
 using AethertekUI;
+using AethertekUI.Dalamud;
 using Dalamud.Bindings.ImGui;
 
 namespace Dheacon.Ui;
@@ -24,7 +25,11 @@ internal static class DheaconPresentation
     // 35% preset pane, 436px body and 94px status strip. Native chrome is host-owned.
     internal const uint ReferenceAccent = 0xB98DEB;
     internal static readonly float[] FontSizes = [16, 16, 36, 24, 28];
-    internal static readonly string[] FontFiles = ["segoeui.ttf", "seguisb.ttf", "segoeuib.ttf", "seguisb.ttf", "segoeuib.ttf"];
+    internal static readonly MaterialFontWeight[] FontWeights =
+    [
+        MaterialFontWeight.Regular, MaterialFontWeight.Semibold, MaterialFontWeight.Bold,
+        MaterialFontWeight.Semibold, MaterialFontWeight.Bold,
+    ];
     internal static float AtlasHeight(UiFontRole role) => FontSizes[(int)role] * 4 / 3;
     internal static bool Compact => MaterialTheme.Current.Density == MaterialDensity.Compact;
     internal static float HeaderHeight => Compact ? 95 : 110;

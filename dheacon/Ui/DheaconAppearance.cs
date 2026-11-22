@@ -46,7 +46,8 @@ internal sealed class DheaconAppearance : IDisposable
             fonts?.Dispose();
             text?.Dispose();
             text = new(language, PushFont);
-            fonts = new(Plugin.PluginInterface.UiBuilder.FontAtlas, text.GlyphRanges(), language);
+            fonts = new(Plugin.PluginInterface.UiBuilder.FontAtlas, text.GlyphRanges(), language,
+                Plugin.PluginInterface.AssemblyLocation.DirectoryName!);
             appliedLanguage = language;
             checkedGeneration = -1;
             fontIssueLogged = false;
@@ -223,7 +224,8 @@ internal sealed class DheaconAppearance : IDisposable
         shapedText = new(Plugin.TextureProvider);
         appliedLanguage = UiText.Languages.Any(l => l.Code == plugin.Configuration.UiLanguage) ? plugin.Configuration.UiLanguage : "en";
         text = new(appliedLanguage, PushFont);
-        fonts = new(Plugin.PluginInterface.UiBuilder.FontAtlas, text.GlyphRanges(), appliedLanguage);
+        fonts = new(Plugin.PluginInterface.UiBuilder.FontAtlas, text.GlyphRanges(), appliedLanguage,
+            Plugin.PluginInterface.AssemblyLocation.DirectoryName!);
         appliedAccent = plugin.Configuration.UiAccentRgb & 0xFFFFFF;
         colorDraft = plugin.Configuration.UiColors ?? new MaterialColorSettings();
         appliedSavedColors = appliedColors = colorDraft;

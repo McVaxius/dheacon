@@ -1,3 +1,7 @@
+Unreleased - Bundled UI fonts
+
+- Load the bundled UI fonts from the installed plugin folder for Linux and Wine.
+
 2026-11-12 - 3.0.0.15 - Highlight contrast
 
 - Add a saved Highlight contrast control in Appearance and the Colour menu, defaulting to 50%, with translated captions and help.
