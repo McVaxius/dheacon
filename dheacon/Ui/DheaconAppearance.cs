@@ -2,6 +2,7 @@ using System.Numerics;
 using AethertekUI;
 using AethertekUI.Dalamud;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface.ManagedFontAtlas;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using Dalamud.Interface;
@@ -13,10 +14,10 @@ internal sealed class DheaconAppearance : IDisposable
 {
     private readonly Plugin plugin;
     private UiText text;
-    private DheaconFonts fonts;
+    private DheaconFonts fonts = null!;
     private MaterialTheme theme;
     private readonly Dictionary<Dalamud.Interface.Windowing.Window, AethertekUI.Dalamud.MaterialAppearanceTitleBar> appearanceTitleBars = new();
-    private readonly MaterialTextHost shapedText;
+    private MaterialTextHost shapedText = null!;
     private readonly MaterialWindowFold fontStatusMotion = new();
     private readonly MaterialWindowDecorations fontStatusDecorations = new();
     private readonly MaterialWindowOpacity fontStatusOpacity = new();
@@ -43,11 +44,9 @@ internal sealed class DheaconAppearance : IDisposable
         var language = UiText.Languages.Any(l => l.Code == plugin.Configuration.UiLanguage) ? plugin.Configuration.UiLanguage : "en";
         if (language != appliedLanguage)
         {
-            fonts?.Dispose();
+            ReleaseWindowFonts();
             text?.Dispose();
             text = new(language, PushFont);
-            fonts = new(Plugin.PluginInterface.UiBuilder.FontAtlas, text.GlyphRanges(), language,
-                Plugin.PluginInterface.AssemblyLocation.DirectoryName!);
             appliedLanguage = language;
             checkedGeneration = -1;
             fontIssueLogged = false;
@@ -88,19 +87,16 @@ internal sealed class DheaconAppearance : IDisposable
         Apply();
         if (!windows.Windows.Any(window => window.IsOpen))
         {
-            backgroundGlass?.EndFrame(false);
-            if (fonts.Ready && checkedGeneration == fonts.Generation)
-            {
-                using var pickerText = text.Enter();
-                using var pickerShaping = shapedText.Push();
-                using var pickerTheme = MaterialTheme.Push(theme, ImGuiHelpers.GlobalScale,
-                    plugin.Configuration.UiStylingEnabled ? MaterialStyleMode.ColorsOnly : MaterialStyleMode.Native);
-                using var pickerBody = fonts.Push(UiFontRole.Body);
-                using var pickerBackground = MaterialSkin.PushBackgroundRenderer(null, false, 0);
-                imagePicker.Draw();
-            }
+            ReleaseWindowFonts();
+            DisposeBackgroundGlass();
+            using var pickerTheme = MaterialTheme.Push(theme, ImGuiHelpers.GlobalScale,
+                plugin.Configuration.UiStylingEnabled ? MaterialStyleMode.ColorsOnly : MaterialStyleMode.Native);
+            using var pickerBackground = MaterialSkin.PushBackgroundRenderer(null, false, 0);
+            imagePicker.Draw();
             return;
         }
+
+        EnsureWindowFonts();
         using var resources = text.Enter();
         using var shaping = shapedText.Push();
         if (fonts.Ready && checkedGeneration != fonts.Generation)
@@ -108,13 +104,13 @@ internal sealed class DheaconAppearance : IDisposable
             try
             {
                 var generation = fonts.Generation;
-                foreach (var size in DheaconPresentation.FontSizes)
-                    shapedText.Renderer.CheckGlyphs(text.RequiredText, size * ImGuiHelpers.GlobalScale);
+                foreach (var role in fonts.Roles)
+                    shapedText.Renderer.CheckGlyphs(text.RequiredText, DheaconPresentation.FontSizes[(int)role] * ImGuiHelpers.GlobalScale);
                 fonts.CheckGlyphs(text.RequiredText);
                 var hindiLabel = UiText.Languages.Single(l => l.Code == "hi").Name;
                 var hindiAvailable = true;
-                foreach (var size in DheaconPresentation.FontSizes)
-                    hindiAvailable &= shapedText.Renderer.TryCheckGlyphs([hindiLabel], size * ImGuiHelpers.GlobalScale, out _);
+                foreach (var role in fonts.Roles)
+                    hindiAvailable &= shapedText.Renderer.TryCheckGlyphs([hindiLabel], DheaconPresentation.FontSizes[(int)role] * ImGuiHelpers.GlobalScale, out _);
                 languages.Replace(UiText.Languages.Select(l => new MaterialOption<string>(l.Code, l.Code,
                     l.Code == "hi" && !hindiAvailable ? "Hindi (unavailable)" : l.Name,
                     l.Code == "hi" && !hindiAvailable)).ToArray());
@@ -130,7 +126,7 @@ internal sealed class DheaconAppearance : IDisposable
         using var chrome = plugin.Configuration.UiStylingEnabled ? MaterialWindowChrome.Push() : default;
         if (!fonts.Ready || checkedGeneration != fonts.Generation)
         {
-            backgroundGlass?.EndFrame(false);
+            DisposeBackgroundGlass();
             if (!fontIssueLogged && fonts.LoadException is { } error) { Plugin.Log.Error(error, "[Dheacon] Required UI fonts failed to load."); fontIssueLogged = true; }
             ImGui.SetNextWindowSize(new Vector2(460 * ImGuiHelpers.GlobalScale, 0));
             fontStatusMotion.PreDraw("Dheacon##FontStatus", null, null, reducedMotion: !plugin.Configuration.UiStylingEnabled,
@@ -167,9 +163,13 @@ internal sealed class DheaconAppearance : IDisposable
         var blur = plugin.Configuration.UiStylingEnabled && colorDraft.HasBackgroundBlur(colorDraft.Mode);
         var image = plugin.Configuration.UiStylingEnabled && colorDraft.Mode == MaterialColorMode.Glassmorphism &&
             colorDraft.GlassBackground == MaterialGlassBackground.Image;
-        if (blur || image) backgroundGlass ??= new(Plugin.PluginInterface, Plugin.Log);
-        backgroundGlass?.ConfigureImage(Plugin.TextureProvider, image, plugin.Configuration.UiColors?.GlassImagePath);
-        backgroundGlass?.BeginFrame();
+        if (blur || image)
+        {
+            backgroundGlass ??= new(Plugin.PluginInterface, Plugin.Log);
+            backgroundGlass.BeginFrame(blur, image);
+            backgroundGlass.ConfigureImage(Plugin.TextureProvider, image, plugin.Configuration.UiColors?.GlassImagePath);
+        }
+        else DisposeBackgroundGlass();
         var restoreBackground = blur || image
             ? windows.Windows.Where(window => (window.Flags & ImGuiWindowFlags.NoBackground) == 0).ToArray()
             : Array.Empty<Window>();
@@ -221,11 +221,8 @@ internal sealed class DheaconAppearance : IDisposable
     internal DheaconAppearance(Plugin plugin)
     {
         this.plugin = plugin;
-        shapedText = new(Plugin.TextureProvider);
         appliedLanguage = UiText.Languages.Any(l => l.Code == plugin.Configuration.UiLanguage) ? plugin.Configuration.UiLanguage : "en";
         text = new(appliedLanguage, PushFont);
-        fonts = new(Plugin.PluginInterface.UiBuilder.FontAtlas, text.GlyphRanges(), appliedLanguage,
-            Plugin.PluginInterface.AssemblyLocation.DirectoryName!);
         appliedAccent = plugin.Configuration.UiAccentRgb & 0xFFFFFF;
         colorDraft = plugin.Configuration.UiColors ?? new MaterialColorSettings();
         appliedSavedColors = appliedColors = colorDraft;
@@ -236,12 +233,38 @@ internal sealed class DheaconAppearance : IDisposable
         accentDraft = new(rgb.X, rgb.Y, rgb.Z);
         Plugin.PluginInterface.UiBuilder.ResizeBuffers += ReleaseBackgroundResources;
     }
+    private void EnsureWindowFonts()
+    {
+        if (fonts is not null) return;
+
+        shapedText ??= new(Plugin.TextureProvider);
+        var ranges = text.GlyphRanges();
+        var atlas = Plugin.PluginInterface.UiBuilder.CreateFontAtlas(FontAtlasAutoRebuildMode.OnNewFrame, true, "Dheacon UI");
+        fonts = new(atlas, ranges, appliedLanguage, Plugin.PluginInterface.AssemblyLocation.DirectoryName!);
+    }
+
+    private void ReleaseWindowFonts()
+    {
+        fonts?.Dispose();
+        fonts = null!;
+        shapedText?.Dispose();
+        shapedText = null!;
+        checkedGeneration = -1;
+        fontIssueLogged = false;
+    }
+
     private IDisposable PushFont(UiFontRole role) => fonts.Push(role);
     internal string Label(string key) => text.Label(key);
     internal string Format(string key, params object?[] arguments) => text.Format(key, arguments);
     internal bool NativeEnglish => text.Language is "en" or "hi";
 
     private void ReleaseBackgroundResources() => backgroundGlass?.ReleaseResources();
+
+    private void DisposeBackgroundGlass()
+    {
+        backgroundGlass?.Dispose();
+        backgroundGlass = null;
+    }
 
     private bool LcarsActive => plugin.Configuration.UiStylingEnabled && plugin.Configuration.UiColors?.Mode == MaterialColorMode.Lcars;
 
@@ -313,8 +336,10 @@ internal sealed class DheaconAppearance : IDisposable
     {
         Plugin.PluginInterface.UiBuilder.ResizeBuffers -= ReleaseBackgroundResources;
         imagePicker.Reset();
-        backgroundGlass?.Dispose();
-        uiSoundPlayer?.Dispose(); fonts?.Dispose(); text?.Dispose(); shapedText.Dispose();
+        DisposeBackgroundGlass();
+        uiSoundPlayer?.Dispose();
+        ReleaseWindowFonts();
+        text.Dispose();
     }
     internal void DrawLanguage(string id = "appearance")
     {

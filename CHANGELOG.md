@@ -1,3 +1,7 @@
+2026-11-28 - 3.0.0.17 - On-demand interface resources
+
+- Load window fonts and supported backdrop resources when a window needs them and release them when the last window closes.
+
 2026-11-22 - 3.0.0.16 - Bundled UI fonts for Wine
 
 - Load bundled UI fonts when opening plugin windows on Windows and Wine.
